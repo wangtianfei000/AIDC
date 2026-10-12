@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "2.0",
+  "projectId": "aidc.single-joint.hd1910",
+  "name": "Microduck 12轴机器鸭模型",
+  "revision": "T2-r4-mujoco-parity",
+  "description": "Microduck Native12 三维多体模型，包含12轴扭矩兼容接口、CAD质量惯量、浮动基座、关节被动特性、四点足底接触、MuJoCo顺序IMU输出、HD-1910执行器及共享电池母线。",
+  "modelica": {
+    "rootPackageFile": "modelica/AIDCT2/package.mo",
+    "rootPackage": "AIDCT2",
+    "defaultExperiment": "AIDCT2.MachineDuck",
+    "languageVersion": "3.6",
+    "libraries": [{ "name": "Modelica", "version": "4.1.0" }]
+  }
+}

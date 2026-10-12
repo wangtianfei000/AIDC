@@ -1,0 +1,4 @@
+interface:
+  display_name: "机器人需求文件编写"
+  short_description: "指导 AI 编写简洁、业务化的机器人 SysML 需求"
+  default_prompt: "使用 $robot-requirements-authoring，根据机器人用途和关键指标创建简洁的 requirements.sysml。"

@@ -1,0 +1,54 @@
+# Local AI/runtime state
+.codex-runtime/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.lnk
+*.FCBak
+*.exe
+*.dll
+*.pdb
+*.7z
+**/release/*.zip
+
+# JavaScript and Python dependencies
+node_modules/
+.venv/
+venv/
+
+# Build and generated output
+**/build/
+**/dist/
+**/results/
+**/generated/
+**/test-artifacts/
+coverage/
+.vite/
+*.tsbuildinfo
+**/vite.config.js
+**/vite.config.d.ts
+tmp*.mos
+sysml-parser-runtime/test-p*.txt
+modelica-browser/libraries/AIDCRobotics/modelica/AIDCRobotics/Resources/Library/
+
+# Large managed runtimes and upstream source mirrors
+FreeCAD/
+FreeCAD-runtime/
+FreeCAD-downloads/
+freecad-mcp/
+sysml-standard-library/2026-08/
+
+# User and IDE state
+.idea/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+Desktop.ini
+
+# Generated release material
+distribution/out/
+distribution/cache/
+

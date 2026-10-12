@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "0.1",
+  "fixture": "JingangNative10Architecture::coreParameterAnalysis",
+  "model": "../architecture.sysml",
+  "massInputs": {
+    "actuatorGroupPlanningMass": {"value": 225.0, "unit": "g", "status": "CAD-2规划估计"},
+    "structureAndFootPlanningMass": {"value": 349.8, "unit": "g", "status": "CAD体积与名义密度估计"},
+    "electronicsAndBatteryPlanningMass": {"value": 172.0, "unit": "g", "status": "未冻结SKU的规划估计"},
+    "bearingAndFastenerPlanningMass": {"value": 45.0, "unit": "g", "status": "分配额度"},
+    "harnessAndConnectorPlanningMass": {"value": 25.0, "unit": "g", "status": "分配额度"}
+  },
+  "assumptionInputs": {
+    "usableEnergyFraction": {"value": 0.8, "unit": null, "status": "方案假设，待放电测试"},
+    "servoBusAverageCurrent": {"value": 0.25, "unit": "A", "status": "方案假设，待典型任务实测"},
+    "servoBusPeakCurrent": {"value": 2.6, "unit": "A", "status": "方案假设，待峰值实测"},
+    "controlProcessingTime": {"value": 3.0, "unit": "ms", "status": "方案假设，待控制链路测量"},
+    "assumedStopResponseTime": {"value": 120.0, "unit": "ms", "status": "方案假设，待单舵机台架实测"}
+  },
+  "rows": [
+    {"id": "totalMassResult", "value": 816.8, "unit": "g", "target": 800.0, "margin": -16.8, "status": "fail", "requirement": "REQ-PHY-001"},
+    {"id": "enduranceResult", "value": 1.92, "unit": "h", "target": 2.0, "margin": -0.08, "status": "fail", "requirement": "REQ-PER-001"},
+    {"id": "peakElectricalPowerResult", "value": 19.84, "unit": "W", "target": 19.2, "margin": -0.64, "status": "fail", "requirement": null},
+    {"id": "stopResponseTimeResult", "value": 128.0, "unit": "ms", "target": 500.0, "margin": 372.0, "status": "pass", "requirement": "REQ-SAF-001"}
+  ],
+  "view": {
+    "name": "coreParameterAnalysisTable",
+    "renderingKind": "element-table",
+    "exposedRows": ["totalMassResult", "enduranceResult", "peakElectricalPowerResult", "stopResponseTimeResult"],
+    "columns": ["parameterColumn", "roleColumn", "currentValueColumn", "unitColumn", "targetColumn", "marginColumn", "statusColumn", "sourceColumn"]
+  }
+}

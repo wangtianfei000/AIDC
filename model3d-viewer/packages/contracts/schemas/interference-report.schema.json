@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/model3d/interference-report-0.1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "modelRevision", "results"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.model3d.interference/0.1" },
+    "modelId": { "type": "string", "minLength": 1 },
+    "modelRevision": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["componentA", "componentB", "status", "precision"],
+        "properties": {
+          "pairId": { "type": "string", "minLength": 1 },
+          "componentA": { "type": "string", "minLength": 1 },
+          "componentB": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["WARNING", "CONFIRMED", "CLEARED", "ALLOWED_CONTACT", "UNVERIFIED"] },
+          "precision": { "enum": ["MESH_PREVIEW", "MESH_EXACT", "BREP_EXACT"] },
+          "minimumDistance": { "type": "number" },
+          "commonVolume": { "type": "number", "minimum": 0 },
+          "tolerance": { "type": "number", "minimum": 0 },
+          "checkedAt": { "type": "string", "format": "date-time" },
+          "pose": { "type": "object", "additionalProperties": { "type": "number" } },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}

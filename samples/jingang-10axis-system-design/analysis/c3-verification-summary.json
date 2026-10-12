@@ -1,0 +1,63 @@
+{
+  "schemaValidation": "pass",
+  "parseErrors": 0,
+  "parseWarnings": 1,
+  "calculationDefinitions": 4,
+  "calculationUsages": 4,
+  "analysisCases": 1,
+  "calculationDiagnostics": 0,
+  "manualResultFieldsRemoved": [
+    "currentPlannedMass",
+    "currentEstimatedEndurance",
+    "batteryEnergy",
+    "maximumAveragePowerForEndurance",
+    "peakElectricalPowerLimit"
+  ],
+  "tableView": {
+    "rows": 4,
+    "columns": 8,
+    "status": "pass"
+  },
+  "checks": [
+    {
+      "id": "totalMassResult",
+      "value": 816.8000000000001,
+      "unit": "g",
+      "target": 800,
+      "margin": -16.800000000000036,
+      "status": "fail",
+      "inputCount": 7,
+      "passed": true
+    },
+    {
+      "id": "enduranceResult",
+      "value": 1.9199999999999997,
+      "unit": "h",
+      "target": 2,
+      "margin": -0.08000000000000025,
+      "status": "fail",
+      "inputCount": 10,
+      "passed": true
+    },
+    {
+      "id": "peakElectricalPowerResult",
+      "value": 19.840000000000003,
+      "unit": "W",
+      "target": 19.200000000000003,
+      "margin": -0.6400000000000006,
+      "status": "fail",
+      "inputCount": 5,
+      "passed": true
+    },
+    {
+      "id": "stopResponseTimeResult",
+      "value": 128,
+      "unit": "ms",
+      "target": 500,
+      "margin": 372,
+      "status": "pass",
+      "inputCount": 5,
+      "passed": true
+    }
+  ]
+}

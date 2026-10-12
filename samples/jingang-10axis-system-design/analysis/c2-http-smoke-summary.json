@@ -1,0 +1,32 @@
+{
+  "health": "pass",
+  "capabilities": "pass",
+  "schemaValidation": "pass",
+  "deterministicParses": 100,
+  "parallelParses": 2,
+  "structuredInvalidDiagnostic": "pass",
+  "inactiveCancel": "pass",
+  "activeCancel": "pass",
+  "nonLocalOriginRejected": "pass",
+  "oversizedRequestRejected": "pass",
+  "elementCount": 3,
+  "relationshipCount": 0,
+  "fixtures": [
+    {
+      "file": "calculation-contract.sysml",
+      "elements": 69,
+      "relationships": 33,
+      "relationshipsWithBothEnds": 33,
+      "errors": 0,
+      "warnings": 1
+    }
+  ],
+  "analysis": {
+    "schemaValidation": "pass",
+    "deterministicAnalyses": 2,
+    "results": 9,
+    "constraints": 4,
+    "calculationDiagnostics": 0,
+    "inputChangePropagation": "pass"
+  }
+}

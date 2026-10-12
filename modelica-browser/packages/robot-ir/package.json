@@ -1,0 +1,8 @@
+{
+  "name": "@aidc/robot-ir",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "test": "python tests/validate_robot_ir.py"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "id": "aidc.robotics-modelica",
+  "displayName": "AIDCRobotics Modelica Library",
+  "description": "Reusable robot mechanics, actuators, electrical, sensors, contacts and conformance models.",
+  "version": "0.3.0",
+  "kind": "library",
+  "platform": "any",
+  "architecture": "any",
+  "protocolVersion": "0.3",
+  "capabilities": ["modelica.robotics-library", "modelica.contact", "modelica.conformance"],
+  "entryPoints": [
+    {"id": "package", "relativePath": "components/modelica/libraries/AIDCRobotics/package.mo", "mode": "library", "arguments": []}
+  ],
+  "dependencies": [
+    {"id": "openmodelica", "versionRange": "1.27.1", "required": false, "capability": "modelica.compile"}
+  ],
+  "licenses": [
+    {"name": "AIDC project license decision pending", "spdx": null, "status": "review-required", "noticePath": "licenses/THIRD_PARTY_BASELINE.md"}
+  ],
+  "distributionStatus": "blocked",
+  "healthCheck": {"type": "command", "target": "bin/aidc.exe", "arguments": ["modelica", "validate-library", "AIDCRobotics", "--json"], "timeoutSeconds": 120}
+}
+

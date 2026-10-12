@@ -1,0 +1,4 @@
+interface:
+  display_name: "机器人初步 CAD 装配设计"
+  short_description: "依据架构与硬件资料建立可验证的机器人初步三维装配模型"
+  default_prompt: "使用 $robot-preliminary-cad-assembly，根据架构模型和硬件资料建立或检查初步 CAD 装配。"

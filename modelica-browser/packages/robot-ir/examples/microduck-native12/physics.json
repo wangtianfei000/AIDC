@@ -1,0 +1,1050 @@
+{
+  "schemaVersion": "aidc.robot.physics/0.1",
+  "modelId": "aidc.microduck.native12",
+  "modelRevision": "p4-r1",
+  "coordinateSystem": {
+    "lengthUnit": "m",
+    "angleUnit": "rad",
+    "forward": "+X",
+    "left": "+Y",
+    "up": "+Z",
+    "geometryQuaternionOrder": "xyzw"
+  },
+  "rootBodyId": "trunk",
+  "rootType": "floating",
+  "rootInitialTranslation_m": [
+    0,
+    0,
+    0.116719591352
+  ],
+  "rootInitialRotation_xyzw": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "bodies": [
+    {
+      "bodyId": "trunk",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.190757252019,
+      "centerOfMass_m": [
+        -0.0219402681457,
+        -3.10782101326e-05,
+        0.0050751936443
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.000121877086842,
+        "iyy": 0.000140424626415,
+        "izz": 0.000111752300357,
+        "ixy": 8.45761930481e-08,
+        "ixz": -2.31949813718e-05,
+        "iyz": 1.32427125149e-07
+      },
+      "collisionAssetIds": []
+    },
+    {
+      "bodyId": "left_hip_yaw_link",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0260936428012,
+      "centerOfMass_m": [
+        0,
+        0.000224984719393,
+        0.0170589013038
+      ],
+      "inertia_kg_m2": {
+        "ixx": 4.66657311939e-06,
+        "iyy": 3.92613104921e-06,
+        "izz": 2.56080242838e-06,
+        "ixy": -2.66720349501e-13,
+        "ixz": 5.69997940388e-13,
+        "iyz": -8.93468852439e-08
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "trunk"
+    },
+    {
+      "bodyId": "left_hip_roll_link",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.00646946094685,
+      "centerOfMass_m": [
+        0.0135711386748,
+        -1.3927024468e-07,
+        -0.00674380986871
+      ],
+      "inertia_kg_m2": {
+        "ixx": 8.2523777e-07,
+        "iyy": 1.15131852e-06,
+        "izz": 6.6064291e-07,
+        "ixy": 1.9456e-12,
+        "ixz": 3.743445e-07,
+        "iyz": 9.05e-13
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "left_hip_yaw_link"
+    },
+    {
+      "bodyId": "left_upper_leg",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0489429099486,
+      "centerOfMass_m": [
+        0.00704947642725,
+        0.0222258924485,
+        0.0130033115958
+      ],
+      "inertia_kg_m2": {
+        "ixx": 1.65258e-05,
+        "iyy": 9.55866e-06,
+        "izz": 1.95918e-05,
+        "ixy": -4.7926615e-06,
+        "ixz": 9.8973079e-08,
+        "iyz": 2.10935e-07
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "left_hip_roll_link"
+    },
+    {
+      "bodyId": "left_lower_leg",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0253255203124,
+      "centerOfMass_m": [
+        0,
+        0.0317301531184,
+        -0.00918622779438
+      ],
+      "inertia_kg_m2": {
+        "ixx": 6.12776828e-06,
+        "iyy": 2.54829155e-06,
+        "izz": 5.12572485e-06,
+        "ixy": 0,
+        "ixz": 0,
+        "iyz": 9.05420652e-07
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "left_upper_leg"
+    },
+    {
+      "bodyId": "left_foot",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0310845592418,
+      "centerOfMass_m": [
+        -0.0070730653269,
+        -0.01448479969,
+        -0.0151804367344
+      ],
+      "inertia_kg_m2": {
+        "ixx": 5.88043e-06,
+        "iyy": 1.201245e-05,
+        "izz": 8.23442e-06,
+        "ixy": -3.67618e-08,
+        "ixz": -3.99796e-09,
+        "iyz": -1.795e-07
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "left_lower_leg"
+    },
+    {
+      "bodyId": "neck",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0267910105167,
+      "centerOfMass_m": [
+        0.000173762584464,
+        -0.0138415637574,
+        0.0144999995348
+      ],
+      "inertia_kg_m2": {
+        "ixx": 8.79861589526e-06,
+        "iyy": 2.5794181576e-06,
+        "izz": 7.96294176189e-06,
+        "ixy": 1.505095979e-07,
+        "ixz": 1.80134244396e-12,
+        "iyz": -7.10221126853e-13
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "trunk"
+    },
+    {
+      "bodyId": "head",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.167431338437,
+      "centerOfMass_m": [
+        0.005521871273,
+        5.49439912213e-05,
+        0.0272006910139
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.000117725381103,
+        "iyy": 0.000133646982551,
+        "izz": 0.000169526450326,
+        "ixy": 2.76055054952e-07,
+        "ixz": 3.69623420849e-06,
+        "iyz": -2.95192421629e-08
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "neck"
+    },
+    {
+      "bodyId": "right_hip_yaw_link",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0260936428012,
+      "centerOfMass_m": [
+        0,
+        0.000224984719393,
+        0.0170589013038
+      ],
+      "inertia_kg_m2": {
+        "ixx": 4.66657311939e-06,
+        "iyy": 3.92613104921e-06,
+        "izz": 2.56080242838e-06,
+        "ixy": -2.66720349501e-13,
+        "ixz": 5.69997940388e-13,
+        "iyz": -8.93468852439e-08
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "trunk"
+    },
+    {
+      "bodyId": "right_hip_roll_link",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.00646946098075,
+      "centerOfMass_m": [
+        0.0135711386864,
+        -1.39278945327e-07,
+        -0.00674381000579
+      ],
+      "inertia_kg_m2": {
+        "ixx": 8.2523777e-07,
+        "iyy": 1.15131852e-06,
+        "izz": 6.6064291e-07,
+        "ixy": 1.9456e-12,
+        "ixz": 3.743445e-07,
+        "iyz": 9.05e-13
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "right_hip_yaw_link"
+    },
+    {
+      "bodyId": "right_upper_leg",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0489433702001,
+      "centerOfMass_m": [
+        -0.00704935102022,
+        0.0222261026586,
+        0.0130033029184
+      ],
+      "inertia_kg_m2": {
+        "ixx": 1.65258e-05,
+        "iyy": 9.55866e-06,
+        "izz": 1.95918e-05,
+        "ixy": 4.7925265e-06,
+        "ixz": -9.8964109e-08,
+        "iyz": 2.10935e-07
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "right_hip_roll_link"
+    },
+    {
+      "bodyId": "right_lower_leg",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0253255203124,
+      "centerOfMass_m": [
+        -0.0317301531274,
+        0,
+        -0.00918622779462
+      ],
+      "inertia_kg_m2": {
+        "ixx": 2.54829155e-06,
+        "iyy": 6.12776828e-06,
+        "izz": 5.12572485e-06,
+        "ixy": 0,
+        "ixz": -9.05420649e-07,
+        "iyz": 0
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "right_upper_leg"
+    },
+    {
+      "bodyId": "right_foot",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.0310844913308,
+      "centerOfMass_m": [
+        0.00707304571935,
+        -0.0144848031164,
+        -0.0151806684071
+      ],
+      "inertia_kg_m2": {
+        "ixx": 5.88043e-06,
+        "iyy": 1.201245e-05,
+        "izz": 8.23442e-06,
+        "ixy": 3.67438e-08,
+        "ixz": 4.04245e-09,
+        "iyz": -1.795e-07
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "right_lower_leg"
+    }
+  ],
+  "joints": [
+    {
+      "jointId": "left_hip_yaw",
+      "type": "revolute",
+      "parentBodyId": "trunk",
+      "childBodyId": "left_hip_yaw_link",
+      "translation_m": [
+        0.006,
+        0.0175,
+        -0.005
+      ],
+      "rotation_xyzw": [
+        0.7071067811865475,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -0.4363323129985824,
+        "upper": 0.5235987755982988,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "left_hip_roll",
+      "type": "revolute",
+      "parentBodyId": "left_hip_yaw_link",
+      "childBodyId": "left_hip_roll_link",
+      "translation_m": [
+        0,
+        0.0165,
+        0.0125
+      ],
+      "rotation_xyzw": [
+        -0.7071067811865475,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": -0.08726646259971647,
+      "limit": {
+        "lower": -0.3839724354387525,
+        "upper": 0.3839724354387525,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "left_hip_pitch",
+      "type": "revolute",
+      "parentBodyId": "left_hip_roll_link",
+      "childBodyId": "left_upper_leg",
+      "translation_m": [
+        0.025,
+        0,
+        -0.0185
+      ],
+      "rotation_xyzw": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": -0.457924,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.5707963267948966,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "left_knee",
+      "type": "revolute",
+      "parentBodyId": "left_upper_leg",
+      "childBodyId": "left_lower_leg",
+      "translation_m": [
+        0.022,
+        0.0357771,
+        -0.004
+      ],
+      "rotation_xyzw": [
+        0.7071067811865475,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": -0.00494,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.5707963267948966,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "left_ankle",
+      "type": "revolute",
+      "parentBodyId": "left_lower_leg",
+      "childBodyId": "left_foot",
+      "translation_m": [
+        0,
+        0.042,
+        -0.026
+      ],
+      "rotation_xyzw": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0.452984,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.5707963267948966,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "neck_pitch",
+      "type": "revolute",
+      "parentBodyId": "trunk",
+      "childBodyId": "neck",
+      "translation_m": [
+        0.026,
+        0.0145,
+        0.0324215
+      ],
+      "rotation_xyzw": [
+        0.0,
+        -0.7071067811865475,
+        0.7071067811865476,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0.3490658503988659,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.0471975511965976,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "head_yaw",
+      "type": "revolute",
+      "parentBodyId": "neck",
+      "childBodyId": "head",
+      "translation_m": [
+        0.000446986125312,
+        -0.0487719157139,
+        0.0145
+      ],
+      "rotation_xyzw": [
+        -0.06162841671613392,
+        -0.7044160264027662,
+        0.7044160264027661,
+        0.06162841671613392
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -2.967059728390373,
+        "upper": 2.967059728390348,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "right_hip_yaw",
+      "type": "revolute",
+      "parentBodyId": "trunk",
+      "childBodyId": "right_hip_yaw_link",
+      "translation_m": [
+        0.006,
+        -0.0175,
+        -0.005
+      ],
+      "rotation_xyzw": [
+        0.7071067811865475,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -0.5235987755982988,
+        "upper": 0.4363323129985824,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "right_hip_roll",
+      "type": "revolute",
+      "parentBodyId": "right_hip_yaw_link",
+      "childBodyId": "right_hip_roll_link",
+      "translation_m": [
+        0,
+        0.0165,
+        0.0125
+      ],
+      "rotation_xyzw": [
+        0.0,
+        0.7071067811865475,
+        0.7071067811865476,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0.08726646259971647,
+      "limit": {
+        "lower": -0.3839724354387525,
+        "upper": 0.3839724354387525,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "right_hip_pitch",
+      "type": "revolute",
+      "parentBodyId": "right_hip_roll_link",
+      "childBodyId": "right_upper_leg",
+      "translation_m": [
+        0.025,
+        0,
+        -0.0185
+      ],
+      "rotation_xyzw": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0.457924,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.5707963267948966,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "right_knee",
+      "type": "revolute",
+      "parentBodyId": "right_upper_leg",
+      "childBodyId": "right_lower_leg",
+      "translation_m": [
+        -0.022,
+        0.0357771,
+        -0.004
+      ],
+      "rotation_xyzw": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0.00494,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.5707963267948966,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    },
+    {
+      "jointId": "right_ankle",
+      "type": "revolute",
+      "parentBodyId": "right_lower_leg",
+      "childBodyId": "right_foot",
+      "translation_m": [
+        -0.042,
+        0,
+        -0.026
+      ],
+      "rotation_xyzw": [
+        0.7071067811865475,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": -0.452984,
+      "limit": {
+        "lower": -1.5707963267948966,
+        "upper": 1.5707963267948966,
+        "velocity": 9.42477796076938,
+        "effort": 1.176798
+      },
+      "damping_Nm_s_rad": 0.001,
+      "friction_Nm": 0,
+      "armature_kg_m2": 0.0005
+    }
+  ],
+  "namedPoses": [
+    {
+      "name": "stand",
+      "jointPositions": {
+        "left_hip_yaw": 0,
+        "left_hip_roll": -0.08726646259971647,
+        "left_hip_pitch": -0.457924,
+        "left_knee": -0.00494,
+        "left_ankle": 0.452984,
+        "neck_pitch": 0.3490658503988659,
+        "head_yaw": 0,
+        "right_hip_yaw": 0,
+        "right_hip_roll": 0.08726646259971647,
+        "right_hip_pitch": 0.457924,
+        "right_knee": 0.00494,
+        "right_ankle": -0.452984
+      }
+    }
+  ],
+  "contactGeometries": [
+    {
+      "contactId": "trunk-box",
+      "bodyId": "trunk",
+      "shape": "box",
+      "translation_m": [
+        -0.006,
+        0,
+        -0.005
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "halfExtents_m": [
+        0.041,
+        0.032,
+        0.039
+      ]
+    },
+    {
+      "contactId": "head-sphere",
+      "bodyId": "head",
+      "shape": "sphere",
+      "translation_m": [
+        0.006,
+        0,
+        0.027
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "radius_m": 0.034
+    },
+    {
+      "contactId": "left-shin-capsule",
+      "bodyId": "left_lower_leg",
+      "shape": "capsule",
+      "translation_m": [
+        0,
+        0.02,
+        -0.01
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "radius_m": 0.012,
+      "halfLength_m": 0.03,
+      "axis": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "contactId": "right-shin-capsule",
+      "bodyId": "right_lower_leg",
+      "shape": "capsule",
+      "translation_m": [
+        -0.02,
+        0,
+        -0.01
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "radius_m": 0.012,
+      "halfLength_m": 0.03,
+      "axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "contactId": "left-foot-patch",
+      "bodyId": "left_foot",
+      "shape": "footPatch",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "points_m": [
+        [
+          -0.025,
+          -0.018,
+          -0.018
+        ],
+        [
+          -0.025,
+          0.018,
+          -0.018
+        ],
+        [
+          0.025,
+          -0.018,
+          -0.018
+        ],
+        [
+          0.025,
+          0.018,
+          -0.018
+        ]
+      ]
+    },
+    {
+      "contactId": "right-foot-patch",
+      "bodyId": "right_foot",
+      "shape": "footPatch",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "points_m": [
+        [
+          -0.025,
+          -0.018,
+          -0.018
+        ],
+        [
+          -0.025,
+          0.018,
+          -0.018
+        ],
+        [
+          0.025,
+          -0.018,
+          -0.018
+        ],
+        [
+          0.025,
+          0.018,
+          -0.018
+        ]
+      ]
+    }
+  ],
+  "contactDefaults": {
+    "friction": 0.8,
+    "contactMargin_m": 0.0002,
+    "excludedBodyPairs": [
+      [
+        "trunk",
+        "left_hip_yaw_link"
+      ],
+      [
+        "left_hip_yaw_link",
+        "left_hip_roll_link"
+      ],
+      [
+        "left_hip_roll_link",
+        "left_upper_leg"
+      ],
+      [
+        "left_upper_leg",
+        "left_lower_leg"
+      ],
+      [
+        "left_lower_leg",
+        "left_foot"
+      ],
+      [
+        "trunk",
+        "neck"
+      ],
+      [
+        "neck",
+        "head"
+      ],
+      [
+        "trunk",
+        "right_hip_yaw_link"
+      ],
+      [
+        "right_hip_yaw_link",
+        "right_hip_roll_link"
+      ],
+      [
+        "right_hip_roll_link",
+        "right_upper_leg"
+      ],
+      [
+        "right_upper_leg",
+        "right_lower_leg"
+      ],
+      [
+        "right_lower_leg",
+        "right_foot"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported"
+  },
+  "diagnostics": [
+    {
+      "code": "SYNTAX_ERROR",
+      "message": "no viable alternative at input 'renderingcoreParameterTableRendering' (near 'coreParameterTableRendering')",
+      "relatedElementIds": [],
+      "severity": "error",
+      "source": {
+        "end": {
+          "column": 16,
+          "line": 6,
+          "offset": 209
+        },
+        "start": {
+          "column": 15,
+          "line": 6,
+          "offset": 208
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "code": "SYNTAX_ERROR",
+      "message": "extraneous input 'view' expecting {<EOF>, 'package'} (near 'view')",
+      "relatedElementIds": [],
+      "severity": "error",
+      "source": {
+        "end": {
+          "column": 10,
+          "line": 9,
+          "offset": 324
+        },
+        "start": {
+          "column": 9,
+          "line": 9,
+          "offset": 323
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: Views (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: StandardViewDefinitions (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: JingangNative10ParameterAnalysisContract (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-e044b7331128a88f91110e70"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-b306c7b0066f352f92e5f5e1"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-9b6b1b40f01bd06411889fea"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 3 elements without a span; 0 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "dd73609b57b7a2dfb3811067b0f7d72a296c5af719e4ef57ba747df27f87267a",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+      "capabilityVersion": "0.5.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-29e334acc819f387df74a3ab",
+      "kind": "Package",
+      "name": "JingangNative10ParameterTableContract",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract",
+      "source": {
+        "end": {
+          "column": 46,
+          "line": 1,
+          "offset": 45
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-e044b7331128a88f91110e70",
+      "kind": "NamespaceImport",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "importedNamespaceName": "Views",
+        "isAll": false,
+        "isRecursive": false,
+        "isWildcard": true,
+        "visibility": "VisibilityPrivate"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-29e334acc819f387df74a3ab"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-b306c7b0066f352f92e5f5e1",
+      "kind": "NamespaceImport",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "importedNamespaceName": "StandardViewDefinitions",
+        "isAll": false,
+        "isRecursive": false,
+        "isWildcard": true,
+        "visibility": "VisibilityPrivate"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-29e334acc819f387df74a3ab"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-9b6b1b40f01bd06411889fea",
+      "kind": "NamespaceImport",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "importedNamespaceName": "JingangNative10ParameterAnalysisContract",
+        "isAll": false,
+        "isRecursive": false,
+        "isWildcard": true,
+        "visibility": "VisibilityPrivate"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-29e334acc819f387df74a3ab"
+      ],
+      "targetIds": []
+    }
+  ],
+  "schemaVersion": "0.1"
+}

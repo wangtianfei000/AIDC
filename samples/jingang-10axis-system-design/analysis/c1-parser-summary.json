@@ -1,0 +1,41 @@
+{
+  "runtimeVersion": "0.6.0",
+  "parserBaseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c1-062af55b67a5b32d",
+  "generatedAt": "2026-09-18T18:19:20.8278230+08:00",
+  "cases": [
+    {
+      "name": "calculation",
+      "file": "D:\\Document\\4.AIStudy\\13.AIProject\\7.RoB\\AIDC\\samples\\jingang-10axis-system-design\\analysis\\calculation-contract.sysml",
+      "result": "D:\\Document\\4.AIStudy\\13.AIProject\\7.RoB\\AIDC\\samples\\jingang-10axis-system-design\\analysis\\c1-calculation-parser-result.json",
+      "elements": 69,
+      "relationships": 33,
+      "errors": 0,
+      "warnings": 1,
+      "calculationDefinitions": 4,
+      "analyses": 1,
+      "calculationUsages": 4,
+      "constraints": 4,
+      "viewDefinitions": 0,
+      "views": 0,
+      "renderings": 0,
+      "columns": 0.0
+    },
+    {
+      "name": "view",
+      "file": "D:\\Document\\4.AIStudy\\13.AIProject\\7.RoB\\AIDC\\samples\\jingang-10axis-system-design\\views\\parameter-analysis-table.sysml",
+      "result": "D:\\Document\\4.AIStudy\\13.AIProject\\7.RoB\\AIDC\\samples\\jingang-10axis-system-design\\analysis\\c1-view-parser-result.json",
+      "elements": 20,
+      "relationships": 3,
+      "errors": 0,
+      "warnings": 3,
+      "calculationDefinitions": 0,
+      "analyses": 0,
+      "calculationUsages": 0,
+      "constraints": 0,
+      "viewDefinitions": 1,
+      "views": 1,
+      "renderings": 1,
+      "columns": 8.0
+    }
+  ]
+}

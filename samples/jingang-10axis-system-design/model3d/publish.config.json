@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "aidc.model3d.publish-config/0.1",
+  "modelId": "SYS-JG10",
+  "revision": "P4-2026-09-19",
+  "name": "Jingang Native10",
+  "manufacturingStatus": "NOT_RELEASED_DETAILED_REVIEW_REQUIRED",
+  "appearance": {
+    "sourceCad": "../../../../Jingang/apps/models/CAD/Microduck_Final/Microduck_10Axis_Final.FCStd",
+    "palette": {
+      "structure": { "color": [0.68, 0.72, 0.76, 1.0], "metallic": 0.30, "roughness": 0.36 },
+      "actuator": { "color": [0.10, 0.40, 0.68, 1.0], "metallic": 0.28, "roughness": 0.30 },
+      "power": { "color": [0.92, 0.48, 0.10, 1.0], "metallic": 0.12, "roughness": 0.40 },
+      "compute": { "color": [0.12, 0.55, 0.34, 1.0], "metallic": 0.08, "roughness": 0.40 },
+      "control": { "color": [0.48, 0.30, 0.70, 1.0], "metallic": 0.10, "roughness": 0.38 },
+      "sensor": { "color": [0.84, 0.22, 0.18, 1.0], "metallic": 0.08, "roughness": 0.38 }
+    },
+    "componentClasses": {
+      "SYS-JG10": "structure",
+      "ASM-BODY": "structure",
+      "ASM-LEG-L": "structure",
+      "ASM-LEG-R": "structure",
+      "ASM-HEAD-NECK": "structure",
+      "ACT-L-HIP-ROLL": "actuator",
+      "ACT-L-HIP-PITCH": "actuator",
+      "ACT-L-KNEE-PITCH": "actuator",
+      "ACT-L-ANKLE-PITCH": "actuator",
+      "ACT-R-HIP-ROLL": "actuator",
+      "ACT-R-HIP-PITCH": "actuator",
+      "ACT-R-KNEE-PITCH": "actuator",
+      "ACT-R-ANKLE-PITCH": "actuator",
+      "ACT-NECK-PITCH": "actuator",
+      "ACT-HEAD-YAW": "actuator",
+      "SYS-POWER": "power",
+      "SYS-COMPUTE": "compute",
+      "SYS-MOTION-CONTROL": "control",
+      "SYS-SENSING": "sensor"
+    }
+  },
+  "sourceCad": "../layout/jingang-10axis-layout.FCStd",
+  "sourceSysml": "../architecture.sysml",
+  "outputDirectory": "generated",
+  "rootBody": "Microduck",
+  "componentMap": {
+    "SYS-JG10": "Microduck",
+    "ASM-BODY": "Body_trunk_base",
+    "ASM-LEG-L": "Body_yaw2roll",
+    "ACT-L-HIP-ROLL": "Mesh_xl332",
+    "ACT-L-HIP-PITCH": "Mesh_xl333",
+    "ACT-L-KNEE-PITCH": "Mesh_xl334",
+    "ACT-L-ANKLE-PITCH": "Mesh_xl335",
+    "ASM-LEG-R": "Body_bearing_roll",
+    "ACT-R-HIP-ROLL": "Mesh_xl341",
+    "ACT-R-HIP-PITCH": "Mesh_xl342",
+    "ACT-R-KNEE-PITCH": "Mesh_xl343",
+    "ACT-R-ANKLE-PITCH": "Mesh_xl344",
+    "ASM-HEAD-NECK": "Body_neck",
+    "ACT-NECK-PITCH": "Mesh_xl336",
+    "ACT-HEAD-YAW": "Mesh_xl338",
+    "SYS-POWER": "Battery_6V4",
+    "SYS-COMPUTE": "Mesh_pcb__raspberry_pi_zero_2_w",
+    "SYS-MOTION-CONTROL": "Mesh_elec_rpi_robot_hat_pcb",
+    "SYS-SENSING": "IMU_Board_Envelope"
+  },
+  "productStructure": {
+    "collections": [
+      { "nodeId": "PRODUCT", "label": "整机", "bodyId": "Microduck" },
+      { "nodeId": "BODY", "label": "躯干总成", "bodyId": "Body_trunk_base", "parentNodeId": "PRODUCT" },
+      { "nodeId": "LEG-L", "label": "左腿总成", "bodyId": "Body_yaw2roll", "parentNodeId": "PRODUCT" },
+      { "nodeId": "LEG-R", "label": "右腿总成", "bodyId": "Body_bearing_roll", "parentNodeId": "PRODUCT" },
+      { "nodeId": "HEAD-NECK", "label": "头颈总成", "bodyId": "Body_neck", "parentNodeId": "PRODUCT" }
+    ]
+  },
+  "collision": {
+    "enabledComponentIds": [
+      "ACT-L-HIP-ROLL", "ACT-L-HIP-PITCH", "ACT-L-KNEE-PITCH", "ACT-L-ANKLE-PITCH",
+      "ACT-R-HIP-ROLL", "ACT-R-HIP-PITCH", "ACT-R-KNEE-PITCH", "ACT-R-ANKLE-PITCH",
+      "ACT-NECK-PITCH", "ACT-HEAD-YAW", "SYS-POWER", "SYS-COMPUTE",
+      "SYS-MOTION-CONTROL", "SYS-SENSING"
+    ],
+    "tolerance": 0.0002,
+    "allowedContacts": [
+      { "componentA": "ACT-L-HIP-ROLL", "componentB": "ACT-L-HIP-PITCH", "reason": "左髋关节装配接触" },
+      { "componentA": "ACT-L-KNEE-PITCH", "componentB": "ACT-L-ANKLE-PITCH", "reason": "左腿关节装配接触" },
+      { "componentA": "ACT-R-HIP-ROLL", "componentB": "ACT-R-HIP-PITCH", "reason": "右髋关节装配接触" },
+      { "componentA": "ACT-R-KNEE-PITCH", "componentB": "ACT-R-ANKLE-PITCH", "reason": "右腿关节装配接触" },
+      { "componentA": "ACT-NECK-PITCH", "componentB": "ACT-HEAD-YAW", "reason": "头颈关节装配接触" },
+      { "componentA": "SYS-COMPUTE", "componentB": "SYS-MOTION-CONTROL", "reason": "控制板层叠装配" }
+    ]
+  },
+  "joints": [
+    {
+      "jointId": "ACT-L-HIP-ROLL",
+      "parentBodyId": "Body_yaw2roll",
+      "childBodyId": "Body_hip_l",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -18,
+      "upperDeg": 18,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 0
+    },
+    {
+      "jointId": "ACT-L-HIP-PITCH",
+      "parentBodyId": "Body_hip_l",
+      "childBodyId": "Body_upper_leg_left",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -35,
+      "upperDeg": 35,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 0
+    },
+    {
+      "jointId": "ACT-L-KNEE-PITCH",
+      "parentBodyId": "Body_upper_leg_left",
+      "childBodyId": "Body_leg",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": 5,
+      "upperDeg": 65,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 5
+    },
+    {
+      "jointId": "ACT-L-ANKLE-PITCH",
+      "parentBodyId": "Body_leg",
+      "childBodyId": "Body_ankle_left",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -30,
+      "upperDeg": 30,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 0
+    },
+    {
+      "jointId": "ACT-R-HIP-ROLL",
+      "parentBodyId": "Body_bearing_roll",
+      "childBodyId": "Body_hip_l_2",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -18,
+      "upperDeg": 18,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 0
+    },
+    {
+      "jointId": "ACT-R-HIP-PITCH",
+      "parentBodyId": "Body_hip_l_2",
+      "childBodyId": "Body_upper_leg_right",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -35,
+      "upperDeg": 35,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 0
+    },
+    {
+      "jointId": "ACT-R-KNEE-PITCH",
+      "parentBodyId": "Body_upper_leg_right",
+      "childBodyId": "Body_leg_2",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": 5,
+      "upperDeg": 65,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 5
+    },
+    {
+      "jointId": "ACT-R-ANKLE-PITCH",
+      "parentBodyId": "Body_leg_2",
+      "childBodyId": "Body_ankle_right",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -30,
+      "upperDeg": 30,
+      "velocityDegPerSec": 180,
+      "neutralDeg": 0
+    },
+    {
+      "jointId": "ACT-NECK-PITCH",
+      "parentBodyId": "Body_trunk_base",
+      "childBodyId": "Body_neck",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": 5,
+      "upperDeg": 35,
+      "velocityDegPerSec": 120,
+      "neutralDeg": 5
+    },
+    {
+      "jointId": "ACT-HEAD-YAW",
+      "parentBodyId": "Body_neck_pitch",
+      "childBodyId": "Body_yaw_roll_motion",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "lowerDeg": -60,
+      "upperDeg": 60,
+      "velocityDegPerSec": 120,
+      "neutralDeg": 0
+    }
+  ]
+}

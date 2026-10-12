@@ -1,0 +1,1919 @@
+{
+  "source": "Jingang/apps/models/CAD/Microduck_Final/Microduck_10Axis_Final.FCStd",
+  "sourceBytes": 8819217,
+  "documentObjects": 212,
+  "finiteGeometryObjects": 89,
+  "servoCount": 10,
+  "printableOrCustomGeometryCount": 57,
+  "servos": [
+    {
+      "name": "Mesh_xl332",
+      "label": "HD-1910-C001 | Mesh_xl332",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw2roll"
+      ],
+      "bounds": [
+        -10.000000000000004,
+        -14.500000000000002,
+        3.0,
+        20.000000000000007,
+        29.000000000000004,
+        34.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl333",
+      "label": "HD-1910-C001 | Mesh_xl333",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        -2.5000000000000036,
+        25.777099999999997,
+        -2.0000000000000018,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl334",
+      "label": "HD-1910-C001 | Mesh_xl334",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        -10.0,
+        -9.5,
+        -2.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl335",
+      "label": "HD-1910-C001 | Mesh_xl335",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_leg"
+      ],
+      "bounds": [
+        -10.0,
+        17.5,
+        -26.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl336",
+      "label": "HD-1910-C001 | Mesh_xl336",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_neck"
+      ],
+      "bounds": [
+        -10.0,
+        -24.5,
+        0.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl338",
+      "label": "HD-1910-C001 | Mesh_xl338",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw_roll_motion"
+      ],
+      "bounds": [
+        -24.500000000000014,
+        -9.99999999999996,
+        -1.438849039914203e-13,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl341",
+      "label": "HD-1910-C001 | Mesh_xl341",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_bearing_roll"
+      ],
+      "bounds": [
+        -10.000000000000004,
+        -14.500000000000002,
+        3.0,
+        20.000000000000007,
+        29.000000000000004,
+        34.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl342",
+      "label": "HD-1910-C001 | Mesh_xl342",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -31.500000000000004,
+        25.777099999999997,
+        -2.0000000000000053,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl343",
+      "label": "HD-1910-C001 | Mesh_xl343",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -10.0,
+        -9.5,
+        -2.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_xl344",
+      "label": "HD-1910-C001 | Mesh_xl344",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_leg_2"
+      ],
+      "bounds": [
+        -51.5,
+        -10.0,
+        -26.000000000000007,
+        34.0,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "name": "Microduck",
+      "label": "Microduck 十轴 C | 局部连接加强候选",
+      "type": "App::Part",
+      "parents": [],
+      "bounds": [
+        -49.67989597515395,
+        -68.29906525902157,
+        116.99999999999999,
+        104.64381765814231,
+        116.37430622804077,
+        165.51659805532978
+      ],
+      "facets": null,
+      "solidCount": 16,
+      "properties": {}
+    },
+    {
+      "name": "Origin001",
+      "label": "Origin001",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Body_trunk_base",
+      "label": "trunk_base",
+      "type": "App::Part",
+      "parents": [
+        "Microduck"
+      ],
+      "bounds": [
+        -49.67989597515395,
+        -68.29906525902157,
+        116.99999999999999,
+        104.64381765814231,
+        116.37430622804077,
+        165.51659805532978
+      ],
+      "facets": null,
+      "solidCount": 16,
+      "properties": {}
+    },
+    {
+      "name": "Origin003",
+      "label": "Origin003",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x4",
+      "label": "Printed sliding ring 22x16p3x4",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -4.995077133178711,
+        6.5012311935424805,
+        -5.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_trunk_base",
+      "label": "trunk_base001",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -19.000000000000007,
+        -28.500000000000004,
+        -1.0,
+        36.000000000000014,
+        57.00000000000001,
+        3.0
+      ],
+      "facets": 3698,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x001",
+      "label": "Printed sliding ring 22x16p3x009",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -4.995077133178711,
+        -28.49876880645752,
+        -5.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Origin005",
+      "label": "Origin006",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_yaw2roll",
+      "label": "yaw2roll001",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw2roll"
+      ],
+      "bounds": [
+        -11.5,
+        -14.5,
+        -3.0,
+        23.0,
+        25.800000190734863,
+        20.5
+      ],
+      "facets": 12404,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl332",
+      "label": "HD-1910-C001 | Mesh_xl332",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw2roll"
+      ],
+      "bounds": [
+        -10.000000000000004,
+        -14.500000000000002,
+        3.0,
+        20.000000000000007,
+        29.000000000000004,
+        34.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x002",
+      "label": "Printed sliding ring 22x16p3x010",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw2roll"
+      ],
+      "bounds": [
+        -10.99876880645752,
+        12.5,
+        1.5,
+        21.99753761291504,
+        4.0,
+        21.99507713317871
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_bearing_roll",
+      "label": "bearing_roll",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw2roll"
+      ],
+      "bounds": [
+        -11.5,
+        9.499998092651367,
+        -3.0000009536743164,
+        23.0,
+        3.0000038146972656,
+        40.00000476837158
+      ],
+      "facets": 3924,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Origin007",
+      "label": "Origin009",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x003",
+      "label": "Printed sliding ring 22x16p3x011",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_hip_l"
+      ],
+      "bounds": [
+        21.0,
+        -10.995077133178711,
+        -29.49876880645752,
+        4.0,
+        21.99507713317871,
+        21.99753761291504
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Origin009",
+      "label": "Origin011",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_upper_leg_left",
+      "label": "upper_leg_left001",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        -13.46741771697998,
+        -12.19746208190918,
+        0.0,
+        47.659422874450684,
+        60.99661064147949,
+        28.0
+      ],
+      "facets": 15988,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl333",
+      "label": "HD-1910-C001 | Mesh_xl333",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        -2.5000000000000036,
+        25.777099999999997,
+        -2.0000000000000018,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_upper_leg_rigidity_plate",
+      "label": "upper_leg_rigidity_plate",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        -12.0,
+        -10.999068260192871,
+        0.0,
+        44.996482849121094,
+        58.05773067474365,
+        1.0
+      ],
+      "facets": 3600,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x004",
+      "label": "Printed sliding ring 22x16p3x012",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        11.0,
+        24.778331193542478,
+        -4.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl334",
+      "label": "HD-1910-C001 | Mesh_xl334",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_left"
+      ],
+      "bounds": [
+        -10.0,
+        -9.5,
+        -2.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Origin011",
+      "label": "Origin014",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl335",
+      "label": "HD-1910-C001 | Mesh_xl335",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_leg"
+      ],
+      "bounds": [
+        -10.0,
+        17.5,
+        -26.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Origin013",
+      "label": "Origin017",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_sole_left",
+      "label": "sole_left",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_left"
+      ],
+      "bounds": [
+        -34.0,
+        -25.026374744262696,
+        -35.244586181640614,
+        54.0,
+        12.907360076904297,
+        41.098533630371094
+      ],
+      "facets": 15788,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_foot_left",
+      "label": "foot_left",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_left"
+      ],
+      "bounds": [
+        -34.0,
+        -23.028034137573243,
+        -34.61918945312499,
+        54.0,
+        16.909019470214844,
+        40.08550262451172
+      ],
+      "facets": 19922,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration_default",
+      "label": "Printed sliding ring 14p8x10p3x3",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_left"
+      ],
+      "bounds": [
+        -7.400000095367432,
+        -7.399171829223633,
+        -32.2,
+        14.796688079833984,
+        14.798343658447266,
+        3.0
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_ankle_left",
+      "label": "ankle_left001 | arc clearance",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_left"
+      ],
+      "bounds": [
+        -21.836793899536133,
+        -16.300004959106445,
+        -34.33550262451172,
+        36.50000476837158,
+        25.5000057220459,
+        39.489139556884766
+      ],
+      "facets": 7384,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Body_neck",
+      "label": "neck",
+      "type": "App::Part",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -49.67989597515395,
+        -68.29906525902157,
+        59.44299416380489,
+        104.64381765814231,
+        116.37430622804077,
+        103.07360389152495
+      ],
+      "facets": null,
+      "solidCount": 8,
+      "properties": {}
+    },
+    {
+      "name": "Origin015",
+      "label": "Origin020",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl336",
+      "label": "HD-1910-C001 | Mesh_xl336",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_neck"
+      ],
+      "bounds": [
+        -10.0,
+        -24.5,
+        0.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Body_neck_pitch",
+      "label": "FIXED | 头部·俯仰",
+      "type": "App::Part",
+      "parents": [
+        "Body_neck"
+      ],
+      "bounds": [
+        -56.67455582853082,
+        -126.60828675537684,
+        -33.57524096901917,
+        105.13130834501266,
+        107.98306694389315,
+        116.37430622804072
+      ],
+      "facets": null,
+      "solidCount": 8,
+      "properties": {}
+    },
+    {
+      "name": "Origin017",
+      "label": "Origin022",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x005",
+      "label": "Printed sliding ring 22x16p3x013",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_neck_pitch"
+      ],
+      "bounds": [
+        -11.157968743288803,
+        -5.088164685059437,
+        -25.498768806457523,
+        22.355515199523644,
+        7.758636073868898,
+        21.997537612915046
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Body_yaw_roll_motion",
+      "label": "yaw_roll_motion",
+      "type": "App::Part",
+      "parents": [
+        "Body_neck_pitch"
+      ],
+      "bounds": [
+        -46.06492884927178,
+        -19.96313687549054,
+        -82.79906525902155,
+        104.64381765814227,
+        103.07360389152487,
+        116.37430622804071
+      ],
+      "facets": null,
+      "solidCount": 8,
+      "properties": {}
+    },
+    {
+      "name": "Origin019",
+      "label": "Origin025",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl338",
+      "label": "HD-1910-C001 | Mesh_xl338",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_yaw_roll_motion"
+      ],
+      "bounds": [
+        -24.500000000000014,
+        -9.99999999999996,
+        -1.438849039914203e-13,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Body_jaw_soft",
+      "label": "FIXED | 头部·侧摆",
+      "type": "App::Part",
+      "parents": [
+        "Body_yaw_roll_motion"
+      ],
+      "bounds": [
+        -53.90000000000002,
+        -68.29906525902155,
+        -24.777898340376257,
+        100.80000000000004,
+        116.37430622804071,
+        106.10790690023218
+      ],
+      "facets": null,
+      "solidCount": 8,
+      "properties": {}
+    },
+    {
+      "name": "Origin021",
+      "label": "Origin028",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_lens",
+      "label": "lens",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        5.030000686645511,
+        -8.561377113354494,
+        -61.79999969482422,
+        16.939998626708984,
+        16.939998626708984,
+        18.919999599456787
+      ],
+      "facets": 1872,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_elec_rpi_robot_hat_pcb",
+      "label": "elec_rpi_robot_hat_pcb",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -1.5700002288818382,
+        -32.51140106811524,
+        -31.9,
+        30.025000333786025,
+        65.02500104904175,
+        0.8399999737739563
+      ],
+      "facets": 18856,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_m12_lens_holder",
+      "label": "m12_lens_holder",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        5.5000000000000036,
+        -12.091377800000002,
+        -50.38000019073486,
+        16.0,
+        24.0,
+        14.800000190734863
+      ],
+      "facets": 10992,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_pcb__raspberry_pi_zero_2_w",
+      "label": "pcb__raspberry_pi_zero_2_w",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -1.5649999999999977,
+        -32.511377800000005,
+        -40.80999995231628,
+        30.0,
+        65.0,
+        1.5999999046325684
+      ],
+      "facets": 20970,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_speaker",
+      "label": "speaker",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        13.999999999999988,
+        -16.785999999999994,
+        -6.4999992202758605,
+        6.999999999999998,
+        35.0,
+        25.0
+      ],
+      "facets": 12,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Origin023",
+      "label": "Origin031",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_yaw2roll001",
+      "label": "yaw2roll002",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_bearing_roll"
+      ],
+      "bounds": [
+        -11.5,
+        -14.5,
+        -3.0,
+        23.0,
+        25.800000190734863,
+        20.5
+      ],
+      "facets": 12404,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl341",
+      "label": "HD-1910-C001 | Mesh_xl341",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_bearing_roll"
+      ],
+      "bounds": [
+        -10.000000000000004,
+        -14.500000000000002,
+        3.0,
+        20.000000000000007,
+        29.000000000000004,
+        34.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_bearing_roll001",
+      "label": "bearing_roll002",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_bearing_roll"
+      ],
+      "bounds": [
+        -11.5,
+        9.499998092651367,
+        -3.0000009536743164,
+        23.0,
+        3.0000038146972656,
+        40.00000476837158
+      ],
+      "facets": 3928,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x008",
+      "label": "Printed sliding ring 22x16p3x014",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_bearing_roll"
+      ],
+      "bounds": [
+        -10.99876880645752,
+        12.5,
+        1.5,
+        21.99753761291504,
+        4.0,
+        21.99507713317871
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Origin025",
+      "label": "Origin033",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x009",
+      "label": "Printed sliding ring 22x16p3x015",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_hip_l_2"
+      ],
+      "bounds": [
+        21.0,
+        -11.0,
+        -29.49876880645752,
+        4.0,
+        21.99507713317871,
+        21.99753761291504
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Origin027",
+      "label": "Origin036",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl342",
+      "label": "HD-1910-C001 | Mesh_xl342",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -31.500000000000004,
+        25.777099999999997,
+        -2.0000000000000053,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x010",
+      "label": "Printed sliding ring 22x16p3x016",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -32.99507713317871,
+        24.778331193542478,
+        -4.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_upper_leg_rigidity_plate001",
+      "label": "upper_leg_rigidity_plate001",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -32.996482849121094,
+        -10.999068260192871,
+        0.0,
+        44.996482849121094,
+        58.05773067474365,
+        1.0
+      ],
+      "facets": 3600,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_upper_leg_right",
+      "label": "upper_leg_right001",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -34.1920051574707,
+        -12.19746208190918,
+        0.0,
+        47.659422874450684,
+        60.99661064147949,
+        28.00000762939453
+      ],
+      "facets": 15938,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl343",
+      "label": "HD-1910-C001 | Mesh_xl343",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_upper_leg_right"
+      ],
+      "bounds": [
+        -10.0,
+        -9.5,
+        -2.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Origin029",
+      "label": "Origin039",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_xl344",
+      "label": "HD-1910-C001 | Mesh_xl344",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_leg_2"
+      ],
+      "bounds": [
+        -51.5,
+        -10.0,
+        -26.000000000000007,
+        34.0,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498,
+      "solidCount": null,
+      "properties": {
+        "MotorModel": "HD-1910-C001",
+        "FitStatus": "Nominal geometry updated; thread specification, blind-hole depth and physical fit unverified"
+      }
+    },
+    {
+      "name": "Origin031",
+      "label": "Origin041",
+      "type": "App::Point",
+      "parents": [],
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null,
+      "solidCount": 0,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_ankle_right",
+      "label": "ankle_right001 | arc clearance",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_right"
+      ],
+      "bounds": [
+        -14.66321086883545,
+        -16.300004959106445,
+        -34.33550262451172,
+        36.50000476837158,
+        25.5000057220459,
+        39.489139556884766
+      ],
+      "facets": 7404,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_sole_right",
+      "label": "sole_right",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_right"
+      ],
+      "bounds": [
+        -20.0,
+        -25.02662079223633,
+        -35.2446376800537,
+        54.0,
+        12.90760612487793,
+        41.09873008728027
+      ],
+      "facets": 15888,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration_default002",
+      "label": "Printed sliding ring 14p8x10p3x001",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_right"
+      ],
+      "bounds": [
+        -7.396687984466553,
+        -7.399171829223633,
+        -32.2,
+        14.796688079833984,
+        14.798343658447266,
+        3.0000000000000036
+      ],
+      "facets": 1680,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_foot_right",
+      "label": "foot_right",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_ankle_right"
+      ],
+      "bounds": [
+        -20.0,
+        -23.028034137573243,
+        -34.61918945312499,
+        54.0,
+        16.909019470214844,
+        40.08550262451172
+      ],
+      "facets": 19914,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "FixedAdapter_left_hip_yaw",
+      "label": "Compact fixed hip mount | left | deleted-servo replacement",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -5.5,
+        7.499999999999996,
+        -3.0000000000000115,
+        23.0,
+        20.000000000000004,
+        8.50000000000001
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "FixedAdapter_right_hip_yaw",
+      "label": "Compact fixed hip mount | right | deleted-servo replacement",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -5.5,
+        -27.500000000000004,
+        -3.000000000000008,
+        23.0,
+        20.000000000000004,
+        8.500000000000007
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Reinforced_hip_l",
+      "label": "髋部转角加强 | hip_l",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_hip_l"
+      ],
+      "bounds": [
+        -9.5,
+        -9.500000000000005,
+        -28.0,
+        32.450050354003906,
+        19.000000000000007,
+        34.5
+      ],
+      "facets": 21002,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Reinforced_hip_l_2",
+      "label": "髋部转角加强 | hip_l_2",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_hip_l_2"
+      ],
+      "bounds": [
+        -9.5,
+        -9.500000000000005,
+        -28.0,
+        32.450050354003906,
+        19.000000000000007,
+        34.5
+      ],
+      "facets": 21002,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Reinforced_leg",
+      "label": "小腿双边筋 | leg",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_leg"
+      ],
+      "bounds": [
+        -10.0,
+        -9.99998435058594,
+        -1.9500007629394531,
+        20.0,
+        57.999996185302734,
+        9.950000762939453
+      ],
+      "facets": 14632,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Reinforced_leg_2",
+      "label": "小腿双边筋 | leg_2",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_leg_2"
+      ],
+      "bounds": [
+        -48.00001183471679,
+        -10.0,
+        -1.9500007629394531,
+        57.999996185302734,
+        20.0,
+        9.950000762939464
+      ],
+      "facets": 14632,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Head_Upper",
+      "label": "M 小头壳·上盖与螺柱",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -39.277898340376254,
+        -68.29906525902153,
+        -64.0,
+        106.10790690023215,
+        116.37430622804067,
+        100.0
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Head_Camera_Bezel",
+      "label": "M 可拆镜头面罩",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -3.0333333500000013,
+        -17.200000000000003,
+        -64.8,
+        33.0666667,
+        34.400000000000006,
+        11.399999999999999
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Camera_Retainer",
+      "label": "M 相机组件上压条",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        29.1,
+        -33.0,
+        -47.5,
+        2.5,
+        66.0,
+        22.0
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Speaker_Retainer",
+      "label": "M 扬声器压条",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        21.3,
+        -24.5,
+        -5.5,
+        2.0,
+        50.4,
+        23.0
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Integrated_Neck_Bracket",
+      "label": "R 头颈安装角调整支架",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_neck_pitch"
+      ],
+      "bounds": [
+        -20.2900333404541,
+        -34.3353385925293,
+        -28.0,
+        29.085023880004883,
+        34.41762398928404,
+        27.0
+      ],
+      "facets": 7688,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Head_Lower",
+      "label": "Head_Lower",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -39.277898340376254,
+        -68.29906525902153,
+        -64.0,
+        106.10790690023215,
+        116.37430622804067,
+        100.0
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Servo_Retainer",
+      "label": "Servo_Retainer",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        14.8,
+        -14.3,
+        -24.0,
+        2.0,
+        28.6,
+        4.0
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Electronics_Carrier",
+      "label": "Electronics_Carrier",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -38.91768362633643,
+        -67.92013099545744,
+        -63.71625358257642,
+        105.41625781707897,
+        113.69370005816369,
+        88.24808383217052
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Speaker_Tray",
+      "label": "Speaker_Tray",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_jaw_soft"
+      ],
+      "bounds": [
+        -24.557692708638964,
+        -68.29906525902153,
+        -30.903602866161826,
+        91.38770126849487,
+        114.32801035505345,
+        62.922447827073405
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_banana_pcb_locker",
+      "label": "banana_pcb_locker",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -32.29999923706055,
+        -27.02503204345703,
+        31.452316284179688,
+        3.8000030517578125,
+        54.05006408691406,
+        6.652366638183594
+      ],
+      "facets": 1388,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_left_shell",
+      "label": "左外壳（安装耳竖直对齐）",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -46.39006423950195,
+        -1.9499999284744263,
+        0.25734785199165344,
+        80.89006423950195,
+        33.71448814868927,
+        41.690520495176315
+      ],
+      "facets": 22004,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_right_shell",
+      "label": "右外壳（安装耳竖直对齐）",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -46.39785385131836,
+        -32.264488220214844,
+        0.33370208740234375,
+        80.89785385131836,
+        31.764488220214844,
+        41.692665100097656
+      ],
+      "facets": 21938,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Mesh_power_support",
+      "label": "Microduck原版后部电池盖/电源支撑",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -31.0,
+        -27.25,
+        -44.067630767822266,
+        17.0,
+        54.5,
+        83.48978042602539
+      ],
+      "facets": 12832,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "Battery_6V4",
+      "label": "6.4V 1800mAh 电池占位（19×37×68 mm）",
+      "type": "Mesh::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -44.900001525878906,
+        -18.5,
+        -37.849998474121094,
+        19.000001907348633,
+        37.0,
+        67.99999809265137
+      ],
+      "facets": 12,
+      "solidCount": null,
+      "properties": {}
+    },
+    {
+      "name": "IMU_Platform",
+      "label": "IMU安装平台 | 25.8x15.5 | 前后方向 | 与躯干底板一体打印",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -12.5,
+        -10.5,
+        -0.4,
+        29.0,
+        21.0,
+        9.200000000000003
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "IMU_Board_Envelope",
+      "label": "IMU占位 | 25.8x15.5 | 元件朝上 | 排针朝左",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -10.9,
+        -7.75,
+        8.8,
+        25.8,
+        15.5,
+        5.0
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "IMU_Axis_Marker",
+      "label": "IMU +X → 机器人前方（非打印）",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -4.0,
+        -2.4,
+        13.82,
+        14.0,
+        4.8,
+        0.3000000000000007
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "IMU_Pin_Header_Envelope",
+      "label": "IMU排针/焊盘侧 → 机器人左侧 +Y（非打印）",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        -10.9,
+        7.75,
+        8.8,
+        25.8,
+        1.8000000000000007,
+        2.5
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Shell_Mount_Tab_Left",
+      "label": "左外壳至固定髋座安装耳",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        10.5,
+        20.0,
+        5.5,
+        7.0,
+        9.600000000000001,
+        4.5
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    },
+    {
+      "name": "Shell_Mount_Tab_Right",
+      "label": "右外壳至固定髋座安装耳",
+      "type": "PartDesign::Feature",
+      "parents": [
+        "Body_trunk_base"
+      ],
+      "bounds": [
+        10.5,
+        -29.6,
+        5.5,
+        7.0,
+        9.600000000000001,
+        4.5
+      ],
+      "facets": null,
+      "solidCount": 1,
+      "properties": {}
+    }
+  ]
+}

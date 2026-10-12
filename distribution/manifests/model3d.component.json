@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "id": "aidc.model3d",
+  "displayName": "AIDC 3D Model Tools",
+  "description": "Robot CAD publishing, 3D browsing, assembly export and geometry checking.",
+  "version": "0.1.0",
+  "kind": "browser",
+  "platform": "windows",
+  "architecture": "x86_64",
+  "protocolVersion": "0.1",
+  "capabilities": ["model3d.open", "model3d.publish", "model3d.export-modelica", "model3d.geometry-check"],
+  "entryPoints": [
+    {"id": "browser", "relativePath": "components/model3d/browser", "mode": "static", "arguments": []},
+    {"id": "publisher", "relativePath": "components/model3d/tools/publish.py", "mode": "library", "arguments": []}
+  ],
+  "dependencies": [
+    {"id": "freecad", "versionRange": "1.1.3", "required": false, "capability": "cad.headless"},
+    {"id": "python-runtime", "versionRange": "3.12.x", "required": false, "capability": "python.execute"}
+  ],
+  "licenses": [
+    {"name": "AIDC project license decision pending", "spdx": null, "status": "review-required", "noticePath": "licenses/THIRD_PARTY_BASELINE.md"},
+    {"name": "Three.js", "spdx": "MIT", "status": "approved", "noticePath": "model3d-viewer/THIRD_PARTY_NOTICES.md"}
+  ],
+  "distributionStatus": "blocked",
+  "healthCheck": {"type": "file", "target": "components/model3d/browser/index.html", "arguments": [], "timeoutSeconds": 10}
+}
+

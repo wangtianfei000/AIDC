@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/model3d/kinematics-0.1.json",
+  "title": "AIDC Model3D Kinematics",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "modelRevision", "rootBodyId", "bodies", "joints"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.model3d.kinematics/0.1" },
+    "modelId": { "type": "string", "minLength": 1 },
+    "modelRevision": { "type": "string", "minLength": 1 },
+    "rootBodyId": { "type": "string", "minLength": 1 },
+    "bodies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bodyId", "label", "nodeName", "translation", "rotation"],
+        "properties": {
+          "bodyId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "nodeName": { "type": "string", "minLength": 1 },
+          "parentBodyId": { "type": "string", "minLength": 1 },
+          "translation": { "$ref": "#/$defs/vec3" },
+          "rotation": { "$ref": "#/$defs/quat" }
+        }
+      }
+    },
+    "joints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["jointId", "type", "parentBodyId", "childBodyId", "axis", "neutralValue", "zeroOffset"],
+        "properties": {
+          "jointId": { "type": "string", "minLength": 1 },
+          "type": { "enum": ["fixed", "revolute", "prismatic"] },
+          "parentBodyId": { "type": "string", "minLength": 1 },
+          "childBodyId": { "type": "string", "minLength": 1 },
+          "axis": { "$ref": "#/$defs/vec3" },
+          "neutralValue": { "type": "number" },
+          "zeroOffset": { "type": "number" },
+          "limit": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lower", "upper"],
+            "properties": {
+              "lower": { "type": "number" },
+              "upper": { "type": "number" },
+              "velocity": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          },
+          "drive": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["channel", "sign", "scale"],
+            "properties": {
+              "channel": { "type": "string", "minLength": 1 },
+              "sign": { "enum": [-1, 1] },
+              "scale": { "type": "number" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "vec3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }],
+      "items": false
+    },
+    "quat": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }, { "type": "number" }],
+      "items": false
+    }
+  }
+}

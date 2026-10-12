@@ -1,0 +1,326 @@
+{
+  "schemaVersion": "aidc.robot.physics/0.1",
+  "modelId": "aidc.reference.arm5",
+  "modelRevision": "p5-r1",
+  "coordinateSystem": {
+    "lengthUnit": "m",
+    "angleUnit": "rad",
+    "forward": "+X",
+    "left": "+Y",
+    "up": "+Z",
+    "geometryQuaternionOrder": "xyzw"
+  },
+  "rootBodyId": "pedestal",
+  "rootType": "fixed",
+  "bodies": [
+    {
+      "bodyId": "pedestal",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 4.0,
+      "centerOfMass_m": [
+        0,
+        0,
+        0
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.02,
+        "iyy": 0.025,
+        "izz": 0.018,
+        "ixy": 0,
+        "ixz": 0,
+        "iyz": 0
+      },
+      "collisionAssetIds": []
+    },
+    {
+      "bodyId": "shoulder",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 2.0,
+      "centerOfMass_m": [
+        0.08,
+        0,
+        0
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.02,
+        "iyy": 0.025,
+        "izz": 0.018,
+        "ixy": 0,
+        "ixz": 0,
+        "iyz": 0
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "pedestal"
+    },
+    {
+      "bodyId": "upper_arm",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 1.6,
+      "centerOfMass_m": [
+        0.08,
+        0,
+        0
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.02,
+        "iyy": 0.025,
+        "izz": 0.018,
+        "ixy": 0,
+        "ixz": 0,
+        "iyz": 0
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "shoulder"
+    },
+    {
+      "bodyId": "forearm",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 1.1,
+      "centerOfMass_m": [
+        0.08,
+        0,
+        0
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.02,
+        "iyy": 0.025,
+        "izz": 0.018,
+        "ixy": 0,
+        "ixz": 0,
+        "iyz": 0
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "upper_arm"
+    },
+    {
+      "bodyId": "tool",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "mass_kg": 0.6,
+      "centerOfMass_m": [
+        0.08,
+        0,
+        0
+      ],
+      "inertia_kg_m2": {
+        "ixx": 0.02,
+        "iyy": 0.025,
+        "izz": 0.018,
+        "ixy": 0,
+        "ixz": 0,
+        "iyz": 0
+      },
+      "collisionAssetIds": [],
+      "parentBodyId": "forearm"
+    }
+  ],
+  "joints": [
+    {
+      "jointId": "base_yaw",
+      "type": "revolute",
+      "parentBodyId": "pedestal",
+      "childBodyId": "shoulder",
+      "translation_m": [
+        0,
+        0,
+        0.18
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -2.5,
+        "upper": 2.5,
+        "velocity": 3.0,
+        "effort": 20.0
+      },
+      "damping_Nm_s_rad": 0.05,
+      "friction_Nm": 0.01,
+      "armature_kg_m2": 0.001
+    },
+    {
+      "jointId": "shoulder_pitch",
+      "type": "revolute",
+      "parentBodyId": "shoulder",
+      "childBodyId": "upper_arm",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -2.5,
+        "upper": 2.5,
+        "velocity": 3.0,
+        "effort": 20.0
+      },
+      "damping_Nm_s_rad": 0.05,
+      "friction_Nm": 0.01,
+      "armature_kg_m2": 0.001
+    },
+    {
+      "jointId": "elbow_pitch",
+      "type": "revolute",
+      "parentBodyId": "upper_arm",
+      "childBodyId": "forearm",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -2.5,
+        "upper": 2.5,
+        "velocity": 3.0,
+        "effort": 20.0
+      },
+      "damping_Nm_s_rad": 0.05,
+      "friction_Nm": 0.01,
+      "armature_kg_m2": 0.001
+    },
+    {
+      "jointId": "wrist_roll",
+      "type": "revolute",
+      "parentBodyId": "forearm",
+      "childBodyId": "tool",
+      "translation_m": [
+        0,
+        0,
+        0
+      ],
+      "rotation_xyzw": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "zeroOffset_rad": 0,
+      "initialPosition_rad": 0,
+      "limit": {
+        "lower": -2.5,
+        "upper": 2.5,
+        "velocity": 3.0,
+        "effort": 20.0
+      },
+      "damping_Nm_s_rad": 0.05,
+      "friction_Nm": 0.01,
+      "armature_kg_m2": 0.001
+    }
+  ],
+  "namedPoses": [
+    {
+      "name": "home",
+      "jointPositions": {
+        "base_yaw": 0,
+        "shoulder_pitch": 0,
+        "elbow_pitch": 0,
+        "wrist_roll": 0
+      }
+    },
+    {
+      "name": "inspection",
+      "jointPositions": {
+        "base_yaw": 0.4,
+        "shoulder_pitch": -0.5,
+        "elbow_pitch": 0.8,
+        "wrist_roll": 0.2
+      }
+    }
+  ],
+  "contactGeometries": [],
+  "contactDefaults": {
+    "friction": 0.7,
+    "contactMargin_m": 0.001,
+    "excludedBodyPairs": []
+  }
+}

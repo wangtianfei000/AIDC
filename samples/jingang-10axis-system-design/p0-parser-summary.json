@@ -1,0 +1,43 @@
+{
+  "sample": "jingang-10axis-system-design/architecture.sysml",
+  "runtime": {
+    "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+    "capabilityVersion": "0.3.0",
+    "name": "AIDC Reference C++ Parser Runtime"
+  },
+  "schemaVersion": "0.1",
+  "contentHash": "45455e88f379429533688370c29f556c4d9e363eca340e124462b68acd995c7c",
+  "counts": {
+    "elements": 137,
+    "partDefinitions": 2,
+    "partUsages": 18,
+    "portDefinitions": 4,
+    "portUsages": 18,
+    "features": 94,
+    "relationships": 105,
+    "connections": 11
+  },
+  "diagnostics": {
+    "errors": 0,
+    "warnings": 199,
+    "byCode": {
+      "AIDC_SOURCE_SPAN_PARTIAL": 1,
+      "AIDC_UNRESOLVED_ENDPOINT": 94,
+      "PARSER_WARNING": 104
+    }
+  },
+  "checks": {
+    "deterministicElementIds": true,
+    "deterministicRelationshipIds": true,
+    "nestedActuatorOwnership": true,
+    "allConnectionsHaveEndpoints": true,
+    "connectionsResolveToPorts": false,
+    "allDeclaredValuesCaptured": true
+  },
+  "knownLimitations": [
+    "FeatureTyping 端点未解析，标准类型仅保留名称和表达式",
+    "typed PartUsage 保留 typeName，但未建立可遍历的类型关系或继承属性",
+    "Connection 端点被归一化为直接部件，未定位到嵌套 PortUsage",
+    "源码范围为名称级近似定位"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "2.0",
+  "projectId": "aidc.single-joint.probe",
+  "name": "单关节计算链路探针",
+  "revision": "T1-demo-r2",
+  "description": "使用标准 MSL 建立的机械、电气、控制闭环探针，不代表目标机器人真实参数。",
+  "modelica": {
+    "rootPackageFile": "modelica/AIDCT0/package.mo",
+    "rootPackage": "AIDCT0",
+    "defaultExperiment": "AIDCT0.SingleJointProbe",
+    "languageVersion": "3.6",
+    "libraries": [{ "name": "Modelica", "version": "4.1.0" }]
+  }
+}

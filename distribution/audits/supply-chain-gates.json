@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "baselineVersion": "0.1.0",
+  "releaseGate": "blocked",
+  "gates": [
+    {
+      "id": "aidc-license",
+      "severity": "critical",
+      "status": "blocked",
+      "owner": "project-owner",
+      "evidence": "No top-level AIDC LICENSE file is present.",
+      "exitCriteria": "Select an AIDC source and binary distribution license and add its text and notices."
+    },
+    {
+      "id": "reference-parser-license",
+      "severity": "critical",
+      "status": "blocked",
+      "owner": "project-owner",
+      "evidence": "reference-parser-p0/source-manifest.json records an unresolved upstream license.",
+      "exitCriteria": "Obtain documented redistribution rights or replace the parser implementation."
+    },
+    {
+      "id": "openmodelica-pack",
+      "severity": "critical",
+      "status": "blocked",
+      "owner": "release-engineering",
+      "evidence": "The installer archive is absent, SHA-256 is missing and the installed tree is about 8.9 GB.",
+      "exitCriteria": "Acquire and hash the official archive, select OSMC-PL mode, build a minimal pack and pass the Modelica regression suite."
+    },
+    {
+      "id": "python-runtime-pack",
+      "severity": "high",
+      "status": "blocked",
+      "owner": "release-engineering",
+      "evidence": "The current services use development virtual environments rather than a locked distributable runtime.",
+      "exitCriteria": "Freeze wheels, build the managed runtime, produce hashes/licenses and pass service smoke tests."
+    },
+    {
+      "id": "freecad-notices",
+      "severity": "high",
+      "status": "open",
+      "owner": "release-engineering",
+      "evidence": "FreeCAD archive digest is known, but bundled third-party notices have not been aggregated into the CAD Pack.",
+      "exitCriteria": "Generate the CAD Pack SBOM and ship all required license and notice files."
+    },
+    {
+      "id": "code-signing",
+      "severity": "high",
+      "status": "open",
+      "owner": "release-engineering",
+      "evidence": "AIDC-built EXEs and future installers are not signed.",
+      "exitCriteria": "Define signing identity and verify signatures in clean-VM installation tests."
+    }
+  ]
+}
+

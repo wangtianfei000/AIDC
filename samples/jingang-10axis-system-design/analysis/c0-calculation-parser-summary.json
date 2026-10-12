@@ -1,0 +1,36 @@
+{
+  "case": "calculation",
+  "runtimeVersion": "0.5.0",
+  "parserBaseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+  "standardLibraryRelease": "2026-08",
+  "schemaVersion": "0.1",
+  "elementCount": 1,
+  "relationshipCount": 0,
+  "diagnosticCount": 2,
+  "errors": 2,
+  "warnings": 0,
+  "kinds": [
+    {
+      "kind": "Package",
+      "count": 1
+    }
+  ],
+  "diagnosticCodes": [
+    {
+      "code": "SYNTAX_ERROR",
+      "count": 2
+    }
+  ],
+  "firstDiagnostics": [
+    {
+      "severity": "error",
+      "code": "SYNTAX_ERROR",
+      "message": "no viable alternative at input 'calcdef' (near 'def')"
+    },
+    {
+      "severity": "error",
+      "code": "SYNTAX_ERROR",
+      "message": "extraneous input 'calc' expecting {<EOF>, 'package'} (near 'calc')"
+    }
+  ]
+}

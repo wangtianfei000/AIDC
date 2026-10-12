@@ -1,0 +1,580 @@
+{
+  "schemaVersion": "p4-detailed-validation-2",
+  "model": "jingang-10axis-layout.FCStd",
+  "geometryChecksPassed": true,
+  "p4ExitReady": true,
+  "manufacturingStatus": "NOT_RELEASED_DETAILED_REVIEW_REQUIRED",
+  "geometryFailures": [],
+  "releaseBlockers": [
+    "SYS-COMPUTE uses a Raspberry Pi Zero 2 W mesh while Radxa Zero 3W is also named in project references",
+    "SYS-MOTION-CONTROL uses an RPI Robot HAT mesh while OpenRB-150 is also named as the first-machine controller",
+    "SYS-SENSING is still a 25.8x15.5 mm planning envelope without a frozen IMU SKU",
+    "HD-1910 nominal drawing geometry still requires physical spline/thread/blind-hole and sample-fit verification"
+  ],
+  "sysmlCadTraceability": {
+    "expectedCount": 19,
+    "cadCount": 19,
+    "missing": [],
+    "extras": [],
+    "duplicates": []
+  },
+  "servoGeometry": {
+    "count": 10,
+    "nominalSizeSet_mm": [
+      20,
+      29,
+      34
+    ],
+    "results": [
+      {
+        "name": "Mesh_xl332",
+        "componentId": "ACT-L-HIP-ROLL",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl333",
+        "componentId": "ACT-L-HIP-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl334",
+        "componentId": "ACT-L-KNEE-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl335",
+        "componentId": "ACT-L-ANKLE-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl336",
+        "componentId": "ACT-NECK-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl338",
+        "componentId": "ACT-HEAD-YAW",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl341",
+        "componentId": "ACT-R-HIP-ROLL",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl342",
+        "componentId": "ACT-R-HIP-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl343",
+        "componentId": "ACT-R-KNEE-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      },
+      {
+        "name": "Mesh_xl344",
+        "componentId": "ACT-R-ANKLE-PITCH",
+        "sizeSorted_mm": [
+          20.0,
+          29.0,
+          34.0
+        ],
+        "facets": 10498,
+        "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+        "sizePassed": true,
+        "jointContractPassed": true
+      }
+    ]
+  },
+  "printableParts": {
+    "files": 30,
+    "physicalParts": 39,
+    "allWatertight": true,
+    "allSingleSolid": true,
+    "results": [
+      {
+        "file": "01_body_trunk_integrated.stl",
+        "quantity": 1,
+        "size_mm": [
+          36.500003814697266,
+          57.0,
+          11.800002098083496
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "02_body_left_shell.stl",
+        "quantity": 1,
+        "size_mm": [
+          80.89006042480469,
+          41.665096282958984,
+          33.9671745300293
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "03_body_right_shell.stl",
+        "quantity": 1,
+        "size_mm": [
+          80.89783477783203,
+          41.66893005371094,
+          32.00919723510742
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "04_body_pcb_locker.stl",
+        "quantity": 1,
+        "size_mm": [
+          6.652366638183594,
+          54.05006408691406,
+          3.80000638961792
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "05_body_microduck_original_power_support.stl",
+        "quantity": 1,
+        "size_mm": [
+          83.48977661132812,
+          54.5,
+          17.000003814697266
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "06_leg_yaw_to_roll_left.stl",
+        "quantity": 1,
+        "size_mm": [
+          27.131208419799805,
+          23.00008201599121,
+          19.167770385742188
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "07_leg_yaw_to_roll_right.stl",
+        "quantity": 1,
+        "size_mm": [
+          27.131208419799805,
+          23.00008201599121,
+          19.167770385742188
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "08_leg_roll_support_left.stl",
+        "quantity": 1,
+        "size_mm": [
+          39.98220443725586,
+          23.0,
+          3.5527303218841553
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "09_leg_roll_support_right.stl",
+        "quantity": 1,
+        "size_mm": [
+          39.98220443725586,
+          23.0,
+          3.5527303218841553
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "10_leg_reinforced_hip_left.stl",
+        "quantity": 1,
+        "size_mm": [
+          34.5,
+          32.450050354003906,
+          19.000003814697266
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "11_leg_reinforced_hip_right.stl",
+        "quantity": 1,
+        "size_mm": [
+          34.5,
+          32.450050354003906,
+          19.000003814697266
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "12_leg_upper_left.stl",
+        "quantity": 1,
+        "size_mm": [
+          57.10763168334961,
+          59.94567108154297,
+          28.000001907348633
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "13_leg_upper_right.stl",
+        "quantity": 1,
+        "size_mm": [
+          57.107627868652344,
+          59.945674896240234,
+          28.0000057220459
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "14_leg_upper_rigidity_plate_left.stl",
+        "quantity": 1,
+        "size_mm": [
+          54.451358795166016,
+          57.549686431884766,
+          1.0000022649765015
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "15_leg_upper_rigidity_plate_right.stl",
+        "quantity": 1,
+        "size_mm": [
+          54.451358795166016,
+          57.549686431884766,
+          1.0000041723251343
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "16_leg_reinforced_lower_left.stl",
+        "quantity": 1,
+        "size_mm": [
+          34.379085540771484,
+          53.76188278198242,
+          9.950003623962402
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "17_leg_reinforced_lower_right.stl",
+        "quantity": 1,
+        "size_mm": [
+          34.37900924682617,
+          53.76192092895508,
+          9.950007438659668
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "18_ankle_left_arc_clearance.stl",
+        "quantity": 1,
+        "size_mm": [
+          37.17756652832031,
+          40.37453079223633,
+          25.53291130065918
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "19_ankle_right_arc_clearance.stl",
+        "quantity": 1,
+        "size_mm": [
+          37.17756652832031,
+          40.37453079223633,
+          25.53291130065918
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "20_foot_left_integrated.stl",
+        "quantity": 1,
+        "size_mm": [
+          54.003543853759766,
+          41.19894027709961,
+          18.381195068359375
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "21_foot_right_integrated.stl",
+        "quantity": 1,
+        "size_mm": [
+          54.003543853759766,
+          41.20139694213867,
+          18.381195068359375
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "22_head_integrated_neck_bracket.stl",
+        "quantity": 1,
+        "size_mm": [
+          34.602317810058594,
+          27.0,
+          20.582061767578125
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "23_head_upper_shell.stl",
+        "quantity": 1,
+        "size_mm": [
+          102.6051025390625,
+          94.6932373046875,
+          52.51155090332031
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "24_head_lower_integrated.stl",
+        "quantity": 1,
+        "size_mm": [
+          102.08584594726562,
+          91.74996948242188,
+          49.8165168762207
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "25_head_camera_bezel.stl",
+        "quantity": 1,
+        "size_mm": [
+          33.06666946411133,
+          34.400001525878906,
+          11.399886131286621
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "26_head_camera_retainer.stl",
+        "quantity": 1,
+        "size_mm": [
+          22.0,
+          66.0,
+          2.5000076293945312
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "27_head_speaker_retainer.stl",
+        "quantity": 1,
+        "size_mm": [
+          23.0,
+          50.400001525878906,
+          2.000007152557373
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "28_head_m12_lens_holder.stl",
+        "quantity": 1,
+        "size_mm": [
+          15.99999713897705,
+          24.0,
+          14.800004005432129
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "29_ring_OD22_ID16p3_H4.stl",
+        "quantity": 9,
+        "size_mm": [
+          21.995079040527344,
+          21.99753761291504,
+          4.000002384185791
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      },
+      {
+        "file": "30_ring_OD14p8_ID10p3_H3.stl",
+        "quantity": 2,
+        "size_mm": [
+          14.7966890335083,
+          14.798345565795898,
+          3.0000014305114746
+        ],
+        "hashPassed": true,
+        "sizePassed": true,
+        "watertightRecorded": true,
+        "singleSolidRecorded": true
+      }
+    ]
+  },
+  "configurationGeometryStatus": {
+    "SYS-JG10": "DETAILED_ASSEMBLY_BASELINE",
+    "ASM-BODY": "DETAILED_CUSTOM_GEOMETRY",
+    "ASM-LEG-L": "DETAILED_CUSTOM_GEOMETRY",
+    "ACT-L-HIP-ROLL": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-L-HIP-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-L-KNEE-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-L-ANKLE-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ASM-HEAD-NECK": "DETAILED_CUSTOM_GEOMETRY",
+    "ACT-NECK-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-HEAD-YAW": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "SYS-MOTION-CONTROL": "REFERENCE_COMPONENT_MESH_CONFIGURATION_CONFLICT",
+    "SYS-COMPUTE": "REFERENCE_COMPONENT_MESH_CONFIGURATION_CONFLICT",
+    "ASM-LEG-R": "DETAILED_CUSTOM_GEOMETRY",
+    "ACT-R-HIP-ROLL": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-R-HIP-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-R-KNEE-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "ACT-R-ANKLE-PITCH": "DIMENSION_DRAWING_RECONSTRUCTION",
+    "SYS-POWER": "MEASURED_ENVELOPE_NO_SKU",
+    "SYS-SENSING": "PLANNING_ENVELOPE_SKU_UNRESOLVED"
+  }
+}

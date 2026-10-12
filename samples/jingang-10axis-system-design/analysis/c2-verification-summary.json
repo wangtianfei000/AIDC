@@ -1,0 +1,48 @@
+{
+  "schemaValidation": "pass",
+  "oracle": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis",
+  "engine": {
+    "name": "AIDC Unit-aware Calculation Engine",
+    "version": "0.1.0"
+  },
+  "checks": [
+    {
+      "id": "totalMassResult",
+      "value": 817,
+      "unit": "g",
+      "target": 800,
+      "margin": -17.000000000000014,
+      "status": "fail",
+      "passed": true
+    },
+    {
+      "id": "enduranceResult",
+      "value": 1.9199999999999997,
+      "unit": "h",
+      "target": 2,
+      "margin": -0.08000000000000025,
+      "status": "fail",
+      "passed": true
+    },
+    {
+      "id": "peakElectricalPowerResult",
+      "value": 19.840000000000003,
+      "unit": "W",
+      "target": 19.200000000000003,
+      "margin": -0.6400000000000006,
+      "status": "fail",
+      "passed": true
+    },
+    {
+      "id": "stopResponseTimeResult",
+      "value": 128,
+      "unit": "ms",
+      "target": 500,
+      "margin": 372,
+      "status": "pass",
+      "passed": true
+    }
+  ],
+  "calculationDiagnostics": 0,
+  "parseErrors": 0
+}

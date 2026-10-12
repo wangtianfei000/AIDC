@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/artifact-descriptor.schema.json",
+  "title": "AIDC artifact descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifactId", "type", "path", "mediaType"],
+  "properties": {
+    "artifactId": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"},
+    "type": {"type": "string", "pattern": "^aidc\\.[a-z0-9.-]+$"},
+    "path": {"type": "string", "minLength": 1},
+    "mediaType": {"type": "string", "minLength": 1},
+    "schemaVersion": {"type": ["string", "null"]},
+    "sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "sizeBytes": {"type": ["integer", "null"], "minimum": 0},
+    "createdAt": {"type": ["string", "null"], "format": "date-time"},
+    "metadata": {"type": "object"}
+  }
+}
+

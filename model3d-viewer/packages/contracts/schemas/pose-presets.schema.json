@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/model3d/pose-presets-0.1.json",
+  "title": "Model3D Pose Presets",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "modelRevision", "poses"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.model3d.pose-presets/0.1" },
+    "modelId": { "type": "string", "minLength": 1 },
+    "modelRevision": { "type": "string", "minLength": 1 },
+    "poses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["poseId", "name", "jointValues", "updatedAt"],
+        "properties": {
+          "poseId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 40 },
+          "jointValues": {
+            "type": "object",
+            "additionalProperties": { "type": "number" }
+          },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

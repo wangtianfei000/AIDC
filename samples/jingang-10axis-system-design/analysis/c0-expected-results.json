@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.1",
+  "fixture": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis",
+  "purpose": "C0 hand-calculation oracle; assumption values are not verified design evidence.",
+  "inputs": {
+    "servoCount": 10,
+    "servoUnitMassG": 24.5,
+    "otherPlannedMassG": 572.0,
+    "maximumMassG": 800.0,
+    "batteryVoltageV": 6.4,
+    "batteryCapacityAh": 1.8,
+    "usableEnergyFraction": 0.8,
+    "electronicsAverageCurrentA": 0.5,
+    "servoBusAverageCurrentA": 0.25,
+    "minimumEnduranceH": 2.0,
+    "electronicsPeakCurrentA": 0.5,
+    "servoBusPeakCurrentA": 2.6,
+    "maximumSharedCurrentA": 3.0,
+    "commandDetectionTimeMs": 5.0,
+    "controlProcessingTimeMs": 3.0,
+    "actuatorStopResponseTimeMs": 120.0,
+    "maximumStopTimeMs": 500.0
+  },
+  "rows": [
+    {
+      "id": "totalMassResult",
+      "label": "整机规划质量",
+      "formula": "10 * 24.5 g + 572 g",
+      "value": 817.0,
+      "unit": "g",
+      "target": 800.0,
+      "targetUnit": "g",
+      "comparison": "<=",
+      "margin": -17.0,
+      "marginUnit": "g",
+      "status": "fail"
+    },
+    {
+      "id": "enduranceResult",
+      "label": "典型工况预计续航",
+      "formula": "(6.4 V * 1.8 Ah * 0.8) / (6.4 V * (0.5 A + 0.25 A))",
+      "intermediates": {
+        "nominalEnergyWh": 11.52,
+        "usableEnergyWh": 9.216,
+        "averagePowerW": 4.8
+      },
+      "value": 1.92,
+      "unit": "h",
+      "target": 2.0,
+      "targetUnit": "h",
+      "comparison": ">=",
+      "margin": -0.08,
+      "marginUnit": "h",
+      "status": "fail"
+    },
+    {
+      "id": "peakElectricalPowerResult",
+      "label": "峰值电功率",
+      "formula": "6.4 V * (0.5 A + 2.6 A)",
+      "value": 19.84,
+      "unit": "W",
+      "target": 19.2,
+      "targetUnit": "W",
+      "comparison": "<=",
+      "margin": -0.64,
+      "marginUnit": "W",
+      "status": "fail"
+    },
+    {
+      "id": "stopResponseTimeResult",
+      "label": "估算停止响应时间",
+      "formula": "5 ms + 3 ms + 120 ms",
+      "value": 128.0,
+      "unit": "ms",
+      "target": 500.0,
+      "targetUnit": "ms",
+      "comparison": "<=",
+      "margin": 372.0,
+      "marginUnit": "ms",
+      "status": "pass"
+    }
+  ],
+  "tableView": {
+    "qualifiedName": "JingangNative10ParameterTableContract::coreParameterAnalysisTable",
+    "viewKind": "grid",
+    "renderingKind": "element-table",
+    "exposedElementIdsInOrder": [
+      "totalMassResult",
+      "enduranceResult",
+      "peakElectricalPowerResult",
+      "stopResponseTimeResult"
+    ],
+    "columnsInOrder": [
+      "parameter",
+      "role",
+      "currentValue",
+      "unit",
+      "target",
+      "margin",
+      "status",
+      "source"
+    ]
+  }
+}

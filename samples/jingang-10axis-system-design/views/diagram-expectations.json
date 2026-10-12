@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "0.1",
+  "model": "../architecture.sysml",
+  "views": [
+    {
+      "id": "jingang.whole-system",
+      "name": "金刚整机互连图",
+      "kind": "interconnection",
+      "context": "JingangNative10Architecture::JingangNative10",
+      "selection": {
+        "mode": "owned",
+        "depth": 1
+      },
+      "layout": {
+        "direction": "RIGHT",
+        "routing": "ORTHOGONAL"
+      },
+      "expected": {
+        "nodes": [
+          "bodyFrame",
+          "leftLeg",
+          "rightLeg",
+          "headNeck",
+          "powerSystem",
+          "computeSystem",
+          "motionController",
+          "sensingSystem"
+        ],
+        "ports": [
+          { "path": "leftLeg.powerIn", "projection": "declared" },
+          { "path": "leftLeg.controlIn", "projection": "declared" },
+          { "path": "rightLeg.powerIn", "projection": "declared" },
+          { "path": "rightLeg.controlIn", "projection": "declared" },
+          { "path": "headNeck.powerIn", "projection": "declared" },
+          { "path": "headNeck.controlIn", "projection": "declared" },
+          { "path": "powerSystem.servoPowerOut", "projection": "declared" },
+          { "path": "powerSystem.logicPowerOut", "projection": "declared" },
+          { "path": "computeSystem.powerIn", "projection": "declared" },
+          { "path": "computeSystem.commandOut", "projection": "declared" },
+          { "path": "motionController.powerIn", "projection": "declared" },
+          { "path": "motionController.commandIn", "projection": "declared" },
+          { "path": "motionController.imuIn", "projection": "declared" },
+          { "path": "motionController.servoBus", "projection": "declared" },
+          { "path": "sensingSystem.powerIn", "projection": "declared" },
+          { "path": "sensingSystem.imuDataOut", "projection": "declared" }
+        ],
+        "connections": [
+          { "source": "powerSystem.servoPowerOut", "target": "leftLeg.powerIn" },
+          { "source": "powerSystem.servoPowerOut", "target": "rightLeg.powerIn" },
+          { "source": "powerSystem.servoPowerOut", "target": "headNeck.powerIn" },
+          { "source": "powerSystem.logicPowerOut", "target": "computeSystem.powerIn" },
+          { "source": "powerSystem.logicPowerOut", "target": "motionController.powerIn" },
+          { "source": "powerSystem.logicPowerOut", "target": "sensingSystem.powerIn" },
+          { "source": "computeSystem.commandOut", "target": "motionController.commandIn" },
+          { "source": "sensingSystem.imuDataOut", "target": "motionController.imuIn" },
+          { "source": "motionController.servoBus", "target": "leftLeg.controlIn" },
+          { "source": "motionController.servoBus", "target": "rightLeg.controlIn" },
+          { "source": "motionController.servoBus", "target": "headNeck.controlIn" }
+        ]
+      }
+    },
+    {
+      "id": "jingang.left-leg",
+      "name": "左腿内部互连图",
+      "kind": "interconnection",
+      "context": "JingangNative10Architecture::JingangNative10::leftLeg",
+      "selection": {
+        "mode": "owned",
+        "depth": 1
+      },
+      "layout": {
+        "direction": "DOWN",
+        "routing": "ORTHOGONAL"
+      },
+      "expected": {
+        "nodes": [
+          "leftHipRoll",
+          "leftHipPitch",
+          "leftKneePitch",
+          "leftAnklePitch"
+        ],
+        "ports": [
+          { "path": "powerIn", "projection": "declared" },
+          { "path": "controlIn", "projection": "declared" },
+          { "path": "leftHipRoll.powerIn", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::powerIn" },
+          { "path": "leftHipRoll.servoBus", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::servoBus" },
+          { "path": "leftHipPitch.powerIn", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::powerIn" },
+          { "path": "leftHipPitch.servoBus", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::servoBus" },
+          { "path": "leftKneePitch.powerIn", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::powerIn" },
+          { "path": "leftKneePitch.servoBus", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::servoBus" },
+          { "path": "leftAnklePitch.powerIn", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::powerIn" },
+          { "path": "leftAnklePitch.servoBus", "projection": "typed", "definition": "JingangNative10Architecture::ServoActuator::servoBus" }
+        ],
+        "connections": [
+          { "source": "powerIn", "target": "leftHipRoll.powerIn" },
+          { "source": "powerIn", "target": "leftHipPitch.powerIn" },
+          { "source": "powerIn", "target": "leftKneePitch.powerIn" },
+          { "source": "powerIn", "target": "leftAnklePitch.powerIn" },
+          { "source": "controlIn", "target": "leftHipRoll.servoBus" },
+          { "source": "controlIn", "target": "leftHipPitch.servoBus" },
+          { "source": "controlIn", "target": "leftKneePitch.servoBus" },
+          { "source": "controlIn", "target": "leftAnklePitch.servoBus" }
+        ]
+      }
+    },
+    {
+      "id": "jingang.power-network",
+      "name": "整机供电网络图",
+      "kind": "interconnection",
+      "context": "JingangNative10Architecture::JingangNative10",
+      "selection": {
+        "mode": "connected",
+        "seed": "powerSystem",
+        "relationshipOwner": "JingangNative10Architecture::JingangNative10"
+      },
+      "layout": {
+        "direction": "RIGHT",
+        "routing": "ORTHOGONAL"
+      },
+      "expected": {
+        "nodes": [
+          "powerSystem",
+          "leftLeg",
+          "rightLeg",
+          "headNeck",
+          "computeSystem",
+          "motionController",
+          "sensingSystem"
+        ],
+        "ports": [
+          { "path": "powerSystem.servoPowerOut", "projection": "declared" },
+          { "path": "powerSystem.logicPowerOut", "projection": "declared" },
+          { "path": "leftLeg.powerIn", "projection": "declared" },
+          { "path": "rightLeg.powerIn", "projection": "declared" },
+          { "path": "headNeck.powerIn", "projection": "declared" },
+          { "path": "computeSystem.powerIn", "projection": "declared" },
+          { "path": "motionController.powerIn", "projection": "declared" },
+          { "path": "sensingSystem.powerIn", "projection": "declared" }
+        ],
+        "connections": [
+          { "source": "powerSystem.servoPowerOut", "target": "leftLeg.powerIn" },
+          { "source": "powerSystem.servoPowerOut", "target": "rightLeg.powerIn" },
+          { "source": "powerSystem.servoPowerOut", "target": "headNeck.powerIn" },
+          { "source": "powerSystem.logicPowerOut", "target": "computeSystem.powerIn" },
+          { "source": "powerSystem.logicPowerOut", "target": "motionController.powerIn" },
+          { "source": "powerSystem.logicPowerOut", "target": "sensingSystem.powerIn" }
+        ]
+      }
+    }
+  ]
+}

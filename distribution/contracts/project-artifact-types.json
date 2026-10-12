@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "0.1.0",
+  "projectTypes": [
+    {"id": "aidc.project.sysml", "recognition": ["*.sysml", "*.kerml"], "ownerCapability": "sysml.open"},
+    {"id": "aidc.project.model3d", "recognition": ["model3d.manifest.json"], "ownerCapability": "model3d.open"},
+    {"id": "aidc.project.assembly", "recognition": ["*.aidc-assembly/assembly.manifest.json"], "ownerCapability": "modelica.generate"},
+    {"id": "aidc.project.robot-ir", "recognition": ["physics.json", "devices.json", "interfaces.json"], "ownerCapability": "modelica.generate"},
+    {"id": "aidc.project.modelica", "recognition": ["model-project.json"], "ownerCapability": "modelica.open"},
+    {"id": "aidc.project.freecad", "recognition": ["*.FCStd", "*.step", "*.stp"], "ownerCapability": "freecad.open"}
+  ],
+  "artifactTypes": [
+    {"id": "aidc.sysml.snapshot", "mediaType": "application/vnd.aidc.sysml-snapshot+json", "schemaVersion": "0.1"},
+    {"id": "aidc.model3d.package", "mediaType": "application/vnd.aidc.model3d-project", "schemaVersion": "0.1"},
+    {"id": "aidc.assembly.package", "mediaType": "application/vnd.aidc.assembly-package", "schemaVersion": "1.0"},
+    {"id": "aidc.robot-ir.bundle", "mediaType": "application/vnd.aidc.robot-ir", "schemaVersion": "0.1"},
+    {"id": "aidc.modelica.project", "mediaType": "application/vnd.aidc.modelica-project", "schemaVersion": "2.0"},
+    {"id": "aidc.modelica.run", "mediaType": "application/vnd.aidc.modelica-run", "schemaVersion": "1.0"},
+    {"id": "aidc.modelica.package", "mediaType": "application/vnd.aidc.modelica-package", "schemaVersion": "1.0"},
+    {"id": "aidc.diagnostic.report", "mediaType": "application/vnd.aidc.diagnostics+json", "schemaVersion": "1.0"},
+    {"id": "aidc.browser.session", "mediaType": "application/vnd.aidc.browser-session+json", "schemaVersion": "1.0"}
+  ]
+}

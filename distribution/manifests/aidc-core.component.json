@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "id": "aidc.core",
+  "displayName": "AIDC Engineering Tools Core",
+  "description": "Host-independent CLI, MCP, task, artifact and runtime-management contracts.",
+  "version": "0.1.0",
+  "kind": "cli",
+  "platform": "windows",
+  "architecture": "x86_64",
+  "protocolVersion": "0.1",
+  "capabilities": ["system.capabilities", "system.doctor", "deps.status", "task.status", "task.cancel"],
+  "entryPoints": [
+    {"id": "cli", "relativePath": "bin/aidc.exe", "mode": "executable", "arguments": []},
+    {"id": "mcp", "relativePath": "bin/aidc-mcp.exe", "mode": "stdio", "arguments": []}
+  ],
+  "dependencies": [],
+  "licenses": [
+    {"name": "AIDC project license decision pending", "spdx": null, "status": "review-required", "noticePath": "licenses/THIRD_PARTY_BASELINE.md"}
+  ],
+  "distributionStatus": "blocked",
+  "healthCheck": {"type": "command", "target": "bin/aidc.exe", "arguments": ["doctor", "--json"], "timeoutSeconds": 30}
+}
+

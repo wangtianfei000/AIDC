@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://aidc.local/modelica-browser/run-manifest.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schemaVersion", "runId", "projectId", "modelClass", "status", "stage", "startedAt", "finishedAt", "exitCode", "sourceDigest", "sourceFiles", "toolchain", "platform", "solverSettings", "artifacts", "logs"],
+  "properties": {
+    "schemaVersion": { "const": "2.0" }, "runId": { "type": "string", "minLength": 1 }, "projectId": { "type": "string", "minLength": 1 }, "modelClass": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["queued", "validating", "compiling", "initializing", "solving", "evaluating", "completed", "failed", "cancelled"] }, "stage": { "type": "string", "minLength": 1 },
+    "startedAt": { "type": "string", "format": "date-time" }, "finishedAt": { "type": ["string", "null"], "format": "date-time" }, "exitCode": { "type": ["integer", "null"] },
+    "sourceDigest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }, "sourceFiles": { "type": "array", "items": { "$ref": "#/$defs/fileDigest" } },
+    "toolchain": { "type": "object", "additionalProperties": { "type": "string" } }, "platform": { "type": "object", "additionalProperties": { "type": "string" } },
+    "solverSettings": { "type": "object", "properties": { "solverFlags": { "type": "object", "additionalProperties": { "type": ["number", "string", "boolean"] } } }, "additionalProperties": { "type": ["number", "string", "boolean"] } },
+    "artifacts": { "type": "array", "items": { "allOf": [{ "$ref": "#/$defs/fileDigest" }, { "type": "object", "required": ["role"], "properties": { "role": { "type": "string", "minLength": 1 } } }] } },
+    "logs": { "type": "object", "additionalProperties": { "type": "string" } }
+  },
+  "$defs": { "fileDigest": { "type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes"], "properties": { "path": { "type": "string", "minLength": 1 }, "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }, "bytes": { "type": "integer", "minimum": 0 }, "role": { "type": "string" } } } }
+}

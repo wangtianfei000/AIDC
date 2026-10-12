@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "aidc.model3d.simulation-frame/0.1",
+  "time": 0,
+  "joints": {
+    "ACT-L-HIP-ROLL": 0.0,
+    "ACT-L-HIP-PITCH": 0.0,
+    "ACT-L-KNEE-PITCH": 0.08726646259971647,
+    "ACT-L-ANKLE-PITCH": 0.0,
+    "ACT-R-HIP-ROLL": 0.0,
+    "ACT-R-HIP-PITCH": 0.0,
+    "ACT-R-KNEE-PITCH": 0.08726646259971647,
+    "ACT-R-ANKLE-PITCH": 0.0,
+    "ACT-NECK-PITCH": 0.08726646259971647,
+    "ACT-HEAD-YAW": 0.0
+  }
+}

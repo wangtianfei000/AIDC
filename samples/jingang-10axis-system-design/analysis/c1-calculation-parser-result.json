@@ -1,0 +1,4479 @@
+{
+  "calculationModel": {
+    "analyses": [
+      {
+        "calculationUsageIds": [
+          "cu-114bbdfc0e7335bebb40786e",
+          "cu-31336f7acd0fde7d3c2cf363",
+          "cu-1efc1db8e0a517b33258e837",
+          "cu-d2891d4e59fcad939bb1712e"
+        ],
+        "constraintIds": [
+          "e-36eb8059e6660fe4a41d6f3f",
+          "e-fc677f1ff31de1716b60ad27",
+          "e-b9a22335b4aa337a933b5048",
+          "e-2e30eb3e41be95124c6ac6d8"
+        ],
+        "elementId": "e-14790b424c4939f1b0fa03d8",
+        "id": "e-14790b424c4939f1b0fa03d8",
+        "name": "coreParameterAnalysis",
+        "resultParameterIds": [
+          "e-1a021b6e10534f1439f0bfa9",
+          "e-240c593b89bd129dba56eb2f",
+          "e-781a8cf24cda365f5ba5728b",
+          "e-3cad46019799e9eb30338e28",
+          "e-6726dac59fa3ba2ed5b14d7c",
+          "e-88006655387ffe6769b6afb9",
+          "e-668027d77d99c5ba94efb9e7",
+          "e-ef99a43ae6c196e6d7a61d54",
+          "e-35e789395690fba674cf3083"
+        ],
+        "source": {
+          "end": {
+            "column": 35,
+            "line": 66,
+            "offset": 2933
+          },
+          "start": {
+            "column": 14,
+            "line": 66,
+            "offset": 2912
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "subjectId": "e-b55086264a524408bb4d4094",
+        "subjectReference": "c0Configuration"
+      }
+    ],
+    "constraints": [
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "elementId": "e-36eb8059e6660fe4a41d6f3f",
+        "expression": "totalMassResult <= ",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "totalMassResult"
+          },
+          "operator": "<=",
+          "right": {
+            "kind": "unsupported",
+            "text": ""
+          }
+        },
+        "id": "e-36eb8059e6660fe4a41d6f3f",
+        "name": "massWithinLimit",
+        "source": {
+          "end": {
+            "column": 35,
+            "line": 74,
+            "offset": 3302
+          },
+          "start": {
+            "column": 20,
+            "line": 74,
+            "offset": 3287
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "elementId": "e-fc677f1ff31de1716b60ad27",
+        "expression": "enduranceResult >= ",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "enduranceResult"
+          },
+          "operator": ">=",
+          "right": {
+            "kind": "unsupported",
+            "text": ""
+          }
+        },
+        "id": "e-fc677f1ff31de1716b60ad27",
+        "name": "enduranceMeetsMinimum",
+        "source": {
+          "end": {
+            "column": 41,
+            "line": 83,
+            "offset": 3827
+          },
+          "start": {
+            "column": 20,
+            "line": 83,
+            "offset": 3806
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "elementId": "e-b9a22335b4aa337a933b5048",
+        "expression": "peakElectricalPowerResult <= maximumPeakElectricalPower",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "peakElectricalPowerResult"
+          },
+          "operator": "<=",
+          "right": {
+            "kind": "reference",
+            "path": "maximumPeakElectricalPower"
+          }
+        },
+        "id": "e-b9a22335b4aa337a933b5048",
+        "name": "peakElectricalPowerWithinLimit",
+        "source": {
+          "end": {
+            "column": 50,
+            "line": 93,
+            "offset": 4450
+          },
+          "start": {
+            "column": 20,
+            "line": 93,
+            "offset": 4420
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "elementId": "e-2e30eb3e41be95124c6ac6d8",
+        "expression": "stopResponseTimeResult <= ",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "stopResponseTimeResult"
+          },
+          "operator": "<=",
+          "right": {
+            "kind": "unsupported",
+            "text": ""
+          }
+        },
+        "id": "e-2e30eb3e41be95124c6ac6d8",
+        "name": "stopResponseWithinLimit",
+        "source": {
+          "end": {
+            "column": 43,
+            "line": 103,
+            "offset": 4951
+          },
+          "start": {
+            "column": 20,
+            "line": 103,
+            "offset": 4928
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      }
+    ],
+    "definitions": [
+      {
+        "elementId": "e-c34774c5e5a9ffb215fd3dbe",
+        "id": "e-c34774c5e5a9ffb215fd3dbe",
+        "inputParameterIds": [
+          "e-a20031d7810fe7f92580342c",
+          "e-56c6bb5d02a8709dbae4979c",
+          "e-1f84fa328bd4e35eb064e075"
+        ],
+        "localParameterIds": [],
+        "name": "ComputeTotalMass",
+        "outputParameterIds": [
+          "e-d1f9a7e3c7a9d9bc8efa1e59"
+        ],
+        "source": {
+          "end": {
+            "column": 30,
+            "line": 3,
+            "offset": 83
+          },
+          "start": {
+            "column": 14,
+            "line": 3,
+            "offset": 67
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "elementId": "e-13e91b0290edf4c804fc0cfe",
+        "id": "e-13e91b0290edf4c804fc0cfe",
+        "inputParameterIds": [
+          "e-b785945dcdc27fdefa8f953f",
+          "e-ca76f18e5779e999baca9966",
+          "e-2d92c4725fc7174199484ce8",
+          "e-1e71ca2de0cb5d2c5d284666",
+          "e-ce45bf8a6ec8eb9af8266ba1"
+        ],
+        "localParameterIds": [
+          "e-6508c2dadaaf61e7bf1da856",
+          "e-582c91e08f7a849437d4c119",
+          "e-56cf279283d6eaf6b1866db1"
+        ],
+        "name": "ComputeEndurance",
+        "outputParameterIds": [
+          "e-7ac40d37bf8654909d2d9a23"
+        ],
+        "source": {
+          "end": {
+            "column": 30,
+            "line": 10,
+            "offset": 330
+          },
+          "start": {
+            "column": 14,
+            "line": 10,
+            "offset": 314
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "elementId": "e-335cf1df5578587708b5848a",
+        "id": "e-335cf1df5578587708b5848a",
+        "inputParameterIds": [
+          "e-27ed4d5e6e4fc6f3d574eeb7",
+          "e-c089ae5ab57fb48884e87f26",
+          "e-993ab918c10729acb00eb54a"
+        ],
+        "localParameterIds": [],
+        "name": "ComputePeakElectricalPower",
+        "outputParameterIds": [
+          "e-d68407108dfcef4a5c5127b1"
+        ],
+        "source": {
+          "end": {
+            "column": 40,
+            "line": 24,
+            "offset": 1031
+          },
+          "start": {
+            "column": 14,
+            "line": 24,
+            "offset": 1005
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "elementId": "e-463f32c22b1f6c47b8e98377",
+        "id": "e-463f32c22b1f6c47b8e98377",
+        "inputParameterIds": [
+          "e-86a3d3b7c0eae166dd8df1ef",
+          "e-b66ef7d68e614a58199f69be",
+          "e-a31274301fc95977e8cdb7ed"
+        ],
+        "localParameterIds": [],
+        "name": "ComputeStopResponseTime",
+        "outputParameterIds": [
+          "e-40703fae7dfd0ebded8a8dae"
+        ],
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 32,
+            "offset": 1381
+          },
+          "start": {
+            "column": 14,
+            "line": 32,
+            "offset": 1358
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "elementId": "e-a20031d7810fe7f92580342c",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-a20031d7810fe7f92580342c",
+        "name": "servoCount",
+        "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 22,
+            "line": 4,
+            "offset": 108
+          },
+          "start": {
+            "column": 9,
+            "line": 4,
+            "offset": 95
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "Integer",
+        "unit": null
+      },
+      {
+        "elementId": "e-56c6bb5d02a8709dbae4979c",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-56c6bb5d02a8709dbae4979c",
+        "name": "servoUnitMass",
+        "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 25,
+            "line": 5,
+            "offset": 145
+          },
+          "start": {
+            "column": 9,
+            "line": 5,
+            "offset": 129
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-1f84fa328bd4e35eb064e075",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-1f84fa328bd4e35eb064e075",
+        "name": "otherPlannedMass",
+        "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 28,
+            "line": 6,
+            "offset": 188
+          },
+          "start": {
+            "column": 9,
+            "line": 6,
+            "offset": 169
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-d1f9a7e3c7a9d9bc8efa1e59",
+        "expression": "servoCount*servoUnitMass+otherPlannedMass",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "servoCount"
+            },
+            "operator": "*",
+            "right": {
+              "kind": "reference",
+              "path": "servoUnitMass"
+            }
+          },
+          "operator": "+",
+          "right": {
+            "kind": "reference",
+            "path": "otherPlannedMass"
+          }
+        },
+        "id": "e-d1f9a7e3c7a9d9bc8efa1e59",
+        "name": "totalMass",
+        "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+        "role": "output",
+        "source": {
+          "end": {
+            "column": 25,
+            "line": 7,
+            "offset": 228
+          },
+          "start": {
+            "column": 16,
+            "line": 7,
+            "offset": 219
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": null
+      },
+      {
+        "elementId": "e-b785945dcdc27fdefa8f953f",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-b785945dcdc27fdefa8f953f",
+        "name": "batteryVoltage",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 26,
+            "line": 11,
+            "offset": 359
+          },
+          "start": {
+            "column": 9,
+            "line": 11,
+            "offset": 342
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-ca76f18e5779e999baca9966",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-ca76f18e5779e999baca9966",
+        "name": "batteryCapacity",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 27,
+            "line": 12,
+            "offset": 414
+          },
+          "start": {
+            "column": 9,
+            "line": 12,
+            "offset": 396
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-2d92c4725fc7174199484ce8",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-2d92c4725fc7174199484ce8",
+        "name": "usableEnergyFraction",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 13,
+            "offset": 471
+          },
+          "start": {
+            "column": 9,
+            "line": 13,
+            "offset": 448
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-1e71ca2de0cb5d2c5d284666",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-1e71ca2de0cb5d2c5d284666",
+        "name": "electronicsAverageCurrent",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 14,
+            "offset": 517
+          },
+          "start": {
+            "column": 9,
+            "line": 14,
+            "offset": 489
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-ce45bf8a6ec8eb9af8266ba1",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-ce45bf8a6ec8eb9af8266ba1",
+        "name": "servoBusAverageCurrent",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 15,
+            "offset": 577
+          },
+          "start": {
+            "column": 9,
+            "line": 15,
+            "offset": 552
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-6508c2dadaaf61e7bf1da856",
+        "expression": "batteryVoltage*batteryCapacity",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "batteryVoltage"
+          },
+          "operator": "*",
+          "right": {
+            "kind": "reference",
+            "path": "batteryCapacity"
+          }
+        },
+        "id": "e-6508c2dadaaf61e7bf1da856",
+        "name": "nominalEnergy",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 17,
+            "offset": 637
+          },
+          "start": {
+            "column": 19,
+            "line": 17,
+            "offset": 624
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::energy",
+        "unit": null
+      },
+      {
+        "elementId": "e-582c91e08f7a849437d4c119",
+        "expression": "nominalEnergy*usableEnergyFraction",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "nominalEnergy"
+          },
+          "operator": "*",
+          "right": {
+            "kind": "reference",
+            "path": "usableEnergyFraction"
+          }
+        },
+        "id": "e-582c91e08f7a849437d4c119",
+        "name": "usableEnergy",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 31,
+            "line": 18,
+            "offset": 720
+          },
+          "start": {
+            "column": 19,
+            "line": 18,
+            "offset": 708
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::energy",
+        "unit": null
+      },
+      {
+        "elementId": "e-56cf279283d6eaf6b1866db1",
+        "expression": "batteryVoltage*(electronicsAverageCurrent+servoBusAverageCurrent)",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "batteryVoltage"
+          },
+          "operator": "*",
+          "right": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "electronicsAverageCurrent"
+            },
+            "operator": "+",
+            "right": {
+              "kind": "reference",
+              "path": "servoBusAverageCurrent"
+            }
+          }
+        },
+        "id": "e-56cf279283d6eaf6b1866db1",
+        "name": "averagePower",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 31,
+            "line": 19,
+            "offset": 807
+          },
+          "start": {
+            "column": 19,
+            "line": 19,
+            "offset": 795
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::power",
+        "unit": null
+      },
+      {
+        "elementId": "e-7ac40d37bf8654909d2d9a23",
+        "expression": "usableEnergy/averagePower",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "usableEnergy"
+          },
+          "operator": "/",
+          "right": {
+            "kind": "reference",
+            "path": "averagePower"
+          }
+        },
+        "id": "e-7ac40d37bf8654909d2d9a23",
+        "name": "endurance",
+        "ownerId": "e-13e91b0290edf4c804fc0cfe",
+        "role": "output",
+        "source": {
+          "end": {
+            "column": 25,
+            "line": 21,
+            "offset": 933
+          },
+          "start": {
+            "column": 16,
+            "line": 21,
+            "offset": 924
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-27ed4d5e6e4fc6f3d574eeb7",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-27ed4d5e6e4fc6f3d574eeb7",
+        "name": "batteryVoltage",
+        "ownerId": "e-335cf1df5578587708b5848a",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 26,
+            "line": 25,
+            "offset": 1060
+          },
+          "start": {
+            "column": 9,
+            "line": 25,
+            "offset": 1043
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-c089ae5ab57fb48884e87f26",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-c089ae5ab57fb48884e87f26",
+        "name": "electronicsPeakCurrent",
+        "ownerId": "e-335cf1df5578587708b5848a",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 26,
+            "offset": 1122
+          },
+          "start": {
+            "column": 9,
+            "line": 26,
+            "offset": 1097
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-993ab918c10729acb00eb54a",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-993ab918c10729acb00eb54a",
+        "name": "servoBusPeakCurrent",
+        "ownerId": "e-335cf1df5578587708b5848a",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 31,
+            "line": 27,
+            "offset": 1179
+          },
+          "start": {
+            "column": 9,
+            "line": 27,
+            "offset": 1157
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-d68407108dfcef4a5c5127b1",
+        "expression": "batteryVoltage*(electronicsPeakCurrent+servoBusPeakCurrent)",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "batteryVoltage"
+          },
+          "operator": "*",
+          "right": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "electronicsPeakCurrent"
+            },
+            "operator": "+",
+            "right": {
+              "kind": "reference",
+              "path": "servoBusPeakCurrent"
+            }
+          }
+        },
+        "id": "e-d68407108dfcef4a5c5127b1",
+        "name": "peakElectricalPower",
+        "ownerId": "e-335cf1df5578587708b5848a",
+        "role": "output",
+        "source": {
+          "end": {
+            "column": 35,
+            "line": 28,
+            "offset": 1240
+          },
+          "start": {
+            "column": 16,
+            "line": 28,
+            "offset": 1221
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::power",
+        "unit": null
+      },
+      {
+        "elementId": "e-86a3d3b7c0eae166dd8df1ef",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-86a3d3b7c0eae166dd8df1ef",
+        "name": "commandDetectionTime",
+        "ownerId": "e-463f32c22b1f6c47b8e98377",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 33,
+            "offset": 1416
+          },
+          "start": {
+            "column": 9,
+            "line": 33,
+            "offset": 1393
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-b66ef7d68e614a58199f69be",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-b66ef7d68e614a58199f69be",
+        "name": "controlProcessingTime",
+        "ownerId": "e-463f32c22b1f6c47b8e98377",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 33,
+            "line": 34,
+            "offset": 1468
+          },
+          "start": {
+            "column": 9,
+            "line": 34,
+            "offset": 1444
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-a31274301fc95977e8cdb7ed",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-a31274301fc95977e8cdb7ed",
+        "name": "actuatorStopResponseTime",
+        "ownerId": "e-463f32c22b1f6c47b8e98377",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 36,
+            "line": 35,
+            "offset": 1523
+          },
+          "start": {
+            "column": 9,
+            "line": 35,
+            "offset": 1496
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": null,
+        "unit": null
+      },
+      {
+        "elementId": "e-40703fae7dfd0ebded8a8dae",
+        "expression": "commandDetectionTime+controlProcessingTime+actuatorStopResponseTime",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "commandDetectionTime"
+            },
+            "operator": "+",
+            "right": {
+              "kind": "reference",
+              "path": "controlProcessingTime"
+            }
+          },
+          "operator": "+",
+          "right": {
+            "kind": "reference",
+            "path": "actuatorStopResponseTime"
+          }
+        },
+        "id": "e-40703fae7dfd0ebded8a8dae",
+        "name": "stopResponseTime",
+        "ownerId": "e-463f32c22b1f6c47b8e98377",
+        "role": "output",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 36,
+            "offset": 1574
+          },
+          "start": {
+            "column": 16,
+            "line": 36,
+            "offset": 1558
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-efc7e90e532574108ad7260b",
+        "expression": "10",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "10",
+          "value": 10
+        },
+        "id": "e-efc7e90e532574108ad7260b",
+        "name": "servoCount",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 22,
+            "line": 4,
+            "offset": 108
+          },
+          "start": {
+            "column": 12,
+            "line": 4,
+            "offset": 98
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "Integer",
+        "unit": null
+      },
+      {
+        "elementId": "e-6afcc385852c87df7b22c27b",
+        "expression": "24.5[g]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "24.5",
+          "unit": "g",
+          "value": 24.5
+        },
+        "id": "e-6afcc385852c87df7b22c27b",
+        "name": "servoUnitMass",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 25,
+            "line": 5,
+            "offset": 145
+          },
+          "start": {
+            "column": 12,
+            "line": 5,
+            "offset": 132
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": "g"
+      },
+      {
+        "elementId": "e-5e851b829ed0fb5c82404ab5",
+        "expression": "572[g]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "572",
+          "unit": "g",
+          "value": 572
+        },
+        "id": "e-5e851b829ed0fb5c82404ab5",
+        "name": "otherPlannedMass",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 28,
+            "line": 6,
+            "offset": 188
+          },
+          "start": {
+            "column": 12,
+            "line": 6,
+            "offset": 172
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": "g"
+      },
+      {
+        "elementId": "e-5304e5285acee7093663ac2f",
+        "expression": "800[g]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "800",
+          "unit": "g",
+          "value": 800
+        },
+        "id": "e-5304e5285acee7093663ac2f",
+        "name": "maximumMass",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 30,
+            "line": 45,
+            "offset": 1914
+          },
+          "start": {
+            "column": 19,
+            "line": 45,
+            "offset": 1903
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": "g"
+      },
+      {
+        "elementId": "e-484aa1c9fd02714b78407fc7",
+        "expression": "6.4[V]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "6.4",
+          "unit": "V",
+          "value": 6.4
+        },
+        "id": "e-484aa1c9fd02714b78407fc7",
+        "name": "batteryVoltage",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 26,
+            "line": 11,
+            "offset": 359
+          },
+          "start": {
+            "column": 12,
+            "line": 11,
+            "offset": 345
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricPotential",
+        "unit": "V"
+      },
+      {
+        "elementId": "e-62105cc4f8a7861a4d80df06",
+        "expression": "1.8[Ah]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "1.8",
+          "unit": "Ah",
+          "value": 1.8
+        },
+        "id": "e-62105cc4f8a7861a4d80df06",
+        "name": "batteryCapacity",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 27,
+            "line": 12,
+            "offset": 414
+          },
+          "start": {
+            "column": 12,
+            "line": 12,
+            "offset": 399
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricCharge",
+        "unit": "Ah"
+      },
+      {
+        "elementId": "e-532d5f813d65d068a2c76433",
+        "expression": "0.8",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "0.8",
+          "value": 0.8
+        },
+        "id": "e-532d5f813d65d068a2c76433",
+        "name": "usableEnergyFraction",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 13,
+            "offset": 471
+          },
+          "start": {
+            "column": 12,
+            "line": 13,
+            "offset": 451
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-f55c401f80668f157f801828",
+        "expression": "0.5[A]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "0.5",
+          "unit": "A",
+          "value": 0.5
+        },
+        "id": "e-f55c401f80668f157f801828",
+        "name": "electronicsAverageCurrent",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 14,
+            "offset": 517
+          },
+          "start": {
+            "column": 12,
+            "line": 14,
+            "offset": 492
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricCurrent",
+        "unit": "A"
+      },
+      {
+        "elementId": "e-03d480ffa4c4b57dbe035f0b",
+        "expression": "0.25[A]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "0.25",
+          "unit": "A",
+          "value": 0.25
+        },
+        "id": "e-03d480ffa4c4b57dbe035f0b",
+        "name": "servoBusAverageCurrent",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 15,
+            "offset": 577
+          },
+          "start": {
+            "column": 12,
+            "line": 15,
+            "offset": 555
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricCurrent",
+        "unit": "A"
+      },
+      {
+        "elementId": "e-f378604505e109a4d79d4025",
+        "expression": "2[h]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "2",
+          "unit": "h",
+          "value": 2
+        },
+        "id": "e-f378604505e109a4d79d4025",
+        "name": "minimumEndurance",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 35,
+            "line": 52,
+            "offset": 2324
+          },
+          "start": {
+            "column": 19,
+            "line": 52,
+            "offset": 2308
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": "h"
+      },
+      {
+        "elementId": "e-6bb97cf8d85c5df2cea5084a",
+        "expression": "0.5[A]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "0.5",
+          "unit": "A",
+          "value": 0.5
+        },
+        "id": "e-6bb97cf8d85c5df2cea5084a",
+        "name": "electronicsPeakCurrent",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 26,
+            "offset": 1122
+          },
+          "start": {
+            "column": 12,
+            "line": 26,
+            "offset": 1100
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricCurrent",
+        "unit": "A"
+      },
+      {
+        "elementId": "e-d3474b052b43b7b04a2211ac",
+        "expression": "2.6[A]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "2.6",
+          "unit": "A",
+          "value": 2.6
+        },
+        "id": "e-d3474b052b43b7b04a2211ac",
+        "name": "servoBusPeakCurrent",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 31,
+            "line": 27,
+            "offset": 1179
+          },
+          "start": {
+            "column": 12,
+            "line": 27,
+            "offset": 1160
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricCurrent",
+        "unit": "A"
+      },
+      {
+        "elementId": "e-feb675ad1baea57e33509bfb",
+        "expression": "3[A]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "3",
+          "unit": "A",
+          "value": 3
+        },
+        "id": "e-feb675ad1baea57e33509bfb",
+        "name": "maximumSharedCurrent",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 39,
+            "line": 56,
+            "offset": 2540
+          },
+          "start": {
+            "column": 19,
+            "line": 56,
+            "offset": 2520
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::electricCurrent",
+        "unit": "A"
+      },
+      {
+        "elementId": "e-da421c764bd6b9ed4db5f9a0",
+        "expression": "5[ms]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "5",
+          "unit": "ms",
+          "value": 5
+        },
+        "id": "e-da421c764bd6b9ed4db5f9a0",
+        "name": "commandDetectionTime",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 33,
+            "offset": 1416
+          },
+          "start": {
+            "column": 12,
+            "line": 33,
+            "offset": 1396
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": "ms"
+      },
+      {
+        "elementId": "e-15f6c9f89f7de64e470d4649",
+        "expression": "3[ms]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "3",
+          "unit": "ms",
+          "value": 3
+        },
+        "id": "e-15f6c9f89f7de64e470d4649",
+        "name": "controlProcessingTime",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 33,
+            "line": 34,
+            "offset": 1468
+          },
+          "start": {
+            "column": 12,
+            "line": 34,
+            "offset": 1447
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": "ms"
+      },
+      {
+        "elementId": "e-736ccaa7e7dd061fe30bea0f",
+        "expression": "120[ms]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "120",
+          "unit": "ms",
+          "value": 120
+        },
+        "id": "e-736ccaa7e7dd061fe30bea0f",
+        "name": "actuatorStopResponseTime",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 36,
+            "line": 35,
+            "offset": 1523
+          },
+          "start": {
+            "column": 12,
+            "line": 35,
+            "offset": 1499
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": "ms"
+      },
+      {
+        "elementId": "e-7901e7b29169153083de7850",
+        "expression": "500[ms]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "500",
+          "unit": "ms",
+          "value": 500
+        },
+        "id": "e-7901e7b29169153083de7850",
+        "name": "maximumStopTime",
+        "ownerId": "e-1113fdc31a1b6531501b903a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 61,
+            "offset": 2814
+          },
+          "start": {
+            "column": 19,
+            "line": 61,
+            "offset": 2799
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": "ms"
+      },
+      {
+        "elementId": "e-1a021b6e10534f1439f0bfa9",
+        "expression": "ComputeTotalMass(c0Configuration.servoCount,c0Configuration.servoUnitMass,c0Configuration.otherPlannedMass)",
+        "expressionAst": {
+          "arguments": [
+            {
+              "kind": "reference",
+              "path": "c0Configuration.servoCount"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.servoUnitMass"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.otherPlannedMass"
+            }
+          ],
+          "callee": "ComputeTotalMass",
+          "kind": "call"
+        },
+        "id": "e-1a021b6e10534f1439f0bfa9",
+        "name": "totalMassResult",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 69,
+            "offset": 3008
+          },
+          "start": {
+            "column": 19,
+            "line": 69,
+            "offset": 2993
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": null
+      },
+      {
+        "elementId": "e-240c593b89bd129dba56eb2f",
+        "expression": "c0Configuration.maximumMass-totalMassResult",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "c0Configuration.maximumMass"
+          },
+          "operator": "-",
+          "right": {
+            "kind": "reference",
+            "path": "totalMassResult"
+          }
+        },
+        "id": "e-240c593b89bd129dba56eb2f",
+        "name": "massMargin",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 29,
+            "line": 73,
+            "offset": 3204
+          },
+          "start": {
+            "column": 19,
+            "line": 73,
+            "offset": 3194
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": null
+      },
+      {
+        "elementId": "e-781a8cf24cda365f5ba5728b",
+        "expression": "ComputeEndurance(c0Configuration.batteryVoltage,c0Configuration.batteryCapacity,c0Configuration.usableEnergyFraction,c0Configuration.electronicsAverageCurrent,c0Configuration.servoBusAverageCurrent)",
+        "expressionAst": {
+          "arguments": [
+            {
+              "kind": "reference",
+              "path": "c0Configuration.batteryVoltage"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.batteryCapacity"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.usableEnergyFraction"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.electronicsAverageCurrent"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.servoBusAverageCurrent"
+            }
+          ],
+          "callee": "ComputeEndurance",
+          "kind": "call"
+        },
+        "id": "e-781a8cf24cda365f5ba5728b",
+        "name": "enduranceResult",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 76,
+            "offset": 3390
+          },
+          "start": {
+            "column": 19,
+            "line": 76,
+            "offset": 3375
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-3cad46019799e9eb30338e28",
+        "expression": "enduranceResult-c0Configuration.minimumEndurance",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "enduranceResult"
+          },
+          "operator": "-",
+          "right": {
+            "kind": "reference",
+            "path": "c0Configuration.minimumEndurance"
+          }
+        },
+        "id": "e-3cad46019799e9eb30338e28",
+        "name": "enduranceMargin",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 82,
+            "offset": 3714
+          },
+          "start": {
+            "column": 19,
+            "line": 82,
+            "offset": 3699
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-6726dac59fa3ba2ed5b14d7c",
+        "expression": "ComputePeakElectricalPower(c0Configuration.batteryVoltage,c0Configuration.electronicsPeakCurrent,c0Configuration.servoBusPeakCurrent)",
+        "expressionAst": {
+          "arguments": [
+            {
+              "kind": "reference",
+              "path": "c0Configuration.batteryVoltage"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.electronicsPeakCurrent"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.servoBusPeakCurrent"
+            }
+          ],
+          "callee": "ComputePeakElectricalPower",
+          "kind": "call"
+        },
+        "id": "e-6726dac59fa3ba2ed5b14d7c",
+        "name": "peakElectricalPowerResult",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 44,
+            "line": 85,
+            "offset": 3930
+          },
+          "start": {
+            "column": 19,
+            "line": 85,
+            "offset": 3905
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::power",
+        "unit": null
+      },
+      {
+        "elementId": "e-88006655387ffe6769b6afb9",
+        "expression": "c0Configuration.batteryVoltage*c0Configuration.maximumSharedCurrent",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "c0Configuration.batteryVoltage"
+          },
+          "operator": "*",
+          "right": {
+            "kind": "reference",
+            "path": "c0Configuration.maximumSharedCurrent"
+          }
+        },
+        "id": "e-88006655387ffe6769b6afb9",
+        "name": "maximumPeakElectricalPower",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 45,
+            "line": 89,
+            "offset": 4169
+          },
+          "start": {
+            "column": 19,
+            "line": 89,
+            "offset": 4143
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::power",
+        "unit": null
+      },
+      {
+        "elementId": "e-668027d77d99c5ba94efb9e7",
+        "expression": "maximumPeakElectricalPower-peakElectricalPowerResult",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "maximumPeakElectricalPower"
+          },
+          "operator": "-",
+          "right": {
+            "kind": "reference",
+            "path": "peakElectricalPowerResult"
+          }
+        },
+        "id": "e-668027d77d99c5ba94efb9e7",
+        "name": "peakElectricalPowerMargin",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 44,
+            "line": 91,
+            "offset": 4314
+          },
+          "start": {
+            "column": 19,
+            "line": 91,
+            "offset": 4289
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::power",
+        "unit": null
+      },
+      {
+        "elementId": "e-ef99a43ae6c196e6d7a61d54",
+        "expression": "ComputeStopResponseTime(c0Configuration.commandDetectionTime,c0Configuration.controlProcessingTime,c0Configuration.actuatorStopResponseTime)",
+        "expressionAst": {
+          "arguments": [
+            {
+              "kind": "reference",
+              "path": "c0Configuration.commandDetectionTime"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.controlProcessingTime"
+            },
+            {
+              "kind": "reference",
+              "path": "c0Configuration.actuatorStopResponseTime"
+            }
+          ],
+          "callee": "ComputeStopResponseTime",
+          "kind": "call"
+        },
+        "id": "e-ef99a43ae6c196e6d7a61d54",
+        "name": "stopResponseTimeResult",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 41,
+            "line": 97,
+            "offset": 4576
+          },
+          "start": {
+            "column": 19,
+            "line": 97,
+            "offset": 4554
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-35e789395690fba674cf3083",
+        "expression": "c0Configuration.maximumStopTime-stopResponseTimeResult",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "c0Configuration.maximumStopTime"
+          },
+          "operator": "-",
+          "right": {
+            "kind": "reference",
+            "path": "stopResponseTimeResult"
+          }
+        },
+        "id": "e-35e789395690fba674cf3083",
+        "name": "stopResponseMargin",
+        "ownerId": "e-14790b424c4939f1b0fa03d8",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 101,
+            "offset": 4817
+          },
+          "start": {
+            "column": 19,
+            "line": 101,
+            "offset": 4799
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      }
+    ],
+    "usages": [
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "arguments": [
+          {
+            "kind": "reference",
+            "path": "c0Configuration.servoCount"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.servoUnitMass"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.otherPlannedMass"
+          }
+        ],
+        "definitionId": "e-c34774c5e5a9ffb215fd3dbe",
+        "definitionName": "ComputeTotalMass",
+        "id": "cu-114bbdfc0e7335bebb40786e",
+        "resultParameterId": "e-1a021b6e10534f1439f0bfa9",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 69,
+            "offset": 3008
+          },
+          "start": {
+            "column": 19,
+            "line": 69,
+            "offset": 2993
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "arguments": [
+          {
+            "kind": "reference",
+            "path": "c0Configuration.batteryVoltage"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.batteryCapacity"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.usableEnergyFraction"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.electronicsAverageCurrent"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.servoBusAverageCurrent"
+          }
+        ],
+        "definitionId": "e-13e91b0290edf4c804fc0cfe",
+        "definitionName": "ComputeEndurance",
+        "id": "cu-31336f7acd0fde7d3c2cf363",
+        "resultParameterId": "e-781a8cf24cda365f5ba5728b",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 76,
+            "offset": 3390
+          },
+          "start": {
+            "column": 19,
+            "line": 76,
+            "offset": 3375
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "arguments": [
+          {
+            "kind": "reference",
+            "path": "c0Configuration.batteryVoltage"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.electronicsPeakCurrent"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.servoBusPeakCurrent"
+          }
+        ],
+        "definitionId": "e-335cf1df5578587708b5848a",
+        "definitionName": "ComputePeakElectricalPower",
+        "id": "cu-1efc1db8e0a517b33258e837",
+        "resultParameterId": "e-6726dac59fa3ba2ed5b14d7c",
+        "source": {
+          "end": {
+            "column": 44,
+            "line": 85,
+            "offset": 3930
+          },
+          "start": {
+            "column": 19,
+            "line": 85,
+            "offset": 3905
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      },
+      {
+        "analysisId": "e-14790b424c4939f1b0fa03d8",
+        "arguments": [
+          {
+            "kind": "reference",
+            "path": "c0Configuration.commandDetectionTime"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.controlProcessingTime"
+          },
+          {
+            "kind": "reference",
+            "path": "c0Configuration.actuatorStopResponseTime"
+          }
+        ],
+        "definitionId": "e-463f32c22b1f6c47b8e98377",
+        "definitionName": "ComputeStopResponseTime",
+        "id": "cu-d2891d4e59fcad939bb1712e",
+        "resultParameterId": "e-ef99a43ae6c196e6d7a61d54",
+        "source": {
+          "end": {
+            "column": 41,
+            "line": 97,
+            "offset": 4576
+          },
+          "start": {
+            "column": 19,
+            "line": 97,
+            "offset": 4554
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+        }
+      }
+    ],
+    "version": "0.1"
+  },
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "calculation.analysis": "supported",
+    "calculation.definition": "supported",
+    "calculation.expression-ast": "partial",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported",
+    "view.definition": "supported",
+    "view.expose": "supported",
+    "view.table-rendering": "supported"
+  },
+  "diagnostics": [
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 29 elements without a span; 33 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "3929a45718d1f116f63d3b64f3aa5b9a8ae464887b4f105b71d34a5c54f13dc7",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c1-062af55b67a5b32d",
+      "capabilityVersion": "0.6.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-1edb2c76c036a30c13e71d8f",
+      "kind": "Package",
+      "name": "JingangNative10ParameterAnalysisContract",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract",
+      "source": {
+        "end": {
+          "column": 49,
+          "line": 1,
+          "offset": 48
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-c34774c5e5a9ffb215fd3dbe",
+      "kind": "CalculationDefinition",
+      "name": "ComputeTotalMass",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeTotalMass",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 3,
+          "offset": 83
+        },
+        "start": {
+          "column": 14,
+          "line": 3,
+          "offset": 67
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-a20031d7810fe7f92580342c",
+      "kind": "ActionInputOutput",
+      "name": "in servoCount",
+      "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "servoCount",
+        "itemType": "Integer",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeTotalMass::in servoCount",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 4,
+          "offset": 108
+        },
+        "start": {
+          "column": 9,
+          "line": 4,
+          "offset": 95
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-56c6bb5d02a8709dbae4979c",
+      "kind": "ActionInputOutput",
+      "name": "in servoUnitMass",
+      "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "servoUnitMass",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeTotalMass::in servoUnitMass",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 5,
+          "offset": 145
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+          "offset": 129
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-1f84fa328bd4e35eb064e075",
+      "kind": "ActionInputOutput",
+      "name": "in otherPlannedMass",
+      "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "otherPlannedMass",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeTotalMass::in otherPlannedMass",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 6,
+          "offset": 188
+        },
+        "start": {
+          "column": 9,
+          "line": 6,
+          "offset": 169
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-d1f9a7e3c7a9d9bc8efa1e59",
+      "kind": "ReturnParameter",
+      "name": "totalMass",
+      "ownerId": "e-c34774c5e5a9ffb215fd3dbe",
+      "properties": {
+        "expression": "servoCount*servoUnitMass+otherPlannedMass",
+        "typeId": "lib-f8f29077ef90cf588ee7146c",
+        "typeName": "ISQ::mass",
+        "typeResolution": "official-library"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeTotalMass::totalMass",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 7,
+          "offset": 228
+        },
+        "start": {
+          "column": 16,
+          "line": 7,
+          "offset": 219
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-13e91b0290edf4c804fc0cfe",
+      "kind": "CalculationDefinition",
+      "name": "ComputeEndurance",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 10,
+          "offset": 330
+        },
+        "start": {
+          "column": 14,
+          "line": 10,
+          "offset": 314
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-b785945dcdc27fdefa8f953f",
+      "kind": "ActionInputOutput",
+      "name": "in batteryVoltage",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "batteryVoltage",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::in batteryVoltage",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 11,
+          "offset": 359
+        },
+        "start": {
+          "column": 9,
+          "line": 11,
+          "offset": 342
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-ca76f18e5779e999baca9966",
+      "kind": "ActionInputOutput",
+      "name": "in batteryCapacity",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "batteryCapacity",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::in batteryCapacity",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 12,
+          "offset": 414
+        },
+        "start": {
+          "column": 9,
+          "line": 12,
+          "offset": 396
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-2d92c4725fc7174199484ce8",
+      "kind": "ActionInputOutput",
+      "name": "in usableEnergyFraction",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "usableEnergyFraction",
+        "itemType": "Real",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::in usableEnergyFraction",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 13,
+          "offset": 471
+        },
+        "start": {
+          "column": 9,
+          "line": 13,
+          "offset": 448
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-1e71ca2de0cb5d2c5d284666",
+      "kind": "ActionInputOutput",
+      "name": "in electronicsAverageCurrent",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "electronicsAverageCurrent",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::in electronicsAverageCurrent",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 14,
+          "offset": 517
+        },
+        "start": {
+          "column": 9,
+          "line": 14,
+          "offset": 489
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-ce45bf8a6ec8eb9af8266ba1",
+      "kind": "ActionInputOutput",
+      "name": "in servoBusAverageCurrent",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "servoBusAverageCurrent",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::in servoBusAverageCurrent",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 15,
+          "offset": 577
+        },
+        "start": {
+          "column": 9,
+          "line": 15,
+          "offset": 552
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-6508c2dadaaf61e7bf1da856",
+      "kind": "Feature",
+      "name": "nominalEnergy",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "batteryVoltage*batteryCapacity"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::nominalEnergy",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 17,
+          "offset": 637
+        },
+        "start": {
+          "column": 19,
+          "line": 17,
+          "offset": 624
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-582c91e08f7a849437d4c119",
+      "kind": "Feature",
+      "name": "usableEnergy",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "nominalEnergy*usableEnergyFraction"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::usableEnergy",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 18,
+          "offset": 720
+        },
+        "start": {
+          "column": 19,
+          "line": 18,
+          "offset": 708
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-56cf279283d6eaf6b1866db1",
+      "kind": "Feature",
+      "name": "averagePower",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "batteryVoltage*(electronicsAverageCurrent+servoBusAverageCurrent)"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::averagePower",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 19,
+          "offset": 807
+        },
+        "start": {
+          "column": 19,
+          "line": 19,
+          "offset": 795
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-7ac40d37bf8654909d2d9a23",
+      "kind": "ReturnParameter",
+      "name": "endurance",
+      "ownerId": "e-13e91b0290edf4c804fc0cfe",
+      "properties": {
+        "expression": "usableEnergy/averagePower",
+        "typeId": "lib-8a726b5a1b15f30b42579922",
+        "typeName": "ISQ::duration",
+        "typeResolution": "official-library"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeEndurance::endurance",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 21,
+          "offset": 933
+        },
+        "start": {
+          "column": 16,
+          "line": 21,
+          "offset": 924
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-335cf1df5578587708b5848a",
+      "kind": "CalculationDefinition",
+      "name": "ComputePeakElectricalPower",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputePeakElectricalPower",
+      "source": {
+        "end": {
+          "column": 40,
+          "line": 24,
+          "offset": 1031
+        },
+        "start": {
+          "column": 14,
+          "line": 24,
+          "offset": 1005
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-27ed4d5e6e4fc6f3d574eeb7",
+      "kind": "ActionInputOutput",
+      "name": "in batteryVoltage",
+      "ownerId": "e-335cf1df5578587708b5848a",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "batteryVoltage",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputePeakElectricalPower::in batteryVoltage",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 25,
+          "offset": 1060
+        },
+        "start": {
+          "column": 9,
+          "line": 25,
+          "offset": 1043
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-c089ae5ab57fb48884e87f26",
+      "kind": "ActionInputOutput",
+      "name": "in electronicsPeakCurrent",
+      "ownerId": "e-335cf1df5578587708b5848a",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "electronicsPeakCurrent",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputePeakElectricalPower::in electronicsPeakCurrent",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 26,
+          "offset": 1122
+        },
+        "start": {
+          "column": 9,
+          "line": 26,
+          "offset": 1097
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-993ab918c10729acb00eb54a",
+      "kind": "ActionInputOutput",
+      "name": "in servoBusPeakCurrent",
+      "ownerId": "e-335cf1df5578587708b5848a",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "servoBusPeakCurrent",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputePeakElectricalPower::in servoBusPeakCurrent",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 27,
+          "offset": 1179
+        },
+        "start": {
+          "column": 9,
+          "line": 27,
+          "offset": 1157
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-d68407108dfcef4a5c5127b1",
+      "kind": "ReturnParameter",
+      "name": "peakElectricalPower",
+      "ownerId": "e-335cf1df5578587708b5848a",
+      "properties": {
+        "expression": "batteryVoltage*(electronicsPeakCurrent+servoBusPeakCurrent)",
+        "typeId": "lib-bda4589a24a897c1b74a4fce",
+        "typeName": "ISQ::power",
+        "typeResolution": "official-library"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputePeakElectricalPower::peakElectricalPower",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 28,
+          "offset": 1240
+        },
+        "start": {
+          "column": 16,
+          "line": 28,
+          "offset": 1221
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-463f32c22b1f6c47b8e98377",
+      "kind": "CalculationDefinition",
+      "name": "ComputeStopResponseTime",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeStopResponseTime",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 32,
+          "offset": 1381
+        },
+        "start": {
+          "column": 14,
+          "line": 32,
+          "offset": 1358
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-86a3d3b7c0eae166dd8df1ef",
+      "kind": "ActionInputOutput",
+      "name": "in commandDetectionTime",
+      "ownerId": "e-463f32c22b1f6c47b8e98377",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "commandDetectionTime",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeStopResponseTime::in commandDetectionTime",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 33,
+          "offset": 1416
+        },
+        "start": {
+          "column": 9,
+          "line": 33,
+          "offset": 1393
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-b66ef7d68e614a58199f69be",
+      "kind": "ActionInputOutput",
+      "name": "in controlProcessingTime",
+      "ownerId": "e-463f32c22b1f6c47b8e98377",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "controlProcessingTime",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeStopResponseTime::in controlProcessingTime",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 34,
+          "offset": 1468
+        },
+        "start": {
+          "column": 9,
+          "line": 34,
+          "offset": 1444
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-a31274301fc95977e8cdb7ed",
+      "kind": "ActionInputOutput",
+      "name": "in actuatorStopResponseTime",
+      "ownerId": "e-463f32c22b1f6c47b8e98377",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "actuatorStopResponseTime",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeStopResponseTime::in actuatorStopResponseTime",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 35,
+          "offset": 1523
+        },
+        "start": {
+          "column": 9,
+          "line": 35,
+          "offset": 1496
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-40703fae7dfd0ebded8a8dae",
+      "kind": "ReturnParameter",
+      "name": "stopResponseTime",
+      "ownerId": "e-463f32c22b1f6c47b8e98377",
+      "properties": {
+        "expression": "commandDetectionTime+controlProcessingTime+actuatorStopResponseTime",
+        "typeId": "lib-8a726b5a1b15f30b42579922",
+        "typeName": "ISQ::duration",
+        "typeResolution": "official-library"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::ComputeStopResponseTime::stopResponseTime",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 36,
+          "offset": 1574
+        },
+        "start": {
+          "column": 16,
+          "line": 36,
+          "offset": 1558
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-1113fdc31a1b6531501b903a",
+      "kind": "PartDefinition",
+      "name": "C0DesignInputs",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 40,
+          "offset": 1717
+        },
+        "start": {
+          "column": 14,
+          "line": 40,
+          "offset": 1703
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-efc7e90e532574108ad7260b",
+      "kind": "Feature",
+      "name": "servoCount",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "10"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::servoCount",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 4,
+          "offset": 108
+        },
+        "start": {
+          "column": 12,
+          "line": 4,
+          "offset": 98
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-6afcc385852c87df7b22c27b",
+      "kind": "Feature",
+      "name": "servoUnitMass",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "24.5[g]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::servoUnitMass",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 5,
+          "offset": 145
+        },
+        "start": {
+          "column": 12,
+          "line": 5,
+          "offset": 132
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-5e851b829ed0fb5c82404ab5",
+      "kind": "Feature",
+      "name": "otherPlannedMass",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "572[g]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::otherPlannedMass",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 6,
+          "offset": 188
+        },
+        "start": {
+          "column": 12,
+          "line": 6,
+          "offset": 172
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-5304e5285acee7093663ac2f",
+      "kind": "Feature",
+      "name": "maximumMass",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "800[g]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::maximumMass",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 45,
+          "offset": 1914
+        },
+        "start": {
+          "column": 19,
+          "line": 45,
+          "offset": 1903
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-484aa1c9fd02714b78407fc7",
+      "kind": "Feature",
+      "name": "batteryVoltage",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "V",
+        "valueExpression": "6.4[V]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::batteryVoltage",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 11,
+          "offset": 359
+        },
+        "start": {
+          "column": 12,
+          "line": 11,
+          "offset": 345
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-62105cc4f8a7861a4d80df06",
+      "kind": "Feature",
+      "name": "batteryCapacity",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "Ah",
+        "valueExpression": "1.8[Ah]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::batteryCapacity",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 12,
+          "offset": 414
+        },
+        "start": {
+          "column": 12,
+          "line": 12,
+          "offset": 399
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-532d5f813d65d068a2c76433",
+      "kind": "Feature",
+      "name": "usableEnergyFraction",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "0.8"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::usableEnergyFraction",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 13,
+          "offset": 471
+        },
+        "start": {
+          "column": 12,
+          "line": 13,
+          "offset": 451
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-f55c401f80668f157f801828",
+      "kind": "Feature",
+      "name": "electronicsAverageCurrent",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "0.5[A]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::electronicsAverageCurrent",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 14,
+          "offset": 517
+        },
+        "start": {
+          "column": 12,
+          "line": 14,
+          "offset": 492
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-03d480ffa4c4b57dbe035f0b",
+      "kind": "Feature",
+      "name": "servoBusAverageCurrent",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "0.25[A]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::servoBusAverageCurrent",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 15,
+          "offset": 577
+        },
+        "start": {
+          "column": 12,
+          "line": 15,
+          "offset": 555
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-f378604505e109a4d79d4025",
+      "kind": "Feature",
+      "name": "minimumEndurance",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "h",
+        "valueExpression": "2[h]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::minimumEndurance",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 52,
+          "offset": 2324
+        },
+        "start": {
+          "column": 19,
+          "line": 52,
+          "offset": 2308
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-6bb97cf8d85c5df2cea5084a",
+      "kind": "Feature",
+      "name": "electronicsPeakCurrent",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "0.5[A]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::electronicsPeakCurrent",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 26,
+          "offset": 1122
+        },
+        "start": {
+          "column": 12,
+          "line": 26,
+          "offset": 1100
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-d3474b052b43b7b04a2211ac",
+      "kind": "Feature",
+      "name": "servoBusPeakCurrent",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "2.6[A]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::servoBusPeakCurrent",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 27,
+          "offset": 1179
+        },
+        "start": {
+          "column": 12,
+          "line": 27,
+          "offset": 1160
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-feb675ad1baea57e33509bfb",
+      "kind": "Feature",
+      "name": "maximumSharedCurrent",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "3[A]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::maximumSharedCurrent",
+      "source": {
+        "end": {
+          "column": 39,
+          "line": 56,
+          "offset": 2540
+        },
+        "start": {
+          "column": 19,
+          "line": 56,
+          "offset": 2520
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-da421c764bd6b9ed4db5f9a0",
+      "kind": "Feature",
+      "name": "commandDetectionTime",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "5[ms]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::commandDetectionTime",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 33,
+          "offset": 1416
+        },
+        "start": {
+          "column": 12,
+          "line": 33,
+          "offset": 1396
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-15f6c9f89f7de64e470d4649",
+      "kind": "Feature",
+      "name": "controlProcessingTime",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "3[ms]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::controlProcessingTime",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 34,
+          "offset": 1468
+        },
+        "start": {
+          "column": 12,
+          "line": 34,
+          "offset": 1447
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-736ccaa7e7dd061fe30bea0f",
+      "kind": "Feature",
+      "name": "actuatorStopResponseTime",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "120[ms]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::actuatorStopResponseTime",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 35,
+          "offset": 1523
+        },
+        "start": {
+          "column": 12,
+          "line": 35,
+          "offset": 1499
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-7901e7b29169153083de7850",
+      "kind": "Feature",
+      "name": "maximumStopTime",
+      "ownerId": "e-1113fdc31a1b6531501b903a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "500[ms]"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::C0DesignInputs::maximumStopTime",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 61,
+          "offset": 2814
+        },
+        "start": {
+          "column": 19,
+          "line": 61,
+          "offset": 2799
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-b55086264a524408bb4d4094",
+      "kind": "PartUsage",
+      "name": "c0Configuration",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-1113fdc31a1b6531501b903a",
+        "typeName": "C0DesignInputs",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::c0Configuration",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 64,
+          "offset": 2877
+        },
+        "start": {
+          "column": 10,
+          "line": 64,
+          "offset": 2862
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-14790b424c4939f1b0fa03d8",
+      "kind": "AnalysisCase",
+      "name": "coreParameterAnalysis",
+      "ownerId": "e-1edb2c76c036a30c13e71d8f",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "subjectReference": "c0Configuration"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 66,
+          "offset": 2933
+        },
+        "start": {
+          "column": 14,
+          "line": 66,
+          "offset": 2912
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-16a9d5df4b30cabc66deb760",
+      "kind": "AnalysisSubject",
+      "name": "subject",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "reference": "c0Configuration"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::subject",
+      "source": {
+        "end": {
+          "column": 16,
+          "line": 67,
+          "offset": 2952
+        },
+        "start": {
+          "column": 9,
+          "line": 67,
+          "offset": 2945
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-1a021b6e10534f1439f0bfa9",
+      "kind": "Feature",
+      "name": "totalMassResult",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "ComputeTotalMass(c0Configuration.servoCount,c0Configuration.servoUnitMass,c0Configuration.otherPlannedMass)"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::totalMassResult",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 69,
+          "offset": 3008
+        },
+        "start": {
+          "column": 19,
+          "line": 69,
+          "offset": 2993
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-240c593b89bd129dba56eb2f",
+      "kind": "Feature",
+      "name": "massMargin",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "c0Configuration.maximumMass-totalMassResult"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::massMargin",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 73,
+          "offset": 3204
+        },
+        "start": {
+          "column": 19,
+          "line": 73,
+          "offset": 3194
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-36eb8059e6660fe4a41d6f3f",
+      "kind": "ConstraintStatement",
+      "name": "massWithinLimit",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "totalMassResult <= "
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::massWithinLimit",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 74,
+          "offset": 3302
+        },
+        "start": {
+          "column": 20,
+          "line": 74,
+          "offset": 3287
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-781a8cf24cda365f5ba5728b",
+      "kind": "Feature",
+      "name": "enduranceResult",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "ComputeEndurance(c0Configuration.batteryVoltage,c0Configuration.batteryCapacity,c0Configuration.usableEnergyFraction,c0Configuration.electronicsAverageCurrent,c0Configuration.servoBusAverageCurrent)"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::enduranceResult",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 76,
+          "offset": 3390
+        },
+        "start": {
+          "column": 19,
+          "line": 76,
+          "offset": 3375
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-3cad46019799e9eb30338e28",
+      "kind": "Feature",
+      "name": "enduranceMargin",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "enduranceResult-c0Configuration.minimumEndurance"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::enduranceMargin",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 82,
+          "offset": 3714
+        },
+        "start": {
+          "column": 19,
+          "line": 82,
+          "offset": 3699
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-fc677f1ff31de1716b60ad27",
+      "kind": "ConstraintStatement",
+      "name": "enduranceMeetsMinimum",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "enduranceResult >= "
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::enduranceMeetsMinimum",
+      "source": {
+        "end": {
+          "column": 41,
+          "line": 83,
+          "offset": 3827
+        },
+        "start": {
+          "column": 20,
+          "line": 83,
+          "offset": 3806
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-6726dac59fa3ba2ed5b14d7c",
+      "kind": "Feature",
+      "name": "peakElectricalPowerResult",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "ComputePeakElectricalPower(c0Configuration.batteryVoltage,c0Configuration.electronicsPeakCurrent,c0Configuration.servoBusPeakCurrent)"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::peakElectricalPowerResult",
+      "source": {
+        "end": {
+          "column": 44,
+          "line": 85,
+          "offset": 3930
+        },
+        "start": {
+          "column": 19,
+          "line": 85,
+          "offset": 3905
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-88006655387ffe6769b6afb9",
+      "kind": "Feature",
+      "name": "maximumPeakElectricalPower",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "c0Configuration.batteryVoltage*c0Configuration.maximumSharedCurrent"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::maximumPeakElectricalPower",
+      "source": {
+        "end": {
+          "column": 45,
+          "line": 89,
+          "offset": 4169
+        },
+        "start": {
+          "column": 19,
+          "line": 89,
+          "offset": 4143
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-668027d77d99c5ba94efb9e7",
+      "kind": "Feature",
+      "name": "peakElectricalPowerMargin",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "maximumPeakElectricalPower-peakElectricalPowerResult"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::peakElectricalPowerMargin",
+      "source": {
+        "end": {
+          "column": 44,
+          "line": 91,
+          "offset": 4314
+        },
+        "start": {
+          "column": 19,
+          "line": 91,
+          "offset": 4289
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-b9a22335b4aa337a933b5048",
+      "kind": "ConstraintStatement",
+      "name": "peakElectricalPowerWithinLimit",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "peakElectricalPowerResult <= maximumPeakElectricalPower"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::peakElectricalPowerWithinLimit",
+      "source": {
+        "end": {
+          "column": 50,
+          "line": 93,
+          "offset": 4450
+        },
+        "start": {
+          "column": 20,
+          "line": 93,
+          "offset": 4420
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-ef99a43ae6c196e6d7a61d54",
+      "kind": "Feature",
+      "name": "stopResponseTimeResult",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "ComputeStopResponseTime(c0Configuration.commandDetectionTime,c0Configuration.controlProcessingTime,c0Configuration.actuatorStopResponseTime)"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::stopResponseTimeResult",
+      "source": {
+        "end": {
+          "column": 41,
+          "line": 97,
+          "offset": 4576
+        },
+        "start": {
+          "column": 19,
+          "line": 97,
+          "offset": 4554
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-35e789395690fba674cf3083",
+      "kind": "Feature",
+      "name": "stopResponseMargin",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "c0Configuration.maximumStopTime-stopResponseTimeResult"
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::stopResponseMargin",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 101,
+          "offset": 4817
+        },
+        "start": {
+          "column": 19,
+          "line": 101,
+          "offset": 4799
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "e-2e30eb3e41be95124c6ac6d8",
+      "kind": "ConstraintStatement",
+      "name": "stopResponseWithinLimit",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "stopResponseTimeResult <= "
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::stopResponseWithinLimit",
+      "source": {
+        "end": {
+          "column": 43,
+          "line": 103,
+          "offset": 4951
+        },
+        "start": {
+          "column": 20,
+          "line": 103,
+          "offset": 4928
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "id": "lib-f8f29077ef90cf588ee7146c",
+      "kind": "LibraryElement",
+      "name": "mass",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::mass",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::mass",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 83,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 83,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-de11304bb1ed933e89547cb0",
+      "kind": "LibraryElement",
+      "name": "energy",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQThermodynamics::energy",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQThermodynamics.sysml"
+      },
+      "qualifiedName": "ISQ::energy",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 739,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 739,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQThermodynamics.sysml"
+      }
+    },
+    {
+      "id": "lib-bda4589a24a897c1b74a4fce",
+      "kind": "LibraryElement",
+      "name": "power",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQMechanics::power",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQMechanics.sysml"
+      },
+      "qualifiedName": "ISQ::power",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 1299,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 1299,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQMechanics.sysml"
+      }
+    },
+    {
+      "id": "lib-8a726b5a1b15f30b42579922",
+      "kind": "LibraryElement",
+      "name": "duration",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::duration",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::duration",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 58,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 58,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-030b6a5e30cbfa46faccb3b9",
+      "kind": "LibraryElement",
+      "name": "Integer",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::Integer",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "Integer",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 20,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 20,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    },
+    {
+      "id": "lib-353ca3359357af2cdc039ab5",
+      "kind": "LibraryElement",
+      "name": "electricPotential",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQElectromagnetism::electricPotential",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      },
+      "qualifiedName": "ISQ::electricPotential",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 430,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 430,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      }
+    },
+    {
+      "id": "lib-0a53a784ca352370c79397f8",
+      "kind": "LibraryElement",
+      "name": "electricCharge",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQElectromagnetism::electricCharge",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      },
+      "qualifiedName": "ISQ::electricCharge",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 46,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 46,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      }
+    },
+    {
+      "id": "lib-79b96ce78c9e1c5526e171dd",
+      "kind": "LibraryElement",
+      "name": "Real",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::Real",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "Real",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 18,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 18,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    },
+    {
+      "id": "lib-7ad35963a929322b4e84c3e3",
+      "kind": "LibraryElement",
+      "name": "electricCurrent",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::electricCurrent",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::electricCurrent",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 133,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 133,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-d2b1f68cfceec3790260dc5b",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6508c2dadaaf61e7bf1da856",
+      "properties": {
+        "typeName": "ISQ::energy"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6508c2dadaaf61e7bf1da856"
+      ],
+      "targetIds": [
+        "lib-de11304bb1ed933e89547cb0"
+      ]
+    },
+    {
+      "id": "e-26c2514aa272cf6929874889",
+      "kind": "FeatureTyping",
+      "ownerId": "e-582c91e08f7a849437d4c119",
+      "properties": {
+        "typeName": "ISQ::energy"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-582c91e08f7a849437d4c119"
+      ],
+      "targetIds": [
+        "lib-de11304bb1ed933e89547cb0"
+      ]
+    },
+    {
+      "id": "e-1fc9e1f3f0e9356377a531ee",
+      "kind": "FeatureTyping",
+      "ownerId": "e-56cf279283d6eaf6b1866db1",
+      "properties": {
+        "typeName": "ISQ::power"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-56cf279283d6eaf6b1866db1"
+      ],
+      "targetIds": [
+        "lib-bda4589a24a897c1b74a4fce"
+      ]
+    },
+    {
+      "id": "e-0f6c5f1e3a0eef5f56445180",
+      "kind": "FeatureTyping",
+      "ownerId": "e-efc7e90e532574108ad7260b",
+      "properties": {
+        "typeName": "Integer"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-efc7e90e532574108ad7260b"
+      ],
+      "targetIds": [
+        "lib-030b6a5e30cbfa46faccb3b9"
+      ]
+    },
+    {
+      "id": "e-0ab2be45b568de31d5cda6c3",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6afcc385852c87df7b22c27b",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6afcc385852c87df7b22c27b"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-b8f80de081003a975c33b5cc",
+      "kind": "FeatureTyping",
+      "ownerId": "e-5e851b829ed0fb5c82404ab5",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5e851b829ed0fb5c82404ab5"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-9ade2b53c8ce07e564c0fa7f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-5304e5285acee7093663ac2f",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5304e5285acee7093663ac2f"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-dd60b6b3d02a659fca3099e1",
+      "kind": "FeatureTyping",
+      "ownerId": "e-484aa1c9fd02714b78407fc7",
+      "properties": {
+        "typeName": "ISQ::electricPotential"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-484aa1c9fd02714b78407fc7"
+      ],
+      "targetIds": [
+        "lib-353ca3359357af2cdc039ab5"
+      ]
+    },
+    {
+      "id": "e-bd6e394c3c0a10ccc3c74ad0",
+      "kind": "FeatureTyping",
+      "ownerId": "e-62105cc4f8a7861a4d80df06",
+      "properties": {
+        "typeName": "ISQ::electricCharge"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-62105cc4f8a7861a4d80df06"
+      ],
+      "targetIds": [
+        "lib-0a53a784ca352370c79397f8"
+      ]
+    },
+    {
+      "id": "e-74bce4c03e8804e2bc31b8e8",
+      "kind": "FeatureTyping",
+      "ownerId": "e-532d5f813d65d068a2c76433",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-532d5f813d65d068a2c76433"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-80a8174ed60e76cda9692569",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f55c401f80668f157f801828",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f55c401f80668f157f801828"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-39274b968cd5272895fc80ea",
+      "kind": "FeatureTyping",
+      "ownerId": "e-03d480ffa4c4b57dbe035f0b",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-03d480ffa4c4b57dbe035f0b"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-310c65198d0f86e341ba5599",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f378604505e109a4d79d4025",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f378604505e109a4d79d4025"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-27e1234ccd1eca194cf28aa2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6bb97cf8d85c5df2cea5084a",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6bb97cf8d85c5df2cea5084a"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-835d2834188a624b53f30b2d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-d3474b052b43b7b04a2211ac",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-d3474b052b43b7b04a2211ac"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-e8bb3d23d3fd1061ab94d714",
+      "kind": "FeatureTyping",
+      "ownerId": "e-feb675ad1baea57e33509bfb",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-feb675ad1baea57e33509bfb"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-f55a2beeb8c455b80a44df1f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-da421c764bd6b9ed4db5f9a0",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-da421c764bd6b9ed4db5f9a0"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-fe35d172a90fcc2d90a0c5af",
+      "kind": "FeatureTyping",
+      "ownerId": "e-15f6c9f89f7de64e470d4649",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-15f6c9f89f7de64e470d4649"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-3c31bbf837b050408206eb14",
+      "kind": "FeatureTyping",
+      "ownerId": "e-736ccaa7e7dd061fe30bea0f",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-736ccaa7e7dd061fe30bea0f"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-18d9e32c75e35a2a06067eaf",
+      "kind": "FeatureTyping",
+      "ownerId": "e-7901e7b29169153083de7850",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-7901e7b29169153083de7850"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-56780069fbbec794dff39a67",
+      "kind": "FeatureTyping",
+      "ownerId": "e-1a021b6e10534f1439f0bfa9",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-1a021b6e10534f1439f0bfa9"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-95806f85e035b1ca5538fc7c",
+      "kind": "FeatureTyping",
+      "ownerId": "e-240c593b89bd129dba56eb2f",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-240c593b89bd129dba56eb2f"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-a45bee8d1f4ad7ef3aabf39b",
+      "kind": "FeatureTyping",
+      "ownerId": "e-781a8cf24cda365f5ba5728b",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-781a8cf24cda365f5ba5728b"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-33630c496e446d5c0e073ac5",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3cad46019799e9eb30338e28",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3cad46019799e9eb30338e28"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-28341b78739b587375c7971d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6726dac59fa3ba2ed5b14d7c",
+      "properties": {
+        "typeName": "ISQ::power"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6726dac59fa3ba2ed5b14d7c"
+      ],
+      "targetIds": [
+        "lib-bda4589a24a897c1b74a4fce"
+      ]
+    },
+    {
+      "id": "e-e693d3573cf5a6b0ebfdd2b4",
+      "kind": "FeatureTyping",
+      "ownerId": "e-88006655387ffe6769b6afb9",
+      "properties": {
+        "typeName": "ISQ::power"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-88006655387ffe6769b6afb9"
+      ],
+      "targetIds": [
+        "lib-bda4589a24a897c1b74a4fce"
+      ]
+    },
+    {
+      "id": "e-cdb35e661f0825bc81be986f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-668027d77d99c5ba94efb9e7",
+      "properties": {
+        "typeName": "ISQ::power"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-668027d77d99c5ba94efb9e7"
+      ],
+      "targetIds": [
+        "lib-bda4589a24a897c1b74a4fce"
+      ]
+    },
+    {
+      "id": "e-d13dc9135be4408ab912fae4",
+      "kind": "FeatureTyping",
+      "ownerId": "e-ef99a43ae6c196e6d7a61d54",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-ef99a43ae6c196e6d7a61d54"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-e917e76a4175aa863e0aca8f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-35e789395690fba674cf3083",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-35e789395690fba674cf3083"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "r-cf38e92da0058201d6da9486",
+      "kind": "Constraint",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "totalMassResult <= ",
+        "statementKind": "ConstraintStatement"
+      },
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 74,
+          "offset": 3302
+        },
+        "start": {
+          "column": 20,
+          "line": 74,
+          "offset": 3287
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      },
+      "sourceIds": [
+        "e-14790b424c4939f1b0fa03d8"
+      ],
+      "targetIds": [
+        "e-36eb8059e6660fe4a41d6f3f"
+      ]
+    },
+    {
+      "id": "r-76a46fac91821d01543aa2d2",
+      "kind": "Constraint",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "enduranceResult >= ",
+        "statementKind": "ConstraintStatement"
+      },
+      "source": {
+        "end": {
+          "column": 41,
+          "line": 83,
+          "offset": 3827
+        },
+        "start": {
+          "column": 20,
+          "line": 83,
+          "offset": 3806
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      },
+      "sourceIds": [
+        "e-14790b424c4939f1b0fa03d8"
+      ],
+      "targetIds": [
+        "e-fc677f1ff31de1716b60ad27"
+      ]
+    },
+    {
+      "id": "r-cd290515fc0c88cbb1867ede",
+      "kind": "Constraint",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "peakElectricalPowerResult <= maximumPeakElectricalPower",
+        "statementKind": "ConstraintStatement"
+      },
+      "source": {
+        "end": {
+          "column": 50,
+          "line": 93,
+          "offset": 4450
+        },
+        "start": {
+          "column": 20,
+          "line": 93,
+          "offset": 4420
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      },
+      "sourceIds": [
+        "e-14790b424c4939f1b0fa03d8"
+      ],
+      "targetIds": [
+        "e-b9a22335b4aa337a933b5048"
+      ]
+    },
+    {
+      "id": "r-0f153eca9209856529883ab4",
+      "kind": "Constraint",
+      "ownerId": "e-14790b424c4939f1b0fa03d8",
+      "properties": {
+        "expression": "stopResponseTimeResult <= ",
+        "statementKind": "ConstraintStatement"
+      },
+      "source": {
+        "end": {
+          "column": 43,
+          "line": 103,
+          "offset": 4951
+        },
+        "start": {
+          "column": 20,
+          "line": 103,
+          "offset": 4928
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      },
+      "sourceIds": [
+        "e-14790b424c4939f1b0fa03d8"
+      ],
+      "targetIds": [
+        "e-2e30eb3e41be95124c6ac6d8"
+      ]
+    }
+  ],
+  "schemaVersion": "0.1",
+  "viewModel": {
+    "definitions": [],
+    "renderings": [],
+    "version": "0.1",
+    "views": []
+  }
+}

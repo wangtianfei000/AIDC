@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/model3d/model-package-0.1.json",
+  "title": "AIDC Model3D Package Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "revision", "name", "manufacturingStatus", "coordinateSystem", "assets", "rootBodyId", "bodies", "components", "productStructure", "joints", "statistics"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.model3d.package/0.1" },
+    "modelId": { "type": "string", "minLength": 1 },
+    "revision": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "manufacturingStatus": { "type": "string", "minLength": 1 },
+    "coordinateSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lengthUnit", "angleUnit", "forward", "left", "up", "quaternionOrder"],
+      "properties": {
+        "lengthUnit": { "const": "m" },
+        "angleUnit": { "const": "rad" },
+        "forward": { "const": "+X" },
+        "left": { "const": "+Y" },
+        "up": { "const": "+Z" },
+        "quaternionOrder": { "const": "xyzw" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publisherVersion"],
+      "properties": {
+        "cadUri": { "type": "string", "minLength": 1 },
+        "cadSha256": { "$ref": "#/$defs/sha256" },
+        "sysmlUri": { "type": "string", "minLength": 1 },
+        "sysmlSha256": { "$ref": "#/$defs/sha256" },
+        "publisherVersion": { "type": "string", "minLength": 1 }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "uri", "mediaType", "sha256", "byteLength"],
+        "properties": {
+          "role": { "enum": ["visual", "collision", "kinematics", "exact"] },
+          "uri": { "type": "string", "minLength": 1 },
+          "mediaType": { "type": "string", "minLength": 1 },
+          "sha256": { "$ref": "#/$defs/sha256" },
+          "byteLength": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "rootBodyId": { "type": "string", "minLength": 1 },
+    "bodies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bodyId", "label", "nodeName", "translation", "rotation"],
+        "properties": {
+          "bodyId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "nodeName": { "type": "string", "minLength": 1 },
+          "parentBodyId": { "type": "string", "minLength": 1 },
+          "translation": { "$ref": "#/$defs/vec3" },
+          "rotation": { "$ref": "#/$defs/quat" }
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["componentId", "label", "nodeName", "bodyId", "geometryStatus", "sourceObject"],
+        "properties": {
+          "componentId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string" },
+          "nodeName": { "type": "string", "minLength": 1 },
+          "bodyId": { "type": "string", "minLength": 1 },
+          "geometryStatus": { "type": "string", "minLength": 1 },
+          "sourceObject": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "productStructure": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["nodeId", "label", "nodeType", "nodeName", "bodyId"],
+        "properties": {
+          "nodeId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "nodeType": { "enum": ["collection", "part"] },
+          "parentNodeId": { "type": "string", "minLength": 1 },
+          "nodeName": { "type": "string", "minLength": 1 },
+          "bodyId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "joints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["jointId", "type", "parentBodyId", "childBodyId", "axis", "neutralValue", "zeroOffset", "limit", "drive"],
+        "properties": {
+          "jointId": { "type": "string", "minLength": 1 },
+          "type": { "enum": ["fixed", "revolute", "prismatic"] },
+          "parentBodyId": { "type": "string", "minLength": 1 },
+          "childBodyId": { "type": "string", "minLength": 1 },
+          "axis": { "$ref": "#/$defs/vec3" },
+          "neutralValue": { "type": "number" },
+          "zeroOffset": { "type": "number" },
+          "limit": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lower", "upper"],
+            "properties": {
+              "lower": { "type": "number" },
+              "upper": { "type": "number" },
+              "velocity": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          },
+          "drive": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["channel", "sign", "scale"],
+            "properties": {
+              "channel": { "type": "string", "minLength": 1 },
+              "sign": { "enum": [-1, 1] },
+              "scale": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "collision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabledComponentIds", "tolerance", "allowedContacts"],
+      "properties": {
+        "enabledComponentIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "tolerance": { "type": "number", "minimum": 0 },
+        "allowedContacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["componentA", "componentB", "reason"],
+            "properties": {
+              "componentA": { "type": "string", "minLength": 1 },
+              "componentB": { "type": "string", "minLength": 1 },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceObjectCount", "exportedGeometryCount", "triangleCount", "componentCount", "jointCount", "visualBounds"],
+      "properties": {
+        "sourceObjectCount": { "type": "integer", "minimum": 1 },
+        "exportedGeometryCount": { "type": "integer", "minimum": 1 },
+        "triangleCount": { "type": "integer", "minimum": 1 },
+        "componentCount": { "type": "integer", "minimum": 1 },
+        "jointCount": { "type": "integer", "minimum": 0 },
+        "visualBounds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["minimum", "maximum"],
+          "properties": {
+            "minimum": { "$ref": "#/$defs/vec3" },
+            "maximum": { "$ref": "#/$defs/vec3" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "vec3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }],
+      "items": false
+    },
+    "quat": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }, { "type": "number" }],
+      "items": false
+    },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

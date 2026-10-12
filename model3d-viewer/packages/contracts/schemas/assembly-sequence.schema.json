@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/model3d/assembly-sequence-0.1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "modelRevision", "steps"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.model3d.assembly/0.1" },
+    "modelId": { "type": "string", "minLength": 1 },
+    "modelRevision": { "type": "string", "minLength": 1 },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stepId", "label", "componentIds", "dependsOn", "pathStatus", "keyframes"],
+        "properties": {
+          "stepId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "componentIds": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "dependsOn": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "pathStatus": { "enum": ["AUTO_SUGGESTED", "MANUAL_DEMO", "ENGINEERING_VERIFIED"] },
+          "description": { "type": "string" },
+          "tool": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "direction"],
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "direction": { "$ref": "#/$defs/vec3" }
+            }
+          },
+          "keyframes": {
+            "type": "array", "minItems": 2,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["time", "position", "quaternion"],
+              "properties": {
+                "time": { "type": "number", "minimum": 0 },
+                "position": { "$ref": "#/$defs/vec3" },
+                "quaternion": { "$ref": "#/$defs/quat" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "vec3": { "type": "array", "minItems": 3, "maxItems": 3, "prefixItems": [{"type":"number"},{"type":"number"},{"type":"number"}], "items": false },
+    "quat": { "type": "array", "minItems": 4, "maxItems": 4, "prefixItems": [{"type":"number"},{"type":"number"},{"type":"number"},{"type":"number"}], "items": false }
+  }
+}

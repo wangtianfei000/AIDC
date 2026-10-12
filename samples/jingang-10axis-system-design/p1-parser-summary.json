@@ -1,0 +1,29 @@
+{
+  "runtimeVersion": "0.4.0",
+  "libraryStatus": "loaded",
+  "libraryRelease": "2026-08",
+  "libraryFiles": 94,
+  "librarySymbols": 2576,
+  "elements": 146,
+  "relationships": 105,
+  "errors": 0,
+  "warnings": 1,
+  "unresolvedTypeWarnings": 0,
+  "libraryElements": 9,
+  "libraryNames": [
+    "ISQ::angularMeasure",
+    "ISQ::duration",
+    "ISQ::electricCharge",
+    "ISQ::electricCurrent",
+    "ISQ::electricPotential",
+    "ISQ::energy",
+    "ISQ::mass",
+    "ISQ::power",
+    "String"
+  ],
+  "partUsages": 18,
+  "typedPartUsages": 10,
+  "connections": 11,
+  "connectionsWithAllPortEndpoints": 11,
+  "unresolvedEndpointDiagnostics": 0
+}

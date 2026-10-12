@@ -1,0 +1,460 @@
+{
+  "schemaVersion": "aidc.model3d.pose-baseline/0.1",
+  "modelId": "SYS-JG10",
+  "revision": "P4-2026-09-19",
+  "description": "FreeCAD P4 neutral pose; values use metres and xyzw quaternions.",
+  "poses": {
+    "Body_ankle_left": {
+      "translation": [
+        1.6170815443649483e-05,
+        0.05793140823751227,
+        0.02536858828257752
+      ],
+      "rotation": [
+        -2.498001805406602e-16,
+        -0.7372773368101241,
+        -0.6755902076156605,
+        2.220446049250313e-16
+      ]
+    },
+    "Body_ankle_right": {
+      "translation": [
+        -0.008552663921606201,
+        -0.06759074543539209,
+        0.021286490132799367
+      ],
+      "rotation": [
+        0.6710648696713033,
+        0.17567507275342603,
+        -0.18241317261597353,
+        0.696803877688902
+      ]
+    },
+    "Body_bearing_roll": {
+      "translation": [
+        0.006,
+        -0.0175,
+        0.11499999999999999
+      ],
+      "rotation": [
+        0.7071067811865476,
+        0.7071067811865476,
+        0.0,
+        6.123233995736766e-17
+      ]
+    },
+    "Body_hip_l": {
+      "translation": [
+        0.022500000000000006,
+        0.0175,
+        0.10249999999999998
+      ],
+      "rotation": [
+        0.477714417108261,
+        0.521333804473597,
+        0.47771441710826096,
+        0.5213338044735969
+      ]
+    },
+    "Body_hip_l_2": {
+      "translation": [
+        0.022500000000000006,
+        -0.0175,
+        0.1025
+      ],
+      "rotation": [
+        -0.509318274513155,
+        0.490504735193191,
+        -0.509318274513155,
+        0.4905047351931911
+      ]
+    },
+    "Body_jaw_soft": {
+      "translation": [
+        -0.011246964521372438,
+        5.589489245414834e-18,
+        0.20927064107773435
+      ],
+      "rotation": [
+        -3.925231146709438e-17,
+        -0.766044443118978,
+        -3.925231146709438e-17,
+        0.6427876096865394
+      ]
+    },
+    "Body_leg": {
+      "translation": [
+        -0.018365151350322233,
+        0.03532170397944553,
+        0.06525503045032527
+      ],
+      "rotation": [
+        0.15171087892177237,
+        0.6583357333784599,
+        -0.7184473823935864,
+        0.16556337187202114
+      ]
+    },
+    "Body_leg_2": {
+      "translation": [
+        -0.0014616592436715922,
+        -0.04005177556500367,
+        0.06167612730788858
+      ],
+      "rotation": [
+        -0.5506372328171992,
+        -0.4643369976014539,
+        -0.4471850067948422,
+        0.5302974261598692
+      ]
+    },
+    "Body_neck": {
+      "translation": [
+        0.026000000000000002,
+        0.0145,
+        0.1524215
+      ],
+      "rotation": [
+        0.12278780396897285,
+        0.6963642403200189,
+        -0.6963642403200189,
+        0.12278780396897275
+      ]
+    },
+    "Body_neck_pitch": {
+      "translation": [
+        0.008898992833716573,
+        0.014500000000000002,
+        0.1994061310392954
+      ],
+      "rotation": [
+        -9.71445146547012e-17,
+        -0.7071067811865475,
+        -0.7071067811865475,
+        2.7755575615628914e-17
+      ]
+    },
+    "Body_trunk_base": {
+      "translation": [
+        0.0,
+        0.0,
+        0.12
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "Body_upper_leg_left": {
+      "translation": [
+        0.003999999999999997,
+        0.04240486745229365,
+        0.10032110643130854
+      ],
+      "rotation": [
+        0.6260537328379798,
+        -0.38940286975504,
+        -0.3568219888083898,
+        -0.5736725520094164
+      ]
+    },
+    "Body_upper_leg_right": {
+      "translation": [
+        0.0040000000000000105,
+        -0.04248230253691281,
+        0.10344051047530575
+      ],
+      "rotation": [
+        -0.23189696864412818,
+        0.6537687560808861,
+        -0.6788443635443846,
+        -0.24079148570938813
+      ]
+    },
+    "Body_yaw2roll": {
+      "translation": [
+        0.006,
+        0.0175,
+        0.11499999999999999
+      ],
+      "rotation": [
+        -0.7071067811865476,
+        -0.7071067811865476,
+        0.0,
+        6.123233995736766e-17
+      ]
+    },
+    "Body_yaw_roll_motion": {
+      "translation": [
+        0.008898992833716571,
+        3.469446951953614e-18,
+        0.1980992310392954
+      ],
+      "rotation": [
+        0.0,
+        -0.08715574274765811,
+        -5.551115123125783e-17,
+        0.9961946980917454
+      ]
+    },
+    "Microduck": {
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "joints": [
+    {
+      "jointId": "ACT-L-HIP-ROLL",
+      "type": "revolute",
+      "parentBodyId": "Body_yaw2roll",
+      "childBodyId": "Body_hip_l",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.3141592653589793,
+        "upper": 0.3141592653589793,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-HIP-ROLL.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-L-HIP-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_hip_l",
+      "childBodyId": "Body_upper_leg_left",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.6108652381980153,
+        "upper": 0.6108652381980153,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-HIP-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-L-KNEE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_upper_leg_left",
+      "childBodyId": "Body_leg",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.08726646259971647,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": 0.08726646259971647,
+        "upper": 1.1344640137963142,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-KNEE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-L-ANKLE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_leg",
+      "childBodyId": "Body_ankle_left",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.5235987755982988,
+        "upper": 0.5235987755982988,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-ANKLE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-HIP-ROLL",
+      "type": "revolute",
+      "parentBodyId": "Body_bearing_roll",
+      "childBodyId": "Body_hip_l_2",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.3141592653589793,
+        "upper": 0.3141592653589793,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-HIP-ROLL.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-HIP-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_hip_l_2",
+      "childBodyId": "Body_upper_leg_right",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.6108652381980153,
+        "upper": 0.6108652381980153,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-HIP-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-KNEE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_upper_leg_right",
+      "childBodyId": "Body_leg_2",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.08726646259971647,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": 0.08726646259971647,
+        "upper": 1.1344640137963142,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-KNEE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-ANKLE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_leg_2",
+      "childBodyId": "Body_ankle_right",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.5235987755982988,
+        "upper": 0.5235987755982988,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-ANKLE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-NECK-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_trunk_base",
+      "childBodyId": "Body_neck",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.08726646259971647,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": 0.08726646259971647,
+        "upper": 0.6108652381980153,
+        "velocity": 2.0943951023931953
+      },
+      "drive": {
+        "channel": "ACT-NECK-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-HEAD-YAW",
+      "type": "revolute",
+      "parentBodyId": "Body_neck_pitch",
+      "childBodyId": "Body_yaw_roll_motion",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -1.0471975511965976,
+        "upper": 1.0471975511965976,
+        "velocity": 2.0943951023931953
+      },
+      "drive": {
+        "channel": "ACT-HEAD-YAW.position",
+        "sign": 1,
+        "scale": 1
+      }
+    }
+  ],
+  "visualBounds": {
+    "minimum": [
+      -0.04966941874427374,
+      -0.07440184262308966,
+      -0.014529676554783173
+    ],
+    "maximum": [
+      0.05342967381455051,
+      0.07102830854687403,
+      0.2708894491036413
+    ]
+  }
+}

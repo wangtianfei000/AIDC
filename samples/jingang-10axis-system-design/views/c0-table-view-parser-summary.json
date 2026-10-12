@@ -1,0 +1,83 @@
+{
+  "case": "table-view",
+  "runtimeVersion": "0.5.0",
+  "parserBaseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+  "standardLibraryRelease": "2026-08",
+  "schemaVersion": "0.1",
+  "elementCount": 1,
+  "relationshipCount": 3,
+  "diagnosticCount": 9,
+  "errors": 2,
+  "warnings": 7,
+  "kinds": [
+    {
+      "kind": "Package",
+      "count": 1
+    }
+  ],
+  "diagnosticCodes": [
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "count": 1
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "count": 3
+    },
+    {
+      "code": "PARSER_WARNING",
+      "count": 3
+    },
+    {
+      "code": "SYNTAX_ERROR",
+      "count": 2
+    }
+  ],
+  "firstDiagnostics": [
+    {
+      "severity": "error",
+      "code": "SYNTAX_ERROR",
+      "message": "no viable alternative at input 'renderingcoreParameterTableRendering' (near 'coreParameterTableRendering')"
+    },
+    {
+      "severity": "error",
+      "code": "SYNTAX_ERROR",
+      "message": "extraneous input 'view' expecting {<EOF>, 'package'} (near 'view')"
+    },
+    {
+      "severity": "warning",
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: Views (may be defined in another resource)"
+    },
+    {
+      "severity": "warning",
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: StandardViewDefinitions (may be defined in another resource)"
+    },
+    {
+      "severity": "warning",
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: JingangNative10ParameterAnalysisContract (may be defined in another resource)"
+    },
+    {
+      "severity": "warning",
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints"
+    },
+    {
+      "severity": "warning",
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints"
+    },
+    {
+      "severity": "warning",
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints"
+    },
+    {
+      "severity": "warning",
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 3 elements without a span; 0 named elements had multiple textual candidates"
+    }
+  ]
+}

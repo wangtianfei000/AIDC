@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/project-artifact-catalog.schema.json",
+  "title": "AIDC project and artifact type catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "catalogVersion", "projectTypes", "artifactTypes"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "catalogVersion": {"type": "string"},
+    "projectTypes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "recognition", "ownerCapability"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^aidc\\.project\\.[a-z0-9.-]+$"},
+          "recognition": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "ownerCapability": {"type": "string", "pattern": "^[a-z][a-z0-9.-]+$"}
+        }
+      }
+    },
+    "artifactTypes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "mediaType", "schemaVersion"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^aidc\\.[a-z0-9.-]+$"},
+          "mediaType": {"type": "string"},
+          "schemaVersion": {"type": "string"}
+        }
+      }
+    }
+  }
+}

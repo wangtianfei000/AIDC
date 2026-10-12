@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "aidc.robot.assembly/1.0",
+  "packageId": "aidc.example.robot.r1",
+  "modelId": "aidc.example.robot",
+  "revision": "r1",
+  "name": "AIDC example robot",
+  "source": {
+    "format": "FCStd",
+    "uri": "layout/robot.FCStd",
+    "publisher": "AIDC Model3D Viewer",
+    "publisherVersion": "1.0.0"
+  },
+  "files": [
+    { "path": "physics.json", "sha256": "0000000000000000000000000000000000000000000000000000000000000000", "byteLength": 1 },
+    { "path": "devices.json", "sha256": "0000000000000000000000000000000000000000000000000000000000000000", "byteLength": 1 },
+    { "path": "interfaces.json", "sha256": "0000000000000000000000000000000000000000000000000000000000000000", "byteLength": 1 }
+  ]
+}

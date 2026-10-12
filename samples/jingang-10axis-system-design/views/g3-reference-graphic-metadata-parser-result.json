@@ -1,0 +1,3281 @@
+{
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported"
+  },
+  "diagnostics": [
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::time (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found for Usage: SensorOut (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found for Usage: SpeedOut (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found for Usage: PressureIn (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found for Usage: SpeedIn (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found for Usage: BrakeFaultType (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found for Usage: HydraulicPort (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-fa3ca08bf89c1f170b85d4a2"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-200f6148abced69c3b0c56ea"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-85f89ce54696a45fe767822b"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 62 elements without a span; 37 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "7325bf20cd8895d2bc310735d7bcaa955064eabda2231870ce9f23dd4ff75014",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+      "capabilityVersion": "0.5.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///reference/test_architecture_view.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-ca03ce0826e04144d7f496c9",
+      "kind": "Package",
+      "name": "ArchitectureViewTest",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 1,
+          "offset": 28
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-06bac8c1caf896f77961389d",
+      "kind": "PortDefinition",
+      "name": "BrakePhysicalInIF",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalInIF",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 2,
+          "offset": 61
+        },
+        "start": {
+          "column": 14,
+          "line": 2,
+          "offset": 44
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-1dd5e7c8a7f4be2d0a30a199",
+      "kind": "ActionInputOutput",
+      "name": "in pedalSensorIn",
+      "ownerId": "e-06bac8c1caf896f77961389d",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "pedalSensorIn",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalInIF::in pedalSensorIn",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 3,
+          "offset": 89
+        },
+        "start": {
+          "column": 9,
+          "line": 3,
+          "offset": 73
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-fe2d7654b14f971389e956ce",
+      "kind": "ActionInputOutput",
+      "name": "in wheelSpeedSensorIn",
+      "ownerId": "e-06bac8c1caf896f77961389d",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "wheelSpeedSensorIn",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalInIF::in wheelSpeedSensorIn",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 4,
+          "offset": 121
+        },
+        "start": {
+          "column": 9,
+          "line": 4,
+          "offset": 100
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-a5eed75d5cde866d2a98bff4",
+      "kind": "ActionInputOutput",
+      "name": "in canBusIn",
+      "ownerId": "e-06bac8c1caf896f77961389d",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "canBusIn",
+        "itemType": "CANSignal",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalInIF::in canBusIn",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 5,
+          "offset": 143
+        },
+        "start": {
+          "column": 9,
+          "line": 5,
+          "offset": 132
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-1ea3139a52cd2cb48f40998e",
+      "kind": "PortDefinition",
+      "name": "BrakePhysicalOutIF",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalOutIF",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 7,
+          "offset": 196
+        },
+        "start": {
+          "column": 14,
+          "line": 7,
+          "offset": 178
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-8abf29abf3ebb199905ee5a8",
+      "kind": "ActionInputOutput",
+      "name": "out hydraulicValveOut",
+      "ownerId": "e-1ea3139a52cd2cb48f40998e",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": false,
+        "itemName": "hydraulicValveOut",
+        "itemType": "",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalOutIF::out hydraulicValveOut",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 8,
+          "offset": 229
+        },
+        "start": {
+          "column": 9,
+          "line": 8,
+          "offset": 208
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-c69d98349de5556e6ecceda3",
+      "kind": "ActionInputOutput",
+      "name": "out canBusOut",
+      "ownerId": "e-1ea3139a52cd2cb48f40998e",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": false,
+        "itemName": "canBusOut",
+        "itemType": "CANSignal",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePhysicalOutIF::out canBusOut",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 9,
+          "offset": 253
+        },
+        "start": {
+          "column": 9,
+          "line": 9,
+          "offset": 240
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-bab775ecf4d57d0417098137",
+      "kind": "PartDefinition",
+      "name": "MCU",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::MCU",
+      "source": {
+        "end": {
+          "column": 17,
+          "line": 11,
+          "offset": 291
+        },
+        "start": {
+          "column": 14,
+          "line": 11,
+          "offset": 288
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-e9438f144bee9841e6c9ed0a",
+      "kind": "PortUsage",
+      "name": "dataIn",
+      "ownerId": "e-bab775ecf4d57d0417098137",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::MCU::dataIn",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 12,
+          "offset": 314
+        },
+        "start": {
+          "column": 14,
+          "line": 12,
+          "offset": 308
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-0476d11ee65661c2cde5dd38",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-e9438f144bee9841e6c9ed0a",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-0cd899c5987be657a1fec812",
+      "kind": "PortUsage",
+      "name": "canIn",
+      "ownerId": "e-bab775ecf4d57d0417098137",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::MCU::canIn",
+      "source": {
+        "end": {
+          "column": 19,
+          "line": 26,
+          "offset": 774
+        },
+        "start": {
+          "column": 14,
+          "line": 26,
+          "offset": 769
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-6e66ee7247cbc702762a6cc0",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-0cd899c5987be657a1fec812",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-f75807fd4df6f2be376fd6d7",
+      "kind": "PortUsage",
+      "name": "pwmOut",
+      "ownerId": "e-bab775ecf4d57d0417098137",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::MCU::pwmOut",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 40,
+          "offset": 1235
+        },
+        "start": {
+          "column": 14,
+          "line": 40,
+          "offset": 1229
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-4e9a5af29db2ae9252cf7729",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-f75807fd4df6f2be376fd6d7",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-6998280d67bff8b40e88fa5c",
+      "kind": "PortUsage",
+      "name": "canOut",
+      "ownerId": "e-bab775ecf4d57d0417098137",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::MCU::canOut",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 54,
+          "offset": 1699
+        },
+        "start": {
+          "column": 14,
+          "line": 54,
+          "offset": 1693
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-a2ae178fa27407689f631828",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-6998280d67bff8b40e88fa5c",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-4ae6cb673ba2e138f709c0dc",
+      "kind": "PartDefinition",
+      "name": "CANTransceiver",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::CANTransceiver",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 69,
+          "offset": 2178
+        },
+        "start": {
+          "column": 14,
+          "line": 69,
+          "offset": 2164
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-c3a43ef6c0342c71211a482b",
+      "kind": "PortUsage",
+      "name": "canIn",
+      "ownerId": "e-4ae6cb673ba2e138f709c0dc",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::CANTransceiver::canIn",
+      "source": {
+        "end": {
+          "column": 19,
+          "line": 70,
+          "offset": 2200
+        },
+        "start": {
+          "column": 14,
+          "line": 70,
+          "offset": 2195
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-85d4307abbc3840e14d0b293",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-c3a43ef6c0342c71211a482b",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-9c01d9b96db306240096fb07",
+      "kind": "PortUsage",
+      "name": "dataOut",
+      "ownerId": "e-4ae6cb673ba2e138f709c0dc",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::CANTransceiver::dataOut",
+      "source": {
+        "end": {
+          "column": 21,
+          "line": 84,
+          "offset": 2662
+        },
+        "start": {
+          "column": 14,
+          "line": 84,
+          "offset": 2655
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-8bb48220cae643ff72b85ed6",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-9c01d9b96db306240096fb07",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-75ec60f34e837706cffbc86c",
+      "kind": "PortUsage",
+      "name": "canOut",
+      "ownerId": "e-4ae6cb673ba2e138f709c0dc",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::CANTransceiver::canOut",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 98,
+          "offset": 3126
+        },
+        "start": {
+          "column": 14,
+          "line": 98,
+          "offset": 3120
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-61510d12b60b972f06c22292",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-75ec60f34e837706cffbc86c",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-d1597d9b532a871bddd9bd09",
+      "kind": "PartDefinition",
+      "name": "ADC",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::ADC",
+      "source": {
+        "end": {
+          "column": 17,
+          "line": 113,
+          "offset": 3594
+        },
+        "start": {
+          "column": 14,
+          "line": 113,
+          "offset": 3591
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-a6155c7701430230dc7e71bb",
+      "kind": "PortUsage",
+      "name": "analogIn1",
+      "ownerId": "e-d1597d9b532a871bddd9bd09",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::ADC::analogIn1",
+      "source": {
+        "end": {
+          "column": 23,
+          "line": 114,
+          "offset": 3620
+        },
+        "start": {
+          "column": 14,
+          "line": 114,
+          "offset": 3611
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-7d316253a66dcb7b01f41bc4",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-a6155c7701430230dc7e71bb",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-c02e34041c8968ce253d67e7",
+      "kind": "PortUsage",
+      "name": "analogIn2",
+      "ownerId": "e-d1597d9b532a871bddd9bd09",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::ADC::analogIn2",
+      "source": {
+        "end": {
+          "column": 23,
+          "line": 128,
+          "offset": 4084
+        },
+        "start": {
+          "column": 14,
+          "line": 128,
+          "offset": 4075
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-8ed87d4f75935ae21b917078",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-c02e34041c8968ce253d67e7",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-026f33b62c12cf6365bc2e40",
+      "kind": "PortUsage",
+      "name": "digitalOut",
+      "ownerId": "e-d1597d9b532a871bddd9bd09",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::ADC::digitalOut",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 142,
+          "offset": 4549
+        },
+        "start": {
+          "column": 14,
+          "line": 142,
+          "offset": 4539
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-a17e4b03bbb723215296f32e",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-026f33b62c12cf6365bc2e40",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-471cd032290de5e1f2019e52",
+      "kind": "PartDefinition",
+      "name": "BrakeECU",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 157,
+          "offset": 5022
+        },
+        "start": {
+          "column": 14,
+          "line": 157,
+          "offset": 5014
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-a31f12e716c8d261a7924960",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 1,
+          "fillColor": "#F0F0F0",
+          "fillOpacity": 1,
+          "graphicHeight": 301,
+          "graphicRotation": 0,
+          "graphicWidth": 485,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "Rectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-85b8b98c51b7b785c8f4fc56",
+      "kind": "Feature",
+      "name": "hardwareVersion",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"V1.5\""
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::hardwareVersion",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 181,
+          "offset": 5807
+        },
+        "start": {
+          "column": 19,
+          "line": 181,
+          "offset": 5792
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-00efc4465227debad85e8e31",
+      "kind": "Feature",
+      "name": "operatingVoltage",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "V",
+        "valueExpression": "12[V]"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::operatingVoltage",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 182,
+          "offset": 5863
+        },
+        "start": {
+          "column": 19,
+          "line": 182,
+          "offset": 5847
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-18987f5e03c7d2b424d93ad4",
+      "kind": "Feature",
+      "name": "responseTime",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "50[ms]"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::responseTime",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 183,
+          "offset": 5930
+        },
+        "start": {
+          "column": 19,
+          "line": 183,
+          "offset": 5918
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-0986ae77d3cff7382a3257cd",
+      "kind": "PortUsage",
+      "name": "physIn",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeId": "e-06bac8c1caf896f77961389d",
+        "typeName": "BrakePhysicalInIF",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::physIn",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 184,
+          "offset": 5974
+        },
+        "start": {
+          "column": 14,
+          "line": 184,
+          "offset": 5968
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-8a7af6eff6fd4186612b521c",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-0986ae77d3cff7382a3257cd",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "connectionAngle": 0,
+          "connectionPointX": 0,
+          "connectionPointY": 0,
+          "graphicX": 0.7988258845118708,
+          "graphicY": 146.86392706386096,
+          "labelDirection": "",
+          "labelOffsetX": 0,
+          "labelOffsetY": 0,
+          "labelVisible": true,
+          "portAlignment": "Center",
+          "portAngle": 0,
+          "portBorderColor": "#000000",
+          "portBorderStyle": "Solid",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portFillOpacity": 1,
+          "portHeight": 6,
+          "portLabel": "",
+          "portMovable": true,
+          "portOffset": 0,
+          "portPosition": "left",
+          "portSelectable": true,
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true,
+          "portWidth": 6
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-af29708a462fe7d84cb72ec5",
+      "kind": "PortUsage",
+      "name": "physOut",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeId": "e-1ea3139a52cd2cb48f40998e",
+        "typeName": "BrakePhysicalOutIF",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::physOut",
+      "source": {
+        "end": {
+          "column": 21,
+          "line": 215,
+          "offset": 7114
+        },
+        "start": {
+          "column": 14,
+          "line": 215,
+          "offset": 7107
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-4ab1e2bcfe188e4d6ed08b67",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-af29708a462fe7d84cb72ec5",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "connectionAngle": 0,
+          "connectionPointX": 0,
+          "connectionPointY": 0,
+          "graphicX": 483,
+          "graphicY": 148,
+          "labelDirection": "",
+          "labelOffsetX": 0,
+          "labelOffsetY": 0,
+          "labelVisible": true,
+          "portAlignment": "Center",
+          "portAngle": 0,
+          "portBorderColor": "#000000",
+          "portBorderStyle": "Solid",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portFillOpacity": 1,
+          "portHeight": 6,
+          "portLabel": "",
+          "portMovable": true,
+          "portOffset": 0,
+          "portPosition": "right",
+          "portSelectable": true,
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true,
+          "portWidth": 6
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-7d4baa1d9219eee4bc768fde",
+      "kind": "PartUsage",
+      "name": "microcontroller",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-bab775ecf4d57d0417098137",
+        "typeName": "MCU",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::microcontroller",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 246,
+          "offset": 8235
+        },
+        "start": {
+          "column": 14,
+          "line": 246,
+          "offset": 8220
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-0c16380ed86bd28d587094e6",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-7d4baa1d9219eee4bc768fde",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 129.2240462427746,
+          "graphicRotation": 0,
+          "graphicWidth": 92.08000000000004,
+          "graphicX": 322.2662752948372,
+          "graphicY": 88.53696245102492,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-81993e277a7ce7be0d004721",
+      "kind": "PartUsage",
+      "name": "canTransceiver",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-4ae6cb673ba2e138f709c0dc",
+        "typeName": "CANTransceiver",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::canTransceiver",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 273,
+          "offset": 9252
+        },
+        "start": {
+          "column": 14,
+          "line": 273,
+          "offset": 9238
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-5ad8e4728315a35deccb0e6c",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-81993e277a7ce7be0d004721",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 86.2240462427746,
+          "graphicRotation": 0,
+          "graphicWidth": 94.08000000000004,
+          "graphicX": 159,
+          "graphicY": 190.47186127167606,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-c0da07a161463d6ea7c4372e",
+      "kind": "PartUsage",
+      "name": "analogToDigital",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-d1597d9b532a871bddd9bd09",
+        "typeName": "ADC",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeECU::analogToDigital",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 300,
+          "offset": 10267
+        },
+        "start": {
+          "column": 14,
+          "line": 300,
+          "offset": 10252
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-c64b71551b6cfbaa839683e1",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-c0da07a161463d6ea7c4372e",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 59.224046242774605,
+          "graphicRotation": 0,
+          "graphicWidth": 105,
+          "graphicX": 84.34638469904621,
+          "graphicY": 49.06951304070026,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-86b91e4f3d3a19837eb90b2a",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-2c5d1920559821335a91caf7",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-1c4ccd0baa8f1d17b897f929",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-8d9569c2eb70b72b71b4e880",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-a82ca0eefa00eacfe4f5805e",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-aec19284059a08f7d2584cd8",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-4176b8f5116bcf0df3a0fb19",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-921921f3da48c629e72ed54a",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-882253a028891a596b731831",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-40489ff50c204a84c303cbe1",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-1224350a5ff4c6dbac89fcc5",
+      "kind": "PartDefinition",
+      "name": "BrakePedalSensor",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePedalSensor",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 413,
+          "offset": 14439
+        },
+        "start": {
+          "column": 14,
+          "line": 413,
+          "offset": 14423
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-3c1f58e73e322c955726227e",
+      "kind": "Feature",
+      "name": "accuracy",
+      "ownerId": "e-1224350a5ff4c6dbac89fcc5",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "mm",
+        "valueExpression": "0.1[mm]"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePedalSensor::accuracy",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 414,
+          "offset": 14469
+        },
+        "start": {
+          "column": 19,
+          "line": 414,
+          "offset": 14461
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-91c1a7ea32fdb7ae81f8a603",
+      "kind": "PortUsage",
+      "name": "sensorOut",
+      "ownerId": "e-1224350a5ff4c6dbac89fcc5",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "SensorOut",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakePedalSensor::sensorOut",
+      "source": {
+        "end": {
+          "column": 23,
+          "line": 415,
+          "offset": 14519
+        },
+        "start": {
+          "column": 14,
+          "line": 415,
+          "offset": 14510
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-957d05c9a3317a4a0dbdedc2",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-91c1a7ea32fdb7ae81f8a603",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-e3809b6c1eae50379eef091b",
+      "kind": "PartDefinition",
+      "name": "WheelSpeedSensor",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::WheelSpeedSensor",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 430,
+          "offset": 15011
+        },
+        "start": {
+          "column": 14,
+          "line": 430,
+          "offset": 14995
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-2db85804db7fc67bf3479017",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-e3809b6c1eae50379eef091b",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "showAttributes": true,
+          "showDoc": true,
+          "showItems": true,
+          "showPorts": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-ac1cfa2bc7a76322dd638b9c",
+      "kind": "DocStatement",
+      "name": "doc",
+      "ownerId": "e-e3809b6c1eae50379eef091b",
+      "properties": {
+        "content": "轮速传感器 - 基础part，无子part"
+      },
+      "qualifiedName": "ArchitectureViewTest::WheelSpeedSensor::doc",
+      "source": {
+        "end": {
+          "column": 12,
+          "line": 437,
+          "offset": 15192
+        },
+        "start": {
+          "column": 9,
+          "line": 437,
+          "offset": 15189
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-bb4c216c045e374f4cd9448f",
+      "kind": "Feature",
+      "name": "sensorId",
+      "ownerId": "e-e3809b6c1eae50379eef091b",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"WS001\""
+      },
+      "qualifiedName": "ArchitectureViewTest::WheelSpeedSensor::sensorId",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 438,
+          "offset": 15266
+        },
+        "start": {
+          "column": 19,
+          "line": 438,
+          "offset": 15258
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-aacca9c7b30c599b4e6a03a9",
+      "kind": "Feature",
+      "name": "samplingRate",
+      "ownerId": "e-e3809b6c1eae50379eef091b",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "100.0"
+      },
+      "qualifiedName": "ArchitectureViewTest::WheelSpeedSensor::samplingRate",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 439,
+          "offset": 15319
+        },
+        "start": {
+          "column": 19,
+          "line": 439,
+          "offset": 15307
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-5d8a72721bd9f8df4ed0abaa",
+      "kind": "PortUsage",
+      "name": "speedOut",
+      "ownerId": "e-e3809b6c1eae50379eef091b",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "SpeedOut",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "ArchitectureViewTest::WheelSpeedSensor::speedOut",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 440,
+          "offset": 15359
+        },
+        "start": {
+          "column": 14,
+          "line": 440,
+          "offset": 15351
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-e37888ff2ccbc3e8c10cb46b",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-5d8a72721bd9f8df4ed0abaa",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-c2c3503f23bc1c3a017a0b94",
+      "kind": "PartDefinition",
+      "name": "HydraulicBrakeActuator",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::HydraulicBrakeActuator",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 455,
+          "offset": 15857
+        },
+        "start": {
+          "column": 14,
+          "line": 455,
+          "offset": 15835
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-c269e28048515df8536b629d",
+      "kind": "Feature",
+      "name": "maxPressure",
+      "ownerId": "e-c2c3503f23bc1c3a017a0b94",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "MPa",
+        "valueExpression": "15[MPa]"
+      },
+      "qualifiedName": "ArchitectureViewTest::HydraulicBrakeActuator::maxPressure",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 456,
+          "offset": 15890
+        },
+        "start": {
+          "column": 19,
+          "line": 456,
+          "offset": 15879
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-1154e3d60e4b76a43f838a05",
+      "kind": "PortUsage",
+      "name": "pressureIn",
+      "ownerId": "e-c2c3503f23bc1c3a017a0b94",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "PressureIn",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "ArchitectureViewTest::HydraulicBrakeActuator::pressureIn",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 457,
+          "offset": 15943
+        },
+        "start": {
+          "column": 14,
+          "line": 457,
+          "offset": 15933
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-7821563523ceb52e5551780d",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-1154e3d60e4b76a43f838a05",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-164d3239a516bdf3c82a3ec6",
+      "kind": "PartDefinition",
+      "name": "BrakeFaultDetector",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeFaultDetector",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 472,
+          "offset": 16436
+        },
+        "start": {
+          "column": 14,
+          "line": 472,
+          "offset": 16418
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-2d7482d72425c416fa10b2e9",
+      "kind": "PortUsage",
+      "name": "speedIn",
+      "ownerId": "e-164d3239a516bdf3c82a3ec6",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "SpeedIn",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeFaultDetector::speedIn",
+      "source": {
+        "end": {
+          "column": 21,
+          "line": 473,
+          "offset": 16460
+        },
+        "start": {
+          "column": 14,
+          "line": 473,
+          "offset": 16453
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-c990e01f4f316c2ca748ba3e",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-2d7482d72425c416fa10b2e9",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 50,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "In",
+          "portFillColor": "#00FF00",
+          "portPosition": "left",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-44f9bd2f873b953ac7d87506",
+      "kind": "PortUsage",
+      "name": "faultOut",
+      "ownerId": "e-164d3239a516bdf3c82a3ec6",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "BrakeFaultType",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeFaultDetector::faultOut",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 487,
+          "offset": 16933
+        },
+        "start": {
+          "column": 14,
+          "line": 487,
+          "offset": 16925
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-96ba8d03a486aeae51a617d0",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-44f9bd2f873b953ac7d87506",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-6f0a85b2d912d531dd74c790",
+      "kind": "PartDefinition",
+      "name": "BrakeMasterCylinder",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeMasterCylinder",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 502,
+          "offset": 17434
+        },
+        "start": {
+          "column": 14,
+          "line": 502,
+          "offset": 17415
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-72b8b54af92f8812058fa0eb",
+      "kind": "Feature",
+      "name": "cylinderDiameter",
+      "ownerId": "e-6f0a85b2d912d531dd74c790",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "mm",
+        "valueExpression": "22[mm]"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeMasterCylinder::cylinderDiameter",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 503,
+          "offset": 17472
+        },
+        "start": {
+          "column": 19,
+          "line": 503,
+          "offset": 17456
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-6b9ce1284380e172b9a13f09",
+      "kind": "PortUsage",
+      "name": "hydraulicOut",
+      "ownerId": "e-6f0a85b2d912d531dd74c790",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "HydraulicPort",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeMasterCylinder::hydraulicOut",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 504,
+          "offset": 17524
+        },
+        "start": {
+          "column": 14,
+          "line": 504,
+          "offset": 17512
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-97ff2eee11762ddd653726f0",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-6b9ce1284380e172b9a13f09",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 150,
+          "graphicY": 100,
+          "portBorderColor": "#000000",
+          "portBorderWidth": 1,
+          "portDirection": "Out",
+          "portFillColor": "#00FF00",
+          "portPosition": "right",
+          "portShape": "Circle",
+          "portSize": 10,
+          "portVisible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-77c5eaf779ad41df0422c916",
+      "kind": "PartDefinition",
+      "name": "BrakeSystemAssembly",
+      "ownerId": "e-ca03ce0826e04144d7f496c9",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 519,
+          "offset": 18024
+        },
+        "start": {
+          "column": 14,
+          "line": 519,
+          "offset": 18005
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-5fca9e5d606018eff0eae3d1",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 1,
+          "fillColor": "#F0F0F0",
+          "fillOpacity": 1,
+          "graphicHeight": 568.7321237094789,
+          "graphicRotation": 0,
+          "graphicWidth": 787.2860206483397,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "Rectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-cd47f1bc39094bece9b1c461",
+      "kind": "PartUsage",
+      "name": "brakeECU",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-471cd032290de5e1f2019e52",
+        "typeName": "BrakeECU",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly::brakeECU",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 543,
+          "offset": 18825
+        },
+        "start": {
+          "column": 14,
+          "line": 543,
+          "offset": 18817
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-1bfc1a20b3a6f0dc7bed991c",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-cd47f1bc39094bece9b1c461",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 231.44709777334418,
+          "graphicRotation": 0,
+          "graphicWidth": 378.08107226918844,
+          "graphicX": 276.5357525810425,
+          "graphicY": 126.72159320437936,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": true,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-39f86e2d54a22952e487a7c9",
+      "kind": "PartUsage",
+      "name": "brakePedalSensor",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-1224350a5ff4c6dbac89fcc5",
+        "typeName": "BrakePedalSensor",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly::brakePedalSensor",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 570,
+          "offset": 19851
+        },
+        "start": {
+          "column": 14,
+          "line": 570,
+          "offset": 19835
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-9ebb78f3ce9493a73825e3fa",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-39f86e2d54a22952e487a7c9",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 59.224046242774605,
+          "graphicRotation": 0,
+          "graphicWidth": 94.08000000000004,
+          "graphicX": 125,
+          "graphicY": 402.47186127167606,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-b758bf3cd484903357344f2a",
+      "kind": "PartUsage",
+      "name": "wheelSpeedSensors",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-e3809b6c1eae50379eef091b",
+        "typeName": "WheelSpeedSensor",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly::wheelSpeedSensors",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 597,
+          "offset": 20872
+        },
+        "start": {
+          "column": 14,
+          "line": 597,
+          "offset": 20855
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-6cb6bceffc88ba0c81d84543",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-b758bf3cd484903357344f2a",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 59.224046242774605,
+          "graphicRotation": 0,
+          "graphicWidth": 94.08000000000004,
+          "graphicX": 12,
+          "graphicY": 275.47186127167606,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-e1b14943929c270435708aa0",
+      "kind": "PartUsage",
+      "name": "hydraulicActuator",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-c2c3503f23bc1c3a017a0b94",
+        "typeName": "HydraulicBrakeActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly::hydraulicActuator",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 624,
+          "offset": 21892
+        },
+        "start": {
+          "column": 14,
+          "line": 624,
+          "offset": 21875
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-5b187d52f582dda8c6a44d57",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-e1b14943929c270435708aa0",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 59.224046242774605,
+          "graphicRotation": 0,
+          "graphicWidth": 94.08000000000004,
+          "graphicX": 685.8132371850668,
+          "graphicY": 85.69491280224634,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-6ca1b5f58c2bcc75a4e8b529",
+      "kind": "PartUsage",
+      "name": "faultDetector",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-164d3239a516bdf3c82a3ec6",
+        "typeName": "BrakeFaultDetector",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly::faultDetector",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 651,
+          "offset": 22928
+        },
+        "start": {
+          "column": 14,
+          "line": 651,
+          "offset": 22915
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-768ae2bed8e5a44998202d09",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-6ca1b5f58c2bcc75a4e8b529",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 59.224046242774605,
+          "graphicRotation": 0,
+          "graphicWidth": 94.08000000000004,
+          "graphicX": 126,
+          "graphicY": 46.47186127167606,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-723f6cc49173f209c75f4ff0",
+      "kind": "PartUsage",
+      "name": "masterCylinder",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-6f0a85b2d912d531dd74c790",
+        "typeName": "BrakeMasterCylinder",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "ArchitectureViewTest::BrakeSystemAssembly::masterCylinder",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 678,
+          "offset": 23947
+        },
+        "start": {
+          "column": 14,
+          "line": 678,
+          "offset": 23933
+        },
+        "uri": "file:///reference/test_architecture_view.sysml"
+      }
+    },
+    {
+      "id": "e-bf79270a444d9da0b1ec2e49",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-723f6cc49173f209c75f4ff0",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "borderColor": "#000000",
+          "borderStyle": "Solid",
+          "borderWidth": 2,
+          "fillColor": "#E0E0E0",
+          "fillOpacity": 1,
+          "graphicHeight": 59.224046242774605,
+          "graphicRotation": 0,
+          "graphicWidth": 94.08000000000004,
+          "graphicX": 483,
+          "graphicY": 455.47186127167606,
+          "graphicZOrder": 0,
+          "labelColor": "#000000",
+          "labelFont": "Arial, 10pt",
+          "labelPosition": "Top",
+          "labelText": "",
+          "labelVisible": true,
+          "movable": true,
+          "resizable": true,
+          "selectable": true,
+          "shape": "RoundedRectangle",
+          "shapeRadius": 5,
+          "showChildNestedContent": false,
+          "visible": true
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-b5c868139fe119a54931c2ee",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-6db3be47f6df14f16bf64390",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-84932f32aa8a22d411471c38",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-0e116db6e3f4644071f6aac8",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-066c7d1479afd667b5574a20",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-cfccc698c7481d70f5572d8e",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-9af0f1888c38bb78caa40549",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-200f6148abced69c3b0c56ea",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-6ce34709fc82a80d0bf5e6a6",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-4257fb898359d37ee4ced0a7",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-06117dce4f7587a2675286a5",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-d84db440a0ac3a5b2b7f6be6",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "arrowSize": 10,
+          "connectionVisible": true,
+          "labelOffsetY": 15,
+          "labelPosition": "Center",
+          "labelText": "wheelSpeed",
+          "labelVisible": true,
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 2,
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan",
+          "sourceArrow": "None",
+          "targetArrow": "Arrow"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-327d91ec992575aaaa788ce9",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-85f89ce54696a45fe767822b",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "lineColor": "#000000",
+          "lineType": "Solid",
+          "lineWidth": 1,
+          "pathType": "Orthogonal"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "lib-5a980a521e389768d6fc94be",
+      "kind": "LibraryElement",
+      "name": "String",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::String",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "String",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 13,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    },
+    {
+      "id": "lib-353ca3359357af2cdc039ab5",
+      "kind": "LibraryElement",
+      "name": "electricPotential",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQElectromagnetism::electricPotential",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      },
+      "qualifiedName": "ISQ::electricPotential",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 430,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 430,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      }
+    },
+    {
+      "id": "lib-a571392e589af93e5a8e2e02",
+      "kind": "LibraryElement",
+      "name": "length",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::length",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::length",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 33,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 33,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-79b96ce78c9e1c5526e171dd",
+      "kind": "LibraryElement",
+      "name": "Real",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::Real",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "Real",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 18,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 18,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    },
+    {
+      "id": "lib-95ad9f4ea77cd0ebc5d70a1a",
+      "kind": "LibraryElement",
+      "name": "pressure",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQMechanics::pressure",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQMechanics.sysml"
+      },
+      "qualifiedName": "ISQ::pressure",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 678,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 678,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQMechanics.sysml"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-0296ba8ee926bd5c44d1fbcd",
+      "kind": "FeatureTyping",
+      "ownerId": "e-85b8b98c51b7b785c8f4fc56",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-85b8b98c51b7b785c8f4fc56"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-7a0c3dca6f2270c7e2aeb00f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-00efc4465227debad85e8e31",
+      "properties": {
+        "typeName": "ISQ::electricPotential"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-00efc4465227debad85e8e31"
+      ],
+      "targetIds": [
+        "lib-353ca3359357af2cdc039ab5"
+      ]
+    },
+    {
+      "id": "e-fa3ca08bf89c1f170b85d4a2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-18987f5e03c7d2b424d93ad4",
+      "properties": {
+        "typeName": "ISQ::time"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-18987f5e03c7d2b424d93ad4"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-2c5d1920559821335a91caf7",
+      "kind": "Connection",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "ends": [
+          "physIn",
+          "analogToDigital.analogIn1"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0986ae77d3cff7382a3257cd"
+      ],
+      "targetIds": [
+        "e-a6155c7701430230dc7e71bb"
+      ]
+    },
+    {
+      "id": "e-8d9569c2eb70b72b71b4e880",
+      "kind": "Connection",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "ends": [
+          "analogToDigital.digitalOut",
+          "microcontroller.dataIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-026f33b62c12cf6365bc2e40"
+      ],
+      "targetIds": [
+        "e-e9438f144bee9841e6c9ed0a"
+      ]
+    },
+    {
+      "id": "e-aec19284059a08f7d2584cd8",
+      "kind": "Connection",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "ends": [
+          "canTransceiver.dataOut",
+          "microcontroller.canIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9c01d9b96db306240096fb07"
+      ],
+      "targetIds": [
+        "e-0cd899c5987be657a1fec812"
+      ]
+    },
+    {
+      "id": "e-921921f3da48c629e72ed54a",
+      "kind": "Connection",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "ends": [
+          "microcontroller.pwmOut",
+          "physOut"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f75807fd4df6f2be376fd6d7"
+      ],
+      "targetIds": [
+        "e-af29708a462fe7d84cb72ec5"
+      ]
+    },
+    {
+      "id": "e-40489ff50c204a84c303cbe1",
+      "kind": "Connection",
+      "ownerId": "e-471cd032290de5e1f2019e52",
+      "properties": {
+        "ends": [
+          "microcontroller.canOut",
+          "canTransceiver.canOut"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6998280d67bff8b40e88fa5c"
+      ],
+      "targetIds": [
+        "e-75ec60f34e837706cffbc86c"
+      ]
+    },
+    {
+      "id": "e-14dd9c9d8403e3dd61b5c33c",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3c1f58e73e322c955726227e",
+      "properties": {
+        "typeName": "ISQ::length"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3c1f58e73e322c955726227e"
+      ],
+      "targetIds": [
+        "lib-a571392e589af93e5a8e2e02"
+      ]
+    },
+    {
+      "id": "e-7cdcaef718b704f02ef85f8f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-bb4c216c045e374f4cd9448f",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-bb4c216c045e374f4cd9448f"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-424c44e3fa7fdc4500f36bdc",
+      "kind": "FeatureTyping",
+      "ownerId": "e-aacca9c7b30c599b4e6a03a9",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-aacca9c7b30c599b4e6a03a9"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-b1f73343e06f128fb09f47d0",
+      "kind": "FeatureTyping",
+      "ownerId": "e-c269e28048515df8536b629d",
+      "properties": {
+        "typeName": "ISQ::pressure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-c269e28048515df8536b629d"
+      ],
+      "targetIds": [
+        "lib-95ad9f4ea77cd0ebc5d70a1a"
+      ]
+    },
+    {
+      "id": "e-9738fede7b9fea2c50f9aeb9",
+      "kind": "FeatureTyping",
+      "ownerId": "e-72b8b54af92f8812058fa0eb",
+      "properties": {
+        "typeName": "ISQ::length"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-72b8b54af92f8812058fa0eb"
+      ],
+      "targetIds": [
+        "lib-a571392e589af93e5a8e2e02"
+      ]
+    },
+    {
+      "id": "e-6db3be47f6df14f16bf64390",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "brakePedalSensor.sensorOut",
+          "brakeECU.physIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-91c1a7ea32fdb7ae81f8a603"
+      ],
+      "targetIds": [
+        "e-0986ae77d3cff7382a3257cd"
+      ]
+    },
+    {
+      "id": "e-0e116db6e3f4644071f6aac8",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "wheelSpeedSensors.speedOut",
+          "brakeECU.physIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5d8a72721bd9f8df4ed0abaa"
+      ],
+      "targetIds": [
+        "e-0986ae77d3cff7382a3257cd"
+      ]
+    },
+    {
+      "id": "e-cfccc698c7481d70f5572d8e",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "brakeECU.physOut",
+          "hydraulicActuator.pressureIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-af29708a462fe7d84cb72ec5"
+      ],
+      "targetIds": [
+        "e-1154e3d60e4b76a43f838a05"
+      ]
+    },
+    {
+      "id": "e-200f6148abced69c3b0c56ea",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "hydraulicActuator.hydraulicOut",
+          "masterCylinder.hydraulicOut"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [],
+      "targetIds": [
+        "e-6b9ce1284380e172b9a13f09"
+      ]
+    },
+    {
+      "id": "e-4257fb898359d37ee4ced0a7",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "wheelSpeedSensors.speedOut",
+          "faultDetector.speedIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5d8a72721bd9f8df4ed0abaa"
+      ],
+      "targetIds": [
+        "e-2d7482d72425c416fa10b2e9"
+      ]
+    },
+    {
+      "id": "e-d84db440a0ac3a5b2b7f6be6",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "faultDetector.faultOut",
+          "brakeECU.physIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-44f9bd2f873b953ac7d87506"
+      ],
+      "targetIds": [
+        "e-0986ae77d3cff7382a3257cd"
+      ]
+    },
+    {
+      "id": "e-85f89ce54696a45fe767822b",
+      "kind": "Connection",
+      "ownerId": "e-77c5eaf779ad41df0422c916",
+      "properties": {
+        "ends": [
+          "faultDetector.faultOut",
+          "canTransceiver.canIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-44f9bd2f873b953ac7d87506"
+      ],
+      "targetIds": []
+    }
+  ],
+  "schemaVersion": "0.1"
+}

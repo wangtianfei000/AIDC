@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/cli-result.schema.json",
+  "title": "AIDC CLI result envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "requestId", "command", "status", "exitCode", "message", "diagnostics", "artifacts", "meta"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "requestId": {"type": "string", "minLength": 1},
+    "command": {"type": "string", "pattern": "^[a-z][a-z0-9.-]+$"},
+    "status": {"enum": ["succeeded", "accepted", "failed", "cancelled"]},
+    "exitCode": {"type": "integer", "minimum": 0, "maximum": 255},
+    "message": {"type": "string"},
+    "data": {"type": ["object", "array", "string", "number", "boolean", "null"]},
+    "task": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["taskId", "state"],
+      "properties": {
+        "taskId": {"type": "string", "minLength": 1},
+        "state": {"enum": ["queued", "running", "succeeded", "failed", "cancelled"]},
+        "progress": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "severity", "message"],
+        "properties": {
+          "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$"},
+          "severity": {"enum": ["info", "warning", "error"]},
+          "message": {"type": "string"},
+          "path": {"type": ["string", "null"]},
+          "details": {"type": "object"}
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {"$ref": "artifact-descriptor.schema.json"}
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["toolVersion", "startedAt", "finishedAt"],
+      "properties": {
+        "toolVersion": {"type": "string"},
+        "startedAt": {"type": "string", "format": "date-time"},
+        "finishedAt": {"type": "string", "format": "date-time"}
+      }
+    }
+  }
+}
+

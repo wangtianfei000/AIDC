@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "aidc.robot.devices/0.1",
+  "modelId": "aidc.standard.single-joint",
+  "modelRevision": "p0-r1",
+  "devices": [
+    {
+      "deviceId": "actuator-1",
+      "deviceType": "actuator",
+      "model": "AIDCRobotics.Mechanics.StandardTorqueAxis",
+      "jointId": "joint-1",
+      "commandKind": "torque",
+      "gearRatio": 1,
+      "rotorInertia_kg_m2": 0,
+      "viscousDamping_Nm_s_rad": 0.2,
+      "effortLimit_Nm": 1,
+      "speedLimit_rad_s": 10,
+      "powerDeviceId": "ideal-power"
+    },
+    {
+      "deviceId": "encoder-1",
+      "deviceType": "sensor",
+      "model": "ideal-joint-encoder",
+      "sensorKind": "jointEncoder",
+      "bodyId": "link",
+      "jointId": "joint-1",
+      "translation_m": [0, 0, 0],
+      "rotation_xyzw": [0, 0, 0, 1],
+      "samplePeriod_s": 0.001
+    },
+    {
+      "deviceId": "ideal-power",
+      "deviceType": "power",
+      "model": "ideal-dc-source",
+      "nominalVoltage_V": 12,
+      "capacity_Ah": 1,
+      "internalResistance_Ohm": 0,
+      "currentLimit_A": 10
+    }
+  ]
+}

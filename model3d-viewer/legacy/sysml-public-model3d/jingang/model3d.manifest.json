@@ -1,0 +1,768 @@
+{
+  "schemaVersion": "aidc.model3d.package/0.1",
+  "modelId": "SYS-JG10",
+  "revision": "P4-2026-09-19",
+  "name": "Jingang Native10",
+  "manufacturingStatus": "NOT_RELEASED_DETAILED_REVIEW_REQUIRED",
+  "coordinateSystem": {
+    "lengthUnit": "m",
+    "angleUnit": "rad",
+    "forward": "+X",
+    "left": "+Y",
+    "up": "+Z",
+    "quaternionOrder": "xyzw"
+  },
+  "source": {
+    "cadUri": "../layout/jingang-10axis-layout.FCStd",
+    "cadSha256": "55e03ee31a51fc14962c91649c229ba242158af1ecb5460aaff3a8a70716e17d",
+    "sysmlUri": "../architecture.sysml",
+    "sysmlSha256": "c543e3b230a3c9fca5306c9ddb56df541663d5c02d76db4d614481915e8e729f",
+    "publisherVersion": "0.1.0"
+  },
+  "assets": [
+    {
+      "role": "visual",
+      "uri": "visual.glb",
+      "mediaType": "model/gltf-binary",
+      "sha256": "baeb51317b1881d079b909aaadabb0e8ade52dee2799ae789eefe0b355fa8ab3",
+      "byteLength": 19134592
+    },
+    {
+      "role": "collision",
+      "uri": "collision.glb",
+      "mediaType": "model/gltf-binary",
+      "sha256": "19805024fdeea525a82bc4f9dcce3bb9d2299d880812517905174813bde0d962",
+      "byteLength": 18848
+    }
+  ],
+  "rootBodyId": "Microduck",
+  "bodies": [
+    {
+      "bodyId": "Microduck",
+      "label": "整机",
+      "nodeName": "Microduck",
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "bodyId": "Body_trunk_base",
+      "label": "躯干总成",
+      "nodeName": "Body_trunk_base",
+      "translation": [
+        0.0,
+        0.0,
+        0.12
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "parentBodyId": "Microduck"
+    },
+    {
+      "bodyId": "Body_yaw2roll",
+      "label": "左髋偏航总成",
+      "nodeName": "Body_yaw2roll",
+      "translation": [
+        0.006,
+        0.0175,
+        -0.005
+      ],
+      "rotation": [
+        -0.7071067811865476,
+        -0.7071067811865476,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_trunk_base"
+    },
+    {
+      "bodyId": "Body_hip_l",
+      "label": "左髋关节",
+      "nodeName": "Body_hip_l",
+      "translation": [
+        0.0,
+        0.0165,
+        0.0125
+      ],
+      "rotation": [
+        0.7064337722128922,
+        0.03084356459723192,
+        0.03084356459723192,
+        -0.7064337722128922
+      ],
+      "parentBodyId": "Body_yaw2roll"
+    },
+    {
+      "bodyId": "Body_upper_leg_left",
+      "label": "左大腿总成",
+      "nodeName": "Body_upper_leg_left",
+      "translation": [
+        0.025,
+        0.0,
+        -0.0185
+      ],
+      "rotation": [
+        0.6004346231395076,
+        -0.3734678879573417,
+        0.6004346231395076,
+        -0.3734678879573417
+      ],
+      "parentBodyId": "Body_hip_l"
+    },
+    {
+      "bodyId": "Body_leg",
+      "label": "左小腿总成",
+      "nodeName": "Body_leg",
+      "translation": [
+        0.022,
+        0.0357771,
+        -0.004
+      ],
+      "rotation": [
+        -0.7053580722201569,
+        -0.7088511761673701,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_upper_leg_left"
+    },
+    {
+      "bodyId": "Body_ankle_left",
+      "label": "左踝与足部",
+      "nodeName": "Body_ankle_left",
+      "translation": [
+        0.0,
+        0.042,
+        -0.026000000000000002
+      ],
+      "rotation": [
+        0.9744601475233095,
+        -0.2245605060754227,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_leg"
+    },
+    {
+      "bodyId": "Body_neck",
+      "label": "颈部总成",
+      "nodeName": "Body_neck",
+      "translation": [
+        0.026000000000000002,
+        0.0145,
+        0.032421500000000006
+      ],
+      "rotation": [
+        0.12278780396897285,
+        0.6963642403200189,
+        -0.6963642403200189,
+        0.12278780396897275
+      ],
+      "parentBodyId": "Body_trunk_base"
+    },
+    {
+      "bodyId": "Body_neck_pitch",
+      "label": "头部俯仰总成",
+      "nodeName": "Body_neck_pitch",
+      "translation": [
+        0.0,
+        -0.05,
+        0.0
+      ],
+      "rotation": [
+        0.9848077530122081,
+        -0.1736481776669304,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_neck"
+    },
+    {
+      "bodyId": "Body_yaw_roll_motion",
+      "label": "头部偏航总成",
+      "nodeName": "Body_yaw_roll_motion",
+      "translation": [
+        0.0,
+        -0.0013068999999999989,
+        -0.0145
+      ],
+      "rotation": [
+        0.061628416716219374,
+        0.7044160264027587,
+        0.7044160264027587,
+        0.06162841671621939
+      ],
+      "parentBodyId": "Body_neck_pitch"
+    },
+    {
+      "bodyId": "Body_jaw_soft",
+      "label": "头部外壳与载荷",
+      "nodeName": "Body_jaw_soft",
+      "translation": [
+        -0.0179,
+        0.0,
+        0.0145
+      ],
+      "rotation": [
+        0.0,
+        -0.7071067811865476,
+        0.0,
+        0.7071067811865476
+      ],
+      "parentBodyId": "Body_yaw_roll_motion"
+    },
+    {
+      "bodyId": "Body_bearing_roll",
+      "label": "右髋偏航总成",
+      "nodeName": "Body_bearing_roll",
+      "translation": [
+        0.006,
+        -0.0175,
+        -0.005
+      ],
+      "rotation": [
+        0.7071067811865476,
+        0.7071067811865476,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_trunk_base"
+    },
+    {
+      "bodyId": "Body_hip_l_2",
+      "label": "右髋关节",
+      "nodeName": "Body_hip_l_2",
+      "translation": [
+        0.0,
+        0.0165,
+        0.0125
+      ],
+      "rotation": [
+        0.013303181231266182,
+        -0.7069816301497006,
+        -0.7069816301497006,
+        -0.01330318123126629
+      ],
+      "parentBodyId": "Body_bearing_roll"
+    },
+    {
+      "bodyId": "Body_upper_leg_right",
+      "label": "右大腿总成",
+      "nodeName": "Body_upper_leg_right",
+      "translation": [
+        0.025,
+        0.0,
+        -0.0185
+      ],
+      "rotation": [
+        -0.23638606521585642,
+        0.6664245104824438,
+        -0.23638606521585642,
+        0.6664245104824439
+      ],
+      "parentBodyId": "Body_hip_l_2"
+    },
+    {
+      "bodyId": "Body_leg_2",
+      "label": "右小腿总成",
+      "nodeName": "Body_leg_2",
+      "translation": [
+        -0.022,
+        0.0357771,
+        -0.004
+      ],
+      "rotation": [
+        0.8631312622203727,
+        -0.5049796274879476,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_upper_leg_right"
+    },
+    {
+      "bodyId": "Body_ankle_right",
+      "label": "右踝与足部",
+      "nodeName": "Body_ankle_right",
+      "translation": [
+        -0.042,
+        0.0,
+        -0.026000000000000002
+      ],
+      "rotation": [
+        0.5762896887015292,
+        0.8172454923071125,
+        0.0,
+        6.123233995736766e-17
+      ],
+      "parentBodyId": "Body_leg_2"
+    }
+  ],
+  "components": [
+    {
+      "componentId": "SYS-JG10",
+      "label": "整机",
+      "nodeName": "Microduck",
+      "bodyId": "Microduck",
+      "geometryStatus": "DETAILED_ASSEMBLY_BASELINE",
+      "sourceObject": "Microduck"
+    },
+    {
+      "componentId": "ASM-BODY",
+      "label": "躯干总成",
+      "nodeName": "Body_trunk_base",
+      "bodyId": "Body_trunk_base",
+      "geometryStatus": "DETAILED_CUSTOM_GEOMETRY",
+      "sourceObject": "Body_trunk_base"
+    },
+    {
+      "componentId": "ASM-LEG-L",
+      "label": "左髋偏航总成",
+      "nodeName": "Body_yaw2roll",
+      "bodyId": "Body_yaw2roll",
+      "geometryStatus": "DETAILED_CUSTOM_GEOMETRY",
+      "sourceObject": "Body_yaw2roll"
+    },
+    {
+      "componentId": "ACT-L-HIP-ROLL",
+      "label": "HD-1910-C001 | Mesh_xl332",
+      "nodeName": "Mesh_xl332",
+      "bodyId": "Body_yaw2roll",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl332"
+    },
+    {
+      "componentId": "ACT-L-HIP-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl333",
+      "nodeName": "Mesh_xl333",
+      "bodyId": "Body_upper_leg_left",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl333"
+    },
+    {
+      "componentId": "ACT-L-KNEE-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl334",
+      "nodeName": "Mesh_xl334",
+      "bodyId": "Body_upper_leg_left",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl334"
+    },
+    {
+      "componentId": "ACT-L-ANKLE-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl335",
+      "nodeName": "Mesh_xl335",
+      "bodyId": "Body_leg",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl335"
+    },
+    {
+      "componentId": "ASM-LEG-R",
+      "label": "右髋偏航总成",
+      "nodeName": "Body_bearing_roll",
+      "bodyId": "Body_bearing_roll",
+      "geometryStatus": "DETAILED_CUSTOM_GEOMETRY",
+      "sourceObject": "Body_bearing_roll"
+    },
+    {
+      "componentId": "ACT-R-HIP-ROLL",
+      "label": "HD-1910-C001 | Mesh_xl341",
+      "nodeName": "Mesh_xl341",
+      "bodyId": "Body_bearing_roll",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl341"
+    },
+    {
+      "componentId": "ACT-R-HIP-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl342",
+      "nodeName": "Mesh_xl342",
+      "bodyId": "Body_upper_leg_right",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl342"
+    },
+    {
+      "componentId": "ACT-R-KNEE-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl343",
+      "nodeName": "Mesh_xl343",
+      "bodyId": "Body_upper_leg_right",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl343"
+    },
+    {
+      "componentId": "ACT-R-ANKLE-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl344",
+      "nodeName": "Mesh_xl344",
+      "bodyId": "Body_leg_2",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl344"
+    },
+    {
+      "componentId": "ASM-HEAD-NECK",
+      "label": "颈部总成",
+      "nodeName": "Body_neck",
+      "bodyId": "Body_neck",
+      "geometryStatus": "DETAILED_CUSTOM_GEOMETRY",
+      "sourceObject": "Body_neck"
+    },
+    {
+      "componentId": "ACT-NECK-PITCH",
+      "label": "HD-1910-C001 | Mesh_xl336",
+      "nodeName": "Mesh_xl336",
+      "bodyId": "Body_neck",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl336"
+    },
+    {
+      "componentId": "ACT-HEAD-YAW",
+      "label": "HD-1910-C001 | Mesh_xl338",
+      "nodeName": "Mesh_xl338",
+      "bodyId": "Body_yaw_roll_motion",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "sourceObject": "Mesh_xl338"
+    },
+    {
+      "componentId": "SYS-POWER",
+      "label": "6.4V 1800mAh 电池占位（19×37×68 mm）",
+      "nodeName": "Battery_6V4",
+      "bodyId": "Body_trunk_base",
+      "geometryStatus": "MEASURED_ENVELOPE_NO_SKU",
+      "sourceObject": "Battery_6V4"
+    },
+    {
+      "componentId": "SYS-COMPUTE",
+      "label": "pcb__raspberry_pi_zero_2_w",
+      "nodeName": "Mesh_pcb__raspberry_pi_zero_2_w",
+      "bodyId": "Body_jaw_soft",
+      "geometryStatus": "REFERENCE_COMPONENT_MESH_CONFIGURATION_CONFLICT",
+      "sourceObject": "Mesh_pcb__raspberry_pi_zero_2_w"
+    },
+    {
+      "componentId": "SYS-MOTION-CONTROL",
+      "label": "elec_rpi_robot_hat_pcb",
+      "nodeName": "Mesh_elec_rpi_robot_hat_pcb",
+      "bodyId": "Body_jaw_soft",
+      "geometryStatus": "REFERENCE_COMPONENT_MESH_CONFIGURATION_CONFLICT",
+      "sourceObject": "Mesh_elec_rpi_robot_hat_pcb"
+    },
+    {
+      "componentId": "SYS-SENSING",
+      "label": "IMU占位 | 25.8x15.5 | 元件朝上 | 排针朝左",
+      "nodeName": "IMU_Board_Envelope",
+      "bodyId": "Body_trunk_base",
+      "geometryStatus": "PLANNING_ENVELOPE_SKU_UNRESOLVED",
+      "sourceObject": "IMU_Board_Envelope"
+    }
+  ],
+  "joints": [
+    {
+      "jointId": "ACT-L-HIP-ROLL",
+      "type": "revolute",
+      "parentBodyId": "Body_yaw2roll",
+      "childBodyId": "Body_hip_l",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.3141592653589793,
+        "upper": 0.3141592653589793,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-HIP-ROLL.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-L-HIP-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_hip_l",
+      "childBodyId": "Body_upper_leg_left",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.6108652381980153,
+        "upper": 0.6108652381980153,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-HIP-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-L-KNEE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_upper_leg_left",
+      "childBodyId": "Body_leg",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.08726646259971647,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": 0.08726646259971647,
+        "upper": 1.1344640137963142,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-KNEE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-L-ANKLE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_leg",
+      "childBodyId": "Body_ankle_left",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.5235987755982988,
+        "upper": 0.5235987755982988,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-L-ANKLE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-HIP-ROLL",
+      "type": "revolute",
+      "parentBodyId": "Body_bearing_roll",
+      "childBodyId": "Body_hip_l_2",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.3141592653589793,
+        "upper": 0.3141592653589793,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-HIP-ROLL.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-HIP-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_hip_l_2",
+      "childBodyId": "Body_upper_leg_right",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.6108652381980153,
+        "upper": 0.6108652381980153,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-HIP-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-KNEE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_upper_leg_right",
+      "childBodyId": "Body_leg_2",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.08726646259971647,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": 0.08726646259971647,
+        "upper": 1.1344640137963142,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-KNEE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-R-ANKLE-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_leg_2",
+      "childBodyId": "Body_ankle_right",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -0.5235987755982988,
+        "upper": 0.5235987755982988,
+        "velocity": 3.141592653589793
+      },
+      "drive": {
+        "channel": "ACT-R-ANKLE-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-NECK-PITCH",
+      "type": "revolute",
+      "parentBodyId": "Body_trunk_base",
+      "childBodyId": "Body_neck",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.08726646259971647,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": 0.08726646259971647,
+        "upper": 0.6108652381980153,
+        "velocity": 2.0943951023931953
+      },
+      "drive": {
+        "channel": "ACT-NECK-PITCH.position",
+        "sign": 1,
+        "scale": 1
+      }
+    },
+    {
+      "jointId": "ACT-HEAD-YAW",
+      "type": "revolute",
+      "parentBodyId": "Body_neck_pitch",
+      "childBodyId": "Body_yaw_roll_motion",
+      "axis": [
+        0,
+        0,
+        1
+      ],
+      "neutralValue": 0.0,
+      "zeroOffset": 0.0,
+      "limit": {
+        "lower": -1.0471975511965976,
+        "upper": 1.0471975511965976,
+        "velocity": 2.0943951023931953
+      },
+      "drive": {
+        "channel": "ACT-HEAD-YAW.position",
+        "sign": 1,
+        "scale": 1
+      }
+    }
+  ],
+  "collision": {
+    "enabledComponentIds": [
+      "ACT-L-HIP-ROLL",
+      "ACT-L-HIP-PITCH",
+      "ACT-L-KNEE-PITCH",
+      "ACT-L-ANKLE-PITCH",
+      "ACT-R-HIP-ROLL",
+      "ACT-R-HIP-PITCH",
+      "ACT-R-KNEE-PITCH",
+      "ACT-R-ANKLE-PITCH",
+      "ACT-NECK-PITCH",
+      "ACT-HEAD-YAW",
+      "SYS-POWER",
+      "SYS-COMPUTE",
+      "SYS-MOTION-CONTROL",
+      "SYS-SENSING"
+    ],
+    "tolerance": 0.0002,
+    "allowedContacts": [
+      {
+        "componentA": "ACT-L-HIP-ROLL",
+        "componentB": "ACT-L-HIP-PITCH",
+        "reason": "左髋关节装配接触"
+      },
+      {
+        "componentA": "ACT-L-KNEE-PITCH",
+        "componentB": "ACT-L-ANKLE-PITCH",
+        "reason": "左腿关节装配接触"
+      },
+      {
+        "componentA": "ACT-R-HIP-ROLL",
+        "componentB": "ACT-R-HIP-PITCH",
+        "reason": "右髋关节装配接触"
+      },
+      {
+        "componentA": "ACT-R-KNEE-PITCH",
+        "componentB": "ACT-R-ANKLE-PITCH",
+        "reason": "右腿关节装配接触"
+      },
+      {
+        "componentA": "ACT-NECK-PITCH",
+        "componentB": "ACT-HEAD-YAW",
+        "reason": "头颈关节装配接触"
+      },
+      {
+        "componentA": "SYS-COMPUTE",
+        "componentB": "SYS-MOTION-CONTROL",
+        "reason": "控制板层叠装配"
+      }
+    ]
+  },
+  "statistics": {
+    "sourceObjectCount": 212,
+    "exportedGeometryCount": 67,
+    "triangleCount": 593930,
+    "componentCount": 19,
+    "jointCount": 10,
+    "visualBounds": {
+      "minimum": [
+        -0.04966941874427374,
+        -0.07440184262308966,
+        -0.014529676554783173
+      ],
+      "maximum": [
+        0.05342967381455051,
+        0.07102830854687403,
+        0.2708894491036413
+      ]
+    }
+  }
+}

@@ -1,0 +1,805 @@
+{
+  "calculationModel": {
+    "analyses": [],
+    "constraints": [],
+    "definitions": [],
+    "parameters": [],
+    "usages": [],
+    "version": "0.1"
+  },
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "calculation.analysis": "supported",
+    "calculation.definition": "supported",
+    "calculation.expression-ast": "partial",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported",
+    "view.definition": "supported",
+    "view.expose": "supported",
+    "view.table-rendering": "supported"
+  },
+  "diagnostics": [
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Imported namespace not found: JingangNative10ParameterAnalysisContract (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship NamespaceImport has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-9b6b1b40f01bd06411889fea"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 7 elements without a span; 4 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "dd73609b57b7a2dfb3811067b0f7d72a296c5af719e4ef57ba747df27f87267a",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c1-062af55b67a5b32d",
+      "capabilityVersion": "0.6.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-29e334acc819f387df74a3ab",
+      "kind": "Package",
+      "name": "JingangNative10ParameterTableContract",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract",
+      "source": {
+        "end": {
+          "column": 46,
+          "line": 1,
+          "offset": 45
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-7decb7a79b453ab9d0c90384",
+      "kind": "ViewDefinition",
+      "name": "CoreParameterAnalysisTable",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "viewType": "GridView"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::CoreParameterAnalysisTable",
+      "source": {
+        "end": {
+          "column": 40,
+          "line": 25,
+          "offset": 750
+        },
+        "start": {
+          "column": 14,
+          "line": 25,
+          "offset": 724
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-38846ad76d1e6dbc402a40ee",
+      "kind": "ViewRenderingMember",
+      "name": "coreParameterTableRendering",
+      "ownerId": "e-7decb7a79b453ab9d0c90384",
+      "properties": {
+        "renderingReference": "coreParameterTableRendering"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::CoreParameterAnalysisTable::coreParameterTableRendering",
+      "source": {
+        "end": {
+          "column": 42,
+          "line": 6,
+          "offset": 235
+        },
+        "start": {
+          "column": 15,
+          "line": 6,
+          "offset": 208
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-cdcef0287441c658f8052add",
+      "kind": "RenderingUsage",
+      "name": "coreParameterTableRendering",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "renderingType": "asElementTable"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering",
+      "source": {
+        "end": {
+          "column": 43,
+          "line": 26,
+          "offset": 808
+        },
+        "start": {
+          "column": 16,
+          "line": 26,
+          "offset": 781
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-de03aacf06175632e4c64464",
+      "kind": "ViewUsage",
+      "name": "parameterColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::parameterColumn",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 7,
+          "offset": 285
+        },
+        "start": {
+          "column": 14,
+          "line": 7,
+          "offset": 270
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-a42fa612129efb9ebe48482c",
+      "kind": "ViewUsage",
+      "name": "roleColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::roleColumn",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 9,
+          "offset": 338
+        },
+        "start": {
+          "column": 14,
+          "line": 9,
+          "offset": 328
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-b3427e5aeab5c5ec19d857ab",
+      "kind": "ViewUsage",
+      "name": "currentValueColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::currentValueColumn",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 11,
+          "offset": 399
+        },
+        "start": {
+          "column": 14,
+          "line": 11,
+          "offset": 381
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-9e4c6f11cc086379aed617a9",
+      "kind": "ViewUsage",
+      "name": "unitColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::unitColumn",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 13,
+          "offset": 452
+        },
+        "start": {
+          "column": 14,
+          "line": 13,
+          "offset": 442
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-0eb0c66d2c42be86718c2b76",
+      "kind": "ViewUsage",
+      "name": "targetColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::targetColumn",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 15,
+          "offset": 507
+        },
+        "start": {
+          "column": 14,
+          "line": 15,
+          "offset": 495
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-082236275858cf14d22aeb89",
+      "kind": "ViewUsage",
+      "name": "marginColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::marginColumn",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 17,
+          "offset": 562
+        },
+        "start": {
+          "column": 14,
+          "line": 17,
+          "offset": 550
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-1ce2ab77729b05b765b578ef",
+      "kind": "ViewUsage",
+      "name": "statusColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::statusColumn",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 19,
+          "offset": 617
+        },
+        "start": {
+          "column": 14,
+          "line": 19,
+          "offset": 605
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-ce5c86f3c865ad335d406f7b",
+      "kind": "ViewUsage",
+      "name": "sourceColumn",
+      "ownerId": "e-cdcef0287441c658f8052add",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterTableRendering::sourceColumn",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 21,
+          "offset": 672
+        },
+        "start": {
+          "column": 14,
+          "line": 21,
+          "offset": 660
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-a8c65cffcf312cdf602a0e33",
+      "kind": "ViewUsage",
+      "name": "coreParameterAnalysisTable",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "renderMethod": "coreParameterTableRendering",
+        "typeId": "e-7decb7a79b453ab9d0c90384",
+        "typeName": "CoreParameterAnalysisTable",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterAnalysisTable",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 29,
+          "offset": 855
+        },
+        "start": {
+          "column": 10,
+          "line": 29,
+          "offset": 829
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "e-75243272dea3995a7765306b",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-a8c65cffcf312cdf602a0e33",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::totalMassResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-9faa5b8dff03c09bfaebc80e",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-a8c65cffcf312cdf602a0e33",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::enduranceResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-532eb79099bb24d437d80a1c",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-a8c65cffcf312cdf602a0e33",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::peakElectricalPowerResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-37c20561eadea4ef750cdb76",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-a8c65cffcf312cdf602a0e33",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::stopResponseTimeResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-44007c6b521b3e6ed252270f",
+      "kind": "ViewRenderingMember",
+      "name": "coreParameterTableRendering",
+      "ownerId": "e-a8c65cffcf312cdf602a0e33",
+      "properties": {
+        "renderingReference": "coreParameterTableRendering"
+      },
+      "qualifiedName": "JingangNative10ParameterTableContract::coreParameterAnalysisTable::coreParameterTableRendering",
+      "source": {
+        "end": {
+          "column": 43,
+          "line": 34,
+          "offset": 1339
+        },
+        "start": {
+          "column": 16,
+          "line": 34,
+          "offset": 1312
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+      }
+    },
+    {
+      "id": "libpkg-ec8d9ab5a78b8b1ef592f3b7",
+      "kind": "LibraryPackage",
+      "name": "Views",
+      "ownerId": null,
+      "properties": {
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library"
+      },
+      "qualifiedName": "Views",
+      "source": null
+    },
+    {
+      "id": "libpkg-0a92c1a1ba253c37ae425349",
+      "kind": "LibraryPackage",
+      "name": "StandardViewDefinitions",
+      "ownerId": null,
+      "properties": {
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library"
+      },
+      "qualifiedName": "StandardViewDefinitions",
+      "source": null
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-e044b7331128a88f91110e70",
+      "kind": "NamespaceImport",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "importedNamespaceName": "Views",
+        "isAll": false,
+        "isRecursive": false,
+        "isWildcard": true,
+        "visibility": "VisibilityPrivate"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-29e334acc819f387df74a3ab"
+      ],
+      "targetIds": [
+        "libpkg-ec8d9ab5a78b8b1ef592f3b7"
+      ]
+    },
+    {
+      "id": "e-b306c7b0066f352f92e5f5e1",
+      "kind": "NamespaceImport",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "importedNamespaceName": "StandardViewDefinitions",
+        "isAll": false,
+        "isRecursive": false,
+        "isWildcard": true,
+        "visibility": "VisibilityPrivate"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-29e334acc819f387df74a3ab"
+      ],
+      "targetIds": [
+        "libpkg-0a92c1a1ba253c37ae425349"
+      ]
+    },
+    {
+      "id": "e-9b6b1b40f01bd06411889fea",
+      "kind": "NamespaceImport",
+      "ownerId": "e-29e334acc819f387df74a3ab",
+      "properties": {
+        "importedNamespaceName": "JingangNative10ParameterAnalysisContract",
+        "isAll": false,
+        "isRecursive": false,
+        "isWildcard": true,
+        "visibility": "VisibilityPrivate"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-29e334acc819f387df74a3ab"
+      ],
+      "targetIds": []
+    }
+  ],
+  "schemaVersion": "0.1",
+  "viewModel": {
+    "definitions": [
+      {
+        "elementId": "e-7decb7a79b453ab9d0c90384",
+        "id": "e-7decb7a79b453ab9d0c90384",
+        "name": "CoreParameterAnalysisTable",
+        "renderingId": "e-cdcef0287441c658f8052add",
+        "renderingReference": "coreParameterTableRendering",
+        "source": {
+          "end": {
+            "column": 40,
+            "line": 25,
+            "offset": 750
+          },
+          "start": {
+            "column": 14,
+            "line": 25,
+            "offset": 724
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+        },
+        "viewKind": "grid",
+        "viewType": "GridView"
+      }
+    ],
+    "renderings": [
+      {
+        "columns": [
+          {
+            "columnView": "columnView",
+            "id": "e-de03aacf06175632e4c64464",
+            "name": "parameterColumn",
+            "source": {
+              "end": {
+                "column": 29,
+                "line": 7,
+                "offset": 285
+              },
+              "start": {
+                "column": 14,
+                "line": 7,
+                "offset": 270
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-a42fa612129efb9ebe48482c",
+            "name": "roleColumn",
+            "source": {
+              "end": {
+                "column": 24,
+                "line": 9,
+                "offset": 338
+              },
+              "start": {
+                "column": 14,
+                "line": 9,
+                "offset": 328
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-b3427e5aeab5c5ec19d857ab",
+            "name": "currentValueColumn",
+            "source": {
+              "end": {
+                "column": 32,
+                "line": 11,
+                "offset": 399
+              },
+              "start": {
+                "column": 14,
+                "line": 11,
+                "offset": 381
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-9e4c6f11cc086379aed617a9",
+            "name": "unitColumn",
+            "source": {
+              "end": {
+                "column": 24,
+                "line": 13,
+                "offset": 452
+              },
+              "start": {
+                "column": 14,
+                "line": 13,
+                "offset": 442
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-0eb0c66d2c42be86718c2b76",
+            "name": "targetColumn",
+            "source": {
+              "end": {
+                "column": 26,
+                "line": 15,
+                "offset": 507
+              },
+              "start": {
+                "column": 14,
+                "line": 15,
+                "offset": 495
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-082236275858cf14d22aeb89",
+            "name": "marginColumn",
+            "source": {
+              "end": {
+                "column": 26,
+                "line": 17,
+                "offset": 562
+              },
+              "start": {
+                "column": 14,
+                "line": 17,
+                "offset": 550
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-1ce2ab77729b05b765b578ef",
+            "name": "statusColumn",
+            "source": {
+              "end": {
+                "column": 26,
+                "line": 19,
+                "offset": 617
+              },
+              "start": {
+                "column": 14,
+                "line": 19,
+                "offset": 605
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-ce5c86f3c865ad335d406f7b",
+            "name": "sourceColumn",
+            "source": {
+              "end": {
+                "column": 26,
+                "line": 21,
+                "offset": 672
+              },
+              "start": {
+                "column": 14,
+                "line": 21,
+                "offset": 660
+              },
+              "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+            }
+          }
+        ],
+        "elementId": "e-cdcef0287441c658f8052add",
+        "id": "e-cdcef0287441c658f8052add",
+        "name": "coreParameterTableRendering",
+        "renderingKind": "element-table",
+        "renderingType": "asElementTable",
+        "source": {
+          "end": {
+            "column": 43,
+            "line": 26,
+            "offset": 808
+          },
+          "start": {
+            "column": 16,
+            "line": 26,
+            "offset": 781
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+        }
+      }
+    ],
+    "version": "0.1",
+    "views": [
+      {
+        "definitionId": "e-7decb7a79b453ab9d0c90384",
+        "definitionReference": "CoreParameterAnalysisTable",
+        "elementId": "e-a8c65cffcf312cdf602a0e33",
+        "exposedElementIds": [],
+        "exposedReferences": [
+          "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::totalMassResult",
+          "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::enduranceResult",
+          "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::peakElectricalPowerResult",
+          "JingangNative10ParameterAnalysisContract::coreParameterAnalysis::stopResponseTimeResult"
+        ],
+        "id": "e-a8c65cffcf312cdf602a0e33",
+        "name": "coreParameterAnalysisTable",
+        "renderingId": "e-cdcef0287441c658f8052add",
+        "renderingReference": "coreParameterTableRendering",
+        "source": {
+          "end": {
+            "column": 36,
+            "line": 29,
+            "offset": 855
+          },
+          "start": {
+            "column": 10,
+            "line": 29,
+            "offset": 829
+          },
+          "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/views/parameter-analysis-table.sysml"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "机器人 Modelica 模型开发"
+  short_description: "基于 AIDCRobotics 与 Robot IR 开发并验收机器人模型"
+  default_prompt: "使用 $robot-modelica-model-development，基于现有 AIDCRobotics 标准库创建或改进机器人 Modelica 模型并完成验证。"
+
+policy:
+  allow_implicit_invocation: true

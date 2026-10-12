@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/robot-ir/physics-0.1.json",
+  "title": "AIDC Robot Physics",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "modelRevision", "coordinateSystem", "rootBodyId", "bodies", "joints", "contactDefaults"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.robot.physics/0.1" },
+    "modelId": { "$ref": "#/$defs/id" },
+    "modelRevision": { "$ref": "#/$defs/nonempty" },
+    "coordinateSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lengthUnit", "angleUnit", "forward", "left", "up", "geometryQuaternionOrder"],
+      "properties": {
+        "lengthUnit": { "const": "m" },
+        "angleUnit": { "const": "rad" },
+        "forward": { "const": "+X" },
+        "left": { "const": "+Y" },
+        "up": { "const": "+Z" },
+        "geometryQuaternionOrder": { "const": "xyzw" }
+      }
+    },
+    "rootBodyId": { "$ref": "#/$defs/id" },
+    "rootType": { "enum": ["fixed", "floating"] },
+    "rootInitialTranslation_m": { "$ref": "#/$defs/vec3" },
+    "rootInitialRotation_xyzw": { "$ref": "#/$defs/quat" },
+    "bodies": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["bodyId", "translation_m", "rotation_xyzw", "mass_kg", "centerOfMass_m", "inertia_kg_m2"],
+        "properties": {
+          "bodyId": { "$ref": "#/$defs/id" },
+          "parentBodyId": { "$ref": "#/$defs/id" },
+          "translation_m": { "$ref": "#/$defs/vec3" },
+          "rotation_xyzw": { "$ref": "#/$defs/quat" },
+          "mass_kg": { "type": "number", "exclusiveMinimum": 0 },
+          "centerOfMass_m": { "$ref": "#/$defs/vec3" },
+          "inertia_kg_m2": {
+            "type": "object", "additionalProperties": false,
+            "required": ["ixx", "iyy", "izz", "ixy", "ixz", "iyz"],
+            "properties": {
+              "ixx": { "type": "number", "exclusiveMinimum": 0 },
+              "iyy": { "type": "number", "exclusiveMinimum": 0 },
+              "izz": { "type": "number", "exclusiveMinimum": 0 },
+              "ixy": { "type": "number" }, "ixz": { "type": "number" }, "iyz": { "type": "number" }
+            }
+          },
+          "visualAssetId": { "$ref": "#/$defs/id" },
+          "collisionAssetIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } }
+        }
+      }
+    },
+    "geometryAssets": {
+      "type": "array", "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["assetId", "path", "format", "scale"],
+        "properties": {
+          "assetId": { "$ref": "#/$defs/id" },
+          "path": { "type": "string", "minLength": 1 },
+          "format": { "enum": ["stl", "obj", "glb"] },
+          "scale": { "$ref": "#/$defs/vec3" }
+        }
+      }
+    },
+    "joints": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["jointId", "type", "parentBodyId", "childBodyId", "translation_m", "rotation_xyzw", "axis", "zeroOffset_rad", "initialPosition_rad", "limit"],
+        "properties": {
+          "jointId": { "$ref": "#/$defs/id" },
+          "type": { "enum": ["fixed", "revolute", "prismatic"] },
+          "parentBodyId": { "$ref": "#/$defs/id" },
+          "childBodyId": { "$ref": "#/$defs/id" },
+          "translation_m": { "$ref": "#/$defs/vec3" },
+          "rotation_xyzw": { "$ref": "#/$defs/quat" },
+          "axis": { "$ref": "#/$defs/vec3" },
+          "zeroOffset_rad": { "type": "number" },
+          "initialPosition_rad": { "type": "number" },
+          "limit": {
+            "type": "object", "additionalProperties": false,
+            "required": ["lower", "upper", "velocity", "effort"],
+            "properties": {
+              "lower": { "type": "number" }, "upper": { "type": "number" },
+              "velocity": { "type": "number", "exclusiveMinimum": 0 },
+              "effort": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          },
+          "damping_Nm_s_rad": { "type": "number", "minimum": 0 },
+          "friction_Nm": { "type": "number", "minimum": 0 },
+          "armature_kg_m2": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "namedPoses": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "jointPositions"],
+        "properties": {
+          "name": { "$ref": "#/$defs/id" },
+          "jointPositions": {
+            "type": "object",
+            "propertyNames": { "$ref": "#/$defs/id" },
+            "additionalProperties": { "type": "number" }
+          }
+        }
+      }
+    },
+    "contactGeometries": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["contactId", "bodyId", "shape", "translation_m", "rotation_xyzw"],
+        "properties": {
+          "contactId": { "$ref": "#/$defs/id" },
+          "bodyId": { "$ref": "#/$defs/id" },
+          "shape": { "enum": ["point", "sphere", "box", "capsule", "footPatch", "mesh"] },
+          "translation_m": { "$ref": "#/$defs/vec3" },
+          "rotation_xyzw": { "$ref": "#/$defs/quat" },
+          "radius_m": { "type": "number", "exclusiveMinimum": 0 },
+          "halfExtents_m": { "$ref": "#/$defs/vec3" },
+          "halfLength_m": { "type": "number", "minimum": 0 },
+          "axis": { "$ref": "#/$defs/vec3" },
+          "points_m": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/vec3" } },
+          "assetId": { "$ref": "#/$defs/id" }
+        }
+      }
+    },
+    "contactDefaults": {
+      "type": "object", "additionalProperties": false,
+      "required": ["friction", "contactMargin_m"],
+      "properties": {
+        "friction": { "type": "number", "minimum": 0 },
+        "contactMargin_m": { "type": "number", "minimum": 0 },
+        "excludedBodyPairs": {
+          "type": "array", "items": {
+            "type": "array", "minItems": 2, "maxItems": 2,
+            "prefixItems": [{ "$ref": "#/$defs/id" }, { "$ref": "#/$defs/id" }], "items": false
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$" },
+    "nonempty": { "type": "string", "minLength": 1 },
+    "vec3": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } },
+    "quat": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" } }
+  }
+}

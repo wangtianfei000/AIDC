@@ -1,0 +1,6512 @@
+{
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported"
+  },
+  "diagnostics": [
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-e5b7badf91532f1b5a328409"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-fa5f68e6cf58f48d71ee0364"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-bb256878ccf646f7f81c5cf4"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-ccaa83a537b7ebaa22c8c38d"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-406ee46edb826f7d2f2a06dd"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-eef5f4aac828c7f34be35acc"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-828f408cbd3699ef0a971be9"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-46dfaf483a77ca6b5014f204"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-971e6fc8e536f2b291408491"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-67a79702f00bc2dca74d77e6"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-982359921b461f2da33b4267"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-c5b7933cb10e9927ef8864e3"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-6be1006eb4e380316265cf64"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-fd196c9d9bae0db94a0c3058"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-0213f0c7d37bab6c1a16e829"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-9301963991819f7010d77777"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-534cff64700fd5dfa99f5f6e"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-956fcc9d0467d946cad473a0"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-e4ecdd68d89f67c8f9f31b53"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship ConnectStatement has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-86bba8dcf0d99547aa043d09"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 125 elements without a span; 114 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "f3f89d331741a8143911ae1b3dffdbdb7a26cbddfa91ae48334fa2c5bbcf24e7",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+      "capabilityVersion": "0.4.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-41b655771c74a6e874c26406",
+      "kind": "Package",
+      "name": "JingangNative10Architecture",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 1,
+          "offset": 35
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3cac64e3685adaa2063e605b",
+      "kind": "PortDefinition",
+      "name": "ElectricalPowerPort",
+      "ownerId": "e-41b655771c74a6e874c26406",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::ElectricalPowerPort",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 2,
+          "offset": 70
+        },
+        "start": {
+          "column": 14,
+          "line": 2,
+          "offset": 51
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-dffc0ae47f5f5fef0a155eb9",
+      "kind": "PortDefinition",
+      "name": "ServoBusPort",
+      "ownerId": "e-41b655771c74a6e874c26406",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoBusPort",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 3,
+          "offset": 97
+        },
+        "start": {
+          "column": 14,
+          "line": 3,
+          "offset": 85
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-b64ecff16b0b02183887fb1e",
+      "kind": "PortDefinition",
+      "name": "MotionCommandPort",
+      "ownerId": "e-41b655771c74a6e874c26406",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::MotionCommandPort",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 4,
+          "offset": 129
+        },
+        "start": {
+          "column": 14,
+          "line": 4,
+          "offset": 112
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-20f5227c1e5f0a9b251a3882",
+      "kind": "PortDefinition",
+      "name": "ImuDataPort",
+      "ownerId": "e-41b655771c74a6e874c26406",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::ImuDataPort",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 5,
+          "offset": 155
+        },
+        "start": {
+          "column": 14,
+          "line": 5,
+          "offset": 144
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-99da1e5a9fe30e43d276d68c",
+      "kind": "PartDefinition",
+      "name": "ServoActuator",
+      "ownerId": "e-41b655771c74a6e874c26406",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoActuator",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 7,
+          "offset": 184
+        },
+        "start": {
+          "column": 14,
+          "line": 7,
+          "offset": 171
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-5fce4b764c5c259e9fab9fa2",
+      "kind": "Feature",
+      "name": "componentType",
+      "ownerId": "e-99da1e5a9fe30e43d276d68c",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"HD-1910-C001\""
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoActuator::componentType",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 8,
+          "offset": 218
+        },
+        "start": {
+          "column": 19,
+          "line": 8,
+          "offset": 205
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3a2a0adf6f0298c740aa0691",
+      "kind": "Feature",
+      "name": "planningMass",
+      "ownerId": "e-99da1e5a9fe30e43d276d68c",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "24.5[g]"
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoActuator::planningMass",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 9,
+          "offset": 277
+        },
+        "start": {
+          "column": 19,
+          "line": 9,
+          "offset": 265
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-496aa8d1349f10ad48c86524",
+      "kind": "Feature",
+      "name": "envelopeStatus",
+      "ownerId": "e-99da1e5a9fe30e43d276d68c",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"外廓宣传值；安装接口待验证\""
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoActuator::envelopeStatus",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 10,
+          "offset": 334
+        },
+        "start": {
+          "column": 19,
+          "line": 10,
+          "offset": 320
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-2f3f51c735b5671bfea75624",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-99da1e5a9fe30e43d276d68c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoActuator::powerIn",
+      "source": {
+        "end": {
+          "column": 21,
+          "line": 11,
+          "offset": 410
+        },
+        "start": {
+          "column": 14,
+          "line": 11,
+          "offset": 403
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-4966adb6efa7b9819f6e794d",
+      "kind": "PortUsage",
+      "name": "servoBus",
+      "ownerId": "e-99da1e5a9fe30e43d276d68c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::ServoActuator::servoBus",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 12,
+          "offset": 433
+        },
+        "start": {
+          "column": 14,
+          "line": 12,
+          "offset": 425
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-ca261c8524bb416b07602cde",
+      "kind": "PartDefinition",
+      "name": "JingangNative10",
+      "ownerId": "e-41b655771c74a6e874c26406",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 15,
+          "offset": 470
+        },
+        "start": {
+          "column": 14,
+          "line": 15,
+          "offset": 455
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-fa9dfab0c67eb82581e699ba",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"SYS-JG10\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::componentId",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 16,
+          "offset": 502
+        },
+        "start": {
+          "column": 19,
+          "line": 16,
+          "offset": 491
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-2ed87d1308e8fdbb89a69fcb",
+      "kind": "Feature",
+      "name": "requirementIds",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-FUN-001,REQ-PER-001,REQ-PHY-001,REQ-SAF-001\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::requirementIds",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 17,
+          "offset": 559
+        },
+        "start": {
+          "column": 19,
+          "line": 17,
+          "offset": 545
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-b51cb737db31213a081c9401",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout/jingang-10axis-layout.FCStd\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::cadRef",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 18,
+          "offset": 647
+        },
+        "start": {
+          "column": 19,
+          "line": 18,
+          "offset": 641
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-f27aeb372c02c024a1221d5b",
+      "kind": "Feature",
+      "name": "targetMass",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "800[g]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::targetMass",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 20,
+          "offset": 727
+        },
+        "start": {
+          "column": 19,
+          "line": 20,
+          "offset": 717
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-7172c0c9c2a3bc2dde37fc98",
+      "kind": "Feature",
+      "name": "currentPlannedMass",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "817[g]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::currentPlannedMass",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 21,
+          "offset": 787
+        },
+        "start": {
+          "column": 19,
+          "line": 21,
+          "offset": 769
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-b17b62bad4b596bf15a50b63",
+      "kind": "Feature",
+      "name": "targetEndurance",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "h",
+        "valueExpression": "2[h]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::targetEndurance",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 22,
+          "offset": 844
+        },
+        "start": {
+          "column": 19,
+          "line": 22,
+          "offset": 829
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3c7e08ca1a4a7b4962d89622",
+      "kind": "Feature",
+      "name": "batteryEnergy",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "Wh",
+        "valueExpression": "11.52[Wh]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::batteryEnergy",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 23,
+          "offset": 901
+        },
+        "start": {
+          "column": 19,
+          "line": 23,
+          "offset": 888
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-6d32d6d3e9a8b490e8751f2e",
+      "kind": "Feature",
+      "name": "maximumAveragePowerForEndurance",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "W",
+        "valueExpression": "5.76[W]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::maximumAveragePowerForEndurance",
+      "source": {
+        "end": {
+          "column": 50,
+          "line": 24,
+          "offset": 979
+        },
+        "start": {
+          "column": 19,
+          "line": 24,
+          "offset": 948
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a7e7f056198d505977887bc6",
+      "kind": "Feature",
+      "name": "peakElectricalPowerLimit",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "W",
+        "valueExpression": "19.2[W]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::peakElectricalPowerLimit",
+      "source": {
+        "end": {
+          "column": 43,
+          "line": 25,
+          "offset": 1047
+        },
+        "start": {
+          "column": 19,
+          "line": 25,
+          "offset": 1023
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-1ba7bd39bb11d33091134bce",
+      "kind": "Feature",
+      "name": "controlPeriod",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "5[ms]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::controlPeriod",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 26,
+          "offset": 1104
+        },
+        "start": {
+          "column": 19,
+          "line": 26,
+          "offset": 1091
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-73ff70940147ac0c17e12337",
+      "kind": "Feature",
+      "name": "policyPeriod",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "20[ms]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::policyPeriod",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 27,
+          "offset": 1161
+        },
+        "start": {
+          "column": 19,
+          "line": 27,
+          "offset": 1149
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9983d72d4a0958396ced1090",
+      "kind": "PartUsage",
+      "name": "bodyFrame",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::bodyFrame",
+      "source": {
+        "end": {
+          "column": 23,
+          "line": 29,
+          "offset": 1212
+        },
+        "start": {
+          "column": 14,
+          "line": 29,
+          "offset": 1203
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-f60f2b19dcec87191e398063",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-9983d72d4a0958396ced1090",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ASM-BODY\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::bodyFrame::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 30,
+          "offset": 1248
+        },
+        "start": {
+          "column": 23,
+          "line": 30,
+          "offset": 1237
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-8fdee9421e032bbbf1aed650",
+      "kind": "Feature",
+      "name": "assemblyRelation",
+      "ownerId": "e-9983d72d4a0958396ced1090",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"fixed\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::bodyFrame::assemblyRelation",
+      "source": {
+        "end": {
+          "column": 39,
+          "line": 31,
+          "offset": 1311
+        },
+        "start": {
+          "column": 23,
+          "line": 31,
+          "offset": 1295
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-e7eed04ef96fcb3b56115199",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-9983d72d4a0958396ced1090",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"闭合左右髋载荷并安装电池、计算、控制和感知部件\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::bodyFrame::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 32,
+          "offset": 1369
+        },
+        "start": {
+          "column": 23,
+          "line": 32,
+          "offset": 1355
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-60ca66291c0683c9aad73049",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-9983d72d4a0958396ced1090",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://ASM-BODY\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::bodyFrame::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 33,
+          "offset": 1483
+        },
+        "start": {
+          "column": 23,
+          "line": 33,
+          "offset": 1477
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3aee732b007657306da231bf",
+      "kind": "PartUsage",
+      "name": "leftLeg",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg",
+      "source": {
+        "end": {
+          "column": 21,
+          "line": 36,
+          "offset": 1548
+        },
+        "start": {
+          "column": 14,
+          "line": 36,
+          "offset": 1541
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-d519717fd5337476c130c555",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ASM-LEG-L\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 37,
+          "offset": 1584
+        },
+        "start": {
+          "column": 23,
+          "line": 37,
+          "offset": 1573
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-bde6be0b134d76890be16658",
+      "kind": "Feature",
+      "name": "assemblyRelation",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"moving\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::assemblyRelation",
+      "source": {
+        "end": {
+          "column": 39,
+          "line": 38,
+          "offset": 1648
+        },
+        "start": {
+          "column": 23,
+          "line": 38,
+          "offset": 1632
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-5cb0913942b86d608e3327ce",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"左侧支撑、移重和迈步\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 39,
+          "offset": 1707
+        },
+        "start": {
+          "column": 23,
+          "line": 39,
+          "offset": 1693
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-ce79c58e12afeecae2d9bead",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://ASM-LEG-L\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 40,
+          "offset": 1782
+        },
+        "start": {
+          "column": 23,
+          "line": 40,
+          "offset": 1776
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-0330ffdd6a9b4dc67ca75c37",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::powerIn",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 41,
+          "offset": 1841
+        },
+        "start": {
+          "column": 18,
+          "line": 41,
+          "offset": 1834
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a451de5dff95f3aa748f414d",
+      "kind": "PortUsage",
+      "name": "controlIn",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::controlIn",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 42,
+          "offset": 1869
+        },
+        "start": {
+          "column": 18,
+          "line": 42,
+          "offset": 1860
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a95499712c5ecaec987f5625",
+      "kind": "PartUsage",
+      "name": "leftHipRoll",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipRoll",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 44,
+          "offset": 1900
+        },
+        "start": {
+          "column": 18,
+          "line": 44,
+          "offset": 1889
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-67c1a58b17618ad62f51e955",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-a95499712c5ecaec987f5625",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-L-HIP-ROLL\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipRoll::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 45,
+          "offset": 1956
+        },
+        "start": {
+          "column": 27,
+          "line": 45,
+          "offset": 1945
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-67fa9eba772598bc4d6c819f",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-a95499712c5ecaec987f5625",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"X\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipRoll::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 46,
+          "offset": 2022
+        },
+        "start": {
+          "column": 27,
+          "line": 46,
+          "offset": 2013
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-646398b53c8a56102920e142",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-a95499712c5ecaec987f5625",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-18[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipRoll::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 47,
+          "offset": 2076
+        },
+        "start": {
+          "column": 27,
+          "line": 47,
+          "offset": 2066
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-30c916cf96fc423af1c9b3e6",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-a95499712c5ecaec987f5625",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "18[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipRoll::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 48,
+          "offset": 2148
+        },
+        "start": {
+          "column": 27,
+          "line": 48,
+          "offset": 2138
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-5446c3f2d337db157feecff2",
+      "kind": "PartUsage",
+      "name": "leftHipPitch",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipPitch",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 50,
+          "offset": 2226
+        },
+        "start": {
+          "column": 18,
+          "line": 50,
+          "offset": 2214
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-4e74ae730825c001d35aed45",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-5446c3f2d337db157feecff2",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-L-HIP-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipPitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 51,
+          "offset": 2282
+        },
+        "start": {
+          "column": 27,
+          "line": 51,
+          "offset": 2271
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-e6c388858c220738febc9878",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-5446c3f2d337db157feecff2",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"Y\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipPitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 52,
+          "offset": 2349
+        },
+        "start": {
+          "column": 27,
+          "line": 52,
+          "offset": 2340
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-276b643bf953af14dc4bd00a",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-5446c3f2d337db157feecff2",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-35[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipPitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 53,
+          "offset": 2403
+        },
+        "start": {
+          "column": 27,
+          "line": 53,
+          "offset": 2393
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-c39fb2a6392f5b28ad28ae13",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-5446c3f2d337db157feecff2",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "35[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftHipPitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 54,
+          "offset": 2475
+        },
+        "start": {
+          "column": 27,
+          "line": 54,
+          "offset": 2465
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a46eef337ca332ffe5a25ac1",
+      "kind": "PartUsage",
+      "name": "leftKneePitch",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftKneePitch",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 56,
+          "offset": 2554
+        },
+        "start": {
+          "column": 18,
+          "line": 56,
+          "offset": 2541
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-fb594834e8667fc567591554",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-a46eef337ca332ffe5a25ac1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-L-KNEE-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftKneePitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 57,
+          "offset": 2610
+        },
+        "start": {
+          "column": 27,
+          "line": 57,
+          "offset": 2599
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-37f0aecafb371c67deabd51f",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-a46eef337ca332ffe5a25ac1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"Y\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftKneePitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 58,
+          "offset": 2678
+        },
+        "start": {
+          "column": 27,
+          "line": 58,
+          "offset": 2669
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-69a295d9f223a8bce44f9984",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-a46eef337ca332ffe5a25ac1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "5[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftKneePitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 59,
+          "offset": 2732
+        },
+        "start": {
+          "column": 27,
+          "line": 59,
+          "offset": 2722
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-6fda87fd3e3c7df37cc34995",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-a46eef337ca332ffe5a25ac1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "65[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftKneePitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 60,
+          "offset": 2802
+        },
+        "start": {
+          "column": 27,
+          "line": 60,
+          "offset": 2792
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-35f73b9b3bddf78bcfb34cc9",
+      "kind": "PartUsage",
+      "name": "leftAnklePitch",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftAnklePitch",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 62,
+          "offset": 2882
+        },
+        "start": {
+          "column": 18,
+          "line": 62,
+          "offset": 2868
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-981ddbb3a2f8322c93873e05",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-35f73b9b3bddf78bcfb34cc9",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-L-ANKLE-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftAnklePitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 63,
+          "offset": 2938
+        },
+        "start": {
+          "column": 27,
+          "line": 63,
+          "offset": 2927
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a90ca01ed718103aec192213",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-35f73b9b3bddf78bcfb34cc9",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"Y\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftAnklePitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 64,
+          "offset": 3007
+        },
+        "start": {
+          "column": 27,
+          "line": 64,
+          "offset": 2998
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-0fc5c83da11581a5029a5195",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-35f73b9b3bddf78bcfb34cc9",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-30[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftAnklePitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 65,
+          "offset": 3061
+        },
+        "start": {
+          "column": 27,
+          "line": 65,
+          "offset": 3051
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-f9adb3584f79d12afd2adb56",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-35f73b9b3bddf78bcfb34cc9",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "30[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::leftLeg::leftAnklePitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 66,
+          "offset": 3133
+        },
+        "start": {
+          "column": 27,
+          "line": 66,
+          "offset": 3123
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a1bd60892a68fcd77b201df1",
+      "kind": "PartUsage",
+      "name": "rightLeg",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 79,
+          "offset": 3655
+        },
+        "start": {
+          "column": 14,
+          "line": 79,
+          "offset": 3647
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3206460cc2c017b7ab833135",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ASM-LEG-R\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 80,
+          "offset": 3691
+        },
+        "start": {
+          "column": 23,
+          "line": 80,
+          "offset": 3680
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-92a717cd82fdff5453638784",
+      "kind": "Feature",
+      "name": "assemblyRelation",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"moving\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::assemblyRelation",
+      "source": {
+        "end": {
+          "column": 39,
+          "line": 81,
+          "offset": 3755
+        },
+        "start": {
+          "column": 23,
+          "line": 81,
+          "offset": 3739
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-683d4c55ef7ed91f24b93ef4",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"右侧支撑、移重和迈步\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 82,
+          "offset": 3814
+        },
+        "start": {
+          "column": 23,
+          "line": 82,
+          "offset": 3800
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-58c121964b98a668c3fc2455",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://ASM-LEG-R\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 83,
+          "offset": 3889
+        },
+        "start": {
+          "column": 23,
+          "line": 83,
+          "offset": 3883
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3256a181c2b5dd9d01b7b15d",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::powerIn",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 69,
+          "offset": 3210
+        },
+        "start": {
+          "column": 21,
+          "line": 69,
+          "offset": 3203
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-5bcd7ea954dd34e5c442d3cc",
+      "kind": "PortUsage",
+      "name": "controlIn",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::controlIn",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 73,
+          "offset": 3426
+        },
+        "start": {
+          "column": 21,
+          "line": 73,
+          "offset": 3417
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-f924ae806e70eadc199e86d6",
+      "kind": "PartUsage",
+      "name": "rightHipRoll",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipRoll",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 87,
+          "offset": 4008
+        },
+        "start": {
+          "column": 18,
+          "line": 87,
+          "offset": 3996
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-32d017db2584902fb8794395",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-f924ae806e70eadc199e86d6",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-R-HIP-ROLL\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipRoll::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 88,
+          "offset": 4064
+        },
+        "start": {
+          "column": 27,
+          "line": 88,
+          "offset": 4053
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-2823904fe847ead635372b59",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-f924ae806e70eadc199e86d6",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"X\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipRoll::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 89,
+          "offset": 4130
+        },
+        "start": {
+          "column": 27,
+          "line": 89,
+          "offset": 4121
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-71322be80f7ca686ca4cd1a2",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-f924ae806e70eadc199e86d6",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-18[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipRoll::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 90,
+          "offset": 4184
+        },
+        "start": {
+          "column": 27,
+          "line": 90,
+          "offset": 4174
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-84219d67b2571a306bad7a39",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-f924ae806e70eadc199e86d6",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "18[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipRoll::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 91,
+          "offset": 4256
+        },
+        "start": {
+          "column": 27,
+          "line": 91,
+          "offset": 4246
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-11bb32bd2d95b81e8f2ebb52",
+      "kind": "PartUsage",
+      "name": "rightHipPitch",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipPitch",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 93,
+          "offset": 4335
+        },
+        "start": {
+          "column": 18,
+          "line": 93,
+          "offset": 4322
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-8959205480f09e882c1b5696",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-11bb32bd2d95b81e8f2ebb52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-R-HIP-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipPitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 94,
+          "offset": 4391
+        },
+        "start": {
+          "column": 27,
+          "line": 94,
+          "offset": 4380
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a0f821b06f08addd22c85cee",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-11bb32bd2d95b81e8f2ebb52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"Y\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipPitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 95,
+          "offset": 4458
+        },
+        "start": {
+          "column": 27,
+          "line": 95,
+          "offset": 4449
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-974a7119039389d68680d3a7",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-11bb32bd2d95b81e8f2ebb52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-35[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipPitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 96,
+          "offset": 4512
+        },
+        "start": {
+          "column": 27,
+          "line": 96,
+          "offset": 4502
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-2a36f4e75b4c0f7b15eb0f10",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-11bb32bd2d95b81e8f2ebb52",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "35[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightHipPitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 97,
+          "offset": 4584
+        },
+        "start": {
+          "column": 27,
+          "line": 97,
+          "offset": 4574
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-133bb14aebe3e17622fed7c8",
+      "kind": "PartUsage",
+      "name": "rightKneePitch",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightKneePitch",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 99,
+          "offset": 4664
+        },
+        "start": {
+          "column": 18,
+          "line": 99,
+          "offset": 4650
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-2960ea3014c979981f07bde7",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-133bb14aebe3e17622fed7c8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-R-KNEE-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightKneePitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 100,
+          "offset": 4720
+        },
+        "start": {
+          "column": 27,
+          "line": 100,
+          "offset": 4709
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-d8bd94e3d7553bacc5380df7",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-133bb14aebe3e17622fed7c8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"Y\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightKneePitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 101,
+          "offset": 4788
+        },
+        "start": {
+          "column": 27,
+          "line": 101,
+          "offset": 4779
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-c3603c9cd05afd4e63ee58e4",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-133bb14aebe3e17622fed7c8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "5[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightKneePitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 102,
+          "offset": 4842
+        },
+        "start": {
+          "column": 27,
+          "line": 102,
+          "offset": 4832
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9ed9925a2dc55c4a24f2ed01",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-133bb14aebe3e17622fed7c8",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "65[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightKneePitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 103,
+          "offset": 4912
+        },
+        "start": {
+          "column": 27,
+          "line": 103,
+          "offset": 4902
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-df9793270c7bff4626841977",
+      "kind": "PartUsage",
+      "name": "rightAnklePitch",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightAnklePitch",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 105,
+          "offset": 4993
+        },
+        "start": {
+          "column": 18,
+          "line": 105,
+          "offset": 4978
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-94c7197907920a539ae7a806",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-df9793270c7bff4626841977",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-R-ANKLE-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightAnklePitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 106,
+          "offset": 5049
+        },
+        "start": {
+          "column": 27,
+          "line": 106,
+          "offset": 5038
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-f4e04ca36570837dd64a411a",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-df9793270c7bff4626841977",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"Y\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightAnklePitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 107,
+          "offset": 5118
+        },
+        "start": {
+          "column": 27,
+          "line": 107,
+          "offset": 5109
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-802b8e8f86ae8f704e3f7515",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-df9793270c7bff4626841977",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-30[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightAnklePitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 108,
+          "offset": 5172
+        },
+        "start": {
+          "column": 27,
+          "line": 108,
+          "offset": 5162
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-92bc6d80f6ad7b775180e75c",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-df9793270c7bff4626841977",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "30[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::rightLeg::rightAnklePitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 109,
+          "offset": 5244
+        },
+        "start": {
+          "column": 27,
+          "line": 109,
+          "offset": 5234
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-af32ece2bf538f77fc2b6abd",
+      "kind": "PartUsage",
+      "name": "headNeck",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck",
+      "source": {
+        "end": {
+          "column": 22,
+          "line": 122,
+          "offset": 5774
+        },
+        "start": {
+          "column": 14,
+          "line": 122,
+          "offset": 5766
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-e0c9a3424832e3b35fe581bc",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ASM-HEAD-NECK\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 123,
+          "offset": 5810
+        },
+        "start": {
+          "column": 23,
+          "line": 123,
+          "offset": 5799
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-1293f0dcc434d3999a6973fd",
+      "kind": "Feature",
+      "name": "assemblyRelation",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"moving\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::assemblyRelation",
+      "source": {
+        "end": {
+          "column": 39,
+          "line": 124,
+          "offset": 5878
+        },
+        "start": {
+          "column": 23,
+          "line": 124,
+          "offset": 5862
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-89d67687e6af07c4518b6a83",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"承载头部并提供颈根俯仰和头部偏航\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 125,
+          "offset": 5937
+        },
+        "start": {
+          "column": 23,
+          "line": 125,
+          "offset": 5923
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-705d38208e862b25784763e6",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://ASM-HEAD-NECK\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 126,
+          "offset": 6030
+        },
+        "start": {
+          "column": 23,
+          "line": 126,
+          "offset": 6024
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-731cef48e96262e8116b8ac5",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::powerIn",
+      "source": {
+        "end": {
+          "column": 51,
+          "line": 69,
+          "offset": 3233
+        },
+        "start": {
+          "column": 44,
+          "line": 69,
+          "offset": 3226
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-765305eb7ed712d0c4726c9e",
+      "kind": "PortUsage",
+      "name": "controlIn",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::controlIn",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 74,
+          "offset": 3481
+        },
+        "start": {
+          "column": 21,
+          "line": 74,
+          "offset": 3472
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-45568ed182954311cdfb8a7d",
+      "kind": "PartUsage",
+      "name": "neckPitch",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::neckPitch",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 130,
+          "offset": 6150
+        },
+        "start": {
+          "column": 18,
+          "line": 130,
+          "offset": 6141
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-52a3e14782d40b31c5ffdb5e",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-45568ed182954311cdfb8a7d",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-NECK-PITCH\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::neckPitch::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 131,
+          "offset": 6206
+        },
+        "start": {
+          "column": 27,
+          "line": 131,
+          "offset": 6195
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-7846258b80386808500ee19a",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-45568ed182954311cdfb8a7d",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"local pitch axis\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::neckPitch::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 132,
+          "offset": 6272
+        },
+        "start": {
+          "column": 27,
+          "line": 132,
+          "offset": 6263
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a273a4447095b8f2b523ed44",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-45568ed182954311cdfb8a7d",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "5[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::neckPitch::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 133,
+          "offset": 6341
+        },
+        "start": {
+          "column": 27,
+          "line": 133,
+          "offset": 6331
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-223aea1baaf41c0f27d33de6",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-45568ed182954311cdfb8a7d",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "35[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::neckPitch::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 134,
+          "offset": 6411
+        },
+        "start": {
+          "column": 27,
+          "line": 134,
+          "offset": 6401
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-0d3fd25e04d0de4897902b51",
+      "kind": "PartUsage",
+      "name": "headYaw",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-99da1e5a9fe30e43d276d68c",
+        "typeName": "ServoActuator",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::headYaw",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 136,
+          "offset": 6484
+        },
+        "start": {
+          "column": 18,
+          "line": 136,
+          "offset": 6477
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a5c3fb6b34214e5d8d976227",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-0d3fd25e04d0de4897902b51",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"ACT-HEAD-YAW\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::headYaw::componentId",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 137,
+          "offset": 6540
+        },
+        "start": {
+          "column": 27,
+          "line": 137,
+          "offset": 6529
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-1f98e9ce190905d62d163379",
+      "kind": "Feature",
+      "name": "jointAxis",
+      "ownerId": "e-0d3fd25e04d0de4897902b51",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"moving local yaw axis\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::headYaw::jointAxis",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 138,
+          "offset": 6604
+        },
+        "start": {
+          "column": 27,
+          "line": 138,
+          "offset": 6595
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-385f1f7ab1ab6c00b648433b",
+      "kind": "Feature",
+      "name": "lowerLimit",
+      "ownerId": "e-0d3fd25e04d0de4897902b51",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "-60[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::headYaw::lowerLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 139,
+          "offset": 6678
+        },
+        "start": {
+          "column": 27,
+          "line": 139,
+          "offset": 6668
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-7569a4af9401a712c53459d4",
+      "kind": "Feature",
+      "name": "upperLimit",
+      "ownerId": "e-0d3fd25e04d0de4897902b51",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "deg",
+        "valueExpression": "60[deg]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::headNeck::headYaw::upperLimit",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 140,
+          "offset": 6750
+        },
+        "start": {
+          "column": 27,
+          "line": 140,
+          "offset": 6740
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a48cf05962dae4bd0dc2df70",
+      "kind": "PartUsage",
+      "name": "powerSystem",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 149,
+          "offset": 7037
+        },
+        "start": {
+          "column": 14,
+          "line": 149,
+          "offset": 7026
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-219749abc2edabe6a689aaa9",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"SYS-POWER\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 150,
+          "offset": 7073
+        },
+        "start": {
+          "column": 23,
+          "line": 150,
+          "offset": 7062
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-8aaf07d56e58a11d1c41ae25",
+      "kind": "Feature",
+      "name": "requirementIds",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-PER-001\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::requirementIds",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 151,
+          "offset": 7135
+        },
+        "start": {
+          "column": 23,
+          "line": 151,
+          "offset": 7121
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-6e966269d04b76d1951d3ae2",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"储能、配电、限流和欠压保护\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 152,
+          "offset": 7199
+        },
+        "start": {
+          "column": 23,
+          "line": 152,
+          "offset": 7185
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-90d2375540338082e961b936",
+      "kind": "Feature",
+      "name": "batteryVoltage",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "V",
+        "valueExpression": "6.4[V]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::batteryVoltage",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 153,
+          "offset": 7291
+        },
+        "start": {
+          "column": 23,
+          "line": 153,
+          "offset": 7277
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-11d02a5812583800690c30f1",
+      "kind": "Feature",
+      "name": "batteryCapacity",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "Ah",
+        "valueExpression": "1.8[Ah]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::batteryCapacity",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 154,
+          "offset": 7365
+        },
+        "start": {
+          "column": 23,
+          "line": 154,
+          "offset": 7350
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9615b11d863dfb6d8e6b3048",
+      "kind": "Feature",
+      "name": "maximumSharedCurrent",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "3[A]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::maximumSharedCurrent",
+      "source": {
+        "end": {
+          "column": 43,
+          "line": 155,
+          "offset": 7442
+        },
+        "start": {
+          "column": 23,
+          "line": 155,
+          "offset": 7422
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-0b3f9095aeb529a67c942dcd",
+      "kind": "Feature",
+      "name": "electronicsCurrent",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "A",
+        "valueExpression": "0.5[A]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::electronicsCurrent",
+      "source": {
+        "end": {
+          "column": 41,
+          "line": 156,
+          "offset": 7515
+        },
+        "start": {
+          "column": 23,
+          "line": 156,
+          "offset": 7497
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-693186c4bed11ecb4eb0216d",
+      "kind": "Feature",
+      "name": "envelopeStatus",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"NP-F550 类预留；具体型号待选\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::envelopeStatus",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 157,
+          "offset": 7586
+        },
+        "start": {
+          "column": 23,
+          "line": 157,
+          "offset": 7572
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-0d126a1dc3640f8e7e138013",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://SYS-POWER\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 158,
+          "offset": 7669
+        },
+        "start": {
+          "column": 23,
+          "line": 158,
+          "offset": 7663
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-bb0e1b4c987ad208c3227da8",
+      "kind": "PortUsage",
+      "name": "servoPowerOut",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::servoPowerOut",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 159,
+          "offset": 7734
+        },
+        "start": {
+          "column": 18,
+          "line": 159,
+          "offset": 7721
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9dcfdc0184cd5cb98ff357af",
+      "kind": "PortUsage",
+      "name": "logicPowerOut",
+      "ownerId": "e-a48cf05962dae4bd0dc2df70",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::powerSystem::logicPowerOut",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 160,
+          "offset": 7766
+        },
+        "start": {
+          "column": 18,
+          "line": 160,
+          "offset": 7753
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9d0fd15f7cf869644ed00c13",
+      "kind": "PartUsage",
+      "name": "computeSystem",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 163,
+          "offset": 7805
+        },
+        "start": {
+          "column": 14,
+          "line": 163,
+          "offset": 7792
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-bcdab72b931ea20ac3c99fec",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-9d0fd15f7cf869644ed00c13",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"SYS-COMPUTE\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 164,
+          "offset": 7841
+        },
+        "start": {
+          "column": 23,
+          "line": 164,
+          "offset": 7830
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-767f178915a01aa1e274a0e6",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-9d0fd15f7cf869644ed00c13",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"接收任务命令并运行策略推理\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 165,
+          "offset": 7905
+        },
+        "start": {
+          "column": 23,
+          "line": 165,
+          "offset": 7891
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-35fd74275cb58b4906b5e196",
+      "kind": "Feature",
+      "name": "envelopeStatus",
+      "ownerId": "e-9d0fd15f7cf869644ed00c13",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"主控参考外形已导入；实际版本和散热配置待确认\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem::envelopeStatus",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 166,
+          "offset": 7997
+        },
+        "start": {
+          "column": 23,
+          "line": 166,
+          "offset": 7983
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-ec6cff21827994c8930351bf",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-9d0fd15f7cf869644ed00c13",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://SYS-COMPUTE\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 167,
+          "offset": 8108
+        },
+        "start": {
+          "column": 23,
+          "line": 167,
+          "offset": 8102
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-88da0087d591393b4fd285d4",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-9d0fd15f7cf869644ed00c13",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem::powerIn",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 70,
+          "offset": 3262
+        },
+        "start": {
+          "column": 21,
+          "line": 70,
+          "offset": 3255
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-06bb8642e9d48c70d846e13e",
+      "kind": "PortUsage",
+      "name": "commandOut",
+      "ownerId": "e-9d0fd15f7cf869644ed00c13",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::computeSystem::commandOut",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 169,
+          "offset": 8198
+        },
+        "start": {
+          "column": 18,
+          "line": 169,
+          "offset": 8188
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3c02b5cc009562d21b39822e",
+      "kind": "PartUsage",
+      "name": "motionController",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 172,
+          "offset": 8240
+        },
+        "start": {
+          "column": 14,
+          "line": 172,
+          "offset": 8224
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-3de8736ef8cdfe67beda90ba",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"SYS-MOTION-CONTROL\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 173,
+          "offset": 8276
+        },
+        "start": {
+          "column": 23,
+          "line": 173,
+          "offset": 8265
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a37b0d3af3e67c095eae3e98",
+      "kind": "Feature",
+      "name": "requirementIds",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-FUN-001,REQ-SAF-001\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::requirementIds",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 174,
+          "offset": 8347
+        },
+        "start": {
+          "column": 23,
+          "line": 174,
+          "offset": 8333
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9dea176fb99ef3d2a7ecabb8",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"执行 200 Hz 关节控制、10 轴总线通信和停止处理\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 175,
+          "offset": 8423
+        },
+        "start": {
+          "column": 23,
+          "line": 175,
+          "offset": 8409
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-25325ac9ef1771f5e3b04957",
+      "kind": "Feature",
+      "name": "updatePeriod",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "5[ms]"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::updatePeriod",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 176,
+          "offset": 8536
+        },
+        "start": {
+          "column": 23,
+          "line": 176,
+          "offset": 8524
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-ff3d9570b33d09b6c4c34dae",
+      "kind": "Feature",
+      "name": "envelopeStatus",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"具体控制板 SKU 待选\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::envelopeStatus",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 177,
+          "offset": 8599
+        },
+        "start": {
+          "column": 23,
+          "line": 177,
+          "offset": 8585
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-9d19a10b8f2adf69fe64b89e",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://SYS-MOTION-CONTROL\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 178,
+          "offset": 8670
+        },
+        "start": {
+          "column": 23,
+          "line": 178,
+          "offset": 8664
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-63c136ddcdd3002fed5c744f",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::powerIn",
+      "source": {
+        "end": {
+          "column": 52,
+          "line": 70,
+          "offset": 3286
+        },
+        "start": {
+          "column": 45,
+          "line": 70,
+          "offset": 3279
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-ee22139667b09d699b5d5a38",
+      "kind": "PortUsage",
+      "name": "commandIn",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::commandIn",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 180,
+          "offset": 8766
+        },
+        "start": {
+          "column": 18,
+          "line": 180,
+          "offset": 8757
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-0667826a184a032ca6e37f59",
+      "kind": "PortUsage",
+      "name": "imuIn",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::imuIn",
+      "source": {
+        "end": {
+          "column": 23,
+          "line": 181,
+          "offset": 8790
+        },
+        "start": {
+          "column": 18,
+          "line": 181,
+          "offset": 8785
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-5777a48b76d5ecd6b18532af",
+      "kind": "PortUsage",
+      "name": "servoBus",
+      "ownerId": "e-3c02b5cc009562d21b39822e",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::motionController::servoBus",
+      "source": {
+        "end": {
+          "column": 54,
+          "line": 73,
+          "offset": 3450
+        },
+        "start": {
+          "column": 46,
+          "line": 73,
+          "offset": 3442
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-85dfc2648a672f1f20b34ccd",
+      "kind": "PartUsage",
+      "name": "sensingSystem",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 185,
+          "offset": 8856
+        },
+        "start": {
+          "column": 14,
+          "line": 185,
+          "offset": 8843
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-11d6b5088c25c1e7ca4897eb",
+      "kind": "Feature",
+      "name": "componentId",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"SYS-SENSING\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::componentId",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 186,
+          "offset": 8892
+        },
+        "start": {
+          "column": 23,
+          "line": 186,
+          "offset": 8881
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-328bd4674319dbb44e65d78a",
+      "kind": "Feature",
+      "name": "responsibility",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"测量躯干角速度和重力方向\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::responsibility",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 187,
+          "offset": 8956
+        },
+        "start": {
+          "column": 23,
+          "line": 187,
+          "offset": 8942
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-2acf7059f0e886168bf348e6",
+      "kind": "Feature",
+      "name": "installationRequirement",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"固定于躯干并建立可标定坐标系\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::installationRequirement",
+      "source": {
+        "end": {
+          "column": 46,
+          "line": 188,
+          "offset": 9054
+        },
+        "start": {
+          "column": 23,
+          "line": 188,
+          "offset": 9031
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-a90bc0d8cfb208a599e29448",
+      "kind": "Feature",
+      "name": "envelopeStatus",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"IMU 桥接模块预留；具体 SKU 待选\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::envelopeStatus",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 189,
+          "offset": 9149
+        },
+        "start": {
+          "column": 23,
+          "line": 189,
+          "offset": 9135
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-e68823866cd54b3a9073cac1",
+      "kind": "Feature",
+      "name": "cadRef",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"layout://SYS-SENSING\""
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::cadRef",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 190,
+          "offset": 9236
+        },
+        "start": {
+          "column": 23,
+          "line": 190,
+          "offset": 9230
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-5b2286b9eb1c0176edeb8a08",
+      "kind": "PortUsage",
+      "name": "powerIn",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::powerIn",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 71,
+          "offset": 3315
+        },
+        "start": {
+          "column": 21,
+          "line": 71,
+          "offset": 3308
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "e-74f8bb205877be0c795d1bee",
+      "kind": "PortUsage",
+      "name": "imuDataOut",
+      "ownerId": "e-85dfc2648a672f1f20b34ccd",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Architecture::JingangNative10::sensingSystem::imuDataOut",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 192,
+          "offset": 9326
+        },
+        "start": {
+          "column": 18,
+          "line": 192,
+          "offset": 9316
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/architecture.sysml"
+      }
+    },
+    {
+      "id": "lib-5a980a521e389768d6fc94be",
+      "kind": "LibraryElement",
+      "name": "String",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::String",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "String",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 13,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    },
+    {
+      "id": "lib-f8f29077ef90cf588ee7146c",
+      "kind": "LibraryElement",
+      "name": "mass",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::mass",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::mass",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 83,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 83,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-8a726b5a1b15f30b42579922",
+      "kind": "LibraryElement",
+      "name": "duration",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::duration",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::duration",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 58,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 58,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-de11304bb1ed933e89547cb0",
+      "kind": "LibraryElement",
+      "name": "energy",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQThermodynamics::energy",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQThermodynamics.sysml"
+      },
+      "qualifiedName": "ISQ::energy",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 739,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 739,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQThermodynamics.sysml"
+      }
+    },
+    {
+      "id": "lib-bda4589a24a897c1b74a4fce",
+      "kind": "LibraryElement",
+      "name": "power",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQMechanics::power",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQMechanics.sysml"
+      },
+      "qualifiedName": "ISQ::power",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 1299,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 1299,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQMechanics.sysml"
+      }
+    },
+    {
+      "id": "lib-e6a59674b1c309adab96f429",
+      "kind": "LibraryElement",
+      "name": "angularMeasure",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQSpaceTime::angularMeasure",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQSpaceTime.sysml"
+      },
+      "qualifiedName": "ISQ::angularMeasure",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 508,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 508,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQSpaceTime.sysml"
+      }
+    },
+    {
+      "id": "lib-353ca3359357af2cdc039ab5",
+      "kind": "LibraryElement",
+      "name": "electricPotential",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQElectromagnetism::electricPotential",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      },
+      "qualifiedName": "ISQ::electricPotential",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 430,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 430,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      }
+    },
+    {
+      "id": "lib-0a53a784ca352370c79397f8",
+      "kind": "LibraryElement",
+      "name": "electricCharge",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQElectromagnetism::electricCharge",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      },
+      "qualifiedName": "ISQ::electricCharge",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 46,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 46,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQElectromagnetism.sysml"
+      }
+    },
+    {
+      "id": "lib-7ad35963a929322b4e84c3e3",
+      "kind": "LibraryElement",
+      "name": "electricCurrent",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::electricCurrent",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::electricCurrent",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 133,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 133,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-df9f3711aaf29f9a04aac191",
+      "kind": "FeatureTyping",
+      "ownerId": "e-5fce4b764c5c259e9fab9fa2",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5fce4b764c5c259e9fab9fa2"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-65dc9c504bbec84dfeeaa70d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3a2a0adf6f0298c740aa0691",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3a2a0adf6f0298c740aa0691"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-9cbd16106fdf4ce3be080b90",
+      "kind": "FeatureTyping",
+      "ownerId": "e-496aa8d1349f10ad48c86524",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-496aa8d1349f10ad48c86524"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-4fb5e252cfcab3e1d34f7843",
+      "kind": "FeatureTyping",
+      "ownerId": "e-fa9dfab0c67eb82581e699ba",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-fa9dfab0c67eb82581e699ba"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-f4507c21da85bcfb32ab1282",
+      "kind": "FeatureTyping",
+      "ownerId": "e-2ed87d1308e8fdbb89a69fcb",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-2ed87d1308e8fdbb89a69fcb"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-fe32f55171e8d2959c7aa234",
+      "kind": "FeatureTyping",
+      "ownerId": "e-b51cb737db31213a081c9401",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-b51cb737db31213a081c9401"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-ca7d942ea228ab8d9d467785",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f27aeb372c02c024a1221d5b",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f27aeb372c02c024a1221d5b"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-7c3546a7541c00f3b2f0c79a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-7172c0c9c2a3bc2dde37fc98",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-7172c0c9c2a3bc2dde37fc98"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-2401970eb048c68d198f950a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-b17b62bad4b596bf15a50b63",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-b17b62bad4b596bf15a50b63"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-aebd5b0f84639de934dc608b",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3c7e08ca1a4a7b4962d89622",
+      "properties": {
+        "typeName": "ISQ::energy"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3c7e08ca1a4a7b4962d89622"
+      ],
+      "targetIds": [
+        "lib-de11304bb1ed933e89547cb0"
+      ]
+    },
+    {
+      "id": "e-d26537eefd40f7e565471534",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6d32d6d3e9a8b490e8751f2e",
+      "properties": {
+        "typeName": "ISQ::power"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6d32d6d3e9a8b490e8751f2e"
+      ],
+      "targetIds": [
+        "lib-bda4589a24a897c1b74a4fce"
+      ]
+    },
+    {
+      "id": "e-4044120ea9ce875e36be8513",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a7e7f056198d505977887bc6",
+      "properties": {
+        "typeName": "ISQ::power"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a7e7f056198d505977887bc6"
+      ],
+      "targetIds": [
+        "lib-bda4589a24a897c1b74a4fce"
+      ]
+    },
+    {
+      "id": "e-43cb3422048dc9d6fd62f690",
+      "kind": "FeatureTyping",
+      "ownerId": "e-1ba7bd39bb11d33091134bce",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-1ba7bd39bb11d33091134bce"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-829ac18966e51e1ee38d98fd",
+      "kind": "FeatureTyping",
+      "ownerId": "e-73ff70940147ac0c17e12337",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-73ff70940147ac0c17e12337"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-517fab613b30e068b514ec8d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f60f2b19dcec87191e398063",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f60f2b19dcec87191e398063"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-2cd2780dc919ffab6253a0ca",
+      "kind": "FeatureTyping",
+      "ownerId": "e-8fdee9421e032bbbf1aed650",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-8fdee9421e032bbbf1aed650"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-84813468ec01193d738bffa9",
+      "kind": "FeatureTyping",
+      "ownerId": "e-e7eed04ef96fcb3b56115199",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-e7eed04ef96fcb3b56115199"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-26d7ce29c2ed570ffc822a38",
+      "kind": "FeatureTyping",
+      "ownerId": "e-60ca66291c0683c9aad73049",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-60ca66291c0683c9aad73049"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-99511b6086a8d29f27fe17f1",
+      "kind": "FeatureTyping",
+      "ownerId": "e-d519717fd5337476c130c555",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-d519717fd5337476c130c555"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-43baff82175d4956475334f1",
+      "kind": "FeatureTyping",
+      "ownerId": "e-bde6be0b134d76890be16658",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-bde6be0b134d76890be16658"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-de0fc2eecc9220fff72acdb3",
+      "kind": "FeatureTyping",
+      "ownerId": "e-5cb0913942b86d608e3327ce",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5cb0913942b86d608e3327ce"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-afa5e02457ad9209b97c4217",
+      "kind": "FeatureTyping",
+      "ownerId": "e-ce79c58e12afeecae2d9bead",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-ce79c58e12afeecae2d9bead"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-021f729a920d1231c8822445",
+      "kind": "FeatureTyping",
+      "ownerId": "e-67c1a58b17618ad62f51e955",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-67c1a58b17618ad62f51e955"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-f84544dd39fc826bb0782636",
+      "kind": "FeatureTyping",
+      "ownerId": "e-67fa9eba772598bc4d6c819f",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-67fa9eba772598bc4d6c819f"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-2721e5f3b54bbd75357cbd1f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-646398b53c8a56102920e142",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-646398b53c8a56102920e142"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-40a9112795759cbfc050a414",
+      "kind": "FeatureTyping",
+      "ownerId": "e-30c916cf96fc423af1c9b3e6",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-30c916cf96fc423af1c9b3e6"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-36c2a2d17957cb237273bebe",
+      "kind": "FeatureTyping",
+      "ownerId": "e-4e74ae730825c001d35aed45",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-4e74ae730825c001d35aed45"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-3751c6b2a2e74d2a0aab48a2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-e6c388858c220738febc9878",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-e6c388858c220738febc9878"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-f70352622c6369b5984e5c8a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-276b643bf953af14dc4bd00a",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-276b643bf953af14dc4bd00a"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-f061cde5c3586737fef4fa82",
+      "kind": "FeatureTyping",
+      "ownerId": "e-c39fb2a6392f5b28ad28ae13",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-c39fb2a6392f5b28ad28ae13"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-7c208badfe825a65d9b4949d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-fb594834e8667fc567591554",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-fb594834e8667fc567591554"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-4656c16c2de0d80e7b1b7752",
+      "kind": "FeatureTyping",
+      "ownerId": "e-37f0aecafb371c67deabd51f",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-37f0aecafb371c67deabd51f"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-868241a7b844fb713a36f172",
+      "kind": "FeatureTyping",
+      "ownerId": "e-69a295d9f223a8bce44f9984",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-69a295d9f223a8bce44f9984"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-84b2bcd096c857962282a1b5",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6fda87fd3e3c7df37cc34995",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6fda87fd3e3c7df37cc34995"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-f249354f625b8ae09ecf9ff7",
+      "kind": "FeatureTyping",
+      "ownerId": "e-981ddbb3a2f8322c93873e05",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-981ddbb3a2f8322c93873e05"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-077a396ec55072ab67d33fe1",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a90ca01ed718103aec192213",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a90ca01ed718103aec192213"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-9455dcc251b6d91a086d6908",
+      "kind": "FeatureTyping",
+      "ownerId": "e-0fc5c83da11581a5029a5195",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0fc5c83da11581a5029a5195"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-74f9d434beeda00cb7a7cc00",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f9adb3584f79d12afd2adb56",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f9adb3584f79d12afd2adb56"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-e5b7badf91532f1b5a328409",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "leftHipRoll.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0330ffdd6a9b4dc67ca75c37"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-fa5f68e6cf58f48d71ee0364",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "leftHipPitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0330ffdd6a9b4dc67ca75c37"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-bb256878ccf646f7f81c5cf4",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "leftKneePitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0330ffdd6a9b4dc67ca75c37"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-ccaa83a537b7ebaa22c8c38d",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "leftAnklePitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0330ffdd6a9b4dc67ca75c37"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-406ee46edb826f7d2f2a06dd",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "leftHipRoll.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a451de5dff95f3aa748f414d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-eef5f4aac828c7f34be35acc",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "leftHipPitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a451de5dff95f3aa748f414d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-828f408cbd3699ef0a971be9",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "leftKneePitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a451de5dff95f3aa748f414d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-46dfaf483a77ca6b5014f204",
+      "kind": "Connection",
+      "ownerId": "e-3aee732b007657306da231bf",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "leftAnklePitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a451de5dff95f3aa748f414d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-082f47deec3951dc00dd2581",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3206460cc2c017b7ab833135",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3206460cc2c017b7ab833135"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-ea086244ad0f88a5c629ac88",
+      "kind": "FeatureTyping",
+      "ownerId": "e-92a717cd82fdff5453638784",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-92a717cd82fdff5453638784"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-402f7bb115205b89f3b40090",
+      "kind": "FeatureTyping",
+      "ownerId": "e-683d4c55ef7ed91f24b93ef4",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-683d4c55ef7ed91f24b93ef4"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-3140e10f81bac50ba1cc28ef",
+      "kind": "FeatureTyping",
+      "ownerId": "e-58c121964b98a668c3fc2455",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-58c121964b98a668c3fc2455"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-e4036893963d498b87d04450",
+      "kind": "FeatureTyping",
+      "ownerId": "e-32d017db2584902fb8794395",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-32d017db2584902fb8794395"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-ffcee94f63792bad61aa9482",
+      "kind": "FeatureTyping",
+      "ownerId": "e-2823904fe847ead635372b59",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-2823904fe847ead635372b59"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-46cd34b0aba0089b266175c7",
+      "kind": "FeatureTyping",
+      "ownerId": "e-71322be80f7ca686ca4cd1a2",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-71322be80f7ca686ca4cd1a2"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-b899cc670d53777fbbabed7d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-84219d67b2571a306bad7a39",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-84219d67b2571a306bad7a39"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-3a663f958db925862219d5e7",
+      "kind": "FeatureTyping",
+      "ownerId": "e-8959205480f09e882c1b5696",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-8959205480f09e882c1b5696"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-d0906a0d5a820fb9a277c05a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a0f821b06f08addd22c85cee",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a0f821b06f08addd22c85cee"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-1acdc8f1ef44a990ee75b06d",
+      "kind": "FeatureTyping",
+      "ownerId": "e-974a7119039389d68680d3a7",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-974a7119039389d68680d3a7"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-68fa098cefacead88260ee5e",
+      "kind": "FeatureTyping",
+      "ownerId": "e-2a36f4e75b4c0f7b15eb0f10",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-2a36f4e75b4c0f7b15eb0f10"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-36a46361fc2e546d697a1493",
+      "kind": "FeatureTyping",
+      "ownerId": "e-2960ea3014c979981f07bde7",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-2960ea3014c979981f07bde7"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-b50db54fceb529e10f79bc09",
+      "kind": "FeatureTyping",
+      "ownerId": "e-d8bd94e3d7553bacc5380df7",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-d8bd94e3d7553bacc5380df7"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-23364987c584cd0c6c1b6394",
+      "kind": "FeatureTyping",
+      "ownerId": "e-c3603c9cd05afd4e63ee58e4",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-c3603c9cd05afd4e63ee58e4"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-5c4ecda1650889f51df2d697",
+      "kind": "FeatureTyping",
+      "ownerId": "e-9ed9925a2dc55c4a24f2ed01",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9ed9925a2dc55c4a24f2ed01"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-98bc130af688dd1e96305c5a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-94c7197907920a539ae7a806",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-94c7197907920a539ae7a806"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-4e2198ce65acc28e1d738df8",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f4e04ca36570837dd64a411a",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f4e04ca36570837dd64a411a"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-deb9dafbc4b3e1b762404101",
+      "kind": "FeatureTyping",
+      "ownerId": "e-802b8e8f86ae8f704e3f7515",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-802b8e8f86ae8f704e3f7515"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-2797ba5c8965851a075b110f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-92bc6d80f6ad7b775180e75c",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-92bc6d80f6ad7b775180e75c"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-971e6fc8e536f2b291408491",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "rightHipRoll.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3256a181c2b5dd9d01b7b15d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-67a79702f00bc2dca74d77e6",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "rightHipPitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3256a181c2b5dd9d01b7b15d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-982359921b461f2da33b4267",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "rightKneePitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3256a181c2b5dd9d01b7b15d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-c5b7933cb10e9927ef8864e3",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "rightAnklePitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3256a181c2b5dd9d01b7b15d"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-6be1006eb4e380316265cf64",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "rightHipRoll.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5bcd7ea954dd34e5c442d3cc"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-fd196c9d9bae0db94a0c3058",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "rightHipPitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5bcd7ea954dd34e5c442d3cc"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-0213f0c7d37bab6c1a16e829",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "rightKneePitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5bcd7ea954dd34e5c442d3cc"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-9301963991819f7010d77777",
+      "kind": "Connection",
+      "ownerId": "e-a1bd60892a68fcd77b201df1",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "rightAnklePitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5bcd7ea954dd34e5c442d3cc"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-ef8bdda27c3030c38819f3c8",
+      "kind": "FeatureTyping",
+      "ownerId": "e-e0c9a3424832e3b35fe581bc",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-e0c9a3424832e3b35fe581bc"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-083c1deef909da492baf8015",
+      "kind": "FeatureTyping",
+      "ownerId": "e-1293f0dcc434d3999a6973fd",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-1293f0dcc434d3999a6973fd"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-8f8ef2c96766bae79ec91dd7",
+      "kind": "FeatureTyping",
+      "ownerId": "e-89d67687e6af07c4518b6a83",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-89d67687e6af07c4518b6a83"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-5ae38aacd17dfc5f2b9d3209",
+      "kind": "FeatureTyping",
+      "ownerId": "e-705d38208e862b25784763e6",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-705d38208e862b25784763e6"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-0921e00b2056c1b398009ce8",
+      "kind": "FeatureTyping",
+      "ownerId": "e-52a3e14782d40b31c5ffdb5e",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-52a3e14782d40b31c5ffdb5e"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-4fff84f4ae96c96b0e418713",
+      "kind": "FeatureTyping",
+      "ownerId": "e-7846258b80386808500ee19a",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-7846258b80386808500ee19a"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-93ae2bf6c25942a5ebf684c5",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a273a4447095b8f2b523ed44",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a273a4447095b8f2b523ed44"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-c9107491d2232a6481a0650f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-223aea1baaf41c0f27d33de6",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-223aea1baaf41c0f27d33de6"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-98340fb9ad2088457727ac15",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a5c3fb6b34214e5d8d976227",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a5c3fb6b34214e5d8d976227"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-af52e65c28f9b88a6b14d43f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-1f98e9ce190905d62d163379",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-1f98e9ce190905d62d163379"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-664030dfe0b05f992b1e50fb",
+      "kind": "FeatureTyping",
+      "ownerId": "e-385f1f7ab1ab6c00b648433b",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-385f1f7ab1ab6c00b648433b"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-27908bc804688e0c23ad89a4",
+      "kind": "FeatureTyping",
+      "ownerId": "e-7569a4af9401a712c53459d4",
+      "properties": {
+        "typeName": "ISQ::angularMeasure"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-7569a4af9401a712c53459d4"
+      ],
+      "targetIds": [
+        "lib-e6a59674b1c309adab96f429"
+      ]
+    },
+    {
+      "id": "e-534cff64700fd5dfa99f5f6e",
+      "kind": "Connection",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "neckPitch.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-731cef48e96262e8116b8ac5"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-956fcc9d0467d946cad473a0",
+      "kind": "Connection",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "ends": [
+          "powerIn",
+          "headYaw.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-731cef48e96262e8116b8ac5"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-e4ecdd68d89f67c8f9f31b53",
+      "kind": "Connection",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "neckPitch.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-765305eb7ed712d0c4726c9e"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-86bba8dcf0d99547aa043d09",
+      "kind": "Connection",
+      "ownerId": "e-af32ece2bf538f77fc2b6abd",
+      "properties": {
+        "ends": [
+          "controlIn",
+          "headYaw.servoBus"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-765305eb7ed712d0c4726c9e"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-76c1e95631eadd1e1bc6b5a2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-219749abc2edabe6a689aaa9",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-219749abc2edabe6a689aaa9"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-a2dbbab1d71fd54ad0b5b8b2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-8aaf07d56e58a11d1c41ae25",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-8aaf07d56e58a11d1c41ae25"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-d64fc936341ecead3c64b2fb",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6e966269d04b76d1951d3ae2",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6e966269d04b76d1951d3ae2"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-2081e61af2b194bf5aaaaace",
+      "kind": "FeatureTyping",
+      "ownerId": "e-90d2375540338082e961b936",
+      "properties": {
+        "typeName": "ISQ::electricPotential"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-90d2375540338082e961b936"
+      ],
+      "targetIds": [
+        "lib-353ca3359357af2cdc039ab5"
+      ]
+    },
+    {
+      "id": "e-6e5b4c75efd36f56e10f524b",
+      "kind": "FeatureTyping",
+      "ownerId": "e-11d02a5812583800690c30f1",
+      "properties": {
+        "typeName": "ISQ::electricCharge"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-11d02a5812583800690c30f1"
+      ],
+      "targetIds": [
+        "lib-0a53a784ca352370c79397f8"
+      ]
+    },
+    {
+      "id": "e-82044e2957b0dc35af16f2dd",
+      "kind": "FeatureTyping",
+      "ownerId": "e-9615b11d863dfb6d8e6b3048",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9615b11d863dfb6d8e6b3048"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-4e6dc05e2280bf8a63cdeb11",
+      "kind": "FeatureTyping",
+      "ownerId": "e-0b3f9095aeb529a67c942dcd",
+      "properties": {
+        "typeName": "ISQ::electricCurrent"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0b3f9095aeb529a67c942dcd"
+      ],
+      "targetIds": [
+        "lib-7ad35963a929322b4e84c3e3"
+      ]
+    },
+    {
+      "id": "e-8cd49ff52cd69e2817214864",
+      "kind": "FeatureTyping",
+      "ownerId": "e-693186c4bed11ecb4eb0216d",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-693186c4bed11ecb4eb0216d"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-3131472a0be63653f6dbe317",
+      "kind": "FeatureTyping",
+      "ownerId": "e-0d126a1dc3640f8e7e138013",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0d126a1dc3640f8e7e138013"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-b393fe796fd33576da85795b",
+      "kind": "FeatureTyping",
+      "ownerId": "e-bcdab72b931ea20ac3c99fec",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-bcdab72b931ea20ac3c99fec"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-00067e9df73edb3928f0a61a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-767f178915a01aa1e274a0e6",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-767f178915a01aa1e274a0e6"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-d7717e4e2b14440af2656cc2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-35fd74275cb58b4906b5e196",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-35fd74275cb58b4906b5e196"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-b70386ae16b46dab00d0faf6",
+      "kind": "FeatureTyping",
+      "ownerId": "e-ec6cff21827994c8930351bf",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-ec6cff21827994c8930351bf"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-23875bece0e42fee8e4f8305",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3de8736ef8cdfe67beda90ba",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3de8736ef8cdfe67beda90ba"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-1f59a577b93afe895306bed2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a37b0d3af3e67c095eae3e98",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a37b0d3af3e67c095eae3e98"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-21dbd3c194a2288a10633cbd",
+      "kind": "FeatureTyping",
+      "ownerId": "e-9dea176fb99ef3d2a7ecabb8",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9dea176fb99ef3d2a7ecabb8"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-6cc4d4eb652b3cc9b1064942",
+      "kind": "FeatureTyping",
+      "ownerId": "e-25325ac9ef1771f5e3b04957",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-25325ac9ef1771f5e3b04957"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-acb1171b73cb40d77c902389",
+      "kind": "FeatureTyping",
+      "ownerId": "e-ff3d9570b33d09b6c4c34dae",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-ff3d9570b33d09b6c4c34dae"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-977f04667527c6f1eca0a614",
+      "kind": "FeatureTyping",
+      "ownerId": "e-9d19a10b8f2adf69fe64b89e",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9d19a10b8f2adf69fe64b89e"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-44b58ca1ea5a0eb6d4f4dbfa",
+      "kind": "FeatureTyping",
+      "ownerId": "e-11d6b5088c25c1e7ca4897eb",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-11d6b5088c25c1e7ca4897eb"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-8e57b551efd0a541909135f9",
+      "kind": "FeatureTyping",
+      "ownerId": "e-328bd4674319dbb44e65d78a",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-328bd4674319dbb44e65d78a"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-704a772b5567bf33c0c1b8a2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-2acf7059f0e886168bf348e6",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-2acf7059f0e886168bf348e6"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-5a364b32480b3ec005a642de",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a90bc0d8cfb208a599e29448",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a90bc0d8cfb208a599e29448"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-e58888391ad2e1c02244ec95",
+      "kind": "FeatureTyping",
+      "ownerId": "e-e68823866cd54b3a9073cac1",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-e68823866cd54b3a9073cac1"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-da718232e15b4ad26fab3675",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "powerSystem.servoPowerOut",
+          "leftLeg.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-bb0e1b4c987ad208c3227da8"
+      ],
+      "targetIds": [
+        "e-0330ffdd6a9b4dc67ca75c37"
+      ]
+    },
+    {
+      "id": "e-dc23fd45ad54539f916ae3c8",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "powerSystem.servoPowerOut",
+          "rightLeg.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-bb0e1b4c987ad208c3227da8"
+      ],
+      "targetIds": [
+        "e-3256a181c2b5dd9d01b7b15d"
+      ]
+    },
+    {
+      "id": "e-9c2a92a9b4d6c890982b6662",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "powerSystem.servoPowerOut",
+          "headNeck.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-bb0e1b4c987ad208c3227da8"
+      ],
+      "targetIds": [
+        "e-731cef48e96262e8116b8ac5"
+      ]
+    },
+    {
+      "id": "e-0426cbc08ed9fda217d5ed78",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "powerSystem.logicPowerOut",
+          "computeSystem.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9dcfdc0184cd5cb98ff357af"
+      ],
+      "targetIds": [
+        "e-88da0087d591393b4fd285d4"
+      ]
+    },
+    {
+      "id": "e-aaa2a02b5764f01ac9ab820a",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "powerSystem.logicPowerOut",
+          "motionController.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9dcfdc0184cd5cb98ff357af"
+      ],
+      "targetIds": [
+        "e-63c136ddcdd3002fed5c744f"
+      ]
+    },
+    {
+      "id": "e-5fff43fbf3c689b26d2c8657",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "powerSystem.logicPowerOut",
+          "sensingSystem.powerIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-9dcfdc0184cd5cb98ff357af"
+      ],
+      "targetIds": [
+        "e-5b2286b9eb1c0176edeb8a08"
+      ]
+    },
+    {
+      "id": "e-d03c568e527ca4645b4d71db",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "computeSystem.commandOut",
+          "motionController.commandIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-06bb8642e9d48c70d846e13e"
+      ],
+      "targetIds": [
+        "e-ee22139667b09d699b5d5a38"
+      ]
+    },
+    {
+      "id": "e-60ff027b2f90413faa211fc5",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "sensingSystem.imuDataOut",
+          "motionController.imuIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-74f8bb205877be0c795d1bee"
+      ],
+      "targetIds": [
+        "e-0667826a184a032ca6e37f59"
+      ]
+    },
+    {
+      "id": "e-dac32d86b55cf0be2cbd5c4d",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "motionController.servoBus",
+          "leftLeg.controlIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5777a48b76d5ecd6b18532af"
+      ],
+      "targetIds": [
+        "e-a451de5dff95f3aa748f414d"
+      ]
+    },
+    {
+      "id": "e-88f8af2cb7b23051785a47dd",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "motionController.servoBus",
+          "rightLeg.controlIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5777a48b76d5ecd6b18532af"
+      ],
+      "targetIds": [
+        "e-5bcd7ea954dd34e5c442d3cc"
+      ]
+    },
+    {
+      "id": "e-0dbe1b6797b8253dbb68500b",
+      "kind": "Connection",
+      "ownerId": "e-ca261c8524bb416b07602cde",
+      "properties": {
+        "ends": [
+          "motionController.servoBus",
+          "headNeck.controlIn"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-5777a48b76d5ecd6b18532af"
+      ],
+      "targetIds": [
+        "e-765305eb7ed712d0c4726c9e"
+      ]
+    }
+  ],
+  "schemaVersion": "0.1"
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "capturedAt": "2026-09-17",
+  "repository": {
+    "path": "D:/Document/7.AWorks/BlockSim/2.Development/SysML",
+    "remote": "https://gitee.com/wtf0/sys-ml.git",
+    "head": "9bfba0bced98b7586bab8a6d45746064aff70fe1",
+    "commitDate": "2026-01-09T00:44:07+08:00",
+    "commitSubject": "初步完成需求视图",
+    "workingTreeClean": false,
+    "baselineRule": "HEAD plus the SHA-256 values below; the dirty worktree was not changed by P0"
+  },
+  "toolchain": {
+    "generator": "Ninja 1.12.0",
+    "cmake": "3.29.3",
+    "compiler": "MinGW GCC 13.1.0",
+    "qt": "6.8.1 mingw_64",
+    "antlrRuntime": "4.13.2 static",
+    "buildType": "Debug"
+  },
+  "license": {
+    "status": "unresolved",
+    "finding": "No top-level LICENSE, COPYING or NOTICE file was present in the local repository.",
+    "reuseDecision": "Do not redistribute source or binaries until ownership and license terms are confirmed. P0 only links and executes the local copy for evaluation."
+  },
+  "files": [
+    {"path": "CMakeLists.txt", "sha256": "ecb201969fb0ae1e1eaf2a23807e806f697eb01ed4035a0050018cda9b035a45"},
+    {"path": "parser/CMakeLists.txt", "sha256": "bc1306a2edc05a4b6ac1afc5da3a173de2428e73a518950c73289fa67da23a19"},
+    {"path": "parser/grammar/SysML.g4", "sha256": "2c9ded8bb9e912c4695f7cdf70e528a5ad4af3762dceccb3e0301764e66cb5ce"},
+    {"path": "parser/src/parser/SysMLParser.h", "sha256": "1508e165267e2a66909bfaa63aecdde8e3d4ab4e04d8c758e01bc5ffd7468bb5"},
+    {"path": "parser/src/parser/SysMLParser.cpp", "sha256": "c825506fb198819ccec5a47b6a21d6eaab8dc023bf7427ebb5e186a71b06c57d"},
+    {"path": "parser/src/visitor/ModelBuilderVisitor.h", "sha256": "5eff2b0656357598055970589aeb29008c05d5a407ccf72d6b7f0f79d02df006"},
+    {"path": "parser/src/visitor/ModelBuilderVisitor.cpp", "sha256": "0e6230c6e4d435becb3640b055ae8afa06c3b9694875f8d69ed235edcee5ab51"},
+    {"path": "parser/src/annotation/AnnotationParser.h", "sha256": "792ccdc7bc174280aa45fe9de8e0ac35528225172f5593edce12dacb96144478"},
+    {"path": "parser/src/annotation/AnnotationParser.cpp", "sha256": "f7cee4f1efd0a329c23acdfa31bbbbb12ce8cae252bdbb5b0fcf0bb93d8180ce"},
+    {"path": "core/model/Element.h", "sha256": "b28f69dcb33f691b84191317fd3462da04d892b907f9d6bc3cd046f259df877a"},
+    {"path": "core/model/Element.cpp", "sha256": "8e44f78345085954cf01cfc578b815451afc2b658cf4d2c1a567394b0a5c6f86"},
+    {"path": "core/model/Annotation.h", "sha256": "2ec2dcb54e4f9dad0dbe64ab842f4bd776beced3c2c200153bf8eb7c2f7fca53"},
+    {"path": "core/model/Annotation.cpp", "sha256": "8f93084bde446466b475eae830b14e055e68f732c56fbcf805fc4bdb8766c1fc"},
+    {"path": "ui/mid_windows/architecture/CMakeLists.txt", "sha256": "8880bc7e269e1df131e1e320222a4ebce33a98d501951d2903460f2d9aa85fb8"},
+    {"path": "ui/mid_windows/architecture/PartGraphicMetadata.h", "sha256": "207c24315efe4abc7dd4070d79fe73cf134ecc5845fed9ea48f3de23cf223bca"},
+    {"path": "ui/mid_windows/architecture/PartGraphicMetadata.cpp", "sha256": "ba19495eebd4a716a20c0fa019d8889ae27f5706b1087748ea9d2dd8a7a89db0"},
+    {"path": "ui/mid_windows/architecture/PortGraphicMetadata.h", "sha256": "f081a2bdab55b1d3e22a6ff93583cdc373efa560301d68d45cd7ec36a0d329a9"},
+    {"path": "ui/mid_windows/architecture/PortGraphicMetadata.cpp", "sha256": "e9cbbc11264cca6a1d8a8a7b00925e6ec806b458e26c0a5b919a5766411d69d8"},
+    {"path": "ui/mid_windows/architecture/ConnectionGraphicMetadata.h", "sha256": "8f0c948eb8fdd5f9d22c56245e2b920b1fa1effeb4964d8d3a4727a1323003b9"},
+    {"path": "ui/mid_windows/architecture/ConnectionGraphicMetadata.cpp", "sha256": "55972b45dca980e8d3c4bb04e4fe6098b193a1ef53b1b6b683735817d176cd6f"},
+    {"path": "tests/TestCases/test_requirement_definition.sysml", "sha256": "cd9bad997753ad8deba429bb64d4d8fa9f1795e2565276a71cfe227e75c2f68d"},
+    {"path": "tests/TestCases/test_requirement_table.sysml", "sha256": "4719c60b8714af0d08a41199fb99ffad479bd6e236cdeb3365cfc39846849fda"},
+    {"path": "tests/TestCases/test_relationships_comprehensive.sysml", "sha256": "c6d3e0632372c30e5a3dd86964210a4b294475c1c930528a118d561b151fba5b"},
+    {"path": "tests/TestCases/test_architecture_view.sysml", "sha256": "7325bf20cd8895d2bc310735d7bcaa955064eabda2231870ce9f23dd4ff75014"},
+    {"path": "tests/TestCases/test_interface_port_connector.sysml", "sha256": "a7844cb8e2319533857e6eff50367bce5b802d860ba521749a600efb01764d2b"},
+    {"path": "tests/TestCases/Vehicle.sysml", "sha256": "3c594e5496a8cdbd1191efcd4030fefd30a1f83767a5d5d2ba3d9157cdf9876d"}
+  ]
+}

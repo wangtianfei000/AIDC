@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/model3d/simulation-frame-0.1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "time", "joints"],
+  "properties": {
+    "schemaVersion": { "const": "aidc.model3d.simulation-frame/0.1" },
+    "time": { "type": "number", "minimum": 0 },
+    "base": { "type": "object" },
+    "joints": { "type": "object", "additionalProperties": { "type": "number" } },
+    "contacts": { "type": "array" },
+    "scalars": { "type": "object", "additionalProperties": { "type": "number" } },
+    "events": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schema/model-snapshot-0.1.json",
+  "title": "AIDC ModelSnapshot",
+  "description": "Parser-neutral, read-only SysML browsing snapshot. The reference C++ model must be adapted to this contract.",
+  "type": "object",
+  "required": ["schemaVersion", "document", "elements", "relationships", "diagnostics", "capabilities"],
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "document": {
+      "type": "object",
+      "required": ["uri", "contentHash", "parser"],
+      "properties": {
+        "uri": {"type": "string"},
+        "contentHash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "parser": {
+          "type": "object",
+          "required": ["name", "baseline", "capabilityVersion"],
+          "properties": {
+            "name": {"type": "string"},
+            "baseline": {"type": "string"},
+            "capabilityVersion": {"type": "string"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "elements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/element"}
+    },
+    "relationships": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/relationship"}
+    },
+    "calculationModel": {"$ref": "#/$defs/calculationModel"},
+    "viewModel": {"$ref": "#/$defs/viewModel"},
+    "diagnostics": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/diagnostic"}
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": {"enum": ["supported", "partial", "unsupported", "unknown"]}
+    }
+  },
+  "$defs": {
+    "sourceSpan": {
+      "type": ["object", "null"],
+      "required": ["uri", "start", "end"],
+      "properties": {
+        "uri": {"type": "string"},
+        "start": {"$ref": "#/$defs/position"},
+        "end": {"$ref": "#/$defs/position"}
+      },
+      "additionalProperties": false
+    },
+    "position": {
+      "type": "object",
+      "required": ["line", "column", "offset"],
+      "properties": {
+        "line": {"type": "integer", "minimum": 1},
+        "column": {"type": "integer", "minimum": 1},
+        "offset": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "element": {
+      "type": "object",
+      "required": ["id", "kind", "name", "qualifiedName", "ownerId", "source", "properties"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "minLength": 1},
+        "name": {"type": ["string", "null"]},
+        "qualifiedName": {"type": ["string", "null"]},
+        "ownerId": {"type": ["string", "null"]},
+        "source": {"$ref": "#/$defs/sourceSpan"},
+        "properties": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "required": ["id", "kind", "sourceIds", "targetIds", "ownerId", "source", "properties"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "minLength": 1},
+        "sourceIds": {"type": "array", "items": {"type": "string"}},
+        "targetIds": {"type": "array", "items": {"type": "string"}},
+        "ownerId": {"type": ["string", "null"]},
+        "source": {"$ref": "#/$defs/sourceSpan"},
+        "properties": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "diagnostic": {
+      "type": "object",
+      "required": ["code", "severity", "message", "source"],
+      "properties": {
+        "code": {"type": "string"},
+        "severity": {"enum": ["error", "warning", "info"]},
+        "message": {"type": "string"},
+        "source": {"$ref": "#/$defs/sourceSpan"},
+        "relatedElementIds": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "calculationModel": {
+      "type": "object",
+      "required": ["version", "definitions", "usages", "analyses", "parameters", "constraints"],
+      "properties": {
+        "version": {"const": "0.1"},
+        "definitions": {"type": "array", "items": {"type": "object"}},
+        "usages": {"type": "array", "items": {"type": "object"}},
+        "analyses": {"type": "array", "items": {"type": "object"}},
+        "parameters": {"type": "array", "items": {"type": "object"}},
+        "constraints": {"type": "array", "items": {"type": "object"}}
+      },
+      "additionalProperties": false
+    },
+    "viewModel": {
+      "type": "object",
+      "required": ["version", "definitions", "views", "renderings"],
+      "properties": {
+        "version": {"const": "0.1"},
+        "definitions": {"type": "array", "items": {"type": "object"}},
+        "views": {"type": "array", "items": {"type": "object"}},
+        "renderings": {"type": "array", "items": {"type": "object"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schema/analysis-snapshot-0.1.json",
+  "title": "AIDC AnalysisSnapshot 0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "document", "engine", "analyses", "diagnostics", "capabilities"],
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "document": {"type": "object"},
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {"name": {"type": "string"}, "version": {"type": "string"}}
+    },
+    "analyses": {"type": "array", "items": {"$ref": "#/$defs/analysis"}},
+    "diagnostics": {"type": "array", "items": {"$ref": "#/$defs/diagnostic"}},
+    "parseDiagnostics": {"type": "array", "items": {"type": "object"}},
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": {"enum": ["supported", "partial", "unsupported"]}
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": ["object", "null"]
+    },
+    "ast": {"type": "object"},
+    "result": {
+      "type": "object",
+      "required": ["parameterId", "name", "typeName", "status", "formula", "formulaAst", "dimension", "source", "inputParameterIds"],
+      "properties": {
+        "parameterId": {"type": "string"},
+        "name": {"type": "string"},
+        "typeName": {"type": "string"},
+        "status": {"enum": ["computed", "missing-input", "unit-error", "unsupported", "cycle", "runtime-error"]},
+        "formula": {"type": "string"},
+        "formulaAst": {"$ref": "#/$defs/ast"},
+        "dimension": {"type": "string"},
+        "value": {"type": ["number", "boolean"]},
+        "unit": {"type": ["string", "null"]},
+        "siValue": {"type": "number"},
+        "message": {"type": "string"},
+        "inputParameterIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "calculationUsageId": {"type": "string"},
+        "calculationDefinitionId": {"type": "string"},
+        "source": {"$ref": "#/$defs/source"}
+      }
+    },
+    "constraint": {
+      "type": "object",
+      "required": ["constraintId", "name", "expression", "expressionAst", "status", "source"],
+      "properties": {
+        "constraintId": {"type": "string"},
+        "name": {"type": "string"},
+        "expression": {"type": "string"},
+        "expressionAst": {"$ref": "#/$defs/ast"},
+        "status": {"enum": ["pass", "fail", "missing-input", "unit-error", "unsupported", "cycle", "runtime-error"]},
+        "actual": {"type": "number"},
+        "target": {"type": "number"},
+        "margin": {"type": "number"},
+        "unit": {"type": ["string", "null"]},
+        "comparison": {"enum": ["<", "<=", ">", ">=", "==", "!="]},
+        "resultParameterId": {"type": "string"},
+        "targetParameterId": {"type": "string"},
+        "inputParameterIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "message": {"type": "string"},
+        "source": {"$ref": "#/$defs/source"}
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceParameterId", "targetParameterId"],
+      "properties": {
+        "sourceParameterId": {"type": "string"},
+        "targetParameterId": {"type": "string"}
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["analysisId", "name", "subjectId", "subjectReference", "results", "constraints", "evaluationOrder", "dependencies"],
+      "properties": {
+        "analysisId": {"type": "string"},
+        "name": {"type": "string"},
+        "subjectId": {"type": ["string", "null"]},
+        "subjectReference": {"type": "string"},
+        "results": {"type": "array", "items": {"$ref": "#/$defs/result"}},
+        "constraints": {"type": "array", "items": {"$ref": "#/$defs/constraint"}},
+        "evaluationOrder": {"type": "array", "items": {"type": "string"}},
+        "dependencies": {"type": "array", "items": {"$ref": "#/$defs/dependency"}}
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "required": ["code", "severity", "message", "parameterId"],
+      "properties": {
+        "code": {"type": "string"},
+        "severity": {"enum": ["error", "warning", "info"]},
+        "message": {"type": "string"},
+        "parameterId": {"type": "string"}
+      }
+    }
+  }
+}

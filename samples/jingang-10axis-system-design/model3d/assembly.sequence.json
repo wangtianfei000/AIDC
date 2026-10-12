@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "aidc.model3d.assembly/0.1",
+  "modelId": "SYS-JG10",
+  "modelRevision": "P4-2026-09-19",
+  "steps": [
+    {
+      "stepId": "REMOVE-MOTION-HAT", "label": "拆出运动控制板",
+      "description": "解除板间连接后沿机体前向移出 RPI Robot HAT。板型尚未冻结，本路径只用于装配评审。",
+      "componentIds": ["SYS-MOTION-CONTROL"], "dependsOn": [], "pathStatus": "MANUAL_DEMO",
+      "tool": { "label": "PH0 十字螺丝刀", "direction": [0, 0, -1] },
+      "keyframes": [
+        { "time": 0, "position": [0, 0, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 0.35, "position": [0.025, 0, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 1, "position": [0.09, 0, 0], "quaternion": [0, 0, 0, 1] }
+      ]
+    },
+    {
+      "stepId": "REMOVE-COMPUTE", "label": "拆出计算板",
+      "description": "运动控制板拆出后，沿机体前向平移计算板，保留连接器和线束复核空间。",
+      "componentIds": ["SYS-COMPUTE"], "dependsOn": ["REMOVE-MOTION-HAT"], "pathStatus": "MANUAL_DEMO",
+      "tool": { "label": "塑料撬棒", "direction": [1, 0, 0] },
+      "keyframes": [
+        { "time": 0, "position": [0, 0, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 0.4, "position": [0.018, 0, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 1, "position": [0.075, 0, 0], "quaternion": [0, 0, 0, 1] }
+      ]
+    },
+    {
+      "stepId": "REMOVE-IMU", "label": "拆出 IMU 模块",
+      "description": "解除排针和固定后沿 +Z 抬升 IMU 包络。具体 SKU 未冻结。",
+      "componentIds": ["SYS-SENSING"], "dependsOn": [], "pathStatus": "MANUAL_DEMO",
+      "tool": { "label": "直头镊子", "direction": [0, 0, 1] },
+      "keyframes": [
+        { "time": 0, "position": [0, 0, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 0.3, "position": [0, 0, 0.012], "quaternion": [0, 0, 0, 1] },
+        { "time": 1, "position": [0, 0, 0.06], "quaternion": [0, 0, 0, 1] }
+      ]
+    },
+    {
+      "stepId": "REMOVE-BATTERY", "label": "拆出电池包络",
+      "description": "打开后部支撑后沿机体右侧移出电池包络；连接器与线束尚待详细设计。",
+      "componentIds": ["SYS-POWER"], "dependsOn": ["REMOVE-IMU"], "pathStatus": "MANUAL_DEMO",
+      "tool": { "label": "徒手/绝缘拉带", "direction": [0, -1, 0] },
+      "keyframes": [
+        { "time": 0, "position": [0, 0, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 0.45, "position": [0, -0.025, 0], "quaternion": [0, 0, 0, 1] },
+        { "time": 1, "position": [0, -0.09, 0], "quaternion": [0, 0, 0, 1] }
+      ]
+    }
+  ]
+}

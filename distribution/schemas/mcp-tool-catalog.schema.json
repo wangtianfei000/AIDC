@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/mcp-tool-catalog.schema.json",
+  "title": "AIDC MCP tool catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "protocol", "tools"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "protocol": {"const": "mcp-stdio"},
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "title", "description", "capability", "sideEffect", "longRunning", "requiredDependencies", "inputSchema", "resultContract"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^aidc_[a-z0-9_]+$"},
+          "title": {"type": "string"},
+          "description": {"type": "string", "minLength": 10},
+          "capability": {"type": "string"},
+          "sideEffect": {"enum": ["read", "launch", "write", "execute"]},
+          "longRunning": {"type": "boolean"},
+          "requiredDependencies": {"type": "array", "items": {"type": "string"}},
+          "inputSchema": {"type": "object"},
+          "resultContract": {"const": "aidc.cli-result/1.0"}
+        }
+      }
+    }
+  }
+}

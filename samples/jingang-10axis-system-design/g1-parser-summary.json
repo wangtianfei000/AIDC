@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "0.1",
+  "runtimeVersion": "0.5.0",
+  "source": "architecture.sysml",
+  "elements": 146,
+  "relationships": 125,
+  "connections": {
+    "total": 31,
+    "resolved": 31,
+    "unresolved": 0
+  },
+  "diagnostics": {
+    "errors": 0,
+    "warnings": 1,
+    "unresolvedEndpointWarnings": 0
+  },
+  "capabilities": {
+    "typedInstancePort": "supported",
+    "connection": "partial"
+  },
+  "acceptanceViews": [
+    {
+      "id": "jingang.whole-system",
+      "nodes": 8,
+      "ports": 16,
+      "connections": 11
+    },
+    {
+      "id": "jingang.left-leg",
+      "nodes": 4,
+      "ports": 10,
+      "connections": 8,
+      "typedPorts": 8
+    },
+    {
+      "id": "jingang.power-network",
+      "nodes": 7,
+      "ports": 8,
+      "connections": 6
+    }
+  ]
+}

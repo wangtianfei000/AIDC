@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/modelica-browser/diagnostics.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "diagnostics"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "severity", "code", "title", "message"],
+        "properties": {
+          "stage": { "type": "string" },
+          "severity": { "enum": ["info", "warning", "error"] },
+          "code": { "type": "string" },
+          "title": { "type": "string" },
+          "message": { "type": "string" },
+          "rawMessage": { "type": "string" },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "line"],
+            "properties": { "path": { "type": "string" }, "line": { "type": "integer", "minimum": 1 }, "column": { "type": "integer", "minimum": 1 } }
+          },
+          "exitCode": { "type": "integer" },
+          "logRef": { "type": "string" }
+        }
+      }
+    }
+  }
+}

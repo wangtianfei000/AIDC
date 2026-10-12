@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/dependencies-lock.schema.json",
+  "title": "AIDC dependency lock",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "baselineVersion", "generatedAt", "targetPlatform", "dependencies"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": "1.0"},
+    "baselineVersion": {"type": "string"},
+    "generatedAt": {"type": "string", "format": "date-time"},
+    "targetPlatform": {"const": "windows-x86_64"},
+    "dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "version", "source", "capabilities", "licenses", "distributionStatus", "healthCheck"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9.-]+$"},
+          "name": {"type": "string"},
+          "version": {"type": "string"},
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "url", "sha256", "sizeBytes", "verificationStatus"],
+            "properties": {
+              "type": {"enum": ["official-release", "source-build", "internal-build", "system-prerequisite"]},
+              "url": {"type": ["string", "null"], "format": "uri"},
+              "sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+              "sizeBytes": {"type": ["integer", "null"], "minimum": 0},
+              "verificationStatus": {"enum": ["verified", "pending-download", "pending-hash", "pending-build"]},
+              "signature": {"type": ["string", "null"]}
+            }
+          },
+          "capabilities": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+          "licenses": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "status", "source"],
+              "properties": {
+                "name": {"type": "string"},
+                "spdx": {"type": ["string", "null"]},
+                "status": {"enum": ["approved", "review-required", "blocked"]},
+                "source": {"type": "string"}
+              }
+            }
+          },
+          "install": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "packId": {"type": ["string", "null"]},
+              "mode": {"enum": ["extract", "installer", "internal", "system"]},
+              "entryPoints": {"type": "object", "additionalProperties": {"type": "string"}}
+            }
+          },
+          "distributionStatus": {"enum": ["approved", "candidate", "blocked"]},
+          "blockers": {"type": "array", "items": {"type": "string"}},
+          "healthCheck": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "target", "expected"],
+            "properties": {
+              "type": {"enum": ["command", "http", "file"]},
+              "target": {"type": "string"},
+              "arguments": {"type": "array", "items": {"type": "string"}},
+              "expected": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,101 @@
+{
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported"
+  },
+  "diagnostics": [
+    {
+      "code": "SYNTAX_ERROR",
+      "message": "no viable alternative at input 'calcdef' (near 'def')",
+      "relatedElementIds": [],
+      "severity": "error",
+      "source": {
+        "end": {
+          "column": 11,
+          "line": 3,
+          "offset": 64
+        },
+        "start": {
+          "column": 10,
+          "line": 3,
+          "offset": 63
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    },
+    {
+      "code": "SYNTAX_ERROR",
+      "message": "extraneous input 'calc' expecting {<EOF>, 'package'} (near 'calc')",
+      "relatedElementIds": [],
+      "severity": "error",
+      "source": {
+        "end": {
+          "column": 6,
+          "line": 10,
+          "offset": 306
+        },
+        "start": {
+          "column": 5,
+          "line": 10,
+          "offset": 305
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    }
+  ],
+  "document": {
+    "contentHash": "3929a45718d1f116f63d3b64f3aa5b9a8ae464887b4f105b71d34a5c54f13dc7",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+      "capabilityVersion": "0.5.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-1edb2c76c036a30c13e71d8f",
+      "kind": "Package",
+      "name": "JingangNative10ParameterAnalysisContract",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10ParameterAnalysisContract",
+      "source": {
+        "end": {
+          "column": 49,
+          "line": 1,
+          "offset": 48
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/analysis/calculation-contract.sysml"
+      }
+    }
+  ],
+  "relationships": [],
+  "schemaVersion": "0.1"
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "preliminary-cad-assembly-1",
+  "configuration": {
+    "systemId": "SYS-EXAMPLE",
+    "revision": "A",
+    "coordinateSystem": "+X forward, +Y left, +Z up",
+    "units": "mm"
+  },
+  "manufacturingStatus": "NOT_RELEASED",
+  "physicalStructure": {
+    "source": "FreeCAD App::Part hierarchy",
+    "rootBodyId": "ASM-EXAMPLE",
+    "nodes": [
+      {
+        "bodyId": "ASM-EXAMPLE",
+        "label": "示例总成"
+      }
+    ]
+  },
+  "components": [
+    {
+      "componentId": "ACT-EXAMPLE-01",
+      "partNumber": "VENDOR-MODEL-REV",
+      "parentComponentId": "ASM-EXAMPLE",
+      "assemblyRelation": "revolute",
+      "geometryStatus": "VERIFIED_VENDOR_GEOMETRY",
+      "geometrySource": "vendor/model.step",
+      "sourceHash": "sha256:<project-value>",
+      "verificationStatus": "envelope, mounting holes and connector checked",
+      "joint": {
+        "axis": "local +Y",
+        "zero": "assembly datum A",
+        "lowerLimit_deg": -30,
+        "upperLimit_deg": 30
+      },
+      "openItems": []
+    }
+  ],
+  "checks": {
+    "geometryChecksPassed": false,
+    "assemblyChecksPassed": false,
+    "p4ExitReady": false,
+    "manufacturingReleased": false,
+    "releaseBlockers": [
+      "Replace example data with project evidence"
+    ]
+  }
+}

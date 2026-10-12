@@ -1,0 +1,8 @@
+{
+  "name": "@aidc/robot-assembly-package",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "python tests/validate_assembly_package.py"
+  }
+}

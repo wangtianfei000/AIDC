@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "2.0",
+  "projectId": "aidc.dc-motor.open-loop",
+  "name": "直流电机开环样例",
+  "revision": "T1-demo-r2",
+  "description": "用于验证 Modelica 浏览器可在不修改代码时切换到不同模型工程。",
+  "modelica": {
+    "rootPackageFile": "modelica/AIDCT1Motor/package.mo",
+    "rootPackage": "AIDCT1Motor",
+    "defaultExperiment": "AIDCT1Motor.OpenLoopMotor",
+    "languageVersion": "3.6",
+    "libraries": [{ "name": "Modelica", "version": "4.1.0" }]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@aidc/modelica-browser-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test:contracts": "npm --workspace @aidc/modelica-contracts test",
+    "test:assembly-package": "npm --workspace @aidc/robot-assembly-package test",
+    "typecheck": "npm --workspace @aidc/modelica-contracts run typecheck",
+    "aidc:modelica": "python tools/aidc_modelica.py",
+    "package:aidc-robotics": "python tools/package_aidc_robotics.py",
+    "verify:modelica:p5-productization": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-p5-productization.ps1",
+    "verify:modelica:p6-closed-loop": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-p6-closed-loop.ps1",
+    "ci:modelica": "npm run test:contracts && npm run test:assembly-package && npm run typecheck && npm run verify:modelica:p5-productization && npm run verify:modelica:p6-closed-loop"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "requestId": "p0-example-001",
+  "command": "system.doctor",
+  "status": "succeeded",
+  "exitCode": 0,
+  "message": "AIDC P0 contract example completed.",
+  "data": {"releaseGate": "blocked", "healthyComponents": 0},
+  "task": null,
+  "diagnostics": [
+    {
+      "code": "SUPPLY_CHAIN_BLOCKED",
+      "severity": "warning",
+      "message": "Public binary distribution remains blocked by unresolved licenses and package hashes.",
+      "path": "distribution/audits/p0-supply-chain-audit.md",
+      "details": {}
+    }
+  ],
+  "artifacts": [
+    {
+      "artifactId": "p0-supply-chain-audit",
+      "type": "aidc.diagnostic.report",
+      "path": "distribution/audits/p0-supply-chain-audit.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": null,
+      "sha256": null,
+      "sizeBytes": null,
+      "createdAt": null,
+      "metadata": {"phase": "P0"}
+    }
+  ],
+  "meta": {
+    "toolVersion": "0.1.0",
+    "startedAt": "2026-10-12T00:00:00+08:00",
+    "finishedAt": "2026-10-12T00:00:01+08:00"
+  }
+}
+

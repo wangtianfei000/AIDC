@@ -1,0 +1,16 @@
+{
+  "name": "@aidc/model3d-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "~5.7.2",
+    "vitest": "^3.2.4"
+  }
+}

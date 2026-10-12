@@ -1,0 +1,767 @@
+{
+  "analyses": [
+    {
+      "analysisId": "e-97a09173e48a21c0a6f548fd",
+      "constraints": [
+        {
+          "actual": 816.8000000000001,
+          "comparison": "<=",
+          "constraintId": "e-8fc82de661d4641e6983904e",
+          "expression": "totalMassResult<=jingangConfiguration.maximumMass",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "totalMassResult"
+            },
+            "operator": "<=",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumMass"
+            }
+          },
+          "margin": -16.800000000000036,
+          "name": "REQ_PHY_001_massWithinLimit",
+          "resultParameterId": "e-72b392b92341e5276c610ab8",
+          "source": {
+            "end": {
+              "column": 47,
+              "line": 276,
+              "offset": 13777
+            },
+            "start": {
+              "column": 20,
+              "line": 276,
+              "offset": 13750
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "fail",
+          "target": 800,
+          "unit": "g"
+        },
+        {
+          "actual": 1.9199999999999997,
+          "comparison": ">=",
+          "constraintId": "e-ce51fcbb15d19834371dac3f",
+          "expression": "enduranceResult>=jingangConfiguration.minimumEndurance",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "enduranceResult"
+            },
+            "operator": ">=",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.minimumEndurance"
+            }
+          },
+          "margin": -0.08000000000000025,
+          "name": "REQ_PER_001_enduranceMeetsMinimum",
+          "resultParameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "source": {
+            "end": {
+              "column": 53,
+              "line": 287,
+              "offset": 14413
+            },
+            "start": {
+              "column": 20,
+              "line": 287,
+              "offset": 14380
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "fail",
+          "target": 2,
+          "unit": "h"
+        },
+        {
+          "actual": 19.840000000000003,
+          "comparison": "<=",
+          "constraintId": "e-14af3d480cc2f4711ae342f7",
+          "expression": "peakElectricalPowerResult<=maximumPeakElectricalPower",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "peakElectricalPowerResult"
+            },
+            "operator": "<=",
+            "right": {
+              "kind": "reference",
+              "path": "maximumPeakElectricalPower"
+            }
+          },
+          "margin": -0.6400000000000006,
+          "name": "powerWithinSharedLimit",
+          "resultParameterId": "e-160842f5a064965b2de40e35",
+          "source": {
+            "end": {
+              "column": 42,
+              "line": 300,
+              "offset": 15136
+            },
+            "start": {
+              "column": 20,
+              "line": 300,
+              "offset": 15114
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "fail",
+          "target": 19.200000000000003,
+          "unit": "W"
+        },
+        {
+          "actual": 128,
+          "comparison": "<=",
+          "constraintId": "e-f0d9ec7b5c943f2bd64b9fca",
+          "expression": "stopResponseTimeResult<=jingangConfiguration.maximumStopTime",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "stopResponseTimeResult"
+            },
+            "operator": "<=",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumStopTime"
+            }
+          },
+          "margin": 372,
+          "name": "REQ_SAF_001_stopResponseWithinLimit",
+          "resultParameterId": "e-2d7d5373db512ae0d76fc182",
+          "source": {
+            "end": {
+              "column": 55,
+              "line": 310,
+              "offset": 15685
+            },
+            "start": {
+              "column": 20,
+              "line": 310,
+              "offset": 15650
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "pass",
+          "target": 500,
+          "unit": "ms"
+        }
+      ],
+      "dependencies": [
+        {
+          "sourceParameterId": "e-160842f5a064965b2de40e35",
+          "targetParameterId": "e-2c92fe1c1dd724d50d6945a0"
+        },
+        {
+          "sourceParameterId": "e-160842f5a064965b2de40e35",
+          "targetParameterId": "e-51ccc95443cee7ab2116b2dc"
+        },
+        {
+          "sourceParameterId": "e-160842f5a064965b2de40e35",
+          "targetParameterId": "e-ef96cba23e9855c588d40d38"
+        },
+        {
+          "sourceParameterId": "e-1ba3d8c799e94996dd69afb5",
+          "targetParameterId": "e-160842f5a064965b2de40e35"
+        },
+        {
+          "sourceParameterId": "e-1ba3d8c799e94996dd69afb5",
+          "targetParameterId": "e-f67d65a41cc0fec1350a2e4a"
+        },
+        {
+          "sourceParameterId": "e-2d7d5373db512ae0d76fc182",
+          "targetParameterId": "e-167808e6306179bba82ca4ed"
+        },
+        {
+          "sourceParameterId": "e-2d7d5373db512ae0d76fc182",
+          "targetParameterId": "e-3e8dd54a0542aba8e09def2d"
+        },
+        {
+          "sourceParameterId": "e-2d7d5373db512ae0d76fc182",
+          "targetParameterId": "e-b1fa5bf72db652adeca427c8"
+        },
+        {
+          "sourceParameterId": "e-3adeceaa331433b514c0e6d2",
+          "targetParameterId": "e-3ec4317a43fda6159cf4d1b6"
+        },
+        {
+          "sourceParameterId": "e-3adeceaa331433b514c0e6d2",
+          "targetParameterId": "e-abc1dd556aba2ef2184b1bdd"
+        },
+        {
+          "sourceParameterId": "e-6e0b2da46c6b8ab4f65172b1",
+          "targetParameterId": "e-2d7d5373db512ae0d76fc182"
+        },
+        {
+          "sourceParameterId": "e-6e0b2da46c6b8ab4f65172b1",
+          "targetParameterId": "e-e8c4efa80132e3527af88787"
+        },
+        {
+          "sourceParameterId": "e-72b392b92341e5276c610ab8",
+          "targetParameterId": "e-3cca01574fd80cbfa985b291"
+        },
+        {
+          "sourceParameterId": "e-72b392b92341e5276c610ab8",
+          "targetParameterId": "e-441b270780fef1a5e2840d16"
+        },
+        {
+          "sourceParameterId": "e-72b392b92341e5276c610ab8",
+          "targetParameterId": "e-a53c38292039bef991057c47"
+        },
+        {
+          "sourceParameterId": "e-72b392b92341e5276c610ab8",
+          "targetParameterId": "e-cb30a7c6a4c13617a62c08ed"
+        },
+        {
+          "sourceParameterId": "e-72b392b92341e5276c610ab8",
+          "targetParameterId": "e-ee52f105cf4d8cfba295df2d"
+        },
+        {
+          "sourceParameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "targetParameterId": "e-2c92fe1c1dd724d50d6945a0"
+        },
+        {
+          "sourceParameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "targetParameterId": "e-332f87eb186543a5a4b9d7b4"
+        },
+        {
+          "sourceParameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "targetParameterId": "e-51ccc95443cee7ab2116b2dc"
+        },
+        {
+          "sourceParameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "targetParameterId": "e-75ac960f96e98b4afd38862c"
+        },
+        {
+          "sourceParameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "targetParameterId": "e-909816cfabda5bcfd8c9cf9e"
+        },
+        {
+          "sourceParameterId": "e-e7f7b51e0404249ac843dbaf",
+          "targetParameterId": "e-72b392b92341e5276c610ab8"
+        },
+        {
+          "sourceParameterId": "e-e7f7b51e0404249ac843dbaf",
+          "targetParameterId": "e-8b548af78524d5475c20ee53"
+        },
+        {
+          "sourceParameterId": "e-f67d65a41cc0fec1350a2e4a",
+          "targetParameterId": "e-1d0d33ddf309fabbbdf7af81"
+        },
+        {
+          "sourceParameterId": "e-f67d65a41cc0fec1350a2e4a",
+          "targetParameterId": "e-2c92fe1c1dd724d50d6945a0"
+        }
+      ],
+      "evaluationOrder": [
+        "e-72b392b92341e5276c610ab8",
+        "e-e7f7b51e0404249ac843dbaf",
+        "e-abc1dd556aba2ef2184b1bdd",
+        "e-3adeceaa331433b514c0e6d2",
+        "e-160842f5a064965b2de40e35",
+        "e-f67d65a41cc0fec1350a2e4a",
+        "e-1ba3d8c799e94996dd69afb5",
+        "e-2d7d5373db512ae0d76fc182",
+        "e-6e0b2da46c6b8ab4f65172b1"
+      ],
+      "name": "coreParameterAnalysis",
+      "results": [
+        {
+          "calculationDefinitionId": "e-62f06fac53f684bc4e304e98",
+          "calculationUsageId": "cu-c0afb44fe5509ca7124f9ae0",
+          "dimension": "M^1",
+          "formula": "ComputeTotalMass(jingangConfiguration.actuatorGroupPlanningMass,jingangConfiguration.structureAndFootPlanningMass,jingangConfiguration.electronicsAndBatteryPlanningMass,jingangConfiguration.bearingAndFastenerPlanningMass,jingangConfiguration.harnessAndConnectorPlanningMass)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.actuatorGroupPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.structureAndFootPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.electronicsAndBatteryPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.bearingAndFastenerPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.harnessAndConnectorPlanningMass"
+              }
+            ],
+            "callee": "ComputeTotalMass",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-04a1e764926f152ae1cb6534",
+            "e-3cca01574fd80cbfa985b291",
+            "e-441b270780fef1a5e2840d16",
+            "e-72b392b92341e5276c610ab8",
+            "e-a53c38292039bef991057c47",
+            "e-cb30a7c6a4c13617a62c08ed",
+            "e-ee52f105cf4d8cfba295df2d"
+          ],
+          "name": "totalMassResult",
+          "parameterId": "e-72b392b92341e5276c610ab8",
+          "siValue": 0.8168000000000001,
+          "source": {
+            "end": {
+              "column": 34,
+              "line": 269,
+              "offset": 13278
+            },
+            "start": {
+              "column": 19,
+              "line": 269,
+              "offset": 13263
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::mass",
+          "unit": "g",
+          "value": 816.8000000000001
+        },
+        {
+          "dimension": "M^1",
+          "formula": "jingangConfiguration.maximumMass-totalMassResult",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumMass"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "totalMassResult"
+            }
+          },
+          "inputParameterIds": [
+            "e-04a1e764926f152ae1cb6534",
+            "e-3cca01574fd80cbfa985b291",
+            "e-441b270780fef1a5e2840d16",
+            "e-72b392b92341e5276c610ab8",
+            "e-8b548af78524d5475c20ee53",
+            "e-a53c38292039bef991057c47",
+            "e-cb30a7c6a4c13617a62c08ed",
+            "e-e7f7b51e0404249ac843dbaf",
+            "e-ee52f105cf4d8cfba295df2d"
+          ],
+          "name": "massMargin",
+          "parameterId": "e-e7f7b51e0404249ac843dbaf",
+          "siValue": -0.016800000000000037,
+          "source": {
+            "end": {
+              "column": 29,
+              "line": 275,
+              "offset": 13663
+            },
+            "start": {
+              "column": 19,
+              "line": 275,
+              "offset": 13653
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::mass",
+          "unit": "g",
+          "value": -16.800000000000036
+        },
+        {
+          "calculationDefinitionId": "e-fec4b92076e651682a4580dd",
+          "calculationUsageId": "cu-fa3988b10a6d81bf95fdb485",
+          "dimension": "T^1",
+          "formula": "ComputeEndurance(jingangConfiguration.powerSystem.batteryVoltage,jingangConfiguration.powerSystem.batteryCapacity,jingangConfiguration.powerSystem.usableEnergyFraction,jingangConfiguration.powerSystem.electronicsCurrent,jingangConfiguration.powerSystem.servoBusAverageCurrent)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.batteryVoltage"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.batteryCapacity"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.usableEnergyFraction"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.electronicsCurrent"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.servoBusAverageCurrent"
+              }
+            ],
+            "callee": "ComputeEndurance",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-0c3bcc7c569c671d2f038974",
+            "e-1dd731a314fdd2a8af6927c6",
+            "e-2c92fe1c1dd724d50d6945a0",
+            "e-332f87eb186543a5a4b9d7b4",
+            "e-51ccc95443cee7ab2116b2dc",
+            "e-75ac960f96e98b4afd38862c",
+            "e-909816cfabda5bcfd8c9cf9e",
+            "e-9ae7397fc4a3d58c98ca4037",
+            "e-abc1dd556aba2ef2184b1bdd",
+            "e-b88883b6676942de73b62ba8"
+          ],
+          "name": "enduranceResult",
+          "parameterId": "e-abc1dd556aba2ef2184b1bdd",
+          "siValue": 6911.999999999999,
+          "source": {
+            "end": {
+              "column": 34,
+              "line": 280,
+              "offset": 13888
+            },
+            "start": {
+              "column": 19,
+              "line": 280,
+              "offset": 13873
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "h",
+          "value": 1.9199999999999997
+        },
+        {
+          "dimension": "T^1",
+          "formula": "enduranceResult-jingangConfiguration.minimumEndurance",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "enduranceResult"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.minimumEndurance"
+            }
+          },
+          "inputParameterIds": [
+            "e-0c3bcc7c569c671d2f038974",
+            "e-1dd731a314fdd2a8af6927c6",
+            "e-2c92fe1c1dd724d50d6945a0",
+            "e-332f87eb186543a5a4b9d7b4",
+            "e-3adeceaa331433b514c0e6d2",
+            "e-3ec4317a43fda6159cf4d1b6",
+            "e-51ccc95443cee7ab2116b2dc",
+            "e-75ac960f96e98b4afd38862c",
+            "e-909816cfabda5bcfd8c9cf9e",
+            "e-9ae7397fc4a3d58c98ca4037",
+            "e-abc1dd556aba2ef2184b1bdd",
+            "e-b88883b6676942de73b62ba8"
+          ],
+          "name": "enduranceMargin",
+          "parameterId": "e-3adeceaa331433b514c0e6d2",
+          "siValue": -288.0000000000009,
+          "source": {
+            "end": {
+              "column": 34,
+              "line": 286,
+              "offset": 14284
+            },
+            "start": {
+              "column": 19,
+              "line": 286,
+              "offset": 14269
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "h",
+          "value": -0.08000000000000025
+        },
+        {
+          "calculationDefinitionId": "e-6b8d1b591e4782286814ad9d",
+          "calculationUsageId": "cu-6a4a612fd1cfc93905508a25",
+          "dimension": "L^2 M^1 T^-3",
+          "formula": "ComputePeakElectricalPower(jingangConfiguration.powerSystem.batteryVoltage,jingangConfiguration.powerSystem.electronicsCurrent,jingangConfiguration.powerSystem.servoBusPeakCurrent)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.batteryVoltage"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.electronicsCurrent"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.servoBusPeakCurrent"
+              }
+            ],
+            "callee": "ComputePeakElectricalPower",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-160842f5a064965b2de40e35",
+            "e-2c92fe1c1dd724d50d6945a0",
+            "e-51ccc95443cee7ab2116b2dc",
+            "e-a46b01b4c10184c5267cb8a2",
+            "e-ef96cba23e9855c588d40d38"
+          ],
+          "name": "peakElectricalPowerResult",
+          "parameterId": "e-160842f5a064965b2de40e35",
+          "siValue": 19.840000000000003,
+          "source": {
+            "end": {
+              "column": 44,
+              "line": 291,
+              "offset": 14539
+            },
+            "start": {
+              "column": 19,
+              "line": 291,
+              "offset": 14514
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::power",
+          "unit": "W",
+          "value": 19.840000000000003
+        },
+        {
+          "dimension": "L^2 M^1 T^-3",
+          "formula": "jingangConfiguration.powerSystem.batteryVoltage*jingangConfiguration.powerSystem.maximumSharedCurrent",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "jingangConfiguration.powerSystem.batteryVoltage"
+            },
+            "operator": "*",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.powerSystem.maximumSharedCurrent"
+            }
+          },
+          "inputParameterIds": [
+            "e-1d0d33ddf309fabbbdf7af81",
+            "e-2c92fe1c1dd724d50d6945a0",
+            "e-f67d65a41cc0fec1350a2e4a"
+          ],
+          "name": "maximumPeakElectricalPower",
+          "parameterId": "e-f67d65a41cc0fec1350a2e4a",
+          "siValue": 19.200000000000003,
+          "source": {
+            "end": {
+              "column": 45,
+              "line": 295,
+              "offset": 14821
+            },
+            "start": {
+              "column": 19,
+              "line": 295,
+              "offset": 14795
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::power",
+          "unit": "W",
+          "value": 19.200000000000003
+        },
+        {
+          "dimension": "L^2 M^1 T^-3",
+          "formula": "maximumPeakElectricalPower-peakElectricalPowerResult",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "maximumPeakElectricalPower"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "peakElectricalPowerResult"
+            }
+          },
+          "inputParameterIds": [
+            "e-160842f5a064965b2de40e35",
+            "e-1ba3d8c799e94996dd69afb5",
+            "e-1d0d33ddf309fabbbdf7af81",
+            "e-2c92fe1c1dd724d50d6945a0",
+            "e-51ccc95443cee7ab2116b2dc",
+            "e-a46b01b4c10184c5267cb8a2",
+            "e-ef96cba23e9855c588d40d38",
+            "e-f67d65a41cc0fec1350a2e4a"
+          ],
+          "name": "peakElectricalPowerMargin",
+          "parameterId": "e-1ba3d8c799e94996dd69afb5",
+          "siValue": -0.6400000000000006,
+          "source": {
+            "end": {
+              "column": 44,
+              "line": 298,
+              "offset": 15010
+            },
+            "start": {
+              "column": 19,
+              "line": 298,
+              "offset": 14985
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::power",
+          "unit": "W",
+          "value": -0.6400000000000006
+        },
+        {
+          "calculationDefinitionId": "e-1dcdce375946c8cfe6c4d8db",
+          "calculationUsageId": "cu-474c18518e4edd747dbbba8c",
+          "dimension": "T^1",
+          "formula": "ComputeStopResponseTime(jingangConfiguration.motionController.commandDetectionTime,jingangConfiguration.motionController.controlProcessingTime,ServoActuator.assumedStopResponseTime)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.motionController.commandDetectionTime"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.motionController.controlProcessingTime"
+              },
+              {
+                "kind": "reference",
+                "path": "ServoActuator.assumedStopResponseTime"
+              }
+            ],
+            "callee": "ComputeStopResponseTime",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-167808e6306179bba82ca4ed",
+            "e-2d7d5373db512ae0d76fc182",
+            "e-3e8dd54a0542aba8e09def2d",
+            "e-9441be2f71e092b9fb64e24c",
+            "e-b1fa5bf72db652adeca427c8"
+          ],
+          "name": "stopResponseTimeResult",
+          "parameterId": "e-2d7d5373db512ae0d76fc182",
+          "siValue": 0.128,
+          "source": {
+            "end": {
+              "column": 41,
+              "line": 304,
+              "offset": 15258
+            },
+            "start": {
+              "column": 19,
+              "line": 304,
+              "offset": 15236
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "ms",
+          "value": 128
+        },
+        {
+          "dimension": "T^1",
+          "formula": "jingangConfiguration.maximumStopTime-stopResponseTimeResult",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumStopTime"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "stopResponseTimeResult"
+            }
+          },
+          "inputParameterIds": [
+            "e-167808e6306179bba82ca4ed",
+            "e-2d7d5373db512ae0d76fc182",
+            "e-3e8dd54a0542aba8e09def2d",
+            "e-6e0b2da46c6b8ab4f65172b1",
+            "e-9441be2f71e092b9fb64e24c",
+            "e-b1fa5bf72db652adeca427c8",
+            "e-e8c4efa80132e3527af88787"
+          ],
+          "name": "stopResponseMargin",
+          "parameterId": "e-6e0b2da46c6b8ab4f65172b1",
+          "siValue": 0.372,
+          "source": {
+            "end": {
+              "column": 37,
+              "line": 308,
+              "offset": 15536
+            },
+            "start": {
+              "column": 19,
+              "line": 308,
+              "offset": 15518
+            },
+            "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "ms",
+          "value": 372
+        }
+      ],
+      "subjectId": "e-ca3f998ec3f10f17d506256f",
+      "subjectReference": "jingangConfiguration"
+    }
+  ],
+  "capabilities": {
+    "advanced-functions": "unsupported",
+    "constraint-margin": "supported",
+    "dependency-cycle": "supported",
+    "dimension-check": "supported",
+    "scalar-arithmetic": "supported",
+    "unit-conversion": "supported"
+  },
+  "diagnostics": [],
+  "document": {
+    "contentHash": "bb53e4ae79bd95a9b2fae2e7fb870089ed7f463403f4d1cdd29a3cfa5f0c5ed5",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507",
+      "capabilityVersion": "0.7.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/samples/jingang-10axis-system-design/architecture.sysml"
+  },
+  "engine": {
+    "name": "AIDC Unit-aware Calculation Engine",
+    "version": "0.1.0"
+  },
+  "parseDiagnostics": [
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 155 elements without a span; 153 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "schemaVersion": "0.1"
+}

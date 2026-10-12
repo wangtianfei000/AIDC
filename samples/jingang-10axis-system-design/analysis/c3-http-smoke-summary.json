@@ -1,0 +1,32 @@
+{
+  "health": "pass",
+  "capabilities": "pass",
+  "schemaValidation": "pass",
+  "deterministicParses": 100,
+  "parallelParses": 2,
+  "structuredInvalidDiagnostic": "pass",
+  "inactiveCancel": "pass",
+  "activeCancel": "pass",
+  "nonLocalOriginRejected": "pass",
+  "oversizedRequestRejected": "pass",
+  "elementCount": 3,
+  "relationshipCount": 0,
+  "fixtures": [
+    {
+      "file": "architecture.sysml",
+      "elements": 222,
+      "relationships": 155,
+      "relationshipsWithBothEnds": 155,
+      "errors": 0,
+      "warnings": 1
+    }
+  ],
+  "analysis": {
+    "schemaValidation": "pass",
+    "deterministicAnalyses": 2,
+    "results": 9,
+    "constraints": 4,
+    "calculationDiagnostics": 0,
+    "inputChangePropagation": "pass"
+  }
+}

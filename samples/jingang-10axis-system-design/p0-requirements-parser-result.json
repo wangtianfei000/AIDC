@@ -1,0 +1,934 @@
+{
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "diagnostic.structured": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported"
+  },
+  "diagnostics": [
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: String (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: String (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::time (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::time (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: String (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::mass (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::mass (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: String (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::time (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "PARSER_WARNING",
+      "message": "[WARNING] Type not found: ISQ::time (may be defined in another resource)",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-ec78a5625d49dc6f9f5a9914"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-96b85186f16165f4b95934d5"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-25a4b78bc719b2e356b31100"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-e2244bf06014a536f2b61332"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-a3f5d6fc1377c396c12dbed3"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-0e79f8a523d456956b28a455"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-32da9715b248b5f9fc0bf2bc"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-7f4261ca26e31e8bf2b705df"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-a35ca0dd4f739fe14181de43"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_UNRESOLVED_ENDPOINT",
+      "message": "Relationship FeatureTyping has unresolved source or target endpoints",
+      "relatedElementIds": [
+        "e-6a7aef7a5c67597b1c8b1b3f"
+      ],
+      "severity": "warning",
+      "source": null
+    },
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 13 elements without a span; 14 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "562e09cb4fff87a4227dbfc3ce7ef101a61bc189b89bfad872c7a835a2c9a3fd",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+      "capabilityVersion": "0.3.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-5d0e3110884067298144aede",
+      "kind": "Package",
+      "name": "JingangNative10Requirements",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Requirements",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 1,
+          "offset": 35
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-323e6a7b384cb849cccf60cb",
+      "kind": "RequirementDefinition",
+      "name": "indoorBipedWalking",
+      "ownerId": "e-5d0e3110884067298144aede",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Requirements::indoorBipedWalking",
+      "source": {
+        "end": {
+          "column": 39,
+          "line": 2,
+          "offset": 76
+        },
+        "start": {
+          "column": 21,
+          "line": 2,
+          "offset": 58
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-03dd384c9af1104f41a47203",
+      "kind": "Feature",
+      "name": "reqId",
+      "ownerId": "e-323e6a7b384cb849cccf60cb",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-FUN-001\""
+      },
+      "qualifiedName": "JingangNative10Requirements::indoorBipedWalking::reqId",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 3,
+          "offset": 102
+        },
+        "start": {
+          "column": 19,
+          "line": 3,
+          "offset": 97
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-18a82e8572903b6e8aec0279",
+      "kind": "DocStatement",
+      "name": "doc",
+      "ownerId": "e-323e6a7b384cb849cccf60cb",
+      "properties": {
+        "content": "在室内硬质平地条件下，机器人应能够执行前进、后退和停止运动。"
+      },
+      "qualifiedName": "JingangNative10Requirements::indoorBipedWalking::doc",
+      "source": {
+        "end": {
+          "column": 12,
+          "line": 4,
+          "offset": 141
+        },
+        "start": {
+          "column": 9,
+          "line": 4,
+          "offset": 138
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-752b8b81dcb7111bc1690596",
+      "kind": "RequirementDefinition",
+      "name": "batteryEndurance",
+      "ownerId": "e-5d0e3110884067298144aede",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Requirements::batteryEndurance",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 7,
+          "offset": 280
+        },
+        "start": {
+          "column": 21,
+          "line": 7,
+          "offset": 264
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-b6fceec7b1ce261164727a7b",
+      "kind": "Feature",
+      "name": "reqId",
+      "ownerId": "e-752b8b81dcb7111bc1690596",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-PER-001\""
+      },
+      "qualifiedName": "JingangNative10Requirements::batteryEndurance::reqId",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 8,
+          "offset": 306
+        },
+        "start": {
+          "column": 19,
+          "line": 8,
+          "offset": 301
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-67049cdc7bac9c9f3ea355f0",
+      "kind": "DocStatement",
+      "name": "doc",
+      "ownerId": "e-752b8b81dcb7111bc1690596",
+      "properties": {
+        "content": "在电池充满、室温和典型慢速行走任务条件下，机器人连续运行时间应不少于 2 小时。"
+      },
+      "qualifiedName": "JingangNative10Requirements::batteryEndurance::doc",
+      "source": {
+        "end": {
+          "column": 12,
+          "line": 9,
+          "offset": 345
+        },
+        "start": {
+          "column": 9,
+          "line": 9,
+          "offset": 342
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-46f552556be86d2ba8ee3bd1",
+      "kind": "Feature",
+      "name": "measuredEndurance",
+      "ownerId": "e-752b8b81dcb7111bc1690596",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false
+      },
+      "qualifiedName": "JingangNative10Requirements::batteryEndurance::measuredEndurance",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 10,
+          "offset": 500
+        },
+        "start": {
+          "column": 19,
+          "line": 10,
+          "offset": 483
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-6f403a770e3d15a94999da99",
+      "kind": "Feature",
+      "name": "minimumEndurance",
+      "ownerId": "e-752b8b81dcb7111bc1690596",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "h",
+        "valueExpression": "2[h]"
+      },
+      "qualifiedName": "JingangNative10Requirements::batteryEndurance::minimumEndurance",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 11,
+          "offset": 549
+        },
+        "start": {
+          "column": 19,
+          "line": 11,
+          "offset": 533
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-03bb9312530b1a3defa4f37d",
+      "kind": "RequireStatement",
+      "name": "require measuredEndurance>=minimumEndurance",
+      "ownerId": "e-752b8b81dcb7111bc1690596",
+      "properties": {
+        "expression": "measuredEndurance>=minimumEndurance",
+        "hasConstraintKeyword": true
+      },
+      "qualifiedName": "JingangNative10Requirements::batteryEndurance::require measuredEndurance>=minimumEndurance",
+      "source": null
+    },
+    {
+      "id": "e-36e66395ed7001f4104c06eb",
+      "kind": "RequirementDefinition",
+      "name": "totalMass",
+      "ownerId": "e-5d0e3110884067298144aede",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Requirements::totalMass",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 15,
+          "offset": 675
+        },
+        "start": {
+          "column": 21,
+          "line": 15,
+          "offset": 666
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-c508ca5965aa79aeb8849871",
+      "kind": "Feature",
+      "name": "reqId",
+      "ownerId": "e-36e66395ed7001f4104c06eb",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-PHY-001\""
+      },
+      "qualifiedName": "JingangNative10Requirements::totalMass::reqId",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 16,
+          "offset": 701
+        },
+        "start": {
+          "column": 19,
+          "line": 16,
+          "offset": 696
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-2a42c461007bff97a2402421",
+      "kind": "DocStatement",
+      "name": "doc",
+      "ownerId": "e-36e66395ed7001f4104c06eb",
+      "properties": {
+        "content": "机器人包含电池和全部随身电子件时，整机质量应不大于 800 g。"
+      },
+      "qualifiedName": "JingangNative10Requirements::totalMass::doc",
+      "source": {
+        "end": {
+          "column": 12,
+          "line": 17,
+          "offset": 740
+        },
+        "start": {
+          "column": 9,
+          "line": 17,
+          "offset": 737
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-06378afec0e070aa4678a635",
+      "kind": "Feature",
+      "name": "measuredMass",
+      "ownerId": "e-36e66395ed7001f4104c06eb",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false
+      },
+      "qualifiedName": "JingangNative10Requirements::totalMass::measuredMass",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 18,
+          "offset": 860
+        },
+        "start": {
+          "column": 19,
+          "line": 18,
+          "offset": 848
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-252b75cfe3e9d5735e26b09b",
+      "kind": "Feature",
+      "name": "maximumMass",
+      "ownerId": "e-36e66395ed7001f4104c06eb",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "g",
+        "valueExpression": "800[g]"
+      },
+      "qualifiedName": "JingangNative10Requirements::totalMass::maximumMass",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 19,
+          "offset": 904
+        },
+        "start": {
+          "column": 19,
+          "line": 19,
+          "offset": 893
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-56cdf4118a566e9744f9060a",
+      "kind": "RequireStatement",
+      "name": "require measuredMass<=maximumMass",
+      "ownerId": "e-36e66395ed7001f4104c06eb",
+      "properties": {
+        "expression": "measuredMass<=maximumMass",
+        "hasConstraintKeyword": true
+      },
+      "qualifiedName": "JingangNative10Requirements::totalMass::require measuredMass<=maximumMass",
+      "source": null
+    },
+    {
+      "id": "e-f6bc270da5c3f30b2577ad27",
+      "kind": "RequirementDefinition",
+      "name": "commandStopTime",
+      "ownerId": "e-5d0e3110884067298144aede",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "JingangNative10Requirements::commandStopTime",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 23,
+          "offset": 1028
+        },
+        "start": {
+          "column": 21,
+          "line": 23,
+          "offset": 1013
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-005b03807dc3e6b323f900be",
+      "kind": "Feature",
+      "name": "reqId",
+      "ownerId": "e-f6bc270da5c3f30b2577ad27",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"REQ-SAF-001\""
+      },
+      "qualifiedName": "JingangNative10Requirements::commandStopTime::reqId",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 24,
+          "offset": 1054
+        },
+        "start": {
+          "column": 19,
+          "line": 24,
+          "offset": 1049
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-753cf2c27132a77f27814460",
+      "kind": "DocStatement",
+      "name": "doc",
+      "ownerId": "e-f6bc270da5c3f30b2577ad27",
+      "properties": {
+        "content": "机器人正常行走时收到停止命令后，应在 500 ms 内停止主动运动。"
+      },
+      "qualifiedName": "JingangNative10Requirements::commandStopTime::doc",
+      "source": {
+        "end": {
+          "column": 12,
+          "line": 25,
+          "offset": 1093
+        },
+        "start": {
+          "column": 9,
+          "line": 25,
+          "offset": 1090
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-38b605f19f8ce94fc729b4f0",
+      "kind": "Feature",
+      "name": "measuredStopTime",
+      "ownerId": "e-f6bc270da5c3f30b2577ad27",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false
+      },
+      "qualifiedName": "JingangNative10Requirements::commandStopTime::measuredStopTime",
+      "source": {
+        "end": {
+          "column": 35,
+          "line": 26,
+          "offset": 1219
+        },
+        "start": {
+          "column": 19,
+          "line": 26,
+          "offset": 1203
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-920b67b430ea01e20f199929",
+      "kind": "Feature",
+      "name": "maximumStopTime",
+      "ownerId": "e-f6bc270da5c3f30b2577ad27",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "ms",
+        "valueExpression": "500[ms]"
+      },
+      "qualifiedName": "JingangNative10Requirements::commandStopTime::maximumStopTime",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 27,
+          "offset": 1267
+        },
+        "start": {
+          "column": 19,
+          "line": 27,
+          "offset": 1252
+        },
+        "uri": "sample:///jingang-10axis-system-design/requirements.sysml"
+      }
+    },
+    {
+      "id": "e-929ab36c582681c9be401a00",
+      "kind": "RequireStatement",
+      "name": "require measuredStopTime<=maximumStopTime",
+      "ownerId": "e-f6bc270da5c3f30b2577ad27",
+      "properties": {
+        "expression": "measuredStopTime<=maximumStopTime",
+        "hasConstraintKeyword": true
+      },
+      "qualifiedName": "JingangNative10Requirements::commandStopTime::require measuredStopTime<=maximumStopTime",
+      "source": null
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-ec78a5625d49dc6f9f5a9914",
+      "kind": "FeatureTyping",
+      "ownerId": "e-03dd384c9af1104f41a47203",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-03dd384c9af1104f41a47203"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-96b85186f16165f4b95934d5",
+      "kind": "FeatureTyping",
+      "ownerId": "e-b6fceec7b1ce261164727a7b",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-b6fceec7b1ce261164727a7b"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-25a4b78bc719b2e356b31100",
+      "kind": "FeatureTyping",
+      "ownerId": "e-46f552556be86d2ba8ee3bd1",
+      "properties": {
+        "typeName": "ISQ::time"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-46f552556be86d2ba8ee3bd1"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-e2244bf06014a536f2b61332",
+      "kind": "FeatureTyping",
+      "ownerId": "e-6f403a770e3d15a94999da99",
+      "properties": {
+        "typeName": "ISQ::time"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-6f403a770e3d15a94999da99"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-a3f5d6fc1377c396c12dbed3",
+      "kind": "FeatureTyping",
+      "ownerId": "e-c508ca5965aa79aeb8849871",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-c508ca5965aa79aeb8849871"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-0e79f8a523d456956b28a455",
+      "kind": "FeatureTyping",
+      "ownerId": "e-06378afec0e070aa4678a635",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-06378afec0e070aa4678a635"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-32da9715b248b5f9fc0bf2bc",
+      "kind": "FeatureTyping",
+      "ownerId": "e-252b75cfe3e9d5735e26b09b",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-252b75cfe3e9d5735e26b09b"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-7f4261ca26e31e8bf2b705df",
+      "kind": "FeatureTyping",
+      "ownerId": "e-005b03807dc3e6b323f900be",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-005b03807dc3e6b323f900be"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-a35ca0dd4f739fe14181de43",
+      "kind": "FeatureTyping",
+      "ownerId": "e-38b605f19f8ce94fc729b4f0",
+      "properties": {
+        "typeName": "ISQ::time"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-38b605f19f8ce94fc729b4f0"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "e-6a7aef7a5c67597b1c8b1b3f",
+      "kind": "FeatureTyping",
+      "ownerId": "e-920b67b430ea01e20f199929",
+      "properties": {
+        "typeName": "ISQ::time"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-920b67b430ea01e20f199929"
+      ],
+      "targetIds": []
+    },
+    {
+      "id": "r-feffe6638659a6cfde18ae72",
+      "kind": "RequirementConstraint",
+      "ownerId": "e-752b8b81dcb7111bc1690596",
+      "properties": {
+        "expression": "measuredEndurance>=minimumEndurance",
+        "statementKind": "RequireStatement"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-752b8b81dcb7111bc1690596"
+      ],
+      "targetIds": [
+        "e-03bb9312530b1a3defa4f37d"
+      ]
+    },
+    {
+      "id": "r-764bf3432406d724da4c846e",
+      "kind": "RequirementConstraint",
+      "ownerId": "e-36e66395ed7001f4104c06eb",
+      "properties": {
+        "expression": "measuredMass<=maximumMass",
+        "statementKind": "RequireStatement"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-36e66395ed7001f4104c06eb"
+      ],
+      "targetIds": [
+        "e-56cdf4118a566e9744f9060a"
+      ]
+    },
+    {
+      "id": "r-39c3e992a52d3110fc72090d",
+      "kind": "RequirementConstraint",
+      "ownerId": "e-f6bc270da5c3f30b2577ad27",
+      "properties": {
+        "expression": "measuredStopTime<=maximumStopTime",
+        "statementKind": "RequireStatement"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f6bc270da5c3f30b2577ad27"
+      ],
+      "targetIds": [
+        "e-929ab36c582681c9be401a00"
+      ]
+    }
+  ],
+  "schemaVersion": "0.1"
+}

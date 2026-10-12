@@ -1,0 +1,1900 @@
+{
+  "schemaVersion": "p4-detailed-assembly-2",
+  "sourceModel": "Jingang/apps/models/CAD/Microduck_Final/Microduck_10Axis_Final.FCStd",
+  "file": "jingang-10axis-layout.FCStd",
+  "manufacturingStatus": "NOT_RELEASED_DETAILED_REVIEW_REQUIRED",
+  "componentMap": {
+    "SYS-JG10": "Microduck",
+    "ASM-BODY": "Body_trunk_base",
+    "ASM-LEG-L": "Body_yaw2roll",
+    "ACT-L-HIP-ROLL": "Mesh_xl332",
+    "ACT-L-HIP-PITCH": "Mesh_xl333",
+    "ACT-L-KNEE-PITCH": "Mesh_xl334",
+    "ACT-L-ANKLE-PITCH": "Mesh_xl335",
+    "ASM-LEG-R": "Body_bearing_roll",
+    "ACT-R-HIP-ROLL": "Mesh_xl341",
+    "ACT-R-HIP-PITCH": "Mesh_xl342",
+    "ACT-R-KNEE-PITCH": "Mesh_xl343",
+    "ACT-R-ANKLE-PITCH": "Mesh_xl344",
+    "ASM-HEAD-NECK": "Body_neck",
+    "ACT-NECK-PITCH": "Mesh_xl336",
+    "ACT-HEAD-YAW": "Mesh_xl338",
+    "SYS-POWER": "Battery_6V4",
+    "SYS-COMPUTE": "Mesh_pcb__raspberry_pi_zero_2_w",
+    "SYS-MOTION-CONTROL": "Mesh_elec_rpi_robot_hat_pcb",
+    "SYS-SENSING": "IMU_Board_Envelope"
+  },
+  "geometryObjectCount": 83,
+  "printFileCount": 30,
+  "geometry": [
+    {
+      "name": "Origin001",
+      "label": "Origin001",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Origin003",
+      "label": "Origin003",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x4",
+      "label": "Printed sliding ring 22x16p3x4",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "29_ring_OD22_ID16p3_H4.stl",
+      "bounds": [
+        -4.995077133178711,
+        6.5012311935424805,
+        -5.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Mesh_trunk_base",
+      "label": "trunk_base001",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "01_body_trunk_integrated.stl",
+      "bounds": [
+        -19.000000000000007,
+        -28.500000000000004,
+        -1.0,
+        36.000000000000014,
+        57.00000000000001,
+        3.0
+      ],
+      "facets": 3698
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x001",
+      "label": "Printed sliding ring 22x16p3x009",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -4.995077133178711,
+        -28.49876880645752,
+        -5.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Origin005",
+      "label": "Origin006",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_yaw2roll",
+      "label": "yaw2roll001",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "06_leg_yaw_to_roll_left.stl",
+      "bounds": [
+        -11.5,
+        -14.5,
+        -3.0,
+        23.0,
+        25.800000190734863,
+        20.5
+      ],
+      "facets": 12404
+    },
+    {
+      "name": "Mesh_xl332",
+      "label": "HD-1910-C001 | Mesh_xl332",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-L-HIP-ROLL",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.000000000000004,
+        -14.500000000000002,
+        3.0,
+        20.000000000000007,
+        29.000000000000004,
+        34.0
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x002",
+      "label": "Printed sliding ring 22x16p3x010",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.99876880645752,
+        12.5,
+        1.5,
+        21.99753761291504,
+        4.0,
+        21.99507713317871
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Mesh_bearing_roll",
+      "label": "bearing_roll",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "08_leg_roll_support_left.stl",
+      "bounds": [
+        -11.5,
+        9.499998092651367,
+        -3.0000009536743164,
+        23.0,
+        3.0000038146972656,
+        40.00000476837158
+      ],
+      "facets": 3924
+    },
+    {
+      "name": "Origin007",
+      "label": "Origin009",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x003",
+      "label": "Printed sliding ring 22x16p3x011",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        21.0,
+        -10.995077133178711,
+        -29.49876880645752,
+        4.0,
+        21.99507713317871,
+        21.99753761291504
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Origin009",
+      "label": "Origin011",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_upper_leg_left",
+      "label": "upper_leg_left001",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "12_leg_upper_left.stl",
+      "bounds": [
+        -13.46741771697998,
+        -12.19746208190918,
+        0.0,
+        47.659422874450684,
+        60.99661064147949,
+        28.0
+      ],
+      "facets": 15988
+    },
+    {
+      "name": "Mesh_xl333",
+      "label": "HD-1910-C001 | Mesh_xl333",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-L-HIP-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -2.5000000000000036,
+        25.777099999999997,
+        -2.0000000000000018,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Mesh_upper_leg_rigidity_plate",
+      "label": "upper_leg_rigidity_plate",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "14_leg_upper_rigidity_plate_left.stl",
+      "bounds": [
+        -12.0,
+        -10.999068260192871,
+        0.0,
+        44.996482849121094,
+        58.05773067474365,
+        1.0
+      ],
+      "facets": 3600
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x004",
+      "label": "Printed sliding ring 22x16p3x012",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        11.0,
+        24.778331193542478,
+        -4.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Mesh_xl334",
+      "label": "HD-1910-C001 | Mesh_xl334",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-L-KNEE-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.0,
+        -9.5,
+        -2.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Origin011",
+      "label": "Origin014",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_xl335",
+      "label": "HD-1910-C001 | Mesh_xl335",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-L-ANKLE-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.0,
+        17.5,
+        -26.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Origin013",
+      "label": "Origin017",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_sole_left",
+      "label": "sole_left",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "20_foot_left_integrated.stl",
+      "bounds": [
+        -34.0,
+        -25.026374744262696,
+        -35.244586181640614,
+        54.0,
+        12.907360076904297,
+        41.098533630371094
+      ],
+      "facets": 15788
+    },
+    {
+      "name": "Mesh_foot_left",
+      "label": "foot_left",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "20_foot_left_integrated.stl",
+      "bounds": [
+        -34.0,
+        -23.028034137573243,
+        -34.61918945312499,
+        54.0,
+        16.909019470214844,
+        40.08550262451172
+      ],
+      "facets": 19922
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration_default",
+      "label": "Printed sliding ring 14p8x10p3x3",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "30_ring_OD14p8_ID10p3_H3.stl",
+      "bounds": [
+        -7.400000095367432,
+        -7.399171829223633,
+        -32.2,
+        14.796688079833984,
+        14.798343658447266,
+        3.0
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Mesh_ankle_left",
+      "label": "ankle_left001 | arc clearance",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "18_ankle_left_arc_clearance.stl",
+      "bounds": [
+        -21.836793899536133,
+        -16.300004959106445,
+        -34.33550262451172,
+        36.50000476837158,
+        25.5000057220459,
+        39.489139556884766
+      ],
+      "facets": 7384
+    },
+    {
+      "name": "Origin015",
+      "label": "Origin020",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_xl336",
+      "label": "HD-1910-C001 | Mesh_xl336",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-NECK-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.0,
+        -24.5,
+        0.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Origin017",
+      "label": "Origin022",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x005",
+      "label": "Printed sliding ring 22x16p3x013",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -11.157968743288803,
+        -5.088164685059437,
+        -25.498768806457523,
+        22.355515199523644,
+        7.758636073868898,
+        21.997537612915046
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Origin019",
+      "label": "Origin025",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_xl338",
+      "label": "HD-1910-C001 | Mesh_xl338",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-HEAD-YAW",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -24.500000000000014,
+        -9.99999999999996,
+        -1.438849039914203e-13,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Origin021",
+      "label": "Origin028",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_lens",
+      "label": "lens",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        5.030000686645511,
+        -8.561377113354494,
+        -61.79999969482422,
+        16.939998626708984,
+        16.939998626708984,
+        18.919999599456787
+      ],
+      "facets": 1872
+    },
+    {
+      "name": "Mesh_elec_rpi_robot_hat_pcb",
+      "label": "elec_rpi_robot_hat_pcb",
+      "type": "Mesh::Feature",
+      "componentId": "SYS-MOTION-CONTROL",
+      "geometryStatus": "REFERENCE_COMPONENT_MESH_CONFIGURATION_CONFLICT",
+      "exportedPartFile": "",
+      "bounds": [
+        -1.5700002288818382,
+        -32.51140106811524,
+        -31.9,
+        30.025000333786025,
+        65.02500104904175,
+        0.8399999737739563
+      ],
+      "facets": 18856
+    },
+    {
+      "name": "Mesh_m12_lens_holder",
+      "label": "m12_lens_holder",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "28_head_m12_lens_holder.stl",
+      "bounds": [
+        5.5000000000000036,
+        -12.091377800000002,
+        -50.38000019073486,
+        16.0,
+        24.0,
+        14.800000190734863
+      ],
+      "facets": 10992
+    },
+    {
+      "name": "Mesh_pcb__raspberry_pi_zero_2_w",
+      "label": "pcb__raspberry_pi_zero_2_w",
+      "type": "Mesh::Feature",
+      "componentId": "SYS-COMPUTE",
+      "geometryStatus": "REFERENCE_COMPONENT_MESH_CONFIGURATION_CONFLICT",
+      "exportedPartFile": "",
+      "bounds": [
+        -1.5649999999999977,
+        -32.511377800000005,
+        -40.80999995231628,
+        30.0,
+        65.0,
+        1.5999999046325684
+      ],
+      "facets": 20970
+    },
+    {
+      "name": "Mesh_speaker",
+      "label": "speaker",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        13.999999999999988,
+        -16.785999999999994,
+        -6.4999992202758605,
+        6.999999999999998,
+        35.0,
+        25.0
+      ],
+      "facets": 12
+    },
+    {
+      "name": "Origin023",
+      "label": "Origin031",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_yaw2roll001",
+      "label": "yaw2roll002",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "07_leg_yaw_to_roll_right.stl",
+      "bounds": [
+        -11.5,
+        -14.5,
+        -3.0,
+        23.0,
+        25.800000190734863,
+        20.5
+      ],
+      "facets": 12404
+    },
+    {
+      "name": "Mesh_xl341",
+      "label": "HD-1910-C001 | Mesh_xl341",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-R-HIP-ROLL",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.000000000000004,
+        -14.500000000000002,
+        3.0,
+        20.000000000000007,
+        29.000000000000004,
+        34.0
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Mesh_bearing_roll001",
+      "label": "bearing_roll002",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "09_leg_roll_support_right.stl",
+      "bounds": [
+        -11.5,
+        9.499998092651367,
+        -3.0000009536743164,
+        23.0,
+        3.0000038146972656,
+        40.00000476837158
+      ],
+      "facets": 3928
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x008",
+      "label": "Printed sliding ring 22x16p3x014",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.99876880645752,
+        12.5,
+        1.5,
+        21.99753761291504,
+        4.0,
+        21.99507713317871
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Origin025",
+      "label": "Origin033",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x009",
+      "label": "Printed sliding ring 22x16p3x015",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        21.0,
+        -11.0,
+        -29.49876880645752,
+        4.0,
+        21.99507713317871,
+        21.99753761291504
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Origin027",
+      "label": "Origin036",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_xl342",
+      "label": "HD-1910-C001 | Mesh_xl342",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-R-HIP-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -31.500000000000004,
+        25.777099999999997,
+        -2.0000000000000053,
+        34.00000000000001,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration__22x16x010",
+      "label": "Printed sliding ring 22x16p3x016",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -32.99507713317871,
+        24.778331193542478,
+        -4.0,
+        21.99507713317871,
+        21.99753761291504,
+        4.0
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Mesh_upper_leg_rigidity_plate001",
+      "label": "upper_leg_rigidity_plate001",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "15_leg_upper_rigidity_plate_right.stl",
+      "bounds": [
+        -32.996482849121094,
+        -10.999068260192871,
+        0.0,
+        44.996482849121094,
+        58.05773067474365,
+        1.0
+      ],
+      "facets": 3600
+    },
+    {
+      "name": "Mesh_upper_leg_right",
+      "label": "upper_leg_right001",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "13_leg_upper_right.stl",
+      "bounds": [
+        -34.1920051574707,
+        -12.19746208190918,
+        0.0,
+        47.659422874450684,
+        60.99661064147949,
+        28.00000762939453
+      ],
+      "facets": 15938
+    },
+    {
+      "name": "Mesh_xl343",
+      "label": "HD-1910-C001 | Mesh_xl343",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-R-KNEE-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.0,
+        -9.5,
+        -2.0,
+        20.0,
+        34.0,
+        29.0
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Origin029",
+      "label": "Origin039",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_xl344",
+      "label": "HD-1910-C001 | Mesh_xl344",
+      "type": "Mesh::Feature",
+      "componentId": "ACT-R-ANKLE-PITCH",
+      "geometryStatus": "DIMENSION_DRAWING_RECONSTRUCTION",
+      "exportedPartFile": "",
+      "bounds": [
+        -51.5,
+        -10.0,
+        -26.000000000000007,
+        34.0,
+        20.0,
+        29.000000000000007
+      ],
+      "facets": 10498
+    },
+    {
+      "name": "Origin031",
+      "label": "Origin041",
+      "type": "App::Point",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_ankle_right",
+      "label": "ankle_right001 | arc clearance",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "19_ankle_right_arc_clearance.stl",
+      "bounds": [
+        -14.66321086883545,
+        -16.300004959106445,
+        -34.33550262451172,
+        36.50000476837158,
+        25.5000057220459,
+        39.489139556884766
+      ],
+      "facets": 7404
+    },
+    {
+      "name": "Mesh_sole_right",
+      "label": "sole_right",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "21_foot_right_integrated.stl",
+      "bounds": [
+        -20.0,
+        -25.02662079223633,
+        -35.2446376800537,
+        54.0,
+        12.90760612487793,
+        41.09873008728027
+      ],
+      "facets": 15888
+    },
+    {
+      "name": "Mesh_seeed_bearing__configuration_default002",
+      "label": "Printed sliding ring 14p8x10p3x001",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "30_ring_OD14p8_ID10p3_H3.stl",
+      "bounds": [
+        -7.396687984466553,
+        -7.399171829223633,
+        -32.2,
+        14.796688079833984,
+        14.798343658447266,
+        3.0000000000000036
+      ],
+      "facets": 1680
+    },
+    {
+      "name": "Mesh_foot_right",
+      "label": "foot_right",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "21_foot_right_integrated.stl",
+      "bounds": [
+        -20.0,
+        -23.028034137573243,
+        -34.61918945312499,
+        54.0,
+        16.909019470214844,
+        40.08550262451172
+      ],
+      "facets": 19914
+    },
+    {
+      "name": "FixedAdapter_left_hip_yaw",
+      "label": "Compact fixed hip mount | left | deleted-servo replacement",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "01_body_trunk_integrated.stl",
+      "bounds": [
+        -5.5000000000000036,
+        7.499999999999992,
+        -3.0000000000000164,
+        23.000000000000004,
+        20.000000000000007,
+        8.500000000000016
+      ],
+      "facets": null
+    },
+    {
+      "name": "FixedAdapter_right_hip_yaw",
+      "label": "Compact fixed hip mount | right | deleted-servo replacement",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "01_body_trunk_integrated.stl",
+      "bounds": [
+        -5.5000000000000036,
+        -27.500000000000004,
+        -3.0000000000000133,
+        23.000000000000004,
+        20.000000000000004,
+        8.500000000000014
+      ],
+      "facets": null
+    },
+    {
+      "name": "Reinforced_hip_l",
+      "label": "髋部转角加强 | hip_l",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "10_leg_reinforced_hip_left.stl",
+      "bounds": [
+        -9.5,
+        -9.500000000000005,
+        -28.0,
+        32.450050354003906,
+        19.000000000000007,
+        34.5
+      ],
+      "facets": 21002
+    },
+    {
+      "name": "Reinforced_hip_l_2",
+      "label": "髋部转角加强 | hip_l_2",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "11_leg_reinforced_hip_right.stl",
+      "bounds": [
+        -9.5,
+        -9.500000000000005,
+        -28.0,
+        32.450050354003906,
+        19.000000000000007,
+        34.5
+      ],
+      "facets": 21002
+    },
+    {
+      "name": "Reinforced_leg",
+      "label": "小腿双边筋 | leg",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "16_leg_reinforced_lower_left.stl",
+      "bounds": [
+        -10.0,
+        -9.99998435058594,
+        -1.9500007629394531,
+        20.0,
+        57.999996185302734,
+        9.950000762939453
+      ],
+      "facets": 14632
+    },
+    {
+      "name": "Reinforced_leg_2",
+      "label": "小腿双边筋 | leg_2",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "17_leg_reinforced_lower_right.stl",
+      "bounds": [
+        -48.00001183471679,
+        -10.0,
+        -1.9500007629394531,
+        57.999996185302734,
+        20.0,
+        9.950000762939464
+      ],
+      "facets": 14632
+    },
+    {
+      "name": "Head_Upper",
+      "label": "M 小头壳·上盖与螺柱",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "23_head_upper_shell.stl",
+      "bounds": [
+        -39.27789834037626,
+        -68.29906525902153,
+        -64.00000000000003,
+        106.10790690023217,
+        116.3743062280407,
+        100.00000000000003
+      ],
+      "facets": null
+    },
+    {
+      "name": "Head_Camera_Bezel",
+      "label": "M 可拆镜头面罩",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "25_head_camera_bezel.stl",
+      "bounds": [
+        -3.0333333500000137,
+        -17.19999999999999,
+        -64.80000000000001,
+        33.06666670000001,
+        34.40000000000002,
+        11.399999999999999
+      ],
+      "facets": null
+    },
+    {
+      "name": "Camera_Retainer",
+      "label": "M 相机组件上压条",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "26_head_camera_retainer.stl",
+      "bounds": [
+        29.099999999999987,
+        -32.99999999999999,
+        -47.50000000000002,
+        2.5000000000000355,
+        66.00000000000003,
+        22.00000000000002
+      ],
+      "facets": null
+    },
+    {
+      "name": "Speaker_Retainer",
+      "label": "M 扬声器压条",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "27_head_speaker_retainer.stl",
+      "bounds": [
+        21.3,
+        -24.500000000000004,
+        -5.500000000000007,
+        2.000000000000025,
+        50.40000000000002,
+        23.000000000000014
+      ],
+      "facets": null
+    },
+    {
+      "name": "Integrated_Neck_Bracket",
+      "label": "R 头颈安装角调整支架",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "22_head_integrated_neck_bracket.stl",
+      "bounds": [
+        -20.2900333404541,
+        -34.3353385925293,
+        -28.0,
+        29.085023880004883,
+        34.41762398928404,
+        27.0
+      ],
+      "facets": 7688
+    },
+    {
+      "name": "Head_Lower",
+      "label": "Head_Lower",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "24_head_lower_integrated.stl",
+      "bounds": [
+        -39.27789834037626,
+        -68.29906525902153,
+        -64.00000000000003,
+        106.10790690023217,
+        116.3743062280407,
+        100.00000000000003
+      ],
+      "facets": null
+    },
+    {
+      "name": "Servo_Retainer",
+      "label": "Servo_Retainer",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "24_head_lower_integrated.stl",
+      "bounds": [
+        14.799999999999995,
+        -14.299999999999995,
+        -24.00000000000001,
+        2.000000000000016,
+        28.60000000000001,
+        4.000000000000011
+      ],
+      "facets": null
+    },
+    {
+      "name": "Electronics_Carrier",
+      "label": "Electronics_Carrier",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "24_head_lower_integrated.stl",
+      "bounds": [
+        -38.917683626336434,
+        -67.92013099545744,
+        -63.716253582576435,
+        105.41625781707899,
+        113.6937000581637,
+        88.24808383217055
+      ],
+      "facets": null
+    },
+    {
+      "name": "Speaker_Tray",
+      "label": "Speaker_Tray",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "24_head_lower_integrated.stl",
+      "bounds": [
+        -24.557692708638964,
+        -68.29906525902153,
+        -30.903602866161833,
+        91.38770126849488,
+        114.32801035505346,
+        62.92244782707343
+      ],
+      "facets": null
+    },
+    {
+      "name": "Mesh_banana_pcb_locker",
+      "label": "banana_pcb_locker",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "04_body_pcb_locker.stl",
+      "bounds": [
+        -32.29999923706055,
+        -27.02503204345703,
+        31.452316284179688,
+        3.8000030517578125,
+        54.05006408691406,
+        6.652366638183594
+      ],
+      "facets": 1388
+    },
+    {
+      "name": "Mesh_left_shell",
+      "label": "左外壳（安装耳竖直对齐）",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "02_body_left_shell.stl",
+      "bounds": [
+        -46.39006423950195,
+        -1.9499999284744263,
+        0.25734785199165344,
+        80.89006423950195,
+        33.71448814868927,
+        41.690520495176315
+      ],
+      "facets": 22004
+    },
+    {
+      "name": "Mesh_right_shell",
+      "label": "右外壳（安装耳竖直对齐）",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "03_body_right_shell.stl",
+      "bounds": [
+        -46.39785385131836,
+        -32.264488220214844,
+        0.33370208740234375,
+        80.89785385131836,
+        31.764488220214844,
+        41.692665100097656
+      ],
+      "facets": 21938
+    },
+    {
+      "name": "Mesh_power_support",
+      "label": "Microduck原版后部电池盖/电源支撑",
+      "type": "Mesh::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "05_body_microduck_original_power_support.stl",
+      "bounds": [
+        -31.0,
+        -27.25,
+        -44.067630767822266,
+        17.0,
+        54.5,
+        83.48978042602539
+      ],
+      "facets": 12832
+    },
+    {
+      "name": "Battery_6V4",
+      "label": "6.4V 1800mAh 电池占位（19×37×68 mm）",
+      "type": "Mesh::Feature",
+      "componentId": "SYS-POWER",
+      "geometryStatus": "MEASURED_ENVELOPE_NO_SKU",
+      "exportedPartFile": "",
+      "bounds": [
+        -44.900001525878906,
+        -18.5,
+        -37.849998474121094,
+        19.000001907348633,
+        37.0,
+        67.99999809265137
+      ],
+      "facets": 12
+    },
+    {
+      "name": "IMU_Platform",
+      "label": "IMU安装平台 | 25.8x15.5 | 前后方向 | 与躯干底板一体打印",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "VALIDATED_PRINTABLE_STL",
+      "exportedPartFile": "01_body_trunk_integrated.stl",
+      "bounds": [
+        -12.5,
+        -10.5,
+        -0.4,
+        29.0,
+        21.0,
+        9.200000000000003
+      ],
+      "facets": null
+    },
+    {
+      "name": "IMU_Board_Envelope",
+      "label": "IMU占位 | 25.8x15.5 | 元件朝上 | 排针朝左",
+      "type": "PartDesign::Feature",
+      "componentId": "SYS-SENSING",
+      "geometryStatus": "PLANNING_ENVELOPE_SKU_UNRESOLVED",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.9,
+        -7.75,
+        8.8,
+        25.8,
+        15.5,
+        5.0
+      ],
+      "facets": null
+    },
+    {
+      "name": "IMU_Axis_Marker",
+      "label": "IMU +X → 机器人前方（非打印）",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -4.0,
+        -2.4,
+        13.82,
+        14.0,
+        4.8,
+        0.3000000000000007
+      ],
+      "facets": null
+    },
+    {
+      "name": "IMU_Pin_Header_Envelope",
+      "label": "IMU排针/焊盘侧 → 机器人左侧 +Y（非打印）",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        -10.9,
+        7.75,
+        8.8,
+        25.8,
+        1.8000000000000007,
+        2.5
+      ],
+      "facets": null
+    },
+    {
+      "name": "Shell_Mount_Tab_Left",
+      "label": "左外壳至固定髋座安装耳",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        10.5,
+        20.0,
+        5.5,
+        7.0,
+        9.600000000000001,
+        4.5
+      ],
+      "facets": null
+    },
+    {
+      "name": "Shell_Mount_Tab_Right",
+      "label": "右外壳至固定髋座安装耳",
+      "type": "PartDesign::Feature",
+      "componentId": "",
+      "geometryStatus": "SOURCE_MODEL_GEOMETRY",
+      "exportedPartFile": "",
+      "bounds": [
+        10.5,
+        -29.6,
+        5.5,
+        7.0,
+        9.600000000000001,
+        4.5
+      ],
+      "facets": null
+    }
+  ],
+  "printFiles": [
+    {
+      "file": "01_body_trunk_integrated.stl",
+      "cad_objects": "Mesh_trunk_base+FixedAdapter_left_hip_yaw+FixedAdapter_right_hip_yaw+IMU_Platform",
+      "quantity": "1",
+      "material": "PETG/PA",
+      "print_color": "白色",
+      "size_x_mm": "36.500",
+      "size_y_mm": "57.000",
+      "size_z_mm": "11.800",
+      "volume_mm3": "7894.823",
+      "triangles": "14658",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "c3f4ee24b559adf313efd4c8acc7dc24e78bb66a48789774588ee50324c523ab"
+    },
+    {
+      "file": "02_body_left_shell.stl",
+      "cad_objects": "Mesh_left_shell",
+      "quantity": "1",
+      "material": "PETG/PLA+",
+      "print_color": "白色",
+      "size_x_mm": "80.890",
+      "size_y_mm": "41.665",
+      "size_z_mm": "33.967",
+      "volume_mm3": "11495.627",
+      "triangles": "22004",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "eb53d9a8078c544131bd0ba7a79a5841897fa948dcb373d931fee9bdb336603d"
+    },
+    {
+      "file": "03_body_right_shell.stl",
+      "cad_objects": "Mesh_right_shell",
+      "quantity": "1",
+      "material": "PETG/PLA+",
+      "print_color": "白色",
+      "size_x_mm": "80.898",
+      "size_y_mm": "41.669",
+      "size_z_mm": "32.009",
+      "volume_mm3": "11335.990",
+      "triangles": "21938",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "ac240aa71703abc6e01a6d17ed94736924c378a6e8ead9e86f45a5612e32b060"
+    },
+    {
+      "file": "04_body_pcb_locker.stl",
+      "cad_objects": "Mesh_banana_pcb_locker",
+      "quantity": "1",
+      "material": "PETG",
+      "print_color": "白色",
+      "size_x_mm": "6.652",
+      "size_y_mm": "54.050",
+      "size_z_mm": "3.800",
+      "volume_mm3": "459.650",
+      "triangles": "1388",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "d1c680061bc09977810e466af5598f40d374958bb3f76e3688d44dc332adc00a"
+    },
+    {
+      "file": "05_body_microduck_original_power_support.stl",
+      "cad_objects": "Mesh_power_support",
+      "quantity": "1",
+      "material": "PETG",
+      "print_color": "白色",
+      "size_x_mm": "83.490",
+      "size_y_mm": "54.500",
+      "size_z_mm": "17.000",
+      "volume_mm3": "10493.928",
+      "triangles": "12832",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "26c2f9a893355f6d400768e36d0365d30ac2a92ae6c748825fd183e2c4baf97b"
+    },
+    {
+      "file": "06_leg_yaw_to_roll_left.stl",
+      "cad_objects": "Mesh_yaw2roll",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "27.131",
+      "size_y_mm": "23.000",
+      "size_z_mm": "19.168",
+      "volume_mm3": "2816.053",
+      "triangles": "12404",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "91f9732a141bf67733149c5bfb44b445ab180750da7d1ad1d0b3c09a9e004a84"
+    },
+    {
+      "file": "07_leg_yaw_to_roll_right.stl",
+      "cad_objects": "Mesh_yaw2roll001",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "27.131",
+      "size_y_mm": "23.000",
+      "size_z_mm": "19.168",
+      "volume_mm3": "2816.053",
+      "triangles": "12404",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "1fcfb4c44f30d495ffbb06d35132f5666cd4bef52b94cf33df79a01e2539eaf1"
+    },
+    {
+      "file": "08_leg_roll_support_left.stl",
+      "cad_objects": "Mesh_bearing_roll",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "39.982",
+      "size_y_mm": "23.000",
+      "size_z_mm": "3.553",
+      "volume_mm3": "623.286",
+      "triangles": "3916",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "d5d6cbad7fa94635f3b2cbd852f3668d436b556f61ca3aa22c8fe3b3e7ea83a9"
+    },
+    {
+      "file": "09_leg_roll_support_right.stl",
+      "cad_objects": "Mesh_bearing_roll001",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "39.982",
+      "size_y_mm": "23.000",
+      "size_z_mm": "3.553",
+      "volume_mm3": "623.286",
+      "triangles": "3918",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "d15db2aacefd03fc0af70528a4ab86af3e4525e9ee44fbdb0a0c8bb1566964f1"
+    },
+    {
+      "file": "10_leg_reinforced_hip_left.stl",
+      "cad_objects": "Reinforced_hip_l",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "34.500",
+      "size_y_mm": "32.450",
+      "size_z_mm": "19.000",
+      "volume_mm3": "4586.346",
+      "triangles": "21002",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "4ae2fb5385b664a904345eb270bccb47821aca33e9d77c25c0d08307b8a4263f"
+    },
+    {
+      "file": "11_leg_reinforced_hip_right.stl",
+      "cad_objects": "Reinforced_hip_l_2",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "34.500",
+      "size_y_mm": "32.450",
+      "size_z_mm": "19.000",
+      "volume_mm3": "4586.346",
+      "triangles": "21002",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "707e8bdc6625f9c270d212e66795344bde85fb305fcc7ac7548747da22939b98"
+    },
+    {
+      "file": "12_leg_upper_left.stl",
+      "cad_objects": "Mesh_upper_leg_left",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "57.108",
+      "size_y_mm": "59.946",
+      "size_z_mm": "28.000",
+      "volume_mm3": "4145.687",
+      "triangles": "15976",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "f6c0fb50d6ae35e0d59e064f4cea7ea808f0acc44f7abada32db80cb51675de7"
+    },
+    {
+      "file": "13_leg_upper_right.stl",
+      "cad_objects": "Mesh_upper_leg_right",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "57.108",
+      "size_y_mm": "59.946",
+      "size_z_mm": "28.000",
+      "volume_mm3": "4146.050",
+      "triangles": "15926",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "7cf98de41911035393b2cee6008ce35838428788a98aa87353c1173a216a25d6"
+    },
+    {
+      "file": "14_leg_upper_rigidity_plate_left.stl",
+      "cad_objects": "Mesh_upper_leg_rigidity_plate",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "54.451",
+      "size_y_mm": "57.550",
+      "size_z_mm": "1.000",
+      "volume_mm3": "747.788",
+      "triangles": "3600",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "d9ff902cb8d10438b292267a552c6f1cccc2dbbed67c306e4a094111697ecdd4"
+    },
+    {
+      "file": "15_leg_upper_rigidity_plate_right.stl",
+      "cad_objects": "Mesh_upper_leg_rigidity_plate001",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "54.451",
+      "size_y_mm": "57.550",
+      "size_z_mm": "1.000",
+      "volume_mm3": "747.788",
+      "triangles": "3600",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "0ddd8e891951f0ae0f68847c86079820ac3ecf85e83a3f7afb857eb30a6b9126"
+    },
+    {
+      "file": "16_leg_reinforced_lower_left.stl",
+      "cad_objects": "Reinforced_leg",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "34.379",
+      "size_y_mm": "53.762",
+      "size_z_mm": "9.950",
+      "volume_mm3": "4142.536",
+      "triangles": "14632",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "56935602972fd6a8b691f7b603daf95852e70730ca1da2cf9aed9c25fea10fdf"
+    },
+    {
+      "file": "17_leg_reinforced_lower_right.stl",
+      "cad_objects": "Reinforced_leg_2",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "34.379",
+      "size_y_mm": "53.762",
+      "size_z_mm": "9.950",
+      "volume_mm3": "4142.536",
+      "triangles": "14632",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "fb088edd5899617f7dad5c44a0485afcfbc66cf494ff9ee3da6edd49bb96d515"
+    },
+    {
+      "file": "18_ankle_left_arc_clearance.stl",
+      "cad_objects": "Mesh_ankle_left",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "37.178",
+      "size_y_mm": "40.375",
+      "size_z_mm": "25.533",
+      "volume_mm3": "5830.057",
+      "triangles": "7384",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "022264d6a4eee3a588f94a022871b32ec6b978b1dccb62a0a9269f7a71aa3dcf"
+    },
+    {
+      "file": "19_ankle_right_arc_clearance.stl",
+      "cad_objects": "Mesh_ankle_right",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "37.178",
+      "size_y_mm": "40.375",
+      "size_z_mm": "25.533",
+      "volume_mm3": "5830.044",
+      "triangles": "7404",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "8dc19b607c27e9148d86bb0f8cba9c8bdb34a439c8123a6a119e5120408e4d70"
+    },
+    {
+      "file": "20_foot_left_integrated.stl",
+      "cad_objects": "Mesh_foot_left+Mesh_sole_left",
+      "quantity": "1",
+      "material": "PETG/PA",
+      "print_color": "黄色",
+      "size_x_mm": "54.004",
+      "size_y_mm": "41.199",
+      "size_z_mm": "18.381",
+      "volume_mm3": "18427.748",
+      "triangles": "49668",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "81cb5c2d81fe91a15b7c7ce70167340903053e2d78b03bcc69bc32e958a6f304"
+    },
+    {
+      "file": "21_foot_right_integrated.stl",
+      "cad_objects": "Mesh_foot_right+Mesh_sole_right",
+      "quantity": "1",
+      "material": "PETG/PA",
+      "print_color": "黄色",
+      "size_x_mm": "54.004",
+      "size_y_mm": "41.201",
+      "size_z_mm": "18.381",
+      "volume_mm3": "18427.683",
+      "triangles": "47584",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "2475e7d7e60dc8cf0c0e2ba4afa90fab5cc632ead7603f846e01844c72cac356"
+    },
+    {
+      "file": "22_head_integrated_neck_bracket.stl",
+      "cad_objects": "Integrated_Neck_Bracket",
+      "quantity": "1",
+      "material": "PA/PETG",
+      "print_color": "白色",
+      "size_x_mm": "34.602",
+      "size_y_mm": "27.000",
+      "size_z_mm": "20.582",
+      "volume_mm3": "4014.644",
+      "triangles": "7688",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "3f921dc1dfaa38f7a796c747eb331af756c22396cc8d32dff658d7aac572663c"
+    },
+    {
+      "file": "23_head_upper_shell.stl",
+      "cad_objects": "Head_Upper",
+      "quantity": "1",
+      "material": "PLA+/PETG",
+      "print_color": "白色",
+      "size_x_mm": "102.605",
+      "size_y_mm": "94.693",
+      "size_z_mm": "52.512",
+      "volume_mm3": "28646.867",
+      "triangles": "29594",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "1cbdb2c56604bfec8e67f7f5f4b8cf68539fe410a5dac50c9e81bbe9476b33e5"
+    },
+    {
+      "file": "24_head_lower_integrated.stl",
+      "cad_objects": "Head_Lower+Servo_Retainer+Electronics_Carrier+Speaker_Tray",
+      "quantity": "1",
+      "material": "PETG",
+      "print_color": "白色",
+      "size_x_mm": "102.086",
+      "size_y_mm": "91.750",
+      "size_z_mm": "49.817",
+      "volume_mm3": "47428.306",
+      "triangles": "41826",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "a335af92f5edbdbf80446e4a290123c4a8f42c347b7a8ade5d99d8b44707e258"
+    },
+    {
+      "file": "25_head_camera_bezel.stl",
+      "cad_objects": "Head_Camera_Bezel",
+      "quantity": "1",
+      "material": "PLA+/PETG",
+      "print_color": "黄色",
+      "size_x_mm": "33.067",
+      "size_y_mm": "34.400",
+      "size_z_mm": "11.400",
+      "volume_mm3": "2519.029",
+      "triangles": "8240",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "cecb37dc391f628a5600a5e908376eca10ed5937ff98b9438cb25bb9a609dfdc"
+    },
+    {
+      "file": "26_head_camera_retainer.stl",
+      "cad_objects": "Camera_Retainer",
+      "quantity": "1",
+      "material": "PETG",
+      "print_color": "白色",
+      "size_x_mm": "22.000",
+      "size_y_mm": "66.000",
+      "size_z_mm": "2.500",
+      "volume_mm3": "1478.016",
+      "triangles": "1536",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "d0aa2d40f8c761da1a8fb82a7cddc554f87a4b0d16e27486d93e4bdf8f8ad2fe"
+    },
+    {
+      "file": "27_head_speaker_retainer.stl",
+      "cad_objects": "Speaker_Retainer",
+      "quantity": "1",
+      "material": "PETG",
+      "print_color": "白色",
+      "size_x_mm": "23.000",
+      "size_y_mm": "50.400",
+      "size_z_mm": "2.000",
+      "volume_mm3": "1059.228",
+      "triangles": "1200",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "f701f16afc149e9028fab3129c57c7d4596c0629637dfd26ab41c82df4c58441"
+    },
+    {
+      "file": "28_head_m12_lens_holder.stl",
+      "cad_objects": "Mesh_m12_lens_holder",
+      "quantity": "1",
+      "material": "PETG/PA",
+      "print_color": "白色",
+      "size_x_mm": "16.000",
+      "size_y_mm": "24.000",
+      "size_z_mm": "14.800",
+      "volume_mm3": "1097.725",
+      "triangles": "10992",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "79ba92e095073cf53f22ac1f754b8f88a637ada2f734a5d903067481ec0dea56"
+    },
+    {
+      "file": "29_ring_OD22_ID16p3_H4.stl",
+      "cad_objects": "Mesh_seeed_bearing__configuration__22x16x4",
+      "quantity": "9",
+      "material": "PA12/耐磨PETG",
+      "print_color": "白色",
+      "size_x_mm": "21.995",
+      "size_y_mm": "21.998",
+      "size_z_mm": "4.000",
+      "volume_mm3": "674.609",
+      "triangles": "1680",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "55d45e9e3bef693bf67c0e1d1d18a50a7d1a64d6ebff4603cc6a5f1863f28524"
+    },
+    {
+      "file": "30_ring_OD14p8_ID10p3_H3.stl",
+      "cad_objects": "Mesh_seeed_bearing__configuration_default",
+      "quantity": "2",
+      "material": "PA12/耐磨PETG",
+      "print_color": "白色",
+      "size_x_mm": "14.797",
+      "size_y_mm": "14.798",
+      "size_z_mm": "3.000",
+      "volume_mm3": "258.881",
+      "triangles": "1680",
+      "watertight": "True",
+      "single_solid": "True",
+      "sha256": "5f05aaff845f696eac7c77114a7e3bd9057712156bbdcb14a959b20557d32c0b"
+    }
+  ],
+  "knownConfigurationBlockers": [
+    "select Raspberry Pi Zero 2 W versus Radxa Zero 3W compute configuration",
+    "select RPI Robot HAT versus OpenRB-150 motion-control architecture",
+    "select exact IMU SKU and replace the planning envelope",
+    "verify HD-1910 spline, thread, blind-hole depth and sample fit"
+  ]
+}

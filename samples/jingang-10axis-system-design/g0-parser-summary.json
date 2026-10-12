@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "0.1",
+  "runtimeVersion": "0.4.0",
+  "standardLibrary": {
+    "release": "2026-08",
+    "commit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7"
+  },
+  "source": "architecture.sysml",
+  "elements": 146,
+  "relationships": 125,
+  "countsByKind": {
+    "Feature": 94,
+    "LibraryElement": 9,
+    "Package": 1,
+    "PartDefinition": 2,
+    "PartUsage": 18,
+    "PortDefinition": 4,
+    "PortUsage": 18
+  },
+  "connections": {
+    "total": 31,
+    "resolved": 11,
+    "unresolved": 20,
+    "wholeSystemResolved": 11,
+    "typedInstanceProjectionPending": 20
+  },
+  "diagnostics": {
+    "errors": 0,
+    "warnings": 21,
+    "unresolvedEndpointWarnings": 20
+  },
+  "graphicMetadataFixture": {
+    "source": "views/graphic-metadata-compatibility.sysml",
+    "elements": 12,
+    "relationships": 1,
+    "annotations": 6,
+    "errors": 0,
+    "warnings": 1,
+    "assignmentGroups": [
+      {
+        "graphicHeight": 320,
+        "graphicWidth": 640
+      },
+      {
+        "graphicHeight": 80,
+        "graphicWidth": 140,
+        "graphicX": 60,
+        "graphicY": 100
+      },
+      {
+        "graphicX": 140,
+        "graphicY": 40,
+        "portOffset": 0,
+        "portPosition": "right"
+      },
+      {
+        "graphicHeight": 80,
+        "graphicWidth": 140,
+        "graphicX": 440,
+        "graphicY": 100
+      },
+      {
+        "graphicX": 0,
+        "graphicY": 40,
+        "portOffset": 0,
+        "portPosition": "left"
+      },
+      {
+        "labelText": "fixture",
+        "pathType": "Orthogonal",
+        "routingStyle": "Manhattan"
+      }
+    ]
+  }
+}

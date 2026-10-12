@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "1.0",
+  "protocol": "mcp-stdio",
+  "tools": [
+    {
+      "name": "aidc_system_capabilities",
+      "title": "List AIDC capabilities",
+      "description": "List installed AIDC components, capabilities and dependency health without changing the system.",
+      "capability": "system.capabilities",
+      "sideEffect": "read",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "properties": {}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_system_doctor",
+      "title": "Diagnose AIDC installation",
+      "description": "Run dependency and runtime checks and optionally produce a sanitized diagnostic archive.",
+      "capability": "system.doctor",
+      "sideEffect": "read",
+      "longRunning": true,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "properties": {"reportPath": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_sysml_validate",
+      "title": "Validate a SysML model",
+      "description": "Parse and validate one SysML or KerML source file and return structured diagnostics.",
+      "capability": "sysml.validate",
+      "sideEffect": "read",
+      "longRunning": false,
+      "requiredDependencies": ["sysml-parser-runtime"],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_sysml_open",
+      "title": "Open the SysML browser",
+      "description": "Start or reuse the read-only SysML browser for an explicit model file and return its local URL.",
+      "capability": "sysml.open",
+      "sideEffect": "launch",
+      "longRunning": false,
+      "requiredDependencies": ["sysml-parser-runtime"],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_model3d_open",
+      "title": "Open the 3D model browser",
+      "description": "Start or reuse the 3D model browser for an explicit model project and return its local URL.",
+      "capability": "model3d.open",
+      "sideEffect": "launch",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath"], "properties": {"projectPath": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_model3d_publish",
+      "title": "Publish a CAD model",
+      "description": "Convert an explicit CAD assembly into a versioned AIDC 3D model package using managed FreeCAD.",
+      "capability": "model3d.publish",
+      "sideEffect": "write",
+      "longRunning": true,
+      "requiredDependencies": ["freecad"],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["inputPath", "outputPath"], "properties": {"inputPath": {"type": "string"}, "outputPath": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_model3d_export_modelica",
+      "title": "Export an AIDC assembly",
+      "description": "Export a validated 3D robot project as an AIDC assembly package for Modelica generation.",
+      "capability": "model3d.export-modelica",
+      "sideEffect": "write",
+      "longRunning": true,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath", "outputPath"], "properties": {"projectPath": {"type": "string"}, "outputPath": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_modelica_validate",
+      "title": "Validate Modelica input",
+      "description": "Validate an AIDC assembly, Robot IR directory or Modelica project before generation or simulation.",
+      "capability": "modelica.validate",
+      "sideEffect": "read",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}, "migrate": {"type": "boolean", "default": false}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_modelica_generate",
+      "title": "Generate a Modelica robot project",
+      "description": "Generate a deterministic Modelica project from a validated AIDC assembly or Robot IR input.",
+      "capability": "modelica.generate",
+      "sideEffect": "write",
+      "longRunning": true,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["inputPath", "outputPath"], "properties": {"inputPath": {"type": "string"}, "outputPath": {"type": "string"}, "profile": {"enum": ["auto", "p2", "p3"], "default": "auto"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_modelica_open",
+      "title": "Open the Modelica browser",
+      "description": "Start or reuse the Modelica browser for an explicit project and return its local URL.",
+      "capability": "modelica.open",
+      "sideEffect": "launch",
+      "longRunning": false,
+      "requiredDependencies": ["python-runtime"],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath"], "properties": {"projectPath": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_modelica_simulate",
+      "title": "Simulate a Modelica project",
+      "description": "Compile and simulate a Modelica experiment with the managed OpenModelica runtime and return run artifacts.",
+      "capability": "modelica.simulate",
+      "sideEffect": "execute",
+      "longRunning": true,
+      "requiredDependencies": ["openmodelica", "python-runtime"],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath"], "properties": {"projectPath": {"type": "string"}, "experiment": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_modelica_package",
+      "title": "Package a Modelica project",
+      "description": "Create a portable AIDC Modelica package and optionally include validated result artifacts.",
+      "capability": "modelica.package",
+      "sideEffect": "write",
+      "longRunning": true,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath", "outputPath"], "properties": {"projectPath": {"type": "string"}, "outputPath": {"type": "string"}, "includeResults": {"type": "boolean", "default": false}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_freecad_open",
+      "title": "Open a FreeCAD document",
+      "description": "Open an explicit CAD document with the managed and verified FreeCAD GUI runtime.",
+      "capability": "freecad.open",
+      "sideEffect": "launch",
+      "longRunning": false,
+      "requiredDependencies": ["freecad"],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_task_status",
+      "title": "Read task status",
+      "description": "Read current progress, diagnostics and available artifacts for a previously returned AIDC task ID.",
+      "capability": "task.status",
+      "sideEffect": "read",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["taskId"], "properties": {"taskId": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_task_cancel",
+      "title": "Cancel a task",
+      "description": "Request cancellation of a running AIDC task and return its resulting state and diagnostics.",
+      "capability": "task.cancel",
+      "sideEffect": "execute",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["taskId"], "properties": {"taskId": {"type": "string"}}},
+      "resultContract": "aidc.cli-result/1.0"
+    }
+  ]
+}
+

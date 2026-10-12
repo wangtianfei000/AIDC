@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "id": "aidc.modelica",
+  "displayName": "AIDC Modelica Tools",
+  "description": "Robot IR validation, deterministic Modelica generation, browsing, simulation and packaging.",
+  "version": "0.3.0",
+  "kind": "browser",
+  "platform": "windows",
+  "architecture": "x86_64",
+  "protocolVersion": "0.1",
+  "capabilities": ["modelica.validate", "modelica.generate", "modelica.open", "modelica.simulate", "modelica.package"],
+  "entryPoints": [
+    {"id": "browser", "relativePath": "components/modelica/browser", "mode": "static", "arguments": []},
+    {"id": "server", "relativePath": "components/modelica/server/server.py", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]},
+    {"id": "generator", "relativePath": "components/modelica/tools/aidc_modelica.py", "mode": "library", "arguments": []}
+  ],
+  "dependencies": [
+    {"id": "python-runtime", "versionRange": "3.12.x", "required": true, "capability": "python.execute"},
+    {"id": "openmodelica", "versionRange": "1.27.1", "required": false, "capability": "modelica.compile"}
+  ],
+  "licenses": [
+    {"name": "AIDC project license decision pending", "spdx": null, "status": "review-required", "noticePath": "licenses/THIRD_PARTY_BASELINE.md"}
+  ],
+  "distributionStatus": "blocked",
+  "healthCheck": {"type": "http", "target": "/api/health", "arguments": [], "timeoutSeconds": 30}
+}
+

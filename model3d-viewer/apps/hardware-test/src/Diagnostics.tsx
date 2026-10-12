@@ -1,0 +1,8 @@
+import {useEffect,useRef,useState} from 'react';
+import {download,records,record} from './api';
+export default function Diagnostics({visible,device,online,status}:{visible:boolean;device:any;online:boolean;status:string}){
+ const last=useRef(''),[success,setSuccess]=useState(''),[,refresh]=useState(0);
+ useEffect(()=>{if(online&&device?.link_healthy)setSuccess(new Date().toLocaleTimeString());const text=[online?'本机在线':'本机断开',device?.connected?'BLE 已连接':'BLE 未连接',device?.diagnostic,device?.error,device?.status?.process_name,device?.telemetry?.mode_name].filter(Boolean).join(' / ');if(text!==last.current){last.current=text;record('状态通知',!!device?.link_healthy,text);}refresh(n=>n+1);},[device,online]);
+ const t=device?.telemetry,s=device?.status,fresh=online&&device?.link_healthy;
+ return <section hidden={!visible}><div className="card"><h3>分层状态</h3><dl><dt>本机服务</dt><dd>{online?'可访问':'断开'}</dd><dt>BLE / 通知</dt><dd>{fresh?'正常':device?.connected?'已连接 / 通知过期':'未连接'}</dd><dt>最近正常通知</dt><dd>{success||'尚无'}</dd><dt>控制进程 / 运动模式</dt><dd>{fresh?`${s?.process_name} / ${t?.mode_name}`:'未知'}</dd><dt>最低舵机电压 / 总采样电流</dt><dd>{fresh?`${t?.voltage_v??'—'} V / ${t?.current_ma??'—'} mA`:'—'}</dd><dt>最高温度 / 周期 / 超时</dt><dd>{fresh?`${t?.temperature_c??'—'} °C / ${t?.cycles??'—'} / ${t?.overruns??'—'}`:'—'}</dd><dt>舵机总线</dt><dd>{fresh&&t?.cycles?'控制循环有反馈；逐轴详情见关节校准':'尚无可用循环数据'}</dd><dt>模型</dt><dd>{status}</dd></dl></div><button onClick={()=>download('microduck-diagnostics.json',{exported_at:new Date().toISOString(),device,model:status,records})}>导出诊断 JSON</button><p>记录当前页面最近 200 项状态变化及操作结果，不包含 SSH 密码。</p>{records.map((r,i)=><div className="log-entry" key={r.at+i}><small>{r.at} · {r.stage}</small><p>{r.message}</p></div>)}</section>;
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "aidc.robot.devices/0.1",
+  "modelId": "aidc.reference.arm5",
+  "modelRevision": "p5-r1",
+  "devices": [
+    {
+      "deviceId": "dc_bus",
+      "deviceType": "power",
+      "model": "AIDCRobotics.Electrical.BatteryBus",
+      "nominalVoltage_V": 48,
+      "capacity_Ah": 10,
+      "internalResistance_Ohm": 0.08,
+      "currentLimit_A": 40
+    },
+    {
+      "deviceId": "actuator-base_yaw",
+      "deviceType": "actuator",
+      "model": "AIDCRobotics.Actuators.IdealTorque",
+      "jointId": "base_yaw",
+      "commandKind": "torque",
+      "gearRatio": 80,
+      "rotorInertia_kg_m2": 0.001,
+      "viscousDamping_Nm_s_rad": 0.002,
+      "effortLimit_Nm": 20,
+      "speedLimit_rad_s": 3,
+      "powerDeviceId": "dc_bus"
+    },
+    {
+      "deviceId": "actuator-shoulder_pitch",
+      "deviceType": "actuator",
+      "model": "AIDCRobotics.Actuators.IdealTorque",
+      "jointId": "shoulder_pitch",
+      "commandKind": "torque",
+      "gearRatio": 80,
+      "rotorInertia_kg_m2": 0.001,
+      "viscousDamping_Nm_s_rad": 0.002,
+      "effortLimit_Nm": 20,
+      "speedLimit_rad_s": 3,
+      "powerDeviceId": "dc_bus"
+    },
+    {
+      "deviceId": "actuator-elbow_pitch",
+      "deviceType": "actuator",
+      "model": "AIDCRobotics.Actuators.IdealTorque",
+      "jointId": "elbow_pitch",
+      "commandKind": "torque",
+      "gearRatio": 80,
+      "rotorInertia_kg_m2": 0.001,
+      "viscousDamping_Nm_s_rad": 0.002,
+      "effortLimit_Nm": 20,
+      "speedLimit_rad_s": 3,
+      "powerDeviceId": "dc_bus"
+    },
+    {
+      "deviceId": "actuator-wrist_roll",
+      "deviceType": "actuator",
+      "model": "AIDCRobotics.Actuators.IdealTorque",
+      "jointId": "wrist_roll",
+      "commandKind": "torque",
+      "gearRatio": 80,
+      "rotorInertia_kg_m2": 0.001,
+      "viscousDamping_Nm_s_rad": 0.002,
+      "effortLimit_Nm": 20,
+      "speedLimit_rad_s": 3,
+      "powerDeviceId": "dc_bus"
+    }
+  ]
+}

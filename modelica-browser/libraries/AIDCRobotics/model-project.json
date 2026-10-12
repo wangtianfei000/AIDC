@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "2.0",
+  "projectId": "aidc.robotics.standard-library",
+  "name": "AIDCRobotics 机器人通用标准库",
+  "revision": "0.3.0-p4",
+  "description": "机器人通用 Modelica 标准库 P4：机械与设备组件、规则几何接触、摩擦能量模型以及可随 FMU 发布的原生网格 BVH 查询运行时。",
+  "modelica": {
+    "rootPackageFile": "modelica/AIDCRobotics/package.mo",
+    "rootPackage": "AIDCRobotics",
+    "defaultExperiment": "AIDCRobotics.Examples.HD1910PositionStep",
+    "languageVersion": "3.6",
+    "libraries": [{ "name": "Modelica", "version": "4.1.0" }]
+  }
+}

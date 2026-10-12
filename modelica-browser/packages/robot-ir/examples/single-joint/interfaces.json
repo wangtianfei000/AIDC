@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "aidc.robot.interfaces/0.1",
+  "modelId": "aidc.standard.single-joint",
+  "modelRevision": "p0-r1",
+  "interfaceId": "aidc.standard.single-joint.control",
+  "interfaceVersion": "1.0.0",
+  "publicQuaternionOrder": "wxyz",
+  "commands": [
+    { "name": "jointTorqueCommand", "index": 1, "semantic": "jointTorqueCommand", "unit": "N.m", "direction": 1, "scale": 1, "samplePeriod_s": 0.001, "jointId": "joint-1", "deviceId": "actuator-1" }
+  ],
+  "states": [
+    { "name": "jointPosition", "index": 1, "semantic": "jointPosition", "unit": "rad", "direction": 1, "scale": 1, "samplePeriod_s": 0.001, "jointId": "joint-1", "deviceId": "encoder-1" },
+    { "name": "jointVelocity", "index": 2, "semantic": "jointVelocity", "unit": "rad/s", "direction": 1, "scale": 1, "samplePeriod_s": 0.001, "jointId": "joint-1", "deviceId": "encoder-1" },
+    { "name": "jointAcceleration", "index": 3, "semantic": "jointAcceleration", "unit": "rad/s2", "direction": 1, "scale": 1, "samplePeriod_s": 0.001, "jointId": "joint-1", "deviceId": "encoder-1" },
+    { "name": "appliedTorque", "index": 4, "semantic": "jointTorque", "unit": "N.m", "direction": 1, "scale": 1, "samplePeriod_s": 0.001, "jointId": "joint-1", "deviceId": "actuator-1" }
+  ],
+  "diagnostics": [
+    { "name": "valid", "index": 1, "semantic": "valid", "unit": "1", "direction": 1, "scale": 1, "samplePeriod_s": 0, "deviceId": "actuator-1" },
+    { "name": "limited", "index": 2, "semantic": "limited", "unit": "1", "direction": 1, "scale": 1, "samplePeriod_s": 0, "deviceId": "actuator-1" },
+    { "name": "statusCode", "index": 3, "semantic": "statusCode", "unit": "1", "direction": 1, "scale": 1, "samplePeriod_s": 0, "deviceId": "actuator-1" }
+  ]
+}

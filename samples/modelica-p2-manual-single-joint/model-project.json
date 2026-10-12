@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "2.0",
+  "projectId": "aidc.standard.single-joint.manual",
+  "name": "P2 手工标准库单关节基准",
+  "revision": "p2-manual-r1",
+  "description": "使用 AIDCRobotics 标准组件手工搭建的单刚体、单转动关节和单执行器基准。",
+  "modelica": {
+    "rootPackageFile": "modelica/P2ManualSingleJoint/package.mo",
+    "rootPackage": "P2ManualSingleJoint",
+    "defaultExperiment": "P2ManualSingleJoint.Experiment",
+    "languageVersion": "3.6",
+    "libraries": [
+      { "name": "Modelica", "version": "4.1.0" },
+      { "name": "AIDCRobotics", "version": "0.2.0", "path": "../../modelica-browser/libraries/AIDCRobotics/modelica/AIDCRobotics/package.mo" }
+    ]
+  }
+}

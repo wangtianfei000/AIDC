@@ -1,0 +1,325 @@
+{
+  "capabilities": {
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported"
+  },
+  "diagnostics": [
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 7 elements without a span; 4 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "e5ddbabf15c53c7d417347fc3b3ef8855ca8561cc205839abb5774f1b63a1971",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+dirty-worktree-by-file-hash",
+      "capabilityVersion": "0.4.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-ba897bca73a28a2c4958591b",
+      "kind": "Package",
+      "name": "DiagramGraphicMetadataFixture",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "DiagramGraphicMetadataFixture",
+      "source": {
+        "end": {
+          "column": 38,
+          "line": 1,
+          "offset": 37
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+      }
+    },
+    {
+      "id": "e-a64c164dd373dd03732f8498",
+      "kind": "PartDefinition",
+      "name": "GraphicMetadataFixture",
+      "ownerId": "e-ba897bca73a28a2c4958591b",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "DiagramGraphicMetadataFixture::GraphicMetadataFixture",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 2,
+          "offset": 75
+        },
+        "start": {
+          "column": 14,
+          "line": 2,
+          "offset": 53
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+      }
+    },
+    {
+      "id": "e-d86873990e28c9eeee7ad9b9",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-a64c164dd373dd03732f8498",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicHeight": 320,
+          "graphicWidth": 640
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-ab391beaaaa66e3057a561b3",
+      "kind": "PartUsage",
+      "name": "source",
+      "ownerId": "e-a64c164dd373dd03732f8498",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "DiagramGraphicMetadataFixture::GraphicMetadataFixture::source",
+      "source": {
+        "end": {
+          "column": 20,
+          "line": 8,
+          "offset": 200
+        },
+        "start": {
+          "column": 14,
+          "line": 8,
+          "offset": 194
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+      }
+    },
+    {
+      "id": "e-c9182d908345f6ad9a819119",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-ab391beaaaa66e3057a561b3",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicHeight": 80,
+          "graphicWidth": 140,
+          "graphicX": 60,
+          "graphicY": 100
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-080a8d0cd68df8468ac3205b",
+      "kind": "PortUsage",
+      "name": "outputPort",
+      "ownerId": "e-ab391beaaaa66e3057a561b3",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "DiagramGraphicMetadataFixture::GraphicMetadataFixture::source::outputPort",
+      "source": {
+        "end": {
+          "column": 28,
+          "line": 15,
+          "offset": 410
+        },
+        "start": {
+          "column": 18,
+          "line": 15,
+          "offset": 400
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+      }
+    },
+    {
+      "id": "e-874a8aa4c4eae997ababb7a7",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-080a8d0cd68df8468ac3205b",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 140,
+          "graphicY": 40,
+          "portOffset": 0,
+          "portPosition": "right"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-36e93543174f59085fb9eb0a",
+      "kind": "PartUsage",
+      "name": "sink",
+      "ownerId": "e-a64c164dd373dd03732f8498",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone"
+      },
+      "qualifiedName": "DiagramGraphicMetadataFixture::GraphicMetadataFixture::sink",
+      "source": {
+        "end": {
+          "column": 18,
+          "line": 25,
+          "offset": 659
+        },
+        "start": {
+          "column": 14,
+          "line": 25,
+          "offset": 655
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+      }
+    },
+    {
+      "id": "e-71b8f463d17036574ba326c7",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-36e93543174f59085fb9eb0a",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicHeight": 80,
+          "graphicWidth": 140,
+          "graphicX": 440,
+          "graphicY": 100
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-95c87f52ef9920165fba4d17",
+      "kind": "PortUsage",
+      "name": "inputPort",
+      "ownerId": "e-36e93543174f59085fb9eb0a",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "DiagramGraphicMetadataFixture::GraphicMetadataFixture::sink::inputPort",
+      "source": {
+        "end": {
+          "column": 27,
+          "line": 32,
+          "offset": 869
+        },
+        "start": {
+          "column": 18,
+          "line": 32,
+          "offset": 860
+        },
+        "uri": "file:///samples/jingang-10axis-system-design/views/graphic-metadata-compatibility.sysml"
+      }
+    },
+    {
+      "id": "e-7dfc3baa07c3217aaf9faf58",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-95c87f52ef9920165fba4d17",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "graphicX": 0,
+          "graphicY": 40,
+          "portOffset": 0,
+          "portPosition": "left"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-03e4653093a2ae7cf59912a7",
+      "kind": "Annotation",
+      "name": null,
+      "ownerId": "e-4ab9195b54be6530923e28f3",
+      "properties": {
+        "annotationName": "GraphicMetadata",
+        "metadataAssignments": {
+          "labelText": "fixture",
+          "pathType": "Orthogonal",
+          "routingStyle": "Manhattan"
+        }
+      },
+      "qualifiedName": null,
+      "source": null
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-4ab9195b54be6530923e28f3",
+      "kind": "Connection",
+      "ownerId": "e-a64c164dd373dd03732f8498",
+      "properties": {
+        "ends": [
+          "source.outputPort",
+          "sink.inputPort"
+        ],
+        "isBinary": true
+      },
+      "source": null,
+      "sourceIds": [
+        "e-080a8d0cd68df8468ac3205b"
+      ],
+      "targetIds": [
+        "e-95c87f52ef9920165fba4d17"
+      ]
+    }
+  ],
+  "schemaVersion": "0.1"
+}

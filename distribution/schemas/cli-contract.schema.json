@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/cli-contract.schema.json",
+  "title": "AIDC CLI contract catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "product", "contractVersion", "outputContract", "rules", "exitCodes", "commands"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "product": {"const": "aidc"},
+    "contractVersion": {"type": "string"},
+    "outputContract": {"const": "aidc.cli-result/1.0"},
+    "rules": {"type": "object"},
+    "exitCodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "id", "meaning"],
+        "properties": {
+          "code": {"type": "integer", "minimum": 0, "maximum": 255},
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]+$"},
+          "meaning": {"type": "string"}
+        }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "syntax", "sideEffect"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9.-]+$"},
+          "syntax": {"type": "string"},
+          "sideEffect": {"enum": ["read", "launch", "write", "execute"]}
+        }
+      }
+    }
+  }
+}
+

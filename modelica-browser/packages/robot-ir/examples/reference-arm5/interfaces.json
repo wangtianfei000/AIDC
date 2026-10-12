@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "aidc.robot.interfaces/0.1",
+  "modelId": "aidc.reference.arm5",
+  "modelRevision": "p5-r1",
+  "interfaceId": "aidc.reference.arm5.control",
+  "interfaceVersion": "1.0.0",
+  "publicQuaternionOrder": "wxyz",
+  "commands": [
+    {
+      "name": "base_yawTorqueCommand",
+      "index": 1,
+      "semantic": "jointTorqueCommand",
+      "unit": "N.m",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "base_yaw",
+      "deviceId": "actuator-base_yaw"
+    },
+    {
+      "name": "shoulder_pitchTorqueCommand",
+      "index": 2,
+      "semantic": "jointTorqueCommand",
+      "unit": "N.m",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "shoulder_pitch",
+      "deviceId": "actuator-shoulder_pitch"
+    },
+    {
+      "name": "elbow_pitchTorqueCommand",
+      "index": 3,
+      "semantic": "jointTorqueCommand",
+      "unit": "N.m",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "elbow_pitch",
+      "deviceId": "actuator-elbow_pitch"
+    },
+    {
+      "name": "wrist_rollTorqueCommand",
+      "index": 4,
+      "semantic": "jointTorqueCommand",
+      "unit": "N.m",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "wrist_roll",
+      "deviceId": "actuator-wrist_roll"
+    }
+  ],
+  "states": [
+    {
+      "name": "base_yawPosition",
+      "index": 1,
+      "semantic": "jointPosition",
+      "unit": "rad",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "base_yaw"
+    },
+    {
+      "name": "shoulder_pitchPosition",
+      "index": 2,
+      "semantic": "jointPosition",
+      "unit": "rad",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "shoulder_pitch"
+    },
+    {
+      "name": "elbow_pitchPosition",
+      "index": 3,
+      "semantic": "jointPosition",
+      "unit": "rad",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "elbow_pitch"
+    },
+    {
+      "name": "wrist_rollPosition",
+      "index": 4,
+      "semantic": "jointPosition",
+      "unit": "rad",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0.001,
+      "jointId": "wrist_roll"
+    }
+  ],
+  "diagnostics": [
+    {
+      "name": "modelValid",
+      "index": 1,
+      "semantic": "valid",
+      "unit": "1",
+      "direction": 1,
+      "scale": 1,
+      "samplePeriod_s": 0
+    }
+  ]
+}

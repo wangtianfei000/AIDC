@@ -1,0 +1,4 @@
+interface:
+  display_name: "机器人系统架构设计"
+  short_description: "从需求形成候选方案、SysML 架构与装配交接"
+  default_prompt: "使用 $robot-system-architecture，根据需求和已知硬件资料创建或修改 architecture.sysml。"
