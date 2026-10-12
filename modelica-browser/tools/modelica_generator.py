@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).resolve()
-MODEL_BROWSER = HERE.parents[1]
+MODEL_BROWSER = Path(os.environ.get("AIDC_MODELICA_ROOT", HERE.parents[1]))
 AIDC_ROOT = MODEL_BROWSER.parent
 ROBOT_IR_PACKAGE = MODEL_BROWSER / "packages" / "robot-ir"
 AIDC_ROBOTICS = MODEL_BROWSER / "libraries" / "AIDCRobotics"
@@ -577,7 +577,7 @@ end {package};
 
 
 def clean_generated(output: Path) -> None:
-    for name in ("modelica", "robot-ir", "results"):
+    for name in ("modelica", "robot-ir", "results", "dependencies"):
         path = output / name
         if path.exists():
             shutil.rmtree(path)
@@ -620,8 +620,10 @@ def generate(source: Path, output: Path, requested_package: str | None = None, p
         shutil.copyfile(source_asset, resource_asset)
     structure_file = output / "robot-ir" / "generated-structure.json"
     write_json(structure_file, generated_structure(bundle))
-    dependency_file = AIDC_ROBOTICS / "modelica" / "AIDCRobotics" / "package.mo"
-    dependency_path = Path(os.path.relpath(dependency_file, output)).as_posix()
+    dependency_source = AIDC_ROBOTICS / "modelica" / "AIDCRobotics"
+    dependency_target = output / "dependencies" / "AIDCRobotics" / "modelica" / "AIDCRobotics"
+    shutil.copytree(dependency_source, dependency_target)
+    dependency_path = "dependencies/AIDCRobotics/modelica/AIDCRobotics/package.mo"
     project = {
         "schemaVersion": "2.0",
         "projectId": bundle["physics"]["modelId"] + ".modelica",

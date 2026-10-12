@@ -11,7 +11,9 @@
   "capabilities": ["model3d.open", "model3d.publish", "model3d.export-modelica", "model3d.geometry-check"],
   "entryPoints": [
     {"id": "browser", "relativePath": "components/model3d/browser", "mode": "static", "arguments": []},
-    {"id": "publisher", "relativePath": "components/model3d/tools/publish.py", "mode": "library", "arguments": []}
+    {"id": "publisher", "relativePath": "components/model3d/tools/publish_model.py", "mode": "library", "arguments": []},
+    {"id": "assembly-exporter", "relativePath": "components/model3d/tools/aidc-model3d-export.exe", "mode": "executable", "arguments": []},
+    {"id": "exact-checker", "relativePath": "components/model3d/services/exact-check/server.py", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]}
   ],
   "dependencies": [
     {"id": "freecad", "versionRange": "1.1.3", "required": false, "capability": "cad.headless"},

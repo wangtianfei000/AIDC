@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any, Callable
 from jsonschema import Draft202012Validator, FormatChecker
 
-SCRIPT=Path(__file__).resolve(); MODEL_BROWSER=SCRIPT.parents[1]; AIDC_ROOT=MODEL_BROWSER.parent; REPO_ROOT=AIDC_ROOT.parent
+SCRIPT=Path(__file__).resolve(); MODEL_BROWSER=Path(os.environ.get("AIDC_MODELICA_ROOT", SCRIPT.parents[1])); AIDC_ROOT=MODEL_BROWSER.parent; REPO_ROOT=AIDC_ROOT.parent
 SCHEMA_ROOT=MODEL_BROWSER/"packages"/"contracts"/"schemas"; OMC=REPO_ROOT/"tools"/"openmodelica"/"1.27.1"/"bin"/"omc.exe"
 
 class ContractError(RuntimeError): pass

@@ -399,6 +399,26 @@ def build_model_index(project_root: Path, force: bool = False) -> dict[str, Any]
     dependency_digest = "sha256:" + hashlib.sha256(
         json.dumps(dependency_files, ensure_ascii=False, sort_keys=True).encode("utf-8")
     ).hexdigest()
+    if not OMC.is_file():
+        source_text = loaded["modelFile"].read_text(encoding="utf-8-sig")
+        root_package = project["modelica"]["rootPackage"]
+        declarations = [(match.group(1), match.group(2)) for match in re.finditer(r"(?m)^\s*(?:partial\s+)?(package|model|block|record|function|connector)\s+([A-Za-z_]\w*)", source_text)]
+        classes = []
+        for kind, name in declarations:
+            class_id = root_package if name == root_package else f"{root_package}.{name}"
+            if any(item["id"] == class_id for item in classes): continue
+            classes.append({
+                "id": class_id, "name": name, "kind": kind, "description": "",
+                "source": {"path": loaded["modelFile"].relative_to(project_root).as_posix(), "line": _source_line(source_text, name), "endLine": None},
+                "components": [], "connections": [], "diagram": None,
+            })
+        return {
+            "schemaVersion": "1.0", "projectId": project["projectId"], "sourceDigest": digest,
+            "dependencyDigest": dependency_digest, "generatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            "generator": "source-fallback", "indexerVersion": "3.3", "rootPackage": root_package,
+            "defaultExperiment": project["modelica"]["defaultExperiment"], "typeIcons": {}, "classes": classes,
+            "diagnostics": [{"severity": "warning", "code": "OMC_UNAVAILABLE", "message": "OpenModelica 未安装，使用只读源码索引"}],
+        }
     index_path = AIDC_ROOT / ".codex-runtime" / "modelica-index" / f"{project['projectId']}.json"
     if index_path.is_file() and not force:
         current = json.loads(index_path.read_text(encoding="utf-8-sig"))

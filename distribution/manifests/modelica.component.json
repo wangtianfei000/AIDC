@@ -11,11 +11,11 @@
   "capabilities": ["modelica.validate", "modelica.generate", "modelica.open", "modelica.simulate", "modelica.package"],
   "entryPoints": [
     {"id": "browser", "relativePath": "components/modelica/browser", "mode": "static", "arguments": []},
-    {"id": "server", "relativePath": "components/modelica/server/server.py", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]},
-    {"id": "generator", "relativePath": "components/modelica/tools/aidc_modelica.py", "mode": "library", "arguments": []}
+    {"id": "server", "relativePath": "components/modelica/server/aidc-modelica-server.exe", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]},
+    {"id": "generator", "relativePath": "components/modelica/tools/aidc-modelica-tools.exe", "mode": "executable", "arguments": []}
   ],
   "dependencies": [
-    {"id": "python-runtime", "versionRange": "3.12.x", "required": true, "capability": "python.execute"},
+    {"id": "python-runtime", "versionRange": "3.12.x", "required": false, "capability": "python.execute"},
     {"id": "openmodelica", "versionRange": "1.27.1", "required": false, "capability": "modelica.compile"}
   ],
   "licenses": [

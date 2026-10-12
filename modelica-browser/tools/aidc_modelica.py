@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).resolve()
-ROOT = HERE.parents[1]
+ROOT = Path(os.environ.get("AIDC_MODELICA_ROOT", HERE.parents[1]))
 ROBOT_IR = ROOT / "packages" / "robot-ir"
 ASSEMBLY_PACKAGE = ROOT / "packages" / "assembly-package"
 LIBRARY = ROOT / "libraries" / "AIDCRobotics"
@@ -266,7 +266,7 @@ def command_package(args: argparse.Namespace) -> int:
         staging = Path(directory) / "project"; staging.mkdir()
         _copy_project(project, staging, args.include_results)
         dependency_target = staging / "dependencies" / "AIDCRobotics" / "modelica" / "AIDCRobotics"
-        shutil.copytree(LIBRARY / "modelica" / "AIDCRobotics", dependency_target)
+        shutil.copytree(LIBRARY / "modelica" / "AIDCRobotics", dependency_target, dirs_exist_ok=True)
         project_data = read_json(staging / "model-project.json")
         for dependency in project_data["modelica"]["libraries"]:
             if dependency["name"] == "AIDCRobotics": dependency["path"] = "dependencies/AIDCRobotics/modelica/AIDCRobotics/package.mo"

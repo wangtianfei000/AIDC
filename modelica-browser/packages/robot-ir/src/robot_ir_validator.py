@@ -5,13 +5,14 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get("AIDC_ROBOT_IR_ROOT", Path(__file__).resolve().parents[1]))
 SCHEMAS = ROOT / "schemas"
 
 

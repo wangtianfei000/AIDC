@@ -140,7 +140,7 @@ class RuntimeManager:
         if target.suffix.lower() not in {".sysml", ".kerml"}: raise AidcError("SysML 输入必须是 .sysml 或 .kerml 文件", 3, "INPUT_INVALID", str(target))
         executable = next((Path(item["path"]) for item in ComponentRegistry(self.root).dependency_status("sysml-parser-runtime") if item["path"]), None)
         if not executable: raise AidcError("未找到 SysML Parser Runtime 0.8.1", 4, "DEPENDENCY_MISSING")
-        static_root = self.root / "sysml-browser" / "dist"
+        static_root = self._component_path("components/sysml/browser", "sysml-browser/dist")
         if not (static_root / "index.html").is_file(): raise AidcError("SysML 浏览器生产资源未构建", 4, "COMPONENT_NOT_BUILT")
         runtime_port = self._port()
         runtime = self._spawn(instance_id, "sysml-runtime", [str(executable), "--port", str(runtime_port)], self.root)
@@ -154,33 +154,34 @@ class RuntimeManager:
     def _start_model3d(self, instance_id: str, target: Path, public_port: int, token: str) -> list[dict[str, Any]]:
         manifest = target / "generated" / "model3d.manifest.json"
         if not manifest.is_file(): raise AidcError("三维工程缺少 generated/model3d.manifest.json", 3, "INPUT_INVALID", str(target))
-        npm = ComponentRegistry.executable("npm.cmd" if os.name == "nt" else "npm")
-        if not npm: raise AidcError("未找到受管 Node.js/npm", 4, "DEPENDENCY_MISSING")
-        internal_port = self._port(); exact_port = self._port(); env = os.environ.copy()
-        env.update({"AIDC_MODEL3D_PROJECT_DIR": str(target), "AIDC_EXACT_SERVICE_PORT": str(exact_port), "NO_COLOR": "1"})
-        command = [npm, "--workspace", "@aidc/model3d-browser", "run", "dev", "--", "--host", "127.0.0.1", "--port", str(internal_port), "--strictPort"]
-        vite = self._spawn(instance_id, "model3d-web", command, self.root, env)
-        try:
-            self._wait_http(f"http://127.0.0.1:{internal_port}/", vite["_process"], 45)
-            gateway = self._gateway(instance_id, public_port, token, ["--proxy", f"http://127.0.0.1:{internal_port}"])
-            return [vite, gateway]
-        except Exception:
-            self._stop_pid(vite["pid"]); raise
+        static_root = self._component_path("components/model3d/browser", "model3d-viewer/apps/browser/dist")
+        if not (static_root / "index.html").is_file(): raise AidcError("三维浏览器生产资源未构建", 4, "COMPONENT_NOT_BUILT")
+        return [self._gateway(instance_id, public_port, token, ["--static", str(static_root), "--project", str(target)])]
 
     def _start_modelica(self, instance_id: str, target: Path, public_port: int, token: str) -> list[dict[str, Any]]:
         if not (target / "model-project.json").is_file(): raise AidcError("Modelica 工程缺少 model-project.json", 3, "INPUT_INVALID", str(target))
-        web_root = self.root / "modelica-browser" / "apps" / "web" / "dist"
+        web_root = self._component_path("components/modelica/browser", "modelica-browser/apps/web/dist")
         if not (web_root / "index.html").is_file(): raise AidcError("Modelica 浏览器生产资源未构建", 4, "COMPONENT_NOT_BUILT")
-        backend_port = self._port(); server = self.root / "modelica-browser" / "services" / "project-server" / "server.py"
+        backend_port = self._port(); server_exe = self.root / "components" / "modelica" / "server" / "aidc-modelica-server.exe"; server = self.root / "modelica-browser" / "services" / "project-server" / "server.py"
         managed_python = self.root.parent / "tools" / "openmodelica" / "fmpy-venv" / "Scripts" / "python.exe"
         python = managed_python if managed_python.is_file() else Path(sys.executable)
-        backend = self._spawn(instance_id, "modelica-project", [str(python), str(server), "--project", str(target), "--host", "127.0.0.1", "--port", str(backend_port), "--web-root", str(web_root)], self.root)
+        command = [str(server_exe)] if server_exe.is_file() else [str(python), str(server)]
+        environment = os.environ.copy()
+        if server_exe.is_file():
+            environment["AIDC_MODELICA_ROOT"] = str(self.root / "components" / "modelica")
+            environment["AIDC_ROBOT_IR_ROOT"] = str(self.root / "components" / "modelica" / "packages" / "robot-ir")
+            environment["AIDC_ASSEMBLY_PACKAGE_ROOT"] = str(self.root / "components" / "modelica" / "packages" / "assembly-package")
+        backend = self._spawn(instance_id, "modelica-project", [*command, "--project", str(target), "--host", "127.0.0.1", "--port", str(backend_port), "--web-root", str(web_root)], self.root, environment)
         try:
             self._wait_http(f"http://127.0.0.1:{backend_port}/health", backend["_process"], 90)
             gateway = self._gateway(instance_id, public_port, token, ["--proxy", f"http://127.0.0.1:{backend_port}"])
             return [backend, gateway]
         except Exception:
             self._stop_pid(backend["pid"]); raise
+
+    def _component_path(self, packaged: str, source: str) -> Path:
+        candidate = self.root / packaged
+        return candidate if candidate.exists() else self.root / source
 
     @staticmethod
     def _public(instance: dict[str, Any]) -> dict[str, Any]:

@@ -5,6 +5,7 @@ import http.client
 import json
 import mimetypes
 import os
+import re
 from http import HTTPStatus
 from http.cookies import SimpleCookie
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -59,14 +60,36 @@ class GatewayHandler(BaseHTTPRequestHandler):
     def _static(self) -> None:
         parsed = urlsplit(self.path)
         relative = parsed.path.lstrip("/") or "index.html"
-        candidate = (self.server.static_root / relative).resolve()
-        if self.server.static_root not in candidate.parents and candidate != self.server.static_root:
+        roots = [root for root in (self.server.overlay_root, self.server.static_root) if root]
+        candidate = next(((root / relative).resolve() for root in roots if (root / relative).resolve().is_file()), (self.server.static_root / relative).resolve())
+        if not any(root == candidate or root in candidate.parents for root in roots):
             self.send_error(HTTPStatus.FORBIDDEN); return
         if not candidate.is_file(): candidate = self.server.static_root / "index.html"
         if not candidate.is_file(): self.send_error(HTTPStatus.NOT_FOUND); return
         payload = candidate.read_bytes()
         content_type = mimetypes.guess_type(candidate.name)[0] or "application/octet-stream"
         self._headers(HTTPStatus.OK, [("Content-Type", content_type), ("Cache-Control", "no-store")], len(payload)); self.wfile.write(payload)
+
+    def _model3d_api(self, path: str) -> bool:
+        match = re.fullmatch(r"/api/model-projects/([^/]+)/pose-presets", path)
+        if not match or not self.server.project_root: return False
+        manifest_path = self.server.project_root / "generated" / "model3d.manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if match.group(1) != manifest.get("modelId"):
+            self.send_error(HTTPStatus.NOT_FOUND); return True
+        presets = self.server.project_root / "pose-presets.json"
+        generated = self.server.project_root / "generated" / "pose-presets.json"
+        if self.command == "GET":
+            source = presets if presets.is_file() else generated
+            if not source.is_file(): self.send_error(HTTPStatus.NOT_FOUND); return True
+            payload = source.read_bytes()
+        elif self.command == "PUT":
+            payload = self.rfile.read(int(self.headers.get("Content-Length", "0")))
+            value = json.loads(payload.decode("utf-8")); presets.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
+            generated.parent.mkdir(parents=True, exist_ok=True); generated.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
+            payload = json.dumps(value, ensure_ascii=False).encode("utf-8")
+        else: self.send_error(HTTPStatus.METHOD_NOT_ALLOWED); return True
+        self._headers(HTTPStatus.OK, [("Content-Type", "application/json; charset=utf-8")], len(payload)); self.wfile.write(payload); return True
 
     def _dispatch(self) -> None:
         if not self._authorized(): self._reject(); return
@@ -76,6 +99,7 @@ class GatewayHandler(BaseHTTPRequestHandler):
         if path == "/session/input" and self.server.input_file:
             payload = json.dumps({"name": self.server.input_file.name, "uri": self.server.input_file.as_uri(), "text": self.server.input_file.read_text(encoding="utf-8")}, ensure_ascii=False).encode("utf-8")
             self._headers(200, [("Content-Type", "application/json; charset=utf-8")], len(payload)); self.wfile.write(payload); return
+        if self._model3d_api(path): return
         for prefix, target in self.server.proxies:
             if path.startswith(prefix): self._proxy(target, prefix); return
         if self.server.default_proxy: self._proxy(self.server.default_proxy); return
@@ -90,21 +114,23 @@ class GatewayHandler(BaseHTTPRequestHandler):
 
 
 class GatewayServer(ThreadingHTTPServer):
-    def __init__(self, address: tuple[str, int], token: str, static_root: Path | None, default_proxy: str | None, proxies: list[tuple[str, str]], input_file: Path | None):
+    def __init__(self, address: tuple[str, int], token: str, static_root: Path | None, default_proxy: str | None, proxies: list[tuple[str, str]], input_file: Path | None, project_root: Path | None = None):
         self.token = token; self.static_root = static_root or Path.cwd(); self.default_proxy = default_proxy; self.proxies = proxies; self.input_file = input_file
+        self.project_root = project_root
+        self.overlay_root = project_root / "generated" if project_root else None
         super().__init__(address, GatewayHandler)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, required=True); parser.add_argument("--token", default=os.environ.get("AIDC_SESSION_TOKEN"))
-    parser.add_argument("--static", type=Path); parser.add_argument("--proxy"); parser.add_argument("--map", action="append", default=[]); parser.add_argument("--input", type=Path)
+    parser.add_argument("--static", type=Path); parser.add_argument("--proxy"); parser.add_argument("--map", action="append", default=[]); parser.add_argument("--input", type=Path); parser.add_argument("--project", type=Path)
     args = parser.parse_args()
     mappings = []
     for value in args.map:
         prefix, target = value.split("=", 1); mappings.append((prefix.rstrip("/"), target.rstrip("/")))
     if not args.token: parser.error("会话令牌缺失")
-    server = GatewayServer(("127.0.0.1", args.port), args.token, args.static.resolve() if args.static else None, args.proxy, mappings, args.input.resolve() if args.input else None)
+    server = GatewayServer(("127.0.0.1", args.port), args.token, args.static.resolve() if args.static else None, args.proxy, mappings, args.input.resolve() if args.input else None, args.project.resolve() if args.project else None)
     server.serve_forever(); return 0
 
 

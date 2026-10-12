@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 import platform
+import os
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -12,6 +14,7 @@ from aidc_core.paths import absolute_existing, product_root, state_root
 from aidc_core.registry import ComponentRegistry
 from aidc_core.result import AidcError, CommandResult
 from aidc_core.runtime import RuntimeManager
+from aidc_core.operations import model3d_export, model3d_publish, modelica, sysml_validate
 
 
 class AidcArgumentParser(argparse.ArgumentParser):
@@ -56,9 +59,9 @@ def parser() -> argparse.ArgumentParser:
 def _doctor(registry: ComponentRegistry) -> dict[str, Any]:
     root = registry.root
     assets = {
-        "sysml": root / "sysml-browser" / "dist" / "index.html",
-        "model3d": root / "model3d-viewer" / "apps" / "browser" / "dist" / "index.html",
-        "modelica": root / "modelica-browser" / "apps" / "web" / "dist" / "index.html",
+        "sysml": (root / "components/sysml/browser/index.html") if (root / "components/sysml/browser/index.html").is_file() else root / "sysml-browser/dist/index.html",
+        "model3d": (root / "components/model3d/browser/index.html") if (root / "components/model3d/browser/index.html").is_file() else root / "model3d-viewer/apps/browser/dist/index.html",
+        "modelica": (root / "components/modelica/browser/index.html") if (root / "components/modelica/browser/index.html").is_file() else root / "modelica-browser/apps/web/dist/index.html",
     }
     dependencies = registry.dependency_status()
     return {
@@ -93,6 +96,42 @@ def execute(args: argparse.Namespace) -> CommandResult:
         target = absolute_existing(args.target, "工程或模型")
         data = manager.start(args.domain, target, launch_browser=not args.no_browser)
         return CommandResult(f"{args.domain}.open", f"已打开 {args.domain} 浏览器", data, task={"taskId": data["taskId"] if not data["reused"] else "reused-" + data["instanceId"], "state": "succeeded", "progress": 1})
+    if args.domain == "sysml" and args.action == "validate":
+        source = absolute_existing(args.target, "SysML 文件"); data = sysml_validate(registry.root, source)
+        if not data["passed"]: raise AidcError("SysML 校验失败", 8, "VALIDATION_FAILED", str(source))
+        return CommandResult("sysml.validate", "SysML 校验通过", data, diagnostics=data["diagnostics"])
+    if args.domain == "model3d" and args.action == "publish":
+        source = absolute_existing(args.input, "发布配置"); output = Path(args.output).expanduser().resolve(); data = model3d_publish(registry.root, source, output)
+        return CommandResult("model3d.publish", "三维模型发布完成", data, artifacts=[{"kind": "directory", "path": str(output)}])
+    if args.domain == "model3d" and args.action == "export-modelica":
+        source = absolute_existing(args.input, "三维工程"); output = Path(args.output).expanduser().resolve(); data = model3d_export(registry.root, source, output)
+        return CommandResult("model3d.export-modelica", "Modelica 装配输入包导出完成", data, artifacts=[{"kind": "directory", "path": str(output)}])
+    if args.domain == "modelica" and args.action in {"validate", "generate", "package"}:
+        if args.action == "validate": arguments = [str(absolute_existing(args.input, "模型输入"))]
+        elif args.action == "generate": arguments = [str(absolute_existing(args.input, "模型输入")), str(Path(args.output).expanduser().resolve())]
+        else:
+            arguments = [str(absolute_existing(args.project, "Modelica 工程")), str(Path(args.output).expanduser().resolve())]
+            if args.include_results: arguments.append("--include-results")
+        data = modelica(registry.root, args.action, arguments)
+        artifact = data.get("output")
+        return CommandResult(f"modelica.{args.action}", f"Modelica {args.action} 完成", data, artifacts=[{"kind": "path", "path": artifact}] if artifact else [])
+    if args.domain == "modelica" and args.action == "simulate":
+        dependency = registry.dependency_status("openmodelica")
+        if not dependency or not dependency[0]["available"]: raise AidcError("Modelica 仿真需要 P3 OpenModelica Runtime Pack", 4, "DEPENDENCY_MISSING")
+        raise AidcError("当前 OpenModelica Runtime Pack 尚未注册到仿真适配器", 5, "CAPABILITY_UNAVAILABLE")
+    if args.domain == "freecad" and args.action in {"open", "check"}:
+        source = absolute_existing(args.file, "CAD 文件")
+        status = registry.dependency_status("freecad"); command_exe = Path(status[0]["path"]) if status and status[0]["path"] else None
+        if not command_exe: raise AidcError("未找到受管 FreeCAD", 4, "DEPENDENCY_MISSING")
+        if args.action == "open":
+            gui = command_exe.with_name("FreeCAD.exe")
+            if not gui.is_file(): raise AidcError("未找到 FreeCAD 图形入口", 4, "DEPENDENCY_MISSING")
+            subprocess.Popen([str(gui), str(source)], cwd=gui.parent, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
+            return CommandResult("freecad.open", "已打开 FreeCAD", {"file": str(source), "executable": str(gui)})
+        env = os.environ.copy(); env["AIDC_FREECAD_INPUT"] = str(source)
+        completed = subprocess.run([str(command_exe), "-c", "import FreeCAD as App,os;d=App.openDocument(os.environ['AIDC_FREECAD_INPUT']);print(len(d.Objects));App.closeDocument(d.Name)"], cwd=command_exe.parent, env=env, capture_output=True, text=True, timeout=120, check=False)
+        if completed.returncode: raise AidcError(completed.stderr or completed.stdout, 6, "CAD_CHECK_FAILED", str(source))
+        return CommandResult("freecad.check", "FreeCAD 文件检查通过", {"file": str(source), "output": completed.stdout.strip()})
     if args.domain == "browser" and args.action in {"list", "status"}:
         data = manager.status(); return CommandResult("browser.status", f"共 {len(data)} 个浏览器实例", {"instances": data})
     if args.domain == "browser" and args.action == "stop":

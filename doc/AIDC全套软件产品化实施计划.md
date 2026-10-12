@@ -365,13 +365,17 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 
 ### P2：现有工具发行化（2–3 周）
 
+执行结果：已完成内部发行验收。`distribution/scripts/build_portable.ps1` 统一构建三套前端生产资源和四个单文件服务组件，`assemble_portable.py` 生成带 SHA-256 文件清单的 `distribution/out/aidc-portable/`。运行管理器优先解析 `components/` 发行布局；三维浏览器改为静态资源与工程 `generated/` 叠加托管，不再启动 Vite；Modelica Project Server 和生成器不再调用系统 Python；SysML Parser 固定为 0.8.1 运行时。统一 CLI 已实现 SysML 校验、三维发布/装配导出、Modelica 校验/生成/打包和 FreeCAD 打开/检查。旧 PowerShell 入口仅作为开发包装器转调 CLI。
+
+验收记录：发行目录包含 261 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
+
 交付：
 
 - 三套前端生产资源由运行管理器托管；
 - SysML Parser、Modelica Project Server、CAD 发布器和精确校核改成稳定服务入口；
 - `aidc sysml/model3d/modelica/freecad` 命令；
 - 删除发行路径对 npm、系统 Python和仓库布局的依赖；
-- 现有 PowerShell 脚本保留为开发包装器并转调 CLI。
+- 已有对应 CLI 的 PowerShell 脚本保留为开发包装器并转调 CLI。
 
 验收：删除发行目录中的 `node_modules` 后，所有正式能力仍可运行。
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -12,8 +13,8 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 HERE = Path(__file__).resolve()
-PACKAGE_ROOT = HERE.parents[1]
-MODEL_BROWSER = HERE.parents[3]
+MODEL_BROWSER = Path(os.environ.get("AIDC_MODELICA_ROOT", HERE.parents[3]))
+PACKAGE_ROOT = Path(os.environ.get("AIDC_ASSEMBLY_PACKAGE_ROOT", MODEL_BROWSER / "packages" / "assembly-package"))
 sys.path.insert(0, str(MODEL_BROWSER / "packages" / "robot-ir" / "src"))
 from robot_ir_validator import validate_bundle
 

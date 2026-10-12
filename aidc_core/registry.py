@@ -33,19 +33,23 @@ class ComponentRegistry:
         dep_id = dependency["id"]
         candidates: list[Path] = []
         if dep_id == "freecad":
-            candidates = [self.root / "FreeCAD-runtime" / "FreeCAD_1.1.3-Windows-x86_64-py311" / "bin" / "FreeCADCmd.exe"]
+            candidates = [
+                self.root / "runtimes" / "freecad" / "bin" / "FreeCADCmd.exe",
+                self.root / "FreeCAD-runtime" / "FreeCAD_1.1.3-Windows-x86_64-py311" / "bin" / "FreeCADCmd.exe",
+            ]
         elif dep_id == "openmodelica":
             candidates = [self.root.parent / "tools" / "openmodelica" / dependency["version"] / "bin" / "omc.exe"]
         elif dep_id == "python-runtime":
-            candidates = [Path(shutil.which("python.exe" if sys.platform == "win32" else "python") or sys.executable)]
+            candidates = [self.root / "runtimes" / "python" / ("python.exe" if sys.platform == "win32" else "python"), Path(sys.executable)]
         elif dep_id == "sysml-parser-runtime":
             candidates = [
+                self.root / "components" / "sysml" / "bin" / "aidc-sysml-parser-runtime.exe",
                 self.root / "sysml-parser-runtime" / "dist" / "bin" / "aidc-sysml-parser-runtime-0.8.1.exe",
                 self.root / "sysml-parser-runtime" / "dist" / "bin" / "aidc-sysml-parser-runtime.exe",
                 self.root / "sysml-parser-runtime" / "build" / "bin" / "aidc-sysml-parser-runtime.exe",
             ]
         elif dep_id == "sysml-standard-library":
-            candidates = [self.root / "sysml-parser-runtime" / "dist" / "library" / "sysml.library"]
+            candidates = [self.root / "components" / "sysml" / "library" / "sysml.library", self.root / "sysml-parser-runtime" / "dist" / "library" / "sysml.library"]
         resolved = next((path.resolve() for path in candidates if path.exists()), None)
         return {
             "id": dep_id,

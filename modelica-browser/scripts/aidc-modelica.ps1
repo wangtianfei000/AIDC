@@ -1,4 +1,4 @@
 $ErrorActionPreference = "Stop"
-$root = Split-Path -Parent $PSScriptRoot
-python (Join-Path $root "tools/aidc_modelica.py") @args
+$aidcRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+& (Join-Path $aidcRoot 'bin\aidc.cmd') modelica @args
 exit $LASTEXITCODE
