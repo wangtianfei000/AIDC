@@ -54,6 +54,8 @@ description: 根据机器人 SysML 架构、硬件图纸、STEP、实测尺寸�
 
 ## 交付
 
+产品自动化入口是 `aidc_model3d_publish`、`aidc_model3d_export_modelica` 和 `aidc_model3d_open`；无 MCP 的终端环境使用对应的 `aidc model3d ...` 命令。发布和导出属于长任务，取得 `taskId` 后查询 `aidc_task_status`，完成后从 `aidc_artifacts_list` 获取产物，不直接运行仓库内 Python 或 PowerShell 脚本。
+
 默认交付以下可复核内容；项目不需要的项目可以省略：
 
 - 面向后续设计修改时交付原生 CAD 装配文件；只交付浏览模型时不强制包含源 CAD；

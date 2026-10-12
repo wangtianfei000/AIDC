@@ -54,6 +54,7 @@ def main() -> int:
     validate(DIST / "contracts" / "example-cli-result.json", SCHEMAS / "cli-result.schema.json", errors)
     validate(DIST / "contracts" / "cli-contract.json", SCHEMAS / "cli-contract.schema.json", errors)
     validate(DIST / "runtime-packs" / "catalog.json", SCHEMAS / "runtime-catalog.schema.json", errors)
+    validate(ROOT / "skills" / "catalog.json", SCHEMAS / "skill-catalog.schema.json", errors)
     validate(
         DIST / "contracts" / "project-artifact-types.json",
         SCHEMAS / "project-artifact-catalog.schema.json",
@@ -119,6 +120,15 @@ def main() -> int:
     artifact_ids = [item["id"] for item in artifacts["artifactTypes"]]
     require(len(project_ids) == len(set(project_ids)), "Duplicate project type IDs", errors)
     require(len(artifact_ids) == len(set(artifact_ids)), "Duplicate artifact type IDs", errors)
+
+    skill_catalog = load(ROOT / "skills" / "catalog.json")
+    skill_ids = [item["id"] for item in skill_catalog["skills"]]
+    require(len(skill_ids) == len(set(skill_ids)), "Duplicate skill IDs", errors)
+    for skill in skill_catalog["skills"]:
+        require(safe_relative(skill["path"]), f"Unsafe skill path: {skill['path']}", errors)
+        require((ROOT / "skills" / skill["path"]).is_file(), f"Missing skill entry point: {skill['path']}", errors)
+        for capability in skill["requiredCapabilities"]:
+            require(capability in command_ids, f"Skill {skill['id']} uses unknown capability {capability}", errors)
 
     gates = load(DIST / "audits" / "supply-chain-gates.json")
     blocked_gates = [gate for gate in gates["gates"] if gate["status"] == "blocked"]

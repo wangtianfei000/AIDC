@@ -9,7 +9,7 @@ description: 基于 AIDCRobotics 标准库、Robot IR 和 AIDC 装配发布包�
 
 ## 开始前
 
-1. 找到 `AIDC/` 根目录，并阅读现有 `modelica-browser/libraries/AIDCRobotics/README.md`、`docs/API.md` 和 `docs/COMPATIBILITY.md`。
+1. 通过 AIDC Skill 资源读取建模契约；需要检查产品能力时调用 `aidc_system_capabilities`。不要依赖源码仓库位置。
 2. 判断任务属于哪条路径：
    - 完整机器人或 CAD 装配转换：使用合规 `.aidc-assembly/` 或 Robot IR，通过生成器构建型号包。
    - 新的可复用物理行为：在 `AIDCRobotics` 中开发公共组件和一致性模型。
@@ -19,6 +19,8 @@ description: 基于 AIDCRobotics 标准库、Robot IR 和 AIDC 装配发布包�
    - 建模分层、坐标、单位、接口和扩展规则见 [建模契约](references/modeling-contract.md)。
    - 新建、修改、生成和调试步骤见 [开发工作流](references/development-workflow.md)。
    - 交付前的结构、数值、便携性和证据要求见 [验收清单](references/acceptance-checklist.md)。
+
+正式自动化入口是 `aidc_modelica_validate`、`aidc_modelica_generate`、`aidc_modelica_simulate` 和 `aidc_modelica_package`；没有 MCP 的 CI 环境使用对应的 `aidc modelica ...` 命令。长任务返回 `taskId` 后使用 `aidc_task_status`，完成后通过 `aidc_artifacts_list` 获取产物。
 
 ## 必须遵守的边界
 

@@ -65,3 +65,5 @@ requirement def batteryEndurance {
 - 示例值没有被当成项目已经批准的真实指标；
 - 文件只有一个根 Package，并能由 AIDC SysML 浏览器打开。
 
+保存后调用 `aidc_sysml_validate`；需要人工审查时调用 `aidc_sysml_open`。没有 MCP 的 CI 环境使用 `aidc sysml validate <requirements.sysml>`。解析失败时保留原诊断，不通过修改浏览器或跳过 Parser 声称完成。
+

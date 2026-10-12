@@ -13,6 +13,7 @@ function Build-OneFile([string]$Name, [string]$Entry, [string[]]$Paths) {
 }
 
 Build-OneFile 'aidc' 'aidc.py' @('.')
+Build-OneFile 'aidc-mcp' 'aidc_mcp.py' @('.')
 Build-OneFile 'aidc-modelica-server' 'modelica-browser/services/project-server/server.py' @('modelica-browser/services/project-server','modelica-browser/tools','modelica-browser/packages/robot-ir/src','modelica-browser/packages/assembly-package/src')
 Build-OneFile 'aidc-modelica-tools' 'modelica-browser/tools/aidc_modelica.py' @('modelica-browser/tools','modelica-browser/packages/robot-ir/src','modelica-browser/packages/assembly-package/src')
 $exportArgs = @('-m','PyInstaller','--noconfirm','--clean','--onefile','--name','aidc-model3d-export',

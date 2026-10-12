@@ -10,7 +10,11 @@
       "sideEffect": "read",
       "longRunning": false,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "properties": {}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -21,7 +25,15 @@
       "sideEffect": "read",
       "longRunning": true,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "properties": {"reportPath": {"type": "string"}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reportPath": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -31,8 +43,21 @@
       "capability": "sysml.validate",
       "sideEffect": "read",
       "longRunning": false,
-      "requiredDependencies": ["sysml-parser-runtime"],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}}},
+      "requiredDependencies": [
+        "sysml-parser-runtime"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -42,8 +67,21 @@
       "capability": "sysml.open",
       "sideEffect": "launch",
       "longRunning": false,
-      "requiredDependencies": ["sysml-parser-runtime"],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}}},
+      "requiredDependencies": [
+        "sysml-parser-runtime"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -54,7 +92,18 @@
       "sideEffect": "launch",
       "longRunning": false,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath"], "properties": {"projectPath": {"type": "string"}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "projectPath"
+        ],
+        "properties": {
+          "projectPath": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -64,8 +113,25 @@
       "capability": "model3d.publish",
       "sideEffect": "write",
       "longRunning": true,
-      "requiredDependencies": ["freecad"],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["inputPath", "outputPath"], "properties": {"inputPath": {"type": "string"}, "outputPath": {"type": "string"}}},
+      "requiredDependencies": [
+        "freecad"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "inputPath",
+          "outputPath"
+        ],
+        "properties": {
+          "inputPath": {
+            "type": "string"
+          },
+          "outputPath": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -76,7 +142,22 @@
       "sideEffect": "write",
       "longRunning": true,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath", "outputPath"], "properties": {"projectPath": {"type": "string"}, "outputPath": {"type": "string"}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "projectPath",
+          "outputPath"
+        ],
+        "properties": {
+          "projectPath": {
+            "type": "string"
+          },
+          "outputPath": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -87,7 +168,22 @@
       "sideEffect": "read",
       "longRunning": false,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}, "migrate": {"type": "boolean", "default": false}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "migrate": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -98,7 +194,30 @@
       "sideEffect": "write",
       "longRunning": true,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["inputPath", "outputPath"], "properties": {"inputPath": {"type": "string"}, "outputPath": {"type": "string"}, "profile": {"enum": ["auto", "p2", "p3"], "default": "auto"}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "inputPath",
+          "outputPath"
+        ],
+        "properties": {
+          "inputPath": {
+            "type": "string"
+          },
+          "outputPath": {
+            "type": "string"
+          },
+          "profile": {
+            "enum": [
+              "auto",
+              "p2",
+              "p3"
+            ],
+            "default": "auto"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -108,8 +227,21 @@
       "capability": "modelica.open",
       "sideEffect": "launch",
       "longRunning": false,
-      "requiredDependencies": ["python-runtime"],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath"], "properties": {"projectPath": {"type": "string"}}},
+      "requiredDependencies": [
+        "python-runtime"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "projectPath"
+        ],
+        "properties": {
+          "projectPath": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -119,8 +251,25 @@
       "capability": "modelica.simulate",
       "sideEffect": "execute",
       "longRunning": true,
-      "requiredDependencies": ["openmodelica", "python-runtime"],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath"], "properties": {"projectPath": {"type": "string"}, "experiment": {"type": "string"}}},
+      "requiredDependencies": [
+        "openmodelica",
+        "python-runtime"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "projectPath"
+        ],
+        "properties": {
+          "projectPath": {
+            "type": "string"
+          },
+          "experiment": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -131,7 +280,26 @@
       "sideEffect": "write",
       "longRunning": true,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["projectPath", "outputPath"], "properties": {"projectPath": {"type": "string"}, "outputPath": {"type": "string"}, "includeResults": {"type": "boolean", "default": false}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "projectPath",
+          "outputPath"
+        ],
+        "properties": {
+          "projectPath": {
+            "type": "string"
+          },
+          "outputPath": {
+            "type": "string"
+          },
+          "includeResults": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -141,8 +309,21 @@
       "capability": "freecad.open",
       "sideEffect": "launch",
       "longRunning": false,
-      "requiredDependencies": ["freecad"],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["path"], "properties": {"path": {"type": "string"}}},
+      "requiredDependencies": [
+        "freecad"
+      ],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -153,7 +334,18 @@
       "sideEffect": "read",
       "longRunning": false,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["taskId"], "properties": {"taskId": {"type": "string"}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "taskId"
+        ],
+        "properties": {
+          "taskId": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     },
     {
@@ -164,9 +356,60 @@
       "sideEffect": "execute",
       "longRunning": false,
       "requiredDependencies": [],
-      "inputSchema": {"type": "object", "additionalProperties": false, "required": ["taskId"], "properties": {"taskId": {"type": "string"}}},
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "taskId"
+        ],
+        "properties": {
+          "taskId": {
+            "type": "string"
+          }
+        }
+      },
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_artifacts_list",
+      "title": "List AIDC task artifacts",
+      "description": "List versioned artifacts produced by AIDC operations, optionally filtered by task ID.",
+      "capability": "artifacts.list",
+      "sideEffect": "read",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "taskId": {
+            "type": "string"
+          }
+        }
+      },
+      "resultContract": "aidc.cli-result/1.0"
+    },
+    {
+      "name": "aidc_artifacts_get",
+      "title": "Get an AIDC artifact descriptor",
+      "description": "Read one immutable artifact descriptor by its AIDC artifact ID.",
+      "capability": "artifacts.get",
+      "sideEffect": "read",
+      "longRunning": false,
+      "requiredDependencies": [],
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifactId"
+        ],
+        "properties": {
+          "artifactId": {
+            "type": "string"
+          }
+        }
+      },
       "resultContract": "aidc.cli-result/1.0"
     }
   ]
 }
-

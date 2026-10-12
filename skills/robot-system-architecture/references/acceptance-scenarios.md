@@ -51,5 +51,5 @@
 3. 四条核心计算链能生成单位一致的结果和约束状态；
 4. 规划估计与方案假设保持明确说明；
 5. `cadRef` 和稳定部件 ID 可作为后续 CAD 交接键；
-6. 运行项目 `npm run verify:p2` 后 P2 浏览与计算基线仍然通过。
+6. 使用 `aidc sysml validate <architecture.sysml>` 校验模型，并通过 `aidc sysml open <architecture.sysml>` 审查浏览与计算结果。
 

@@ -1,0 +1,1 @@
+"""AIDC MCP stdio server."""

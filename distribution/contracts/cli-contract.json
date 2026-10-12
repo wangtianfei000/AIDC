@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "product": "aidc",
-  "contractVersion": "0.3.0",
+  "contractVersion": "0.4.0",
   "outputContract": "aidc.cli-result/1.0",
   "rules": {
     "humanOutput": "UTF-8 text",
@@ -12,45 +12,202 @@
     "longTaskPolicy": "return taskId and support status/cancel"
   },
   "exitCodes": [
-    {"code": 0, "id": "success", "meaning": "Command completed successfully"},
-    {"code": 2, "id": "usage_error", "meaning": "Arguments or command are invalid"},
-    {"code": 3, "id": "input_invalid", "meaning": "Input file, schema or model is invalid"},
-    {"code": 4, "id": "dependency_missing", "meaning": "A required managed capability is missing"},
-    {"code": 5, "id": "capability_unavailable", "meaning": "The installed version cannot provide the requested capability"},
-    {"code": 6, "id": "task_failed", "meaning": "The requested engineering task failed"},
-    {"code": 7, "id": "conflict", "meaning": "Existing task, process or output conflicts with the request"},
-    {"code": 8, "id": "cancelled", "meaning": "The task was cancelled"},
-    {"code": 9, "id": "access_denied", "meaning": "The path or operation is outside the allowed scope"},
-    {"code": 10, "id": "internal_error", "meaning": "Unexpected internal failure"},
-    {"code": 11, "id": "timeout", "meaning": "The operation exceeded its deadline"}
+    {
+      "code": 0,
+      "id": "success",
+      "meaning": "Command completed successfully"
+    },
+    {
+      "code": 2,
+      "id": "usage_error",
+      "meaning": "Arguments or command are invalid"
+    },
+    {
+      "code": 3,
+      "id": "input_invalid",
+      "meaning": "Input file, schema or model is invalid"
+    },
+    {
+      "code": 4,
+      "id": "dependency_missing",
+      "meaning": "A required managed capability is missing"
+    },
+    {
+      "code": 5,
+      "id": "capability_unavailable",
+      "meaning": "The installed version cannot provide the requested capability"
+    },
+    {
+      "code": 6,
+      "id": "task_failed",
+      "meaning": "The requested engineering task failed"
+    },
+    {
+      "code": 7,
+      "id": "conflict",
+      "meaning": "Existing task, process or output conflicts with the request"
+    },
+    {
+      "code": 8,
+      "id": "cancelled",
+      "meaning": "The task was cancelled"
+    },
+    {
+      "code": 9,
+      "id": "access_denied",
+      "meaning": "The path or operation is outside the allowed scope"
+    },
+    {
+      "code": 10,
+      "id": "internal_error",
+      "meaning": "Unexpected internal failure"
+    },
+    {
+      "code": 11,
+      "id": "timeout",
+      "meaning": "The operation exceeded its deadline"
+    }
   ],
   "commands": [
-    {"id": "system.capabilities", "syntax": "aidc capabilities [--json]", "sideEffect": "read"},
-    {"id": "system.version", "syntax": "aidc version [--json]", "sideEffect": "read"},
-    {"id": "system.doctor", "syntax": "aidc doctor [--report PATH] [--json]", "sideEffect": "read"},
-    {"id": "deps.status", "syntax": "aidc deps status [ID] [--json]", "sideEffect": "read"},
-    {"id": "deps.install", "syntax": "aidc deps install ID [--source FILE_OR_URL] [--json]", "sideEffect": "write"},
-    {"id": "deps.repair", "syntax": "aidc deps repair ID [--source FILE_OR_URL] [--json]", "sideEffect": "write"},
-    {"id": "deps.verify", "syntax": "aidc deps verify ID [--json]", "sideEffect": "read"},
-    {"id": "deps.rollback", "syntax": "aidc deps rollback ID [--json]", "sideEffect": "write"},
-    {"id": "deps.uninstall", "syntax": "aidc deps uninstall ID [--json]", "sideEffect": "write"},
-    {"id": "integrate.host", "syntax": "aidc integrate <codex|cursor|mcp> [--check] [--json]", "sideEffect": "write"},
-    {"id": "sysml.open", "syntax": "aidc sysml open FILE [--no-browser] [--json]", "sideEffect": "launch"},
-    {"id": "sysml.validate", "syntax": "aidc sysml validate FILE [--json]", "sideEffect": "read"},
-    {"id": "model3d.open", "syntax": "aidc model3d open PROJECT [--no-browser] [--json]", "sideEffect": "launch"},
-    {"id": "model3d.publish", "syntax": "aidc model3d publish INPUT OUTPUT [--json]", "sideEffect": "write"},
-    {"id": "model3d.export-modelica", "syntax": "aidc model3d export-modelica PROJECT OUTPUT [--json]", "sideEffect": "write"},
-    {"id": "modelica.open", "syntax": "aidc modelica open PROJECT [--no-browser] [--json]", "sideEffect": "launch"},
-    {"id": "modelica.validate", "syntax": "aidc modelica validate INPUT [--json]", "sideEffect": "read"},
-    {"id": "modelica.generate", "syntax": "aidc modelica generate INPUT OUTPUT [--json]", "sideEffect": "write"},
-    {"id": "modelica.simulate", "syntax": "aidc modelica simulate PROJECT [--experiment NAME] [--json]", "sideEffect": "execute"},
-    {"id": "modelica.package", "syntax": "aidc modelica package PROJECT OUTPUT [--include-results] [--json]", "sideEffect": "write"},
-    {"id": "freecad.open", "syntax": "aidc freecad open FILE [--json]", "sideEffect": "launch"},
-    {"id": "freecad.check", "syntax": "aidc freecad check FILE [--json]", "sideEffect": "execute"},
-    {"id": "task.status", "syntax": "aidc task status TASK_ID [--json]", "sideEffect": "read"},
-    {"id": "task.cancel", "syntax": "aidc task cancel TASK_ID [--json]", "sideEffect": "execute"},
-    {"id": "browser.status", "syntax": "aidc browser <list|status> [--json]", "sideEffect": "read"},
-    {"id": "browser.stop", "syntax": "aidc browser stop <INSTANCE_ID|--all> [--json]", "sideEffect": "execute"}
+    {
+      "id": "system.capabilities",
+      "syntax": "aidc capabilities [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "system.version",
+      "syntax": "aidc version [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "system.doctor",
+      "syntax": "aidc doctor [--report PATH] [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "deps.status",
+      "syntax": "aidc deps status [ID] [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "deps.install",
+      "syntax": "aidc deps install ID [--source FILE_OR_URL] [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "deps.repair",
+      "syntax": "aidc deps repair ID [--source FILE_OR_URL] [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "deps.verify",
+      "syntax": "aidc deps verify ID [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "deps.rollback",
+      "syntax": "aidc deps rollback ID [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "deps.uninstall",
+      "syntax": "aidc deps uninstall ID [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "integrate.host",
+      "syntax": "aidc integrate <codex|cursor|mcp> [--check] [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "sysml.open",
+      "syntax": "aidc sysml open FILE [--no-browser] [--json]",
+      "sideEffect": "launch"
+    },
+    {
+      "id": "sysml.validate",
+      "syntax": "aidc sysml validate FILE [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "model3d.open",
+      "syntax": "aidc model3d open PROJECT [--no-browser] [--json]",
+      "sideEffect": "launch"
+    },
+    {
+      "id": "model3d.publish",
+      "syntax": "aidc model3d publish INPUT OUTPUT [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "model3d.export-modelica",
+      "syntax": "aidc model3d export-modelica PROJECT OUTPUT [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "modelica.open",
+      "syntax": "aidc modelica open PROJECT [--no-browser] [--json]",
+      "sideEffect": "launch"
+    },
+    {
+      "id": "modelica.validate",
+      "syntax": "aidc modelica validate INPUT [--migrate] [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "modelica.generate",
+      "syntax": "aidc modelica generate INPUT OUTPUT [--profile <auto|p2|p3>] [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "modelica.simulate",
+      "syntax": "aidc modelica simulate PROJECT [--experiment NAME] [--json]",
+      "sideEffect": "execute"
+    },
+    {
+      "id": "modelica.package",
+      "syntax": "aidc modelica package PROJECT OUTPUT [--include-results] [--json]",
+      "sideEffect": "write"
+    },
+    {
+      "id": "freecad.open",
+      "syntax": "aidc freecad open FILE [--json]",
+      "sideEffect": "launch"
+    },
+    {
+      "id": "freecad.check",
+      "syntax": "aidc freecad check FILE [--json]",
+      "sideEffect": "execute"
+    },
+    {
+      "id": "task.status",
+      "syntax": "aidc task status TASK_ID [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "task.cancel",
+      "syntax": "aidc task cancel TASK_ID [--json]",
+      "sideEffect": "execute"
+    },
+    {
+      "id": "browser.status",
+      "syntax": "aidc browser <list|status> [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "browser.stop",
+      "syntax": "aidc browser stop <INSTANCE_ID|--all> [--json]",
+      "sideEffect": "execute"
+    },
+    {
+      "id": "artifacts.list",
+      "syntax": "aidc artifacts list [--task-id TASK_ID] [--json]",
+      "sideEffect": "read"
+    },
+    {
+      "id": "artifacts.get",
+      "syntax": "aidc artifacts get ARTIFACT_ID [--json]",
+      "sideEffect": "read"
+    }
   ]
 }
-

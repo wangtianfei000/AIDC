@@ -16,6 +16,8 @@ from aidc_core.result import AidcError, CommandResult
 from aidc_core.runtime import RuntimeManager
 from aidc_core.operations import model3d_export, model3d_publish, modelica, sysml_validate
 from aidc_core.dependencies import DependencyManager, RUNTIME_DIRECTORIES
+from aidc_core.artifacts import ArtifactRegistry
+from mcp.aidc_mcp import TaskRegistry
 
 
 class AidcArgumentParser(argparse.ArgumentParser):
@@ -43,8 +45,8 @@ def parser() -> argparse.ArgumentParser:
             for action in ("publish", "export-modelica"):
                 operation = sub.add_parser(action); operation.add_argument("input"); operation.add_argument("output")
         else:
-            sub.add_parser("validate").add_argument("input")
-            generated = sub.add_parser("generate"); generated.add_argument("input"); generated.add_argument("output")
+            validated = sub.add_parser("validate"); validated.add_argument("input"); validated.add_argument("--migrate", action="store_true")
+            generated = sub.add_parser("generate"); generated.add_argument("input"); generated.add_argument("output"); generated.add_argument("--profile", choices=("auto", "p2", "p3"), default="auto")
             simulated = sub.add_parser("simulate"); simulated.add_argument("project"); simulated.add_argument("--experiment")
             packaged = sub.add_parser("package"); packaged.add_argument("project"); packaged.add_argument("output"); packaged.add_argument("--include-results", action="store_true")
     freecad = commands.add_parser("freecad").add_subparsers(dest="action", required=True)
@@ -56,6 +58,9 @@ def parser() -> argparse.ArgumentParser:
     task = commands.add_parser("task").add_subparsers(dest="action", required=True)
     task_status = task.add_parser("status"); task_status.add_argument("task_id")
     task_cancel = task.add_parser("cancel"); task_cancel.add_argument("task_id")
+    artifacts = commands.add_parser("artifacts").add_subparsers(dest="action", required=True)
+    artifact_list = artifacts.add_parser("list"); artifact_list.add_argument("--task-id")
+    artifact_get = artifacts.add_parser("get"); artifact_get.add_argument("artifact_id")
     return root
 
 
@@ -82,7 +87,7 @@ def _doctor(registry: ComponentRegistry) -> dict[str, Any]:
 def execute(args: argparse.Namespace) -> CommandResult:
     registry = ComponentRegistry(); manager = RuntimeManager()
     if args.domain == "version":
-        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.3.0", "pythonVersion": platform.python_version()})
+        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.4.0", "pythonVersion": platform.python_version()})
     if args.domain == "capabilities":
         return CommandResult("system.capabilities", f"发现 {len(registry.capabilities())} 项能力", {"capabilities": registry.capabilities(), "components": registry.components()})
     if args.domain == "doctor":
@@ -90,6 +95,7 @@ def execute(args: argparse.Namespace) -> CommandResult:
         result = CommandResult("system.doctor", "系统诊断通过" if data["healthy"] else "系统诊断发现缺失组件", data)
         if args.report:
             path = args.report.expanduser().resolve(); path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(result.finish(), ensure_ascii=False, indent=2), encoding="utf-8")
+            result.artifacts.append({"kind": "file", "path": str(path)})
         return result
     if args.domain == "deps" and args.action == "status":
         dependency_manager = DependencyManager(registry.root)
@@ -125,8 +131,11 @@ def execute(args: argparse.Namespace) -> CommandResult:
         source = absolute_existing(args.input, "三维工程"); output = Path(args.output).expanduser().resolve(); data = model3d_export(registry.root, source, output)
         return CommandResult("model3d.export-modelica", "Modelica 装配输入包导出完成", data, artifacts=[{"kind": "directory", "path": str(output)}])
     if args.domain == "modelica" and args.action in {"validate", "generate", "package"}:
-        if args.action == "validate": arguments = [str(absolute_existing(args.input, "模型输入"))]
-        elif args.action == "generate": arguments = [str(absolute_existing(args.input, "模型输入")), str(Path(args.output).expanduser().resolve())]
+        if args.action == "validate":
+            arguments = [str(absolute_existing(args.input, "模型输入"))]
+            if args.migrate: arguments.append("--migrate")
+        elif args.action == "generate":
+            arguments = [str(absolute_existing(args.input, "模型输入")), str(Path(args.output).expanduser().resolve()), "--profile", args.profile]
         else:
             arguments = [str(absolute_existing(args.project, "Modelica 工程")), str(Path(args.output).expanduser().resolve())]
             if args.include_results: arguments.append("--include-results")
@@ -160,12 +169,24 @@ def execute(args: argparse.Namespace) -> CommandResult:
         if not args.instance_id: raise AidcError("请提供 INSTANCE_ID 或 --all", 2, "USAGE_ERROR")
         return CommandResult("browser.stop", "浏览器实例已停止", manager.stop(args.instance_id))
     if args.domain == "task" and args.action == "status":
-        data = manager.task(args.task_id)
-        if not data: raise AidcError(f"任务不存在：{args.task_id}", 3, "TASK_NOT_FOUND")
+        try: data = TaskRegistry(registry.root).get(args.task_id)
+        except AidcError as exc:
+            if exc.code != "TASK_NOT_FOUND": raise
+            data = manager.task(args.task_id)
+            if not data: raise AidcError(f"任务不存在：{args.task_id}", 3, "TASK_NOT_FOUND")
         return CommandResult("task.status", f"任务状态：{data['state']}", data, task={"taskId": data["taskId"], "state": data["state"], "progress": 1 if data["state"] == "succeeded" else None})
     if args.domain == "task" and args.action == "cancel":
-        data = manager.cancel_task(args.task_id)
+        try: data = TaskRegistry(registry.root).cancel(args.task_id)
+        except AidcError as exc:
+            if exc.code != "TASK_NOT_FOUND": raise
+            data = manager.cancel_task(args.task_id)
         return CommandResult("task.cancel", "任务已取消", data, task={"taskId": data["taskId"], "state": "cancelled", "progress": None})
+    if args.domain == "artifacts" and args.action == "list":
+        items = ArtifactRegistry().list(args.task_id)
+        return CommandResult("artifacts.list", f"找到 {len(items)} 个产物", {"artifacts": items})
+    if args.domain == "artifacts" and args.action == "get":
+        item = ArtifactRegistry().get(args.artifact_id)
+        return CommandResult("artifacts.get", "产物信息已读取", item, artifacts=[item])
     raise AidcError("命令尚未实现", 5, "CAPABILITY_UNAVAILABLE")
 
 
@@ -193,6 +214,8 @@ def main(argv: list[str] | None = None) -> int:
     except Exception as exc:
         result = CommandResult(command or "system.command", "AIDC 内部错误", status="failed", exit_code=10, diagnostics=[{"code": "INTERNAL_ERROR", "severity": "error", "message": str(exc), "path": None, "details": {}}])
     document = result.finish()
+    recorded = ArtifactRegistry().record(document)
+    if recorded: document["artifacts"] = recorded
     if as_json: print(json.dumps(document, ensure_ascii=False))
     else: print_human(document)
     return result.exit_code

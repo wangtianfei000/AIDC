@@ -1,6 +1,6 @@
 # 开发工作流
 
-以下路径均相对于 `AIDC/`。开始前检查实际仓库脚本和 `--help`，不要凭旧文档猜参数。
+以下命令是安装后稳定入口，不要求源码仓库、npm、PowerShell 脚本或系统 Python。AI 宿主优先调用同名 MCP 工具；终端和 CI 使用 `aidc`。
 
 ## 1. 盘点输入与证据
 
@@ -17,9 +17,9 @@
 
 ## 2. 校验输入
 
-```powershell
-cd AIDC/modelica-browser
-.\scripts\aidc-modelica.ps1 validate <robot.aidc-assembly-or-robot-ir>
+```text
+aidc modelica validate <robot.aidc-assembly-or-robot-ir>
+aidc modelica validate <legacy-robot-ir> --migrate
 ```
 
 遇到未知 schema 时先运行显式迁移流程。发现孤立刚体、环路、重复 ID、非法惯量、缺失父子关系或未解析几何引用时，输出字段级诊断并停止生成。
@@ -28,9 +28,8 @@ cd AIDC/modelica-browser
 
 ### 整机生成
 
-```powershell
-cd AIDC/modelica-browser
-.\scripts\aidc-modelica.ps1 generate <robot.aidc-assembly> generated/<robot>
+```text
+aidc modelica generate <robot.aidc-assembly> <output-project> --profile auto
 ```
 
 生成器必须产生最小 Modelica 工程：`model-project.json`、`modelica/<Package>/package.mo`、Robot IR 快照/结构清单、覆盖文件和生成诊断。根包引用兼容版本的 Modelica 标准库与 `AIDCRobotics`。
@@ -62,10 +61,9 @@ cd AIDC/modelica-browser
 
 单工程校验：
 
-```powershell
-cd AIDC/modelica-browser
-.\scripts\run-project.ps1 -Project <project> -ValidateOnly
-.\scripts\run-project.ps1 -Project <project>
+```text
+aidc modelica validate <project>
+aidc modelica simulate <project> [--experiment <model-class>]
 ```
 
 按模型能力选择场景：
@@ -79,32 +77,15 @@ cd AIDC/modelica-browser
 
 ## 6. 回归和便携交付
 
-```powershell
-cd AIDC/modelica-browser
-.\scripts\aidc-modelica.ps1 compare <run-a> <run-b> --abs-tol <value> --rel-tol <value>
-.\scripts\aidc-modelica.ps1 package <project> dist/<robot>.aidcmpkg --include-results
+```text
+aidc modelica package <project> <robot>.aidcmpkg --include-results
 ```
 
 对同一输入至少生成两次，确认源码、锁文件和结构清单稳定，用户覆盖未丢失。需要跨求解器或 FMI 时，使用相同输入和采样网格比较关键变量，并记录变量映射和容差。
 
-## 7. 仓库级回归
+## 7. 产品级回归
 
-根据改动范围运行最小充分集合：
-
-```powershell
-cd AIDC
-npm run verify:modelica:p0-robotics
-npm run verify:modelica:p1-robotics
-npm run verify:modelica:p3-generator
-npm run verify:modelica:p4-contact-runtime
-npm run verify:modelica:p5-productization
-
-cd modelica-browser
-npm run verify:modelica:p6-closed-loop
-npm run ci:modelica
-```
-
-公共接口、生成器或原生运行时变化需要相应阶段和闭环回归；单一型号参数变化可以只运行该工程和受影响场景，但必须说明缩减理由。
+通过 MCP 或 CLI 依次执行输入校验、确定性生成、工程校验、目标场景仿真和便携打包。公共接口、生成器或原生运行时变化需要完整闭环；单一型号参数变化可以只运行该工程和受影响场景，但必须说明缩减理由。源码仓库维护者可以额外执行内部测试，但不得把 npm 或仓库脚本写入用户交付流程。
 
 ## 8. 诊断原则
 

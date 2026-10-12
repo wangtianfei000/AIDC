@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "aidc.skill-catalog/1.0",
+  "catalogVersion": "0.2.0",
+  "skills": [
+    {
+      "id": "robot-requirements-authoring",
+      "version": "0.2.0",
+      "path": "robot-requirements-authoring/SKILL.md",
+      "requiredCapabilities": ["sysml.validate", "sysml.open"],
+      "hosts": ["codex", "cursor", "mcp"]
+    },
+    {
+      "id": "robot-system-architecture",
+      "version": "0.2.0",
+      "path": "robot-system-architecture/SKILL.md",
+      "requiredCapabilities": ["sysml.validate", "sysml.open"],
+      "hosts": ["codex", "cursor", "mcp"]
+    },
+    {
+      "id": "robot-preliminary-cad-assembly",
+      "version": "0.2.0",
+      "path": "robot-preliminary-cad-assembly/SKILL.md",
+      "requiredCapabilities": ["model3d.publish", "model3d.export-modelica", "model3d.open", "task.status", "artifacts.list"],
+      "hosts": ["codex", "cursor", "mcp"]
+    },
+    {
+      "id": "robot-modelica-model-development",
+      "version": "0.2.0",
+      "path": "robot-modelica-model-development/SKILL.md",
+      "requiredCapabilities": ["modelica.validate", "modelica.generate", "modelica.simulate", "modelica.package", "task.status", "artifacts.list"],
+      "hosts": ["codex", "cursor", "mcp"]
+    }
+  ]
+}

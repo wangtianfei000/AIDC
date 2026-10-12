@@ -1,7 +1,7 @@
 # AIDC AI 工具插件化与正式发行实施计划
 
 版本：V1.1  
-状态：P0–P3 已执行；公开发行仍受供应链闸门阻断
+状态：P0–P4 已执行；公开发行仍受供应链闸门阻断
 日期：2026-10-12
 
 ## 1. 定位修正
@@ -367,7 +367,7 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 
 执行结果：已完成内部发行验收。`distribution/scripts/build_portable.ps1` 统一构建三套前端生产资源和四个单文件服务组件，`assemble_portable.py` 生成带 SHA-256 文件清单的 `distribution/out/aidc-portable/`。运行管理器优先解析 `components/` 发行布局；三维浏览器改为静态资源与工程 `generated/` 叠加托管，不再启动 Vite；Modelica Project Server 和生成器不再调用系统 Python；SysML Parser 固定为 0.8.1 运行时。统一 CLI 已实现 SysML 校验、三维发布/装配导出、Modelica 校验/生成/打包和 FreeCAD 打开/检查。旧 PowerShell 入口仅作为开发包装器转调 CLI。
 
-验收记录：发行目录包含 267 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
+验收记录：发行目录包含 270 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
 
 交付：
 
@@ -399,6 +399,14 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 验收：干净机器不配置 PATH、Python、FreeCAD 或 OMC 即可完成 CAD 发布和 Modelica 编译仿真。
 
 ### P4：MCP 与 Skills 产品化（2 周）
+
+执行结果：已完成。新增冻结为 `aidc-mcp.exe` 的 MCP stdio 服务，协议实现初始化、工具发现、调用、Ping 以及只读 Skill Resources。工具目录由 P0 的 15 项扩展为 17 项，覆盖系统、SysML、三维、Modelica、FreeCAD、任务和产物域。服务只接受目录中注册的结构化参数，不执行宿主传入的任意命令。
+
+长任务由持久任务注册表启动独立 CLI 子进程，立即返回 `taskId`，并记录状态、日志、结果和产物；MCP 与 CLI 均可查询或取消同一任务。产物注册表为诊断报告、浏览会话、三维发布包、装配包、Modelica 工程、仿真结果和便携包生成稳定描述符、绝对路径、大小与文件摘要。
+
+四个现有工程 Skills 已提升到 0.2.0，由 `skills/catalog.json` 记录版本、入口、宿主和所需能力。面向用户的步骤改为调用稳定 MCP 工具或 `aidc` 命令，移除了 npm 和仓库脚本作为正式流程入口；Skill 内容同时作为只读 MCP Resources 提供给通用宿主。
+
+验收记录：P0 契约校验确认 28 个 CLI 命令与 17 个 MCP 工具一一映射；协议客户端完成初始化、工具列表、参数校验、同步调用、异步任务、状态查询、取消、日志、产物列表/读取以及四个 Skill Resources 读取；四个 Skill 均通过 `skill-creator` 校验。冻结版 `aidc-mcp.exe` 在 PATH 仅包含 Windows `System32` 时完成初始化、17 项工具发现、四项 Skill 资源发现和系统能力调用。
 
 交付：
 

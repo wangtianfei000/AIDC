@@ -3,22 +3,48 @@
   "id": "aidc.skills",
   "displayName": "AIDC Engineering Skills",
   "description": "Host-neutral robot engineering workflows for Codex, Cursor and compatible AI hosts.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "kind": "skill-pack",
   "platform": "any",
   "architecture": "any",
-  "protocolVersion": "0.1",
-  "capabilities": ["skills.requirements", "skills.architecture", "skills.cad", "skills.modelica"],
+  "protocolVersion": "0.2",
+  "capabilities": [
+    "skills.requirements",
+    "skills.architecture",
+    "skills.cad",
+    "skills.modelica",
+    "skills.catalog",
+    "skills.mcp-resources"
+  ],
   "entryPoints": [
-    {"id": "skills", "relativePath": "skills", "mode": "resource", "arguments": []}
+    {
+      "id": "skills",
+      "relativePath": "skills",
+      "mode": "resource",
+      "arguments": []
+    }
   ],
   "dependencies": [
-    {"id": "aidc.core", "versionRange": "0.1.x", "required": true, "capability": "system.capabilities"}
+    {
+      "id": "aidc.core",
+      "versionRange": "0.4.x",
+      "required": true,
+      "capability": "system.capabilities"
+    }
   ],
   "licenses": [
-    {"name": "AIDC project license decision pending", "spdx": null, "status": "review-required", "noticePath": "licenses/THIRD_PARTY_BASELINE.md"}
+    {
+      "name": "AIDC project license decision pending",
+      "spdx": null,
+      "status": "review-required",
+      "noticePath": "licenses/THIRD_PARTY_BASELINE.md"
+    }
   ],
   "distributionStatus": "blocked",
-  "healthCheck": {"type": "file", "target": "skills/robot-modelica-model-development/SKILL.md", "arguments": [], "timeoutSeconds": 10}
+  "healthCheck": {
+    "type": "file",
+    "target": "skills/robot-modelica-model-development/SKILL.md",
+    "arguments": [],
+    "timeoutSeconds": 10
+  }
 }
-

@@ -3,21 +3,64 @@
   "id": "aidc.core",
   "displayName": "AIDC Engineering Tools Core",
   "description": "Host-independent CLI, MCP, task, artifact and runtime-management contracts.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "kind": "cli",
   "platform": "windows",
   "architecture": "x86_64",
-  "protocolVersion": "0.1",
-  "capabilities": ["system.capabilities", "system.version", "system.doctor", "deps.status", "deps.install", "deps.repair", "deps.verify", "deps.rollback", "deps.uninstall", "task.status", "browser.status", "browser.stop", "runtime.dynamic-port", "runtime.health", "runtime.reuse"],
+  "protocolVersion": "0.2",
+  "capabilities": [
+    "system.capabilities",
+    "system.version",
+    "system.doctor",
+    "deps.status",
+    "deps.install",
+    "deps.repair",
+    "deps.verify",
+    "deps.rollback",
+    "deps.uninstall",
+    "task.status",
+    "browser.status",
+    "browser.stop",
+    "runtime.dynamic-port",
+    "runtime.health",
+    "runtime.reuse",
+    "artifacts.list",
+    "artifacts.get",
+    "mcp.stdio",
+    "mcp.tasks",
+    "mcp.resources"
+  ],
   "entryPoints": [
-    {"id": "cli", "relativePath": "bin/aidc.exe", "mode": "executable", "arguments": []},
-    {"id": "mcp", "relativePath": "bin/aidc-mcp.exe", "mode": "stdio", "arguments": []}
+    {
+      "id": "cli",
+      "relativePath": "bin/aidc.exe",
+      "mode": "executable",
+      "arguments": []
+    },
+    {
+      "id": "mcp",
+      "relativePath": "bin/aidc-mcp.exe",
+      "mode": "stdio",
+      "arguments": []
+    }
   ],
   "dependencies": [],
   "licenses": [
-    {"name": "AIDC project license decision pending", "spdx": null, "status": "review-required", "noticePath": "licenses/THIRD_PARTY_BASELINE.md"}
+    {
+      "name": "AIDC project license decision pending",
+      "spdx": null,
+      "status": "review-required",
+      "noticePath": "licenses/THIRD_PARTY_BASELINE.md"
+    }
   ],
   "distributionStatus": "blocked",
-  "healthCheck": {"type": "command", "target": "bin/aidc.exe", "arguments": ["doctor", "--json"], "timeoutSeconds": 30}
+  "healthCheck": {
+    "type": "command",
+    "target": "bin/aidc.exe",
+    "arguments": [
+      "doctor",
+      "--json"
+    ],
+    "timeoutSeconds": 30
+  }
 }
-
