@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "product": "aidc",
-  "contractVersion": "0.1.0",
+  "contractVersion": "0.2.0",
   "outputContract": "aidc.cli-result/1.0",
   "rules": {
     "humanOutput": "UTF-8 text",
@@ -32,12 +32,12 @@
     {"id": "deps.install", "syntax": "aidc deps install ID [--json]", "sideEffect": "write"},
     {"id": "deps.repair", "syntax": "aidc deps repair ID [--json]", "sideEffect": "write"},
     {"id": "integrate.host", "syntax": "aidc integrate <codex|cursor|mcp> [--check] [--json]", "sideEffect": "write"},
-    {"id": "sysml.open", "syntax": "aidc sysml open FILE [--json]", "sideEffect": "launch"},
+    {"id": "sysml.open", "syntax": "aidc sysml open FILE [--no-browser] [--json]", "sideEffect": "launch"},
     {"id": "sysml.validate", "syntax": "aidc sysml validate FILE [--json]", "sideEffect": "read"},
-    {"id": "model3d.open", "syntax": "aidc model3d open PROJECT [--json]", "sideEffect": "launch"},
+    {"id": "model3d.open", "syntax": "aidc model3d open PROJECT [--no-browser] [--json]", "sideEffect": "launch"},
     {"id": "model3d.publish", "syntax": "aidc model3d publish INPUT OUTPUT [--json]", "sideEffect": "write"},
     {"id": "model3d.export-modelica", "syntax": "aidc model3d export-modelica PROJECT OUTPUT [--json]", "sideEffect": "write"},
-    {"id": "modelica.open", "syntax": "aidc modelica open PROJECT [--json]", "sideEffect": "launch"},
+    {"id": "modelica.open", "syntax": "aidc modelica open PROJECT [--no-browser] [--json]", "sideEffect": "launch"},
     {"id": "modelica.validate", "syntax": "aidc modelica validate INPUT [--json]", "sideEffect": "read"},
     {"id": "modelica.generate", "syntax": "aidc modelica generate INPUT OUTPUT [--json]", "sideEffect": "write"},
     {"id": "modelica.simulate", "syntax": "aidc modelica simulate PROJECT [--experiment NAME] [--json]", "sideEffect": "execute"},
@@ -46,8 +46,8 @@
     {"id": "freecad.check", "syntax": "aidc freecad check FILE [--json]", "sideEffect": "execute"},
     {"id": "task.status", "syntax": "aidc task status TASK_ID [--json]", "sideEffect": "read"},
     {"id": "task.cancel", "syntax": "aidc task cancel TASK_ID [--json]", "sideEffect": "execute"},
-    {"id": "browser.status", "syntax": "aidc browser status [--json]", "sideEffect": "read"},
-    {"id": "browser.stop", "syntax": "aidc browser stop INSTANCE_ID [--json]", "sideEffect": "execute"}
+    {"id": "browser.status", "syntax": "aidc browser <list|status> [--json]", "sideEffect": "read"},
+    {"id": "browser.stop", "syntax": "aidc browser stop <INSTANCE_ID|--all> [--json]", "sideEffect": "execute"}
   ]
 }
 

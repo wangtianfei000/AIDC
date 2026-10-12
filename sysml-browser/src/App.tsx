@@ -19,7 +19,7 @@ import { ParserClient, ParserRuntimeError, type RuntimeHealth } from './services
 
 interface ContextMenuState { x: number; y: number; element: ModelElement }
 export default function App() {
-  const [runtimeUrl, setRuntimeUrl] = useState(() => localStorage.getItem('aidc-runtime-url') ?? 'http://127.0.0.1:47321');
+  const [runtimeUrl, setRuntimeUrl] = useState(() => new URLSearchParams(window.location.search).get('runtime') ?? localStorage.getItem('aidc-runtime-url') ?? 'http://127.0.0.1:47321');
   const [health, setHealth] = useState<RuntimeHealth>();
   const [source, setSource] = useState<ModelSource>();
   const [snapshot, setSnapshot] = useState<ModelSnapshot>();
@@ -35,6 +35,7 @@ export default function App() {
   const navigation = useRef(createNavigationState());
   const [, setNavigationRevision] = useState(0);
   const fileInput = useRef<HTMLInputElement>(null);
+  const sessionInputLoaded = useRef(false);
   const client = useMemo(() => new ParserClient(runtimeUrl.replace(/\/$/, '')), [runtimeUrl]);
   const query = useMemo(() => (snapshot ? new ModelQuery(snapshot) : undefined), [snapshot]);
   const requirements = useMemo(() => (snapshot && query ? buildRequirements(snapshot, query) : []), [snapshot, query]);
@@ -101,6 +102,15 @@ export default function App() {
     } catch (error) { setRuntimeError(error instanceof ParserRuntimeError ? error.message : '解析失败'); setStaleSnapshot(Boolean(snapshot)); }
     finally { setBusy(false); }
   }, [client, resetNavigation, snapshot]);
+  useEffect(() => {
+    if (sessionInputLoaded.current) return;
+    sessionInputLoaded.current = true;
+    void fetch('./session/input').then(async (response) => {
+      if (!response.ok) return;
+      const input = await response.json() as { name: string; uri: string; text: string };
+      await parseSource({ name: input.name, uri: input.uri, text: input.text });
+    }).catch(() => undefined);
+  }, [parseSource]);
 
   const openFile = async (file: File) => {
     if (!file.name.toLowerCase().endsWith('.sysml') && !file.name.toLowerCase().endsWith('.kerml')) { setRuntimeError('请选择 .sysml 或 .kerml 文本文件'); return; }

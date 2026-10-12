@@ -6,6 +6,22 @@
 
 P0 产品契约与供应链基线位于 [distribution/](distribution/README.md)，可运行 `npm run verify:distribution:p0` 验证。
 
+## 统一 CLI
+
+开发工作区可直接运行：
+
+```powershell
+.\bin\aidc.cmd doctor
+.\bin\aidc.cmd deps status
+.\bin\aidc.cmd sysml open .\samples\jingang-10axis-system-design\architecture.sysml
+.\bin\aidc.cmd model3d open .\samples\jingang-10axis-system-design\model3d
+.\bin\aidc.cmd modelica open .\samples\modelica-t2-single-joint
+.\bin\aidc.cmd browser status
+.\bin\aidc.cmd browser stop --all
+```
+
+CLI 自动分配端口、执行健康检查、复用相同工程实例，并在 `%LOCALAPPDATA%\AIDC\state` 记录任务、进程和脱敏日志。`--json` 可以放在命令任意位置，输出 `aidc.cli-result/1.0` 结构。
+
 ## 存放范围
 
 - 每款软件使用独立子目录，保留其上游目录结构和许可证。

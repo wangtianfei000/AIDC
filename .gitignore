@@ -11,6 +11,7 @@ __pycache__/
 *.dll
 *.pdb
 *.7z
+*.spec
 **/release/*.zip
 
 # JavaScript and Python dependencies

@@ -3,12 +3,12 @@
   "id": "aidc.core",
   "displayName": "AIDC Engineering Tools Core",
   "description": "Host-independent CLI, MCP, task, artifact and runtime-management contracts.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "kind": "cli",
   "platform": "windows",
   "architecture": "x86_64",
   "protocolVersion": "0.1",
-  "capabilities": ["system.capabilities", "system.doctor", "deps.status", "task.status", "task.cancel"],
+  "capabilities": ["system.capabilities", "system.version", "system.doctor", "deps.status", "task.status", "browser.status", "browser.stop", "runtime.dynamic-port", "runtime.health", "runtime.reuse"],
   "entryPoints": [
     {"id": "cli", "relativePath": "bin/aidc.exe", "mode": "executable", "arguments": []},
     {"id": "mcp", "relativePath": "bin/aidc-mcp.exe", "mode": "stdio", "arguments": []}

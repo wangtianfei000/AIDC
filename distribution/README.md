@@ -1,6 +1,8 @@
 # AIDC Distribution Baseline
 
-该目录保存 AIDC Engineering Tools 的公共产品契约和供应链基线。P0 不实现最终 CLI、MCP 服务或安装器；它冻结后续实现必须遵守的机器可读边界。
+该目录保存 AIDC Engineering Tools 的公共产品契约和供应链基线。P0 冻结后续实现必须遵守的机器可读边界；P1 已增加统一 CLI 与运行管理器，尚不包含最终安装器和 MCP 服务。
+
+P1 的开发入口位于 `bin/aidc.cmd`，可执行文件通过 `distribution/scripts/build_cli.ps1` 生成。运行管理器提供组件发现、动态端口、健康检查、本机会话令牌、服务复用和进程回收。
 
 ```text
 distribution/
