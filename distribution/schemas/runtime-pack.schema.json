@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/runtime-pack.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "packId", "dependencyId", "version", "platform", "architecture", "createdAt", "entryPoints", "healthCheck", "files"],
+  "properties": {
+    "schemaVersion": {"const": "aidc.runtime-pack/1.0"},
+    "packId": {"type": "string", "pattern": "^[a-z0-9.-]+$"},
+    "dependencyId": {"enum": ["freecad", "openmodelica", "python-runtime"]},
+    "version": {"type": "string", "minLength": 1},
+    "platform": {"const": "windows"},
+    "architecture": {"const": "x86_64"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "entryPoints": {"type": "object", "additionalProperties": {"type": "string"}},
+    "healthCheck": {
+      "type": "object", "additionalProperties": false, "required": ["type", "target", "expected"],
+      "properties": {"type": {"enum": ["command", "file"]}, "target": {"type": "string"}, "arguments": {"type": "array", "items": {"type": "string"}}, "expected": {"type": "string"}, "timeoutSeconds": {"type": "integer", "minimum": 1, "maximum": 300}}
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "size", "sha256"],
+        "properties": {
+          "path": {"type": "string"},
+          "size": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    }
+  }
+}

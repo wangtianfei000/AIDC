@@ -53,6 +53,7 @@ def main() -> int:
     validate(DIST / "contracts" / "mcp-tools.json", SCHEMAS / "mcp-tool-catalog.schema.json", errors)
     validate(DIST / "contracts" / "example-cli-result.json", SCHEMAS / "cli-result.schema.json", errors)
     validate(DIST / "contracts" / "cli-contract.json", SCHEMAS / "cli-contract.schema.json", errors)
+    validate(DIST / "runtime-packs" / "catalog.json", SCHEMAS / "runtime-catalog.schema.json", errors)
     validate(
         DIST / "contracts" / "project-artifact-types.json",
         SCHEMAS / "project-artifact-catalog.schema.json",

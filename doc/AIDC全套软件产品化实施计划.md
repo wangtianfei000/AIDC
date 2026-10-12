@@ -1,7 +1,7 @@
 # AIDC AI 工具插件化与正式发行实施计划
 
 版本：V1.1  
-状态：P0、P1 已执行；公开发行仍受供应链闸门阻断
+状态：P0–P3 已执行；公开发行仍受供应链闸门阻断
 日期：2026-10-12
 
 ## 1. 定位修正
@@ -367,7 +367,7 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 
 执行结果：已完成内部发行验收。`distribution/scripts/build_portable.ps1` 统一构建三套前端生产资源和四个单文件服务组件，`assemble_portable.py` 生成带 SHA-256 文件清单的 `distribution/out/aidc-portable/`。运行管理器优先解析 `components/` 发行布局；三维浏览器改为静态资源与工程 `generated/` 叠加托管，不再启动 Vite；Modelica Project Server 和生成器不再调用系统 Python；SysML Parser 固定为 0.8.1 运行时。统一 CLI 已实现 SysML 校验、三维发布/装配导出、Modelica 校验/生成/打包和 FreeCAD 打开/检查。旧 PowerShell 入口仅作为开发包装器转调 CLI。
 
-验收记录：发行目录包含 261 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
+验收记录：发行目录包含 267 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
 
 交付：
 
@@ -380,6 +380,14 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 验收：删除发行目录中的 `node_modules` 后，所有正式能力仍可运行。
 
 ### P3：依赖管理和安装器（2–3 周）
+
+执行结果：已完成 P3 工程实现与内部验收。新增 `aidc.runtime-pack/1.0` 自包含包格式和在线目录，FreeCAD、OpenModelica 和 Python 统一安装到产品目录 `runtimes/` 且不修改系统 PATH。依赖管理器支持显式离线包或已发布 URL，执行断点下载、包及逐文件 SHA-256 校验、路径越界防护、预安装健康检查、事务切换、安装收据、破损修复、升级快照和回滚。统一 CLI 增加 `deps install/verify/repair/rollback/uninstall`，Modelica 仿真已接入受管 OMC 绝对路径。
+
+安装交付包含用户级原子安装/升级脚本、在线 SHA-256 引导脚本、离线整包构建器和保留用户工程/状态的卸载脚本。Core 升级时会继承已安装 Runtime Pack；默认卸载会把 Runtime Pack 移到可恢复目录。
+
+验收记录：伪运行时完成“安装→篡改检出→修复→并行升级→回滚→卸载”全链路，非法 ZIP 路径被拒绝；产品安装器完成两次原子安装并保留 Runtime Pack，失败升级可恢复原 Core 和运行时，卸载后用户状态与运行时仍可恢复；在 PATH 仅保留 Windows `System32` 时，本机 OpenModelica 1.27.1 完成 Modelica 编译仿真，FreeCAD 1.1.3 完成 212 对象工程检查和五个三维发布产物生成；冻结版 `aidc.exe` 也在隔离 PATH 下通过受管目录完成 OMC 仿真和 FreeCAD 检查。
+
+发布边界：安装机制和工程能力已完成，但三个官方 Runtime Pack 二进制未纳入 Git，也未标记为可公开下载。OpenModelica 安装包 SHA-256、OSMC-PL 使用模式，FreeCAD 第三方 notices，Python wheel lock 及三者的完整许可清单仍是 P0 公开发布门禁。因此可以使用已审核的内部 `.aidcpack` 完成干净机安装，在线目录在门禁关闭前不会自动下载未审核第三方包。
 
 交付：
 

@@ -17,18 +17,42 @@
         "verificationStatus": "verified",
         "signature": "Upstream release digest matched; local archive is not retained in the source repository"
       },
-      "capabilities": ["cad.gui", "cad.headless", "cad.python", "cad.export", "geometry.exact-check"],
+      "capabilities": [
+        "cad.gui",
+        "cad.headless",
+        "cad.python",
+        "cad.export",
+        "geometry.exact-check"
+      ],
       "licenses": [
-        {"name": "GNU Lesser General Public License v2.1 or later", "spdx": "LGPL-2.1-or-later", "status": "review-required", "source": "https://www.freecad.org/contributing.php"}
+        {
+          "name": "GNU Lesser General Public License v2.1 or later",
+          "spdx": "LGPL-2.1-or-later",
+          "status": "review-required",
+          "source": "https://www.freecad.org/contributing.php"
+        }
       ],
       "install": {
         "packId": "cad-pack",
         "mode": "extract",
-        "entryPoints": {"gui": "FreeCAD.exe", "headless": "bin/FreeCADCmd.exe", "python": "bin/python.exe"}
+        "entryPoints": {
+          "gui": "FreeCAD.exe",
+          "headless": "bin/FreeCADCmd.exe",
+          "python": "bin/python.exe"
+        }
       },
       "distributionStatus": "candidate",
-      "blockers": ["Aggregate bundled third-party notices before redistribution"],
-      "healthCheck": {"type": "command", "target": "bin/FreeCADCmd.exe", "arguments": ["--version"], "expected": "FreeCAD 1.1.3"}
+      "blockers": [
+        "Aggregate bundled third-party notices before redistribution"
+      ],
+      "healthCheck": {
+        "type": "command",
+        "target": "bin/FreeCADCmd.exe",
+        "arguments": [
+          "--version"
+        ],
+        "expected": "FreeCAD 1.1.3"
+      }
     },
     {
       "id": "openmodelica",
@@ -42,23 +66,44 @@
         "verificationStatus": "pending-hash",
         "signature": "Local installer MD5 matched upstream and signature was valid; SHA-256 archive is not retained"
       },
-      "capabilities": ["modelica.check", "modelica.compile", "modelica.simulate", "modelica.fmu-export", "fmi.run"],
+      "capabilities": [
+        "modelica.check",
+        "modelica.compile",
+        "modelica.simulate",
+        "modelica.fmu-export",
+        "fmi.run"
+      ],
       "licenses": [
-        {"name": "OSMC Public License with selected subsidiary mode", "spdx": null, "status": "review-required", "source": "https://openmodelica.org/free-and-open-source-software/full-license/"}
+        {
+          "name": "OSMC Public License with selected subsidiary mode",
+          "spdx": null,
+          "status": "review-required",
+          "source": "https://openmodelica.org/free-and-open-source-software/full-license/"
+        }
       ],
       "install": {
         "packId": "modelica-pack",
         "mode": "extract",
-        "entryPoints": {"compiler": "bin/omc.exe", "simulator": "bin/OMSimulator.exe"}
+        "entryPoints": {
+          "compiler": "bin/omc.exe",
+          "simulator": "bin/OMSimulator.exe"
+        }
       },
       "distributionStatus": "blocked",
       "blockers": [
         "Acquire official installer and record SHA-256",
         "Select and document OSMC-PL usage mode",
-        "Build and verify a minimal runtime pack",
+        "Publish an audited self-contained runtime using the P3 pack format",
         "Aggregate third-party compiler and runtime notices"
       ],
-      "healthCheck": {"type": "command", "target": "bin/omc.exe", "arguments": ["--version"], "expected": "OpenModelica v1.27.1"}
+      "healthCheck": {
+        "type": "command",
+        "target": "bin/omc.exe",
+        "arguments": [
+          "--version"
+        ],
+        "expected": "OpenModelica v1.27.1"
+      }
     },
     {
       "id": "python-runtime",
@@ -72,18 +117,41 @@
         "verificationStatus": "pending-download",
         "signature": null
       },
-      "capabilities": ["python.execute", "modelica.server", "modelica.generate", "geometry.service"],
+      "capabilities": [
+        "python.execute",
+        "modelica.server",
+        "modelica.generate",
+        "geometry.service"
+      ],
       "licenses": [
-        {"name": "Python Software Foundation License 2.0", "spdx": "PSF-2.0", "status": "review-required", "source": "https://docs.python.org/3/license.html"}
+        {
+          "name": "Python Software Foundation License 2.0",
+          "spdx": "PSF-2.0",
+          "status": "review-required",
+          "source": "https://docs.python.org/3/license.html"
+        }
       ],
       "install": {
-        "packId": "core-runtime",
+        "packId": "python-pack",
         "mode": "extract",
-        "entryPoints": {"python": "python.exe"}
+        "entryPoints": {
+          "python": "python.exe"
+        }
       },
       "distributionStatus": "blocked",
-      "blockers": ["Freeze Python wheel lock", "Create embeddable runtime pack", "Generate complete license inventory"],
-      "healthCheck": {"type": "command", "target": "python.exe", "arguments": ["--version"], "expected": "Python 3.12.9"}
+      "blockers": [
+        "Freeze Python wheel lock",
+        "Publish an audited embeddable runtime using the P3 pack format",
+        "Generate complete license inventory"
+      ],
+      "healthCheck": {
+        "type": "command",
+        "target": "python.exe",
+        "arguments": [
+          "--version"
+        ],
+        "expected": "Python 3.12.9"
+      }
     },
     {
       "id": "sysml-parser-runtime",
@@ -97,18 +165,39 @@
         "verificationStatus": "verified",
         "signature": null
       },
-      "capabilities": ["sysml.parse", "sysml.analyze", "sysml.snapshot", "sysml.view"],
+      "capabilities": [
+        "sysml.parse",
+        "sysml.analyze",
+        "sysml.snapshot",
+        "sysml.view"
+      ],
       "licenses": [
-        {"name": "Reference parser license unresolved", "spdx": null, "status": "blocked", "source": "reference-parser-p0/source-manifest.json"}
+        {
+          "name": "Reference parser license unresolved",
+          "spdx": null,
+          "status": "blocked",
+          "source": "reference-parser-p0/source-manifest.json"
+        }
       ],
       "install": {
         "packId": "core",
         "mode": "internal",
-        "entryPoints": {"runtime": "bin/aidc-sysml-parser-runtime.exe"}
+        "entryPoints": {
+          "runtime": "bin/aidc-sysml-parser-runtime.exe"
+        }
       },
       "distributionStatus": "blocked",
-      "blockers": ["Resolve ownership and redistribution terms of the reference parser", "Sign release executable", "Remove obsolete runtime versions from pack"],
-      "healthCheck": {"type": "http", "target": "/health", "arguments": [], "expected": "HTTP 200 and runtimeVersion 0.8.1"}
+      "blockers": [
+        "Resolve ownership and redistribution terms of the reference parser",
+        "Sign release executable",
+        "Remove obsolete runtime versions from pack"
+      ],
+      "healthCheck": {
+        "type": "http",
+        "target": "/health",
+        "arguments": [],
+        "expected": "HTTP 200 and runtimeVersion 0.8.1"
+      }
     },
     {
       "id": "sysml-standard-library",
@@ -122,18 +211,35 @@
         "verificationStatus": "verified",
         "signature": "Hash refers to the checked-in LICENSE file; release archive hash remains pending"
       },
-      "capabilities": ["sysml.library", "kerml.library"],
+      "capabilities": [
+        "sysml.library",
+        "kerml.library"
+      ],
       "licenses": [
-        {"name": "Eclipse Public License 2.0", "spdx": "EPL-2.0", "status": "approved", "source": "https://github.com/Systems-Modeling/SysML-v2-Release/blob/master/LICENSE"}
+        {
+          "name": "Eclipse Public License 2.0",
+          "spdx": "EPL-2.0",
+          "status": "approved",
+          "source": "https://github.com/Systems-Modeling/SysML-v2-Release/blob/master/LICENSE"
+        }
       ],
       "install": {
         "packId": "core",
         "mode": "extract",
-        "entryPoints": {"library": "library/sysml.library"}
+        "entryPoints": {
+          "library": "library/sysml.library"
+        }
       },
       "distributionStatus": "candidate",
-      "blockers": ["Record release archive SHA-256 instead of only LICENSE hash"],
-      "healthCheck": {"type": "file", "target": "library/sysml.library/Base.kerml", "arguments": [], "expected": "file exists"}
+      "blockers": [
+        "Record release archive SHA-256 instead of only LICENSE hash"
+      ],
+      "healthCheck": {
+        "type": "file",
+        "target": "library/sysml.library/Base.kerml",
+        "arguments": [],
+        "expected": "file exists"
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "product": "aidc",
-  "contractVersion": "0.2.0",
+  "contractVersion": "0.3.0",
   "outputContract": "aidc.cli-result/1.0",
   "rules": {
     "humanOutput": "UTF-8 text",
@@ -29,8 +29,11 @@
     {"id": "system.version", "syntax": "aidc version [--json]", "sideEffect": "read"},
     {"id": "system.doctor", "syntax": "aidc doctor [--report PATH] [--json]", "sideEffect": "read"},
     {"id": "deps.status", "syntax": "aidc deps status [ID] [--json]", "sideEffect": "read"},
-    {"id": "deps.install", "syntax": "aidc deps install ID [--json]", "sideEffect": "write"},
-    {"id": "deps.repair", "syntax": "aidc deps repair ID [--json]", "sideEffect": "write"},
+    {"id": "deps.install", "syntax": "aidc deps install ID [--source FILE_OR_URL] [--json]", "sideEffect": "write"},
+    {"id": "deps.repair", "syntax": "aidc deps repair ID [--source FILE_OR_URL] [--json]", "sideEffect": "write"},
+    {"id": "deps.verify", "syntax": "aidc deps verify ID [--json]", "sideEffect": "read"},
+    {"id": "deps.rollback", "syntax": "aidc deps rollback ID [--json]", "sideEffect": "write"},
+    {"id": "deps.uninstall", "syntax": "aidc deps uninstall ID [--json]", "sideEffect": "write"},
     {"id": "integrate.host", "syntax": "aidc integrate <codex|cursor|mcp> [--check] [--json]", "sideEffect": "write"},
     {"id": "sysml.open", "syntax": "aidc sysml open FILE [--no-browser] [--json]", "sideEffect": "launch"},
     {"id": "sysml.validate", "syntax": "aidc sysml validate FILE [--json]", "sideEffect": "read"},

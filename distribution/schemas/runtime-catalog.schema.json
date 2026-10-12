@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidc.local/schemas/runtime-catalog.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "platform", "packs"],
+  "properties": {
+    "schemaVersion": {"const": "aidc.runtime-catalog/1.0"},
+    "platform": {"const": "windows-x86_64"},
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["packId", "dependencyId", "version", "source", "sha256", "status"],
+        "properties": {
+          "packId": {"type": "string"},
+          "dependencyId": {"enum": ["freecad", "openmodelica", "python-runtime"]},
+          "version": {"type": "string"},
+          "source": {"type": ["string", "null"]},
+          "sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+          "status": {"enum": ["published", "license-review", "hash-and-license-review", "wheel-lock-review"]}
+        }
+      }
+    }
+  }
+}

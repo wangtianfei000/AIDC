@@ -52,6 +52,11 @@
     "test:cli": "python -X utf8 -m unittest discover -s tests/p1 -p test_*.py",
     "verify:runtime:p1": "python -X utf8 tests/p1/verify_runtime.py",
     "build:distribution:p2": "powershell -NoProfile -ExecutionPolicy Bypass -File distribution/scripts/build_portable.ps1",
-    "verify:distribution:p2": "python -X utf8 tests/p2/verify_portable.py"
+    "verify:distribution:p2": "python -X utf8 tests/p2/verify_portable.py",
+    "test:runtime-packs:p3": "python -X utf8 -m unittest discover -s tests/p3 -p test_*.py",
+    "verify:installer:p3": "python -X utf8 tests/p3/verify_installer.py",
+    "verify:runtimes:p3": "python -X utf8 tests/p3/verify_engineering_runtimes.py",
+    "verify:portable-runtimes:p3": "python -X utf8 tests/p3/verify_portable_runtimes.py",
+    "verify:distribution:p3": "npm run test:runtime-packs:p3 && npm run verify:installer:p3 && npm run verify:runtimes:p3 && npm run verify:portable-runtimes:p3"
   }
 }

@@ -52,4 +52,5 @@ Desktop.ini
 # Generated release material
 distribution/out/
 distribution/cache/
+runtimes/
 

@@ -33,7 +33,9 @@ def _modelica_command(root: Path) -> tuple[list[str], dict[str, str]]:
         env["AIDC_MODELICA_ROOT"] = str(root / "components" / "modelica")
         env["AIDC_ROBOT_IR_ROOT"] = str(root / "components" / "modelica" / "packages" / "robot-ir")
         env["AIDC_ASSEMBLY_PACKAGE_ROOT"] = str(root / "components" / "modelica" / "packages" / "assembly-package")
-        return [str(executable)], env
+    omc = next((item.get("path") for item in ComponentRegistry(root).dependency_status("openmodelica") if item.get("path")), None)
+    if omc: env["AIDC_OMC"] = omc
+    if executable.is_file(): return [str(executable)], env
     return [sys.executable, str(root / "modelica-browser" / "tools" / "aidc_modelica.py")], env
 
 

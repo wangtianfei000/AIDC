@@ -35,6 +35,7 @@ class P1ContractTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr)
         document = json.loads(completed.stdout)
         self.assertEqual(document["command"], "system.version")
+        self.assertEqual(document["data"]["contractVersion"], "0.3.0")
         self.assertEqual(completed.stderr, "")
 
     def test_invalid_command_has_structured_usage_error(self):
@@ -43,11 +44,11 @@ class P1ContractTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 2)
         self.assertEqual(document["diagnostics"][0]["code"], "USAGE_ERROR")
 
-    def test_p2_command_is_registered_but_reports_unavailable(self):
+    def test_dependency_install_requires_an_audited_pack(self):
         completed = subprocess.run([sys.executable, str(ROOT / "aidc.py"), "deps", "install", "freecad", "--json"], cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=False)
         document = json.loads(completed.stdout)
-        self.assertEqual(completed.returncode, 5)
-        self.assertEqual(document["diagnostics"][0]["code"], "CAPABILITY_UNAVAILABLE")
+        self.assertEqual(completed.returncode, 4)
+        self.assertEqual(document["diagnostics"][0]["code"], "PACK_SOURCE_REQUIRED")
 
     def test_gateway_rejects_missing_token(self):
         with tempfile.TemporaryDirectory() as directory:

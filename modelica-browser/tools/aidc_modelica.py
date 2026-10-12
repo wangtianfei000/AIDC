@@ -23,7 +23,7 @@ LIBRARY = ROOT / "libraries" / "AIDCRobotics"
 sys.path[:0] = [str(HERE.parent), str(ROBOT_IR / "src"), str(ASSEMBLY_PACKAGE / "src")]
 
 from modelica_generator import GENERATOR_VERSION, GenerationError, default_overrides, generate
-from project_tool import ContractError, normalized_text_digest, sha256_file, validate_project
+from project_tool import ContractError, normalized_text_digest, run_project, sha256_file, validate_project
 from robot_ir_migrations import CURRENT, migrate_bundle
 from robot_ir_validator import RobotIRError, validate_bundle
 from stl_to_robot_ir import StlImportError, import_stl
@@ -285,6 +285,12 @@ def command_package(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_simulate(args: argparse.Namespace) -> int:
+    output = run_project(args.project.resolve(), model_class=args.experiment)
+    emit({"passed": True, "command": "simulate", "output": str(output), "runManifest": str(output / "run-manifest.json"), "series": str(output / "series.csv")})
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="aidc-modelica", description="AIDC Modelica product CLI")
     parser.add_argument("--version", action="version", version=f"aidc-modelica {PRODUCT_VERSION}")
@@ -304,6 +310,8 @@ def build_parser() -> argparse.ArgumentParser:
     compare_parser.add_argument("--abs-tol", type=float, default=1e-8); compare_parser.add_argument("--rel-tol", type=float, default=1e-6); compare_parser.set_defaults(func=command_compare)
     package_parser = commands.add_parser("package", help="生成可移植 .aidcmpkg")
     package_parser.add_argument("project", type=Path); package_parser.add_argument("output", type=Path); package_parser.add_argument("--include-results", action="store_true"); package_parser.set_defaults(func=command_package)
+    simulate_parser = commands.add_parser("simulate", help="使用受管 OpenModelica 编译并运行工程")
+    simulate_parser.add_argument("project", type=Path); simulate_parser.add_argument("--experiment"); simulate_parser.set_defaults(func=command_simulate)
     return parser
 
 

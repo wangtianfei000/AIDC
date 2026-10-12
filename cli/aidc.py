@@ -15,6 +15,7 @@ from aidc_core.registry import ComponentRegistry
 from aidc_core.result import AidcError, CommandResult
 from aidc_core.runtime import RuntimeManager
 from aidc_core.operations import model3d_export, model3d_publish, modelica, sysml_validate
+from aidc_core.dependencies import DependencyManager, RUNTIME_DIRECTORIES
 
 
 class AidcArgumentParser(argparse.ArgumentParser):
@@ -31,7 +32,9 @@ def parser() -> argparse.ArgumentParser:
     doctor = commands.add_parser("doctor"); doctor.add_argument("--report", type=Path)
     deps = commands.add_parser("deps").add_subparsers(dest="action", required=True)
     dep_status = deps.add_parser("status"); dep_status.add_argument("id", nargs="?")
-    for action in ("install", "repair"): deps.add_parser(action).add_argument("id")
+    for action in ("install", "repair"):
+        operation = deps.add_parser(action); operation.add_argument("id"); operation.add_argument("--source")
+    for action in ("verify", "rollback", "uninstall"): deps.add_parser(action).add_argument("id")
     for domain, label in (("sysml", "FILE"), ("model3d", "PROJECT"), ("modelica", "PROJECT")):
         sub = commands.add_parser(domain).add_subparsers(dest="action", required=True)
         opened = sub.add_parser("open"); opened.add_argument("target", metavar=label); opened.add_argument("--no-browser", action="store_true")
@@ -65,7 +68,7 @@ def _doctor(registry: ComponentRegistry) -> dict[str, Any]:
     }
     dependencies = registry.dependency_status()
     return {
-        "healthy": all(item["available"] for item in dependencies if item["id"] in {"python-runtime", "sysml-parser-runtime"}) and all(path.is_file() for path in assets.values()),
+        "healthy": all(item["available"] for item in dependencies if item["id"] == "sysml-parser-runtime") and all(path.is_file() for path in assets.values()),
         "productRoot": str(root), "stateRoot": str(state_root()),
         "platform": {"system": platform.system(), "release": platform.release(), "architecture": platform.machine()},
         "python": {"version": platform.python_version(), "executable": str(Path(sys.executable).resolve())},
@@ -79,7 +82,7 @@ def _doctor(registry: ComponentRegistry) -> dict[str, Any]:
 def execute(args: argparse.Namespace) -> CommandResult:
     registry = ComponentRegistry(); manager = RuntimeManager()
     if args.domain == "version":
-        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.2.0", "pythonVersion": platform.python_version()})
+        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.3.0", "pythonVersion": platform.python_version()})
     if args.domain == "capabilities":
         return CommandResult("system.capabilities", f"发现 {len(registry.capabilities())} 项能力", {"capabilities": registry.capabilities(), "components": registry.components()})
     if args.domain == "doctor":
@@ -89,9 +92,24 @@ def execute(args: argparse.Namespace) -> CommandResult:
             path = args.report.expanduser().resolve(); path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(result.finish(), ensure_ascii=False, indent=2), encoding="utf-8")
         return result
     if args.domain == "deps" and args.action == "status":
+        dependency_manager = DependencyManager(registry.root)
         data = registry.dependency_status(args.id)
         if args.id and not data: raise AidcError(f"未知依赖：{args.id}", 3, "DEPENDENCY_UNKNOWN")
+        for item in data:
+            if item["id"] in RUNTIME_DIRECTORIES:
+                managed = dependency_manager.status(item["id"])
+                item.update({"managed": managed["installed"], "healthy": managed["healthy"] if managed["installed"] else item["available"], "issues": managed["issues"], "receipt": managed["receipt"]})
         return CommandResult("deps.status", f"检查了 {len(data)} 项依赖", {"dependencies": data})
+    if args.domain == "deps" and args.action in {"install", "repair", "verify", "rollback", "uninstall"}:
+        dependency_manager = DependencyManager(registry.root)
+        if args.action == "install": data = dependency_manager.install(args.id, args.source)
+        elif args.action == "repair": data = dependency_manager.repair(args.id, args.source)
+        elif args.action == "verify": data = dependency_manager.status(args.id)
+        elif args.action == "rollback": data = dependency_manager.rollback(args.id)
+        else: data = dependency_manager.uninstall(args.id)
+        message = {"install": "依赖包安装完成", "repair": "依赖包修复完成", "verify": "依赖包校验完成", "rollback": "依赖包回滚完成", "uninstall": "依赖包卸载完成"}[args.action]
+        if args.action == "verify" and not data["healthy"]: raise AidcError(f"依赖包不健康：{', '.join(data['issues'])}", 6, "DEPENDENCY_UNHEALTHY")
+        return CommandResult(f"deps.{args.action}", message, data, artifacts=[{"kind": "directory", "path": data["path"]}] if data.get("path") else [])
     if args.domain in {"sysml", "model3d", "modelica"} and args.action == "open":
         target = absolute_existing(args.target, "工程或模型")
         data = manager.start(args.domain, target, launch_browser=not args.no_browser)
@@ -118,7 +136,10 @@ def execute(args: argparse.Namespace) -> CommandResult:
     if args.domain == "modelica" and args.action == "simulate":
         dependency = registry.dependency_status("openmodelica")
         if not dependency or not dependency[0]["available"]: raise AidcError("Modelica 仿真需要 P3 OpenModelica Runtime Pack", 4, "DEPENDENCY_MISSING")
-        raise AidcError("当前 OpenModelica Runtime Pack 尚未注册到仿真适配器", 5, "CAPABILITY_UNAVAILABLE")
+        arguments = [str(absolute_existing(args.project, "Modelica 工程"))]
+        if args.experiment: arguments.extend(["--experiment", args.experiment])
+        data = modelica(registry.root, "simulate", arguments)
+        return CommandResult("modelica.simulate", "Modelica 仿真完成", data, artifacts=[{"kind": "directory", "path": data["output"]}])
     if args.domain == "freecad" and args.action in {"open", "check"}:
         source = absolute_existing(args.file, "CAD 文件")
         status = registry.dependency_status("freecad"); command_exe = Path(status[0]["path"]) if status and status[0]["path"] else None
