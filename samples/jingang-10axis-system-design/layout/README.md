@@ -36,7 +36,7 @@
 ## 复现
 
 ```powershell
-& 'AIDC/FreeCAD-runtime/FreeCAD_1.1.3-Windows-x86_64-py311/bin/freecadcmd.exe' -c "import runpy; runpy.run_path(r'AIDC/samples/jingang-10axis-system-design/layout/build_p4_layout.py', run_name='__main__')"
-& 'AIDC/FreeCAD-runtime/FreeCAD_1.1.3-Windows-x86_64-py311/bin/freecadcmd.exe' -c "import runpy; runpy.run_path(r'AIDC/samples/jingang-10axis-system-design/layout/verify_p4_layout.py', run_name='__main__')"
+& 'tools/freecad/1.1.3/bin/freecadcmd.exe' -c "import runpy; runpy.run_path(r'AIDC/samples/jingang-10axis-system-design/layout/build_p4_layout.py', run_name='__main__')"
+& 'tools/freecad/1.1.3/bin/freecadcmd.exe' -c "import runpy; runpy.run_path(r'AIDC/samples/jingang-10axis-system-design/layout/verify_p4_layout.py', run_name='__main__')"
 python AIDC/samples/jingang-10axis-system-design/layout/render_p4_preview.py
 ```

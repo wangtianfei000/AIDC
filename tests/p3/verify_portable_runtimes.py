@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PORTABLE = ROOT / "distribution" / "out" / "aidc-portable"
 OMC_RUNTIME = ROOT.parent / "tools" / "openmodelica" / "1.27.1"
-FREECAD_RUNTIME = ROOT / "FreeCAD-runtime" / "FreeCAD_1.1.3-Windows-x86_64-py311"
+FREECAD_RUNTIME = ROOT.parent / "tools" / "freecad" / "1.1.3"
 
 
 def junction(link: Path, target: Path) -> None:

@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
-$freecadPython = Join-Path $root 'FreeCAD-runtime/FreeCAD_1.1.3-Windows-x86_64-py311/bin/python.exe'
+$freecadPython = Join-Path (Split-Path $root -Parent) 'tools/freecad/1.1.3/bin/python.exe'
 Push-Location $root
 try {
   npm run test:model3d

@@ -4,7 +4,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $aidcRoot = (Resolve-Path (Join-Path $PSScriptRoot '../../..')).Path
-$freeCadCmd = Join-Path $aidcRoot 'FreeCAD-runtime/FreeCAD_1.1.3-Windows-x86_64-py311/bin/freecadcmd.exe'
+$freeCadCmd = Join-Path (Split-Path $aidcRoot -Parent) 'tools/freecad/1.1.3/bin/freecadcmd.exe'
 $converter = Join-Path $PSScriptRoot 'src/publish_step_generic.py'
 if (-not (Test-Path -LiteralPath $freeCadCmd)) { throw "FreeCADCmd not found: $freeCadCmd" }
 $source = (Resolve-Path -LiteralPath $InputPath).Path

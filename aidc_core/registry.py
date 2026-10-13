@@ -35,7 +35,7 @@ class ComponentRegistry:
         if dep_id == "freecad":
             candidates = [
                 self.root / "runtimes" / "freecad" / "bin" / "FreeCADCmd.exe",
-                self.root / "FreeCAD-runtime" / "FreeCAD_1.1.3-Windows-x86_64-py311" / "bin" / "FreeCADCmd.exe",
+                self.root.parent / "tools" / "freecad" / dependency["version"] / "bin" / "FreeCADCmd.exe",
             ]
         elif dep_id == "openmodelica":
             candidates = [self.root / "runtimes" / "openmodelica" / "bin" / "omc.exe", self.root.parent / "tools" / "openmodelica" / dependency["version"] / "bin" / "omc.exe"]

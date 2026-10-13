@@ -80,7 +80,7 @@ function exactCheckService(): Plugin {
         ready = await isExactServiceReady();
       }
       if (!ready) {
-        const python = resolve(process.env.AIDC_FREECAD_PYTHON ?? join(aidcDirectory, 'FreeCAD-runtime/FreeCAD_1.1.3-Windows-x86_64-py311/bin/python.exe'));
+        const python = resolve(process.env.AIDC_FREECAD_PYTHON ?? join(aidcDirectory, '../tools/freecad/1.1.3/bin/python.exe'));
         const cad = manifest.source?.cadUri ? resolve(modelProjectDirectory, manifest.source.cadUri) : undefined;
         if (!existsSync(python) || !cad || !existsSync(cad)) {
           server.config.logger.warn('模型发布物未配置可用的 CAD/FreeCAD；浏览功能正常，精确 BRep 校核不可用');
