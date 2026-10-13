@@ -231,4 +231,3 @@ public:
     void add(Element* value) { if (value) m_contents.append(value); }
 private: QList<Element*> m_contents;
 };
-
