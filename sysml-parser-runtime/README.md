@@ -1,6 +1,6 @@
 # AIDC SysML 只读 Parser Runtime
 
-该程序把参考工程的 C++/ANTLR Parser 和类型化模型封装为仅监听 `127.0.0.1` 的只读 HTTP Runtime。Runtime 使用 Qt Core、Gui、Network 和 Concurrent 提供模型适配、JSON 与本机 HTTP 服务；Web 浏览器只消费稳定 JSON 契约，不直接链接 Qt、ANTLR 或参考工程类型。
+该程序把仓库内维护的 C++/ANTLR Parser 和类型化模型封装为仅监听 `127.0.0.1` 的只读 HTTP Runtime。Runtime 使用 Qt Core、Network 和 Concurrent 提供模型适配、JSON 与本机 HTTP 服务；Web 浏览器只消费稳定 JSON 契约，不直接链接 Qt 或 ANTLR 类型。
 
 ## 接口
 
@@ -16,23 +16,31 @@
 
 ## 构建
 
-开发机构建需要 Qt 6.8.1 MinGW、CMake，以及已经编译的参考 ANTLR Parser。默认路径与当前工程环境一致，也可通过脚本参数覆盖：
+开发机构建需要 Qt 6.8.1 MinGW 和 CMake。P2 已把 Grammar、ANTLR 生成代码、Parser 和 Visitor 迁入仓库；普通构建不需要 Java、ANTLR Tool JAR、参考工程源码或参考工程静态库：
 
 ```powershell
-./build-runtime.ps1
+./build-runtime.ps1 -Engine embedded
 ```
 
 脚本执行 CMake Release 构建、C++ 契约测试、安装，并通过 `windeployqt` 把所需 Qt DLL 放入 `dist/bin`。最终用户运行发布目录时不需要单独安装 Qt，但发布包必须携带这些运行库。
 
-P1 已将模型层和 ANTLR4 C++ Runtime 4.13.2 源码迁入仓库。可以关闭现有 Parser Runtime，只验证这两层完全不引用参考项目：
+也可直接执行独立的内建 Runtime 构建：
 
 ```powershell
-cmake -S . -B build-p1 -DAIDC_BUILD_RUNTIME=OFF
-cmake --build build-p1
-ctest --test-dir build-p1 --output-on-failure
+cmake -S . -B build-p2 -DAIDC_SYSML_ENGINE=embedded
+cmake --build build-p2
+ctest --test-dir build-p2 --output-on-failure
 ```
 
-该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure` 和 `antlr4_static`，并校验导入哈希及源码路径边界。当前 HTTP Runtime 在 P2/P3 完成前仍链接外部 Parser 静态库，因此常规完整构建暂时仍需要参考 Parser；P1 没有切换运行行为。
+该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验 P1/P2 导入哈希及源码路径边界。P3 行为等价验证完成前，CMake 默认值仍为 `external`，可用 `-DAIDC_SYSML_ENGINE=external` 对照旧静态库。
+
+常规构建直接使用已提交的 12 个 ANTLR 生成文件。只有修改 `engine/parser/grammar/SysML.g4` 时才需要 ANTLR Tool 4.13.2：
+
+```powershell
+./tools/regenerate-parser.ps1 -AntlrJar <antlr-4.13.2-complete.jar>
+```
+
+脚本先在临时目录生成并比较固定文件集合；确认差异后使用 `-AcceptChanges` 更新生成代码，并同步更新 `engine/P2-IMPORT.json` 的摘要。
 
 ## 运行
 
@@ -62,7 +70,7 @@ $env:PATH="D:/Software/Qt/6.8.1/mingw_64/bin;D:/Software/Qt/Tools/mingw1310_64/b
 - View 文件跨文件解析时，`exposedReferences` 始终保留限定名；只有目标元素已位于当前解析资源中时才填写 `exposedElementIds`。跨文件链接将在后续工作区索引阶段完成。
 - Package 层级由源码大括号作用域校正，可在部分解析结果中保持模型导航树的包结构。普通模型元素的 owner 仍来自参考 Parser；解析错误较多时，个别非 Package 元素仍可能被挂到上级 Package。
 - Runtime 只接受无 Origin、`null` Origin 或 localhost/127.0.0.1 Web Origin，并限制请求大小。
-- 参考 Parser 当前仍链接 Qt Gui 和架构 metadata；后续应继续抽离。
+- 内建 Parser 核心不编译 UI 耦合的 `AnnotationParser`，也不链接架构 metadata；Serializer 作为独立 target，不进入只读 Runtime 默认解析路径。
 - 标准库使用官方文本模型建立只读符号索引，不将 94 个库文件整体转成当前参考 Parser 的 Qt 对象图；ModelSnapshot 只物化用户文件实际引用到的库元素，并保存规范名、源文件、发布标签和提交。
 
 Schema 与契约位于本目录的 `contracts/model-snapshot.schema.json`、`contracts/analysis-snapshot.schema.json` 和 `contracts/parser-contract.md`；官方标准库位于 `standard-library/2026-08`。

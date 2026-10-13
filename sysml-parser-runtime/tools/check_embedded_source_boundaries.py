@@ -26,12 +26,15 @@ def main() -> int:
         for path in scope.rglob("*"):
             if not path.is_file() or (path.suffix.lower() not in TEXT_SUFFIXES and path.name != "CMakeLists.txt"):
                 continue
-            if path.name == "P1-IMPORT.json":
+            if path.name in {"P1-IMPORT.json", "P2-IMPORT.json"}:
                 continue
             text = path.read_text(encoding="utf-8", errors="strict")
             for line_number, line in enumerate(text.splitlines(), 1):
+                relative = path.relative_to(RUNTIME_ROOT).as_posix()
+                if relative.startswith("engine/parser/generated/") and line.startswith("// Generated from "):
+                    continue
                 if any(pattern.search(line) for pattern in FORBIDDEN):
-                    violations.append(f"{path.relative_to(RUNTIME_ROOT).as_posix()}:{line_number}: {line.strip()}")
+                    violations.append(f"{relative}:{line_number}: {line.strip()}")
     if violations:
         raise SystemExit("Embedded source boundary violations:\n" + "\n".join(violations))
     print("Embedded source boundary check passed")

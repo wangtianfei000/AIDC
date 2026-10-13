@@ -153,6 +153,8 @@ antlr4_static
 
 ### P2：迁入 Grammar、生成代码和 Parser
 
+**状态：已完成（2026-10-13）。** 已迁入 `SysML.g4`、对应的 12 个 ANTLR 4.13.2 生成文件、`SysMLTextParser`、`ModelBuilderVisitor` 和独立 Serializer target；新增 `external|embedded` 双实现开关、P2 导入摘要与本地完整 Runtime 构建测试。UI 耦合的 `AnnotationParser` 已明确排除。
+
 1. 迁入当前工作区版本的 `SysML.g4`、`SysMLTextParser` 和 `ModelBuilderVisitor`。
 2. 迁入与该 Grammar 对应的生成代码。
 3. 从核心 target 排除 UI 耦合的 AnnotationParser；Serializer 独立编译。

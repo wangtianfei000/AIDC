@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "aidc.sysml-p2-import/0.1",
+  "engineVersion": "0.2.0",
+  "importedAt": "2026-10-13T15:20:23.046426+00:00",
+  "baselineCommit": "9bfba0bced98b7586bab8a6d45746064aff70fe1",
+  "baselineCapturedAt": "2026-10-13T14:57:51.272345+00:00",
+  "antlrToolVersion": "4.13.2",
+  "sourceDigest": "1c873619ca1261c6f85ec02c7ecea79d137fe588e1576c9df0290b02f8edcc4d",
+  "excluded": [
+    {
+      "path": "parser/src/annotation/AnnotationParser.cpp",
+      "reason": "Depends on desktop architecture metadata and is not used by the runtime parser path."
+    }
+  ],
+  "files": [
+    {
+      "target": "engine/parser/grammar/SysML.g4",
+      "sizeBytes": 36719,
+      "sourceSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "contentSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "source": "parser/grammar/SysML.g4",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/src/parser/SysMLParser.cpp",
+      "sizeBytes": 7931,
+      "sourceSha256": "c825506fb198819ccec5a47b6a21d6eaab8dc023bf7427ebb5e186a71b06c57d",
+      "contentSha256": "c825506fb198819ccec5a47b6a21d6eaab8dc023bf7427ebb5e186a71b06c57d",
+      "source": "parser/src/parser/SysMLParser.cpp",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/src/parser/SysMLParser.h",
+      "sizeBytes": 1530,
+      "sourceSha256": "1508e165267e2a66909bfaa63aecdde8e3d4ab4e04d8c758e01bc5ffd7468bb5",
+      "contentSha256": "1508e165267e2a66909bfaa63aecdde8e3d4ab4e04d8c758e01bc5ffd7468bb5",
+      "source": "parser/src/parser/SysMLParser.h",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/src/visitor/ModelBuilderVisitor.cpp",
+      "sizeBytes": 329690,
+      "sourceSha256": "64a64a94ea26a5078ffb73af9abdc950b11d2f2bb392fa7fc9efb418c98b4c76",
+      "contentSha256": "64a64a94ea26a5078ffb73af9abdc950b11d2f2bb392fa7fc9efb418c98b4c76",
+      "source": "parser/src/visitor/ModelBuilderVisitor.cpp",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/src/visitor/ModelBuilderVisitor.h",
+      "sizeBytes": 18006,
+      "sourceSha256": "ab7f63d5f4858fc39de1a184614abec1d0f0d55b4c582b0ae23d50e4e46577b0",
+      "contentSha256": "ab7f63d5f4858fc39de1a184614abec1d0f0d55b4c582b0ae23d50e4e46577b0",
+      "source": "parser/src/visitor/ModelBuilderVisitor.h",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/src/serializer/SysMLSerializer.cpp",
+      "sizeBytes": 114734,
+      "sourceSha256": "bcad9fbfb4cef7c20f66e8177d3650558def29a2414f395bedc072c6eb4de1ad",
+      "contentSha256": "bcad9fbfb4cef7c20f66e8177d3650558def29a2414f395bedc072c6eb4de1ad",
+      "source": "parser/src/serializer/SysMLSerializer.cpp",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/src/serializer/SysMLSerializer.h",
+      "sizeBytes": 9483,
+      "sourceSha256": "619b73225d62ca902a1aebc215d3e108a1c4b7d733f25d7e0a119eb094f9b9b3",
+      "contentSha256": "619b73225d62ca902a1aebc215d3e108a1c4b7d733f25d7e0a119eb094f9b9b3",
+      "source": "parser/src/serializer/SysMLSerializer.h",
+      "kind": "maintained-source"
+    },
+    {
+      "target": "engine/parser/generated/SysML.interp",
+      "sizeBytes": 82648,
+      "sourceSha256": "99c777d63342d37bfe9a20289ab085c5faf5611440647224e67f80d0120e6aec",
+      "contentSha256": "99c777d63342d37bfe9a20289ab085c5faf5611440647224e67f80d0120e6aec",
+      "source": "parser/generated/SysML.interp",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysML.tokens",
+      "sizeBytes": 2921,
+      "sourceSha256": "e80f3d9fc71402b652223354232b987cf7c4d746007118b76057c69c76cd3b52",
+      "contentSha256": "6d548b6eaeda8c3f2af53776f5bc614adc6a8064b7a24775960d4c785adfb59a",
+      "source": "parser/generated/SysML.tokens",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLBaseVisitor.cpp",
+      "sizeBytes": 176,
+      "sourceSha256": "e4f5b1f4a8941fedf4a4eea012c444d3f6e8fca5175e6f3582489e407aa6f01d",
+      "contentSha256": "22875ee874c5e8884457082da22c7dabce0fd63ad8ca0882ccb963020847749d",
+      "source": "parser/generated/SysMLBaseVisitor.cpp",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLBaseVisitor.h",
+      "sizeBytes": 29936,
+      "sourceSha256": "9426c33ceed2094de0f9296cc1d46fdb5b440ebc04814b2bbfc9afe831ce77ee",
+      "contentSha256": "4d08d255aa0d78d8e35b0397be13279c92b7299a5e1c671ecce7585248d7e179",
+      "source": "parser/generated/SysMLBaseVisitor.h",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLLexer.cpp",
+      "sizeBytes": 35782,
+      "sourceSha256": "79fff189170e71b604b0af96a89036fd362c4168f08fcdce5a811d92c1c53a13",
+      "contentSha256": "f2ce0844cde1fdfc9c1d450735ab78b8872c8d1d4800364f9f550c0ee264368f",
+      "source": "parser/generated/SysMLLexer.cpp",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLLexer.h",
+      "sizeBytes": 3069,
+      "sourceSha256": "4d84d58a6d1790ff15d68376100551c8e17f909573169755edbed2c8c5328308",
+      "contentSha256": "49e9154c8e595fd6294cd6197c3e6f96ad368b8d44b6a9014248f8b387d0168e",
+      "source": "parser/generated/SysMLLexer.h",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLLexer.interp",
+      "sizeBytes": 38029,
+      "sourceSha256": "7655b47cf782f57b15a5ec64d8c5eb7bf1afab60bd61d963a91ad1603c889bf3",
+      "contentSha256": "7655b47cf782f57b15a5ec64d8c5eb7bf1afab60bd61d963a91ad1603c889bf3",
+      "source": "parser/generated/SysMLLexer.interp",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLLexer.tokens",
+      "sizeBytes": 2921,
+      "sourceSha256": "e80f3d9fc71402b652223354232b987cf7c4d746007118b76057c69c76cd3b52",
+      "contentSha256": "6d548b6eaeda8c3f2af53776f5bc614adc6a8064b7a24775960d4c785adfb59a",
+      "source": "parser/generated/SysMLLexer.tokens",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLParser.cpp",
+      "sizeBytes": 600377,
+      "sourceSha256": "8d0c4ee92a5142022e73f59d17e3f175194dd901cb266a4e7f1ac43e804176b3",
+      "contentSha256": "d2e87cd4e952b04f0ef606fd96f67b9f428a071e7f523b6c158cae2129e452da",
+      "source": "parser/generated/SysMLParser.cpp",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLParser.h",
+      "sizeBytes": 128213,
+      "sourceSha256": "b47049f5213a8416e0990a465eb98ddf509d666290d006de9bebb54ac0c8d88f",
+      "contentSha256": "fc4332a11326cbe8944f8fc228ac0574b394b98a570576a8b28640b0bb49a41b",
+      "source": "parser/generated/SysMLParser.h",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLVisitor.cpp",
+      "sizeBytes": 172,
+      "sourceSha256": "6dac17109e78df8ccb002ea0ec8ce0bfba6ffa4a7daf1c4ec9a37671abf73b8f",
+      "contentSha256": "f97ee3282047770005b6a17f289807eed72f6db9b8f4dcd1441755f32be579e9",
+      "source": "parser/generated/SysMLVisitor.cpp",
+      "kind": "antlr-generated"
+    },
+    {
+      "target": "engine/parser/generated/SysMLVisitor.h",
+      "sizeBytes": 21796,
+      "sourceSha256": "552f392c38283bd201709d29fafc8c174656680293f9ee854e0338823811bc6f",
+      "contentSha256": "54b643fddb8154b653499966a13804aed07cff1026cf76540e8ba4592a454da2",
+      "source": "parser/generated/SysMLVisitor.h",
+      "kind": "antlr-generated"
+    }
+  ]
+}

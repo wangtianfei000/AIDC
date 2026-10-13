@@ -25,6 +25,8 @@ venv/
 **/dist/
 **/results/
 **/generated/
+!sysml-parser-runtime/engine/parser/generated/
+!sysml-parser-runtime/engine/parser/generated/**
 **/test-artifacts/
 coverage/
 .vite/

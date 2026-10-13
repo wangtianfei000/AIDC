@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "aidc.sysml-p2-validation/0.1",
+  "validatedAt": "2026-10-13",
+  "result": "pass",
+  "engine": {
+    "version": "0.2.0",
+    "sourceDigest": "1c873619ca1261c6f85ec02c7ecea79d137fe588e1576c9df0290b02f8edcc4d",
+    "grammarFiles": 1,
+    "generatedFiles": 12,
+    "maintainedParserFiles": 6,
+    "antlrToolVersion": "4.13.2",
+    "annotationParserIncluded": false,
+    "serializerTarget": "aidc_sysml_serializer"
+  },
+  "embeddedBuild": {
+    "configuration": "AIDC_SYSML_ENGINE=embedded",
+    "referenceRootConfigured": false,
+    "referenceBuildConfigured": false,
+    "cleanConfigure": "pass",
+    "compile": "pass",
+    "ctest": {
+      "passed": 7,
+      "failed": 0
+    },
+    "httpSmoke": "pass",
+    "parserMode": "embedded-antlr",
+    "parserBaseline": "aidc-engine/0.2.0+sha256:1c873619ca1261c6"
+  },
+  "externalCompatibilityBuild": {
+    "configuration": "AIDC_SYSML_ENGINE=external",
+    "compile": "pass",
+    "ctest": {
+      "passed": 6,
+      "failed": 0
+    }
+  },
+  "integrity": {
+    "p0Baseline": "pass",
+    "p1Import": "pass",
+    "p2Import": "pass",
+    "embeddedSourceBoundaries": "pass",
+    "powershellSyntax": "pass"
+  },
+  "p3DeferredChecks": [
+    "Normalize and compare complete external and embedded ModelSnapshot and AnalysisSnapshot fixtures.",
+    "Retune the active-cancel stress fixture because the embedded parser can complete before cancellation is accepted.",
+    "Compare calculationDefinitionId projection for the analysis-exception fixture before changing behavior."
+  ]
+}

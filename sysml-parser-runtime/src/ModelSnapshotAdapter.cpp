@@ -1336,7 +1336,7 @@ QJsonObject ModelSnapshotAdapter::capabilitiesResponse()
     return {
         {"runtimeVersion", RuntimeVersion},
         {"schemaVersion", SchemaVersion},
-        {"parserMode", "reference-antlr"},
+        {"parserMode", ParserMode},
         {"parserBaseline", ParserBaseline},
         {"qtDependency", true},
         {"capabilities", QJsonObject{
@@ -1379,7 +1379,7 @@ QJsonObject ModelSnapshotAdapter::healthResponse()
         {"status", standardLibrary.isLoaded() ? "ok" : "degraded"},
         {"runtimeVersion", RuntimeVersion},
         {"schemaVersion", SchemaVersion},
-        {"parserMode", "reference-antlr"},
+        {"parserMode", ParserMode},
         {"parserBaseline", ParserBaseline},
         {"qtDependency", true},
         {"standardLibrary", standardLibrary.status()}
