@@ -23,7 +23,7 @@ function Get-ItemBytes([string]$Path) {
 }
 
 # Only include content recoverable from source, lock files, or build scripts, plus obsolete upstream copies.
-# sysml-standard-library/2026-08 is retained because current acceptance tests use it.
+# sysml-parser-runtime/standard-library/2026-08 is retained because the runtime packages it.
 $relativeTargets = @(
     '.codex-runtime',
     '.pytest_cache',
@@ -81,7 +81,7 @@ foreach ($relative in $relativeTargets) {
 # Workspaces create nested dependency directories and Python creates distributed caches.
 $generatedDirectoryNames = @('node_modules', '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache')
 $preservedRoots = @(
-    (Join-Path $Root 'sysml-standard-library\2026-08')
+    (Join-Path $Root 'sysml-parser-runtime\standard-library\2026-08')
 )
 $dynamicDirectories = Get-ChildItem -LiteralPath $Root -Directory -Recurse -Force -ErrorAction SilentlyContinue |
     Where-Object {

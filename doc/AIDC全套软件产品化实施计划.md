@@ -327,7 +327,7 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 | `skills/` | Core 内置技能源，按宿主安装适配 |
 | `sysml-browser/` | SysML 静态前端 |
 | `sysml-parser-runtime/` | Core 内部原生服务 |
-| `sysml-standard-library/` | 版本锁定的 Core 资源包 |
+| `sysml-parser-runtime/standard-library/` | Parser Runtime 内置的版本锁定标准库资源 |
 | 根 `package.json` 和锁文件 | 开发与 CI 使用，不发行 |
 | `启动 FreeCAD 1.1.3.lnk` | 由安装器/CLI 提供稳定入口，不维护版本化快捷方式 |
 

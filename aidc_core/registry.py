@@ -50,7 +50,11 @@ class ComponentRegistry:
                 self.root / "sysml-parser-runtime" / "build" / "bin" / "aidc-sysml-parser-runtime.exe",
             ]
         elif dep_id == "sysml-standard-library":
-            candidates = [self.root / "components" / "sysml" / "library" / "sysml.library", self.root / "sysml-parser-runtime" / "dist" / "library" / "sysml.library"]
+            candidates = [
+                self.root / "components" / "sysml" / "library" / "sysml.library",
+                self.root / "sysml-parser-runtime" / "dist" / "library" / "sysml.library",
+                self.root / "sysml-parser-runtime" / "standard-library" / "2026-08" / "sysml.library",
+            ]
         resolved = next((path.resolve() for path in candidates if path.exists()), None)
         return {
             "id": dep_id,

@@ -36,8 +36,8 @@ Copy-Item -LiteralPath (Join-Path $root '..\reference-parser-p0\analysis-snapsho
 Copy-Item -LiteralPath (Join-Path $root 'README.md') -Destination $doc
 Copy-Item -LiteralPath (Join-Path $root '..\reference-parser-p0\parser-contract.md') -Destination $doc
 Copy-Item -LiteralPath (Join-Path $root 'run-runtime.ps1') -Destination $dist
-Copy-Item -LiteralPath (Join-Path $root '..\sysml-standard-library\2026-08\sysml.library') -Destination (Join-Path $library 'sysml.library') -Recurse
-Copy-Item -LiteralPath (Join-Path $root '..\sysml-standard-library\2026-08\LICENSE') -Destination $library
-Copy-Item -LiteralPath (Join-Path $root '..\sysml-standard-library\2026-08\README.md') -Destination $library
+Copy-Item -LiteralPath (Join-Path $root 'standard-library\2026-08\sysml.library') -Destination (Join-Path $library 'sysml.library') -Recurse
+Copy-Item -LiteralPath (Join-Path $root 'standard-library\2026-08\LICENSE') -Destination $library
+Copy-Item -LiteralPath (Join-Path $root 'standard-library\2026-08\README.md') -Destination $library
 if (Get-ChildItem -LiteralPath $dist -Recurse -File | Where-Object { $_.Name -match '^(Qt|PySide|PyQt)' }) { throw 'Qt dependency detected in distribution' }
 Write-Host "Qt-free SysML runtime created: $dist"

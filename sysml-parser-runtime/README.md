@@ -7,6 +7,7 @@
 - `src/aidc_sysml_runtime/model.py`：词法扫描、递归结构解析、稳定 ID、源码位置、连接、Calculation 和 View 投影。
 - `src/aidc_sysml_runtime/analysis.py`：表达式、单位、量纲、依赖、约束和异常状态计算。
 - `src/aidc_sysml_runtime/server.py`：仅监听 loopback 的 HTTP 服务、并发请求、请求限制、Origin 校验和取消。
+- `standard-library/2026-08/`：随 Parser Runtime 管理和发行的 SysML v2 官方标准库基线。
 - `tests/test_runtime.py`：解析、连接、视图、计算和机器人正式样例的源码级契约测试。
 - `tests/http_smoke.py`：对冻结 EXE 执行 JSON Schema、确定性、并发、取消和安全边界黑盒测试。
 
