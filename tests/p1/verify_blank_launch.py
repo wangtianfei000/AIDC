@@ -5,6 +5,7 @@ import http.cookiejar
 import re
 import sys
 import tempfile
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -36,6 +37,13 @@ def main() -> int:
                         assert response.status == 200
                         assert "javascript" in response.headers.get_content_type(), response.headers.get("Content-Type")
                         assert response.read(), "SysML JavaScript 入口为空"
+                if kind == "model3d":
+                    try:
+                        opener.open(instance["url"] + "model3d.manifest.json", timeout=10)
+                    except urllib.error.HTTPError as error:
+                        assert error.code == 404, error.code
+                    else:
+                        raise AssertionError("空三维浏览器不应返回伪造的模型清单")
         finally:
             stopped = manager.stop_all()
         assert len(stopped) == len(opened)

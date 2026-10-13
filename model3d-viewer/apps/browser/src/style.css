@@ -20,8 +20,8 @@ button, input, select { font: inherit; }
 .model3d-status strong { overflow: hidden; color: #314055; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .model3d-status small { color: #8a96a5; font-size: 8px; }
 .model3d-tools { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 4px; }
-.model3d-tools button, .model3d-property-actions button, .model3d-error button { min-height: 31px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 0 8px; border: 1px solid #dbe2e7; border-radius: 7px; background: #fff; color: #566579; font-size: 9px; cursor: pointer; }
-.model3d-tools button:hover, .model3d-property-actions button:hover, .model3d-error button:hover, .model3d-tools button.active { border-color: #77aaa3; background: #edf7f5; color: var(--accent); }
+.model3d-tools button, .model3d-property-actions button, .model3d-error button, .model3d-empty button { min-height: 31px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 0 8px; border: 1px solid #dbe2e7; border-radius: 7px; background: #fff; color: #566579; font-size: 9px; cursor: pointer; }
+.model3d-tools button:hover, .model3d-property-actions button:hover, .model3d-error button:hover, .model3d-empty button:hover, .model3d-tools button.active { border-color: #77aaa3; background: #edf7f5; color: var(--accent); }
 .model3d-tools button:disabled { opacity: .4; cursor: default; }
 .model3d-export-message { min-height: 34px; flex: 0 0 auto; display: flex; align-items: center; gap: 7px; padding: 6px 11px; border-bottom: 1px solid #dce8e6; background: #eef7f5; color: #39776e; font-size: 9px; }
 .model3d-export-message.error { border-color: #efd7cf; background: #fff3ef; color: #a7503d; }
@@ -54,9 +54,10 @@ button, input, select { font: inherit; }
 .model3d-eye:hover { background: #dcece9; color: var(--accent); }
 .model3d-canvas-wrap { position: relative; min-width: 0; min-height: 0; overflow: hidden; background: #f5f7f9; }
 .model3d-canvas { position: absolute; inset: 0; }.model3d-canvas canvas { display: block; width: 100%; height: 100%; cursor: grab; }.model3d-canvas canvas:active { cursor: grabbing; }
-.model3d-loading, .model3d-error { position: absolute; z-index: 3; inset: 50% auto auto 50%; transform: translate(-50%,-50%); display: flex; min-width: 230px; flex-direction: column; align-items: center; gap: 8px; padding: 16px 20px; border: 1px solid #dce4e8; border-radius: 10px; background: rgba(255,255,255,.94); color: #758395; box-shadow: 0 10px 28px rgba(35,52,66,.1); text-align: center; backdrop-filter: blur(7px); }
-.model3d-loading strong, .model3d-error strong { color: #3e4b5e; font-size: 10px; }.model3d-loading span, .model3d-error span { max-width: 320px; font-size: 8px; line-height: 1.5; }.model3d-loading progress { width: 180px; accent-color: var(--accent); }
+.model3d-loading, .model3d-error, .model3d-empty { position: absolute; z-index: 3; inset: 50% auto auto 50%; transform: translate(-50%,-50%); display: flex; min-width: 230px; flex-direction: column; align-items: center; gap: 8px; padding: 16px 20px; border: 1px solid #dce4e8; border-radius: 10px; background: rgba(255,255,255,.94); color: #758395; box-shadow: 0 10px 28px rgba(35,52,66,.1); text-align: center; backdrop-filter: blur(7px); }
+.model3d-loading strong, .model3d-error strong, .model3d-empty strong { color: #3e4b5e; font-size: 10px; }.model3d-loading span, .model3d-error span, .model3d-empty span { max-width: 320px; font-size: 8px; line-height: 1.5; }.model3d-loading progress { width: 180px; accent-color: var(--accent); }
 .model3d-error > svg { color: #b06a38; }
+.model3d-empty > svg { color: var(--accent); }
 .model3d-live-collision { position: absolute; z-index: 2; top: 12px; right: 12px; width: min(310px,calc(100% - 24px)); overflow: hidden; border: 1px solid #cbd8dc; border-radius: 9px; background: rgba(255,255,255,.95); box-shadow: 0 8px 24px rgba(36,53,65,.14); backdrop-filter: blur(8px); }
 .model3d-live-collision.warning { border-color: #e2a083; }.model3d-live-collision.clear { border-color: #82b9b0; }
 .model3d-live-collision > header { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 9px; border-bottom: 1px solid #e7ecef; }

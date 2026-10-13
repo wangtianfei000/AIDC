@@ -19,9 +19,16 @@ export interface LoadRobotModelOptions {
   onProgress?: (loaded: number, total?: number) => void;
 }
 
+export class Model3DAssetError extends Error {
+  constructor(message: string, public readonly status: number, public readonly url: string) {
+    super(message);
+    this.name = 'Model3DAssetError';
+  }
+}
+
 export async function loadRobotModel(manifestUrl: string, options: LoadRobotModelOptions = {}): Promise<LoadedRobotModel> {
   const response = await fetch(manifestUrl, { signal: options.signal });
-  if (!response.ok) throw new Error(`模型清单加载失败: ${response.status} ${response.statusText}`);
+  if (!response.ok) throw new Model3DAssetError(`模型清单加载失败: ${response.status} ${response.statusText}`, response.status, manifestUrl);
   const manifest = (await response.json()) as Model3DManifest;
   const kinematicsAsset = manifest.assets.find((candidate) => candidate.role === 'kinematics');
   if (kinematicsAsset) {

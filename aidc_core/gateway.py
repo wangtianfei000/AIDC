@@ -75,7 +75,13 @@ class GatewayHandler(BaseHTTPRequestHandler):
         candidate = next(((root / relative).resolve() for root in roots if (root / relative).resolve().is_file()), (self.server.static_root / relative).resolve())
         if not any(root == candidate or root in candidate.parents for root in roots):
             self.send_error(HTTPStatus.FORBIDDEN); return
-        if not candidate.is_file(): candidate = self.server.static_root / "index.html"
+        if not candidate.is_file():
+            # Only extensionless client-side routes may fall back to the SPA shell.
+            # Missing data/assets must remain 404; otherwise clients try to parse
+            # index.html as JSON, JavaScript, or a model file.
+            if Path(relative).suffix or parsed.path.startswith(("/api/", "/session/")):
+                self.send_error(HTTPStatus.NOT_FOUND); return
+            candidate = self.server.static_root / "index.html"
         if not candidate.is_file(): self.send_error(HTTPStatus.NOT_FOUND); return
         payload = candidate.read_bytes()
         # Windows' MIME registry commonly maps .js to text/plain. ES modules are

@@ -9,7 +9,7 @@ import {
   type InterferencePairResult, type Model3DKinematics, type Model3DManifest,
   type Model3DPosePreset, type Model3DPosePresetDocument,
 } from '@aidc/model3d-contracts';
-import { applyKinematics, ExplosionRig, inferProductStructure, loadRobotModel, RobotRig, type ExplosionDepth } from '@aidc/model3d-three-runtime';
+import { applyKinematics, ExplosionRig, inferProductStructure, loadRobotModel, Model3DAssetError, RobotRig, type ExplosionDepth } from '@aidc/model3d-three-runtime';
 import { interpolatePose, isAtJointLimit, jointLabel, standardPosePresets, type JointPose } from './motion';
 import { collectCollisionProxies, detectInterferences, formatDistance, refreshCollisionProxies, type CollisionProxy } from './collision';
 import { exactCheck } from './exactCheck';
@@ -18,7 +18,7 @@ import {
   parseModel3DViewState, prepareMaterials, type Model3DViewState,
 } from './runtime';
 
-type LoadStatus = { phase: 'loading' | 'ready' | 'error'; message: string; progress?: number };
+type LoadStatus = { phase: 'idle' | 'loading' | 'ready' | 'error'; message: string; progress?: number };
 type AssemblyExportStatus = { phase: 'idle' | 'exporting' | 'success' | 'error'; message?: string };
 type ProductEntry = { nodeId: string; label: string; nodeType: 'collection' | 'part'; parentNodeId?: string; nodeName: string; bodyId: string };
 type ProductRow = ProductEntry & { depth: number; hasChildren: boolean };
@@ -55,7 +55,7 @@ export default function Model3DBrowserView() {
   const initial = useMemo(() => parseModel3DViewState(readSessionState()), []);
   const manifestUrl = '/model3d.manifest.json';
   const [localFiles, setLocalFiles] = useState<File[]>();
-  const [status, setStatus] = useState<LoadStatus>({ phase: 'loading', message: '正在准备三维场景…' });
+  const [status, setStatus] = useState<LoadStatus>({ phase: 'idle', message: '尚未打开三维模型' });
   const [assemblyExport, setAssemblyExport] = useState<AssemblyExportStatus>({ phase: 'idle' });
   const [manifest, setManifest] = useState<Model3DManifest>();
   const [productEntries, setProductEntries] = useState<ProductEntry[]>([]);
@@ -289,7 +289,10 @@ export default function Model3DBrowserView() {
         fitViewer(env, result.displayRoot);
         setStatus({ phase: 'ready', message: `${nextEntries.length} 个产品结构节点` });
       } catch (error) {
-        if (!disposed && !(error instanceof DOMException && error.name === 'AbortError')) setStatus({ phase: 'error', message: error instanceof Error ? error.message : '模型加载失败' });
+        if (!disposed && !(error instanceof DOMException && error.name === 'AbortError')) {
+          if (!localFiles?.length && error instanceof Model3DAssetError && error.status === 404) setStatus({ phase: 'idle', message: '尚未打开三维模型' });
+          else setStatus({ phase: 'error', message: error instanceof Error ? error.message : '模型加载失败' });
+        }
       }
     };
     void load();
@@ -532,7 +535,7 @@ export default function Model3DBrowserView() {
     <div className={`model3d-main ${toolPanelOpen ? 'motion-mode' : ''}`} style={{ gridTemplateColumns: `${leftSidebarWidth}px 7px minmax(0,1fr) 7px ${rightSidebarWidth}px` }}>
       <aside className="model3d-tree"><div className="model3d-panel-head"><strong>CAD 产品结构</strong><span>{productEntries.length}</span></div><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索集合或部件…" /><div className="model3d-component-list">{productRows.map((entry) => <div key={entry.nodeId} className={entry.nodeId === selectedNodeId ? 'selected' : ''} style={{ paddingLeft: entry.depth * 12 }}><button className="model3d-tree-toggle" disabled={!entry.hasChildren} title={expandedNodes.has(entry.nodeId) ? '折叠' : '展开'} onClick={() => setExpandedNodes((current) => { const next = new Set(current); next.has(entry.nodeId) ? next.delete(entry.nodeId) : next.add(entry.nodeId); return next; })}>{entry.hasChildren ? expandedNodes.has(entry.nodeId) ? <ChevronDown size={12} /> : <ChevronRight size={12} /> : <span />}</button><button className="model3d-component" title={entry.nodeType === 'collection' ? '双击以此集合作为爆炸范围' : undefined} onClick={() => chooseProductNode(entry.nodeId)} onDoubleClick={() => enterExplosionScope(entry)}>{entry.nodeType === 'collection' ? <Folder size={13} /> : <Box size={13} />}<span><strong>{entry.label}</strong><small>{entry.nodeName}</small></span></button><button className="model3d-eye" title={hidden.has(entry.nodeId) ? '显示' : '隐藏'} onClick={() => setHidden((current) => { const next = new Set(current); next.has(entry.nodeId) ? next.delete(entry.nodeId) : next.add(entry.nodeId); return next; })}>{hidden.has(entry.nodeId) ? <EyeOff size={13} /> : <Eye size={13} />}</button></div>)}</div></aside>
       <div className="model3d-sidebar-resizer left" role="separator" aria-label="调整 CAD 产品结构栏宽度" aria-orientation="vertical" aria-valuemin={160} aria-valuemax={520} aria-valuenow={leftSidebarWidth} tabIndex={0} onPointerDown={(event) => beginSidebarResize('left', event)} onKeyDown={(event) => resizeSidebarWithKeyboard('left', event)} />
-      <div className="model3d-canvas-wrap"><div ref={hostRef} className="model3d-canvas" />{status.phase === 'loading' && <div className="model3d-loading"><RefreshCw className="spin" /><strong>{status.message}</strong>{status.progress != null && <><progress max="1" value={status.progress} /><span>{Math.round(status.progress * 100)}%</span></>}</div>}{status.phase === 'error' && <div className="model3d-error"><AlertTriangle /><strong>无法打开三维模型</strong><span>{status.message}</span><button onClick={() => fileRef.current?.click()}>选择 GLB、glTF 或模型包文件</button></div>}{motionPanel && manifest?.collision && collisionEnabled && <section className={`model3d-live-collision ${activeCollisionCount ? 'warning' : 'clear'}`}><header><span>{activeCollisionCount ? <ShieldAlert size={14} /> : <CheckCircle2 size={14} />}<strong>{activeCollisionCount ? `${activeCollisionCount} 项实时干涉预警` : '当前姿态未发现干涉'}</strong></span><button onClick={() => setCollisionEnabled(false)}>暂停</button></header>{activeCollisionResults.length > 0 && <div>{activeCollisionResults.slice(0, 3).map((item) => <button key={item.pairId} onClick={() => locateInterferencePose(item)}><span>{item.componentA}</span><i>×</i><span>{item.componentB}</span></button>)}{activeCollisionResults.length > 3 && <small>另有 {activeCollisionResults.length - 3} 项</small>}</div>}<footer>运动时持续进行网格级干涉预警<button onClick={() => { setCollisionPanel(true); setMotionPanel(false); setAssemblyPanel(false); }}>查看详情</button></footer></section>}</div>
+      <div className="model3d-canvas-wrap"><div ref={hostRef} className="model3d-canvas" />{status.phase === 'idle' && <div className="model3d-empty"><Box /><strong>尚未打开三维模型</strong><span>选择 GLB、glTF，或包含清单和视觉资产的模型包文件。</span><button onClick={() => fileRef.current?.click()}><Upload size={13} />选择模型文件</button></div>}{status.phase === 'loading' && <div className="model3d-loading"><RefreshCw className="spin" /><strong>{status.message}</strong>{status.progress != null && <><progress max="1" value={status.progress} /><span>{Math.round(status.progress * 100)}%</span></>}</div>}{status.phase === 'error' && <div className="model3d-error"><AlertTriangle /><strong>无法打开三维模型</strong><span>{status.message}</span><button onClick={() => fileRef.current?.click()}>选择 GLB、glTF 或模型包文件</button></div>}{motionPanel && manifest?.collision && collisionEnabled && <section className={`model3d-live-collision ${activeCollisionCount ? 'warning' : 'clear'}`}><header><span>{activeCollisionCount ? <ShieldAlert size={14} /> : <CheckCircle2 size={14} />}<strong>{activeCollisionCount ? `${activeCollisionCount} 项实时干涉预警` : '当前姿态未发现干涉'}</strong></span><button onClick={() => setCollisionEnabled(false)}>暂停</button></header>{activeCollisionResults.length > 0 && <div>{activeCollisionResults.slice(0, 3).map((item) => <button key={item.pairId} onClick={() => locateInterferencePose(item)}><span>{item.componentA}</span><i>×</i><span>{item.componentB}</span></button>)}{activeCollisionResults.length > 3 && <small>另有 {activeCollisionResults.length - 3} 项</small>}</div>}<footer>运动时持续进行网格级干涉预警<button onClick={() => { setCollisionPanel(true); setMotionPanel(false); setAssemblyPanel(false); }}>查看详情</button></footer></section>}</div>
       <div className="model3d-sidebar-resizer right" role="separator" aria-label="调整属性与工具栏宽度" aria-orientation="vertical" aria-valuemin={190} aria-valuemax={520} aria-valuenow={rightSidebarWidth} tabIndex={0} onPointerDown={(event) => beginSidebarResize('right', event)} onKeyDown={(event) => resizeSidebarWithKeyboard('right', event)} />
       <aside className={`model3d-properties ${motionPanel || collisionPanel || assemblyPanel ? 'motion-open' : ''}`}>
         <div className="model3d-panel-tabs"><button className={!motionPanel && !collisionPanel && !assemblyPanel ? 'active' : ''} onClick={() => { setMotionPanel(false); setCollisionPanel(false); closeAssemblyWorkspace(); }}>部件</button><button className={motionPanel ? 'active' : ''} disabled={!manifest?.joints.length} onClick={() => { closeAssemblyWorkspace(); setMotionPanel(true); setCollisionPanel(false); }}>运动 {manifest?.joints.length ?? 0}</button><button className={collisionPanel ? 'active' : ''} disabled={!manifest?.collision} onClick={() => { closeAssemblyWorkspace(); setCollisionPanel(true); setMotionPanel(false); }}>干涉 {activeCollisionCount}</button><button className={assemblyPanel ? 'active' : ''} disabled={!productEntries.length} onClick={() => { setAssemblyPanel(true); setMotionPanel(false); setCollisionPanel(false); }}>装配</button></div>
