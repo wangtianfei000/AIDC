@@ -239,56 +239,6 @@
         "arguments": [],
         "expected": "file exists"
       }
-    },
-    {
-      "id": "usd-brep",
-      "name": "NVIDIA USD BRep",
-      "version": "1.0.0",
-      "source": {
-        "type": "official-release",
-        "url": "https://pypi.org/project/usd-brep/1.0.0/",
-        "sha256": "0dfddd377592e0548b5ff730f045950dc3bd0113a41025125bd902988dbba08c",
-        "sizeBytes": 17576347,
-        "verificationStatus": "verified",
-        "signature": "SHA-256 matches the official CPython 3.12 Windows x86-64 wheel"
-      },
-      "capabilities": [
-        "geometry.primitive",
-        "geometry.boolean",
-        "geometry.distance",
-        "geometry.measure",
-        "geometry.tessellate",
-        "geometry.usd-roundtrip"
-      ],
-      "licenses": [
-        {
-          "name": "Apache-2.0 with bundled third-party notices",
-          "spdx": null,
-          "status": "review-required",
-          "source": "https://github.com/NVIDIA-Omniverse/usd-brep/blob/main/THIRD_PARTY_NOTICES.md"
-        }
-      ],
-      "install": {
-        "packId": "python-pack",
-        "mode": "extract",
-        "entryPoints": {
-          "module": "Lib/site-packages/usd_brep"
-        }
-      },
-      "distributionStatus": "candidate",
-      "blockers": [
-        "Qualify 1.0.0 against AIDC production CAD fixtures",
-        "Aggregate bundled third-party notices into the Python Runtime Pack"
-      ],
-      "healthCheck": {
-        "type": "command",
-        "target": "python.exe",
-        "arguments": [
-          "-c",
-          "import usd_brep; print(usd_brep.__version__)"
-        ],
-        "expected": "1.0.0"
-      }
     }
   ]
 }

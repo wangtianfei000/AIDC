@@ -5,7 +5,6 @@ from pathlib import Path
 from aidc_core.paths import product_root
 
 from .freecad_occ import FreeCadOccBackend
-from .usd_brep import UsdBrepBackend
 
 
 class GeometryBackendRegistry:
@@ -16,7 +15,7 @@ class GeometryBackendRegistry:
 
     def __init__(self, root: Path | None = None):
         self.root = (root or product_root()).resolve()
-        self._types = {"freecad-occ": FreeCadOccBackend, "usd-brep": UsdBrepBackend}
+        self._types = {"freecad-occ": FreeCadOccBackend}
 
     def get(self, backend_id: str | None = None):
         selected = backend_id or self.default_backend

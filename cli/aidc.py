@@ -57,7 +57,7 @@ def parser() -> argparse.ArgumentParser:
     geometry = commands.add_parser("geometry").add_subparsers(dest="action", required=True)
     geometry.add_parser("backends")
     geometry_validate = geometry.add_parser("validate")
-    geometry_validate.add_argument("--backend", choices=("freecad-occ", "usd-brep"), default="freecad-occ")
+    geometry_validate.add_argument("--backend", choices=("freecad-occ",), default="freecad-occ")
     geometry_validate.add_argument("--report", type=Path)
     integration = commands.add_parser("integrate"); integration.add_argument("host", choices=("codex", "cursor", "mcp"))
     integration_action = integration.add_mutually_exclusive_group()

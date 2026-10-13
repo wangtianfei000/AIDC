@@ -26,7 +26,7 @@ Windows 开发工作区可以直接双击 `bin\aidc.cmd`，通过菜单启动三
 .\bin\aidc.cmd browser status
 .\bin\aidc.cmd browser stop --all
 .\bin\aidc.cmd geometry backends
-.\bin\aidc.cmd geometry validate --backend usd-brep
+.\bin\aidc.cmd geometry validate --backend freecad-occ
 ```
 
 CLI 自动分配端口、执行健康检查、复用相同工程实例，并在 `%LOCALAPPDATA%\AIDC\state` 记录任务、进程和脱敏日志。`--json` 可以放在命令任意位置，输出 `aidc.cli-result/1.0` 结构。
@@ -36,7 +36,7 @@ CLI 自动分配端口、执行健康检查、复用相同工程实例，并在 
 | 目录 | 模块 | 用途 |
 |---|---|---|
 | [aidc_core/](aidc_core/) | AIDC 运行核心 | CLI、任务、进程、依赖和运行时管理 |
-| [aidc_core/geometry/](aidc_core/geometry/) | 几何后端 | `freecad-occ` 生产后端与 `usd-brep` 实验后端的统一选择和验证契约 |
+| [aidc_core/geometry/](aidc_core/geometry/) | 几何后端 | `freecad-occ` 生产后端的统一选择和验证契约 |
 | [distribution/](distribution/) | 发行工程 | 组件清单、供应链契约、构建、安装及验收脚本 |
 | [integrations/](integrations/) | AI 宿主适配 | Codex、Cursor 和通用 MCP 配置生成 |
 | [skills/](skills/) | Skills | 面向 AI 工具的标准工作流 |

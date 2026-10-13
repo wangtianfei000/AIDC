@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import importlib.util
 import shutil
 import subprocess
 import sys
@@ -43,14 +42,6 @@ class ComponentRegistry:
         elif dep_id == "python-runtime":
             candidates = [self.root / "runtimes" / "python" / ("python.exe" if sys.platform == "win32" else "python")]
             if not getattr(sys, "frozen", False): candidates.append(Path(sys.executable))
-        elif dep_id == "usd-brep":
-            module = importlib.util.find_spec("usd_brep")
-            if module and module.origin:
-                candidates.append(Path(module.origin))
-            candidates.extend([
-                self.root / "runtimes" / "python" / "Lib" / "site-packages" / "usd_brep" / "__init__.py",
-                self.root / ".codex-runtime" / "usd-brep" / "usd_brep" / "__init__.py",
-            ])
         elif dep_id == "sysml-parser-runtime":
             candidates = [
                 self.root / "components" / "sysml" / "bin" / "aidc-sysml-parser-runtime.exe",

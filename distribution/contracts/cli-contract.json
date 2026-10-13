@@ -231,7 +231,7 @@
     },
     {
       "id": "geometry.validate",
-      "syntax": "aidc geometry validate [--backend <freecad-occ|usd-brep>] [--report FILE] [--json]",
+      "syntax": "aidc geometry validate [--backend freecad-occ] [--report FILE] [--json]",
       "sideEffect": "execute"
     }
   ]
