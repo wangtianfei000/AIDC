@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "aidc": {
+      "command": "${AIDC_MCP_EXECUTABLE}",
+      "args": [],
+      "env": {
+        "PYTHONUTF8": "1"
+      }
+    }
+  }
+}

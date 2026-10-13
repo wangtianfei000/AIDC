@@ -17,6 +17,7 @@ from aidc_core.runtime import RuntimeManager
 from aidc_core.operations import model3d_export, model3d_publish, modelica, sysml_validate
 from aidc_core.dependencies import DependencyManager, RUNTIME_DIRECTORIES
 from aidc_core.artifacts import ArtifactRegistry
+from aidc_core.integrations import IntegrationManager
 from mcp.aidc_mcp import TaskRegistry
 
 
@@ -51,7 +52,12 @@ def parser() -> argparse.ArgumentParser:
             packaged = sub.add_parser("package"); packaged.add_argument("project"); packaged.add_argument("output"); packaged.add_argument("--include-results", action="store_true")
     freecad = commands.add_parser("freecad").add_subparsers(dest="action", required=True)
     for action in ("open", "check"): freecad.add_parser(action).add_argument("file")
-    integration = commands.add_parser("integrate"); integration.add_argument("host", choices=("codex", "cursor", "mcp")); integration.add_argument("--check", action="store_true")
+    integration = commands.add_parser("integrate"); integration.add_argument("host", choices=("codex", "cursor", "mcp"))
+    integration_action = integration.add_mutually_exclusive_group()
+    integration_action.add_argument("--check", action="store_true")
+    integration_action.add_argument("--uninstall", action="store_true")
+    integration_action.add_argument("--restore", action="store_true")
+    integration.add_argument("--config", type=Path, help="覆盖宿主配置路径；默认使用用户级配置")
     browser = commands.add_parser("browser").add_subparsers(dest="action", required=True)
     browser.add_parser("list"); browser.add_parser("status")
     stopped = browser.add_parser("stop"); stopped.add_argument("instance_id", nargs="?"); stopped.add_argument("--all", action="store_true")
@@ -87,7 +93,7 @@ def _doctor(registry: ComponentRegistry) -> dict[str, Any]:
 def execute(args: argparse.Namespace) -> CommandResult:
     registry = ComponentRegistry(); manager = RuntimeManager()
     if args.domain == "version":
-        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.4.0", "pythonVersion": platform.python_version()})
+        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.5.0", "pythonVersion": platform.python_version()})
     if args.domain == "capabilities":
         return CommandResult("system.capabilities", f"发现 {len(registry.capabilities())} 项能力", {"capabilities": registry.capabilities(), "components": registry.components()})
     if args.domain == "doctor":
@@ -162,6 +168,22 @@ def execute(args: argparse.Namespace) -> CommandResult:
         completed = subprocess.run([str(command_exe), "-c", "import FreeCAD as App,os;d=App.openDocument(os.environ['AIDC_FREECAD_INPUT']);print(len(d.Objects));App.closeDocument(d.Name)"], cwd=command_exe.parent, env=env, capture_output=True, text=True, timeout=120, check=False)
         if completed.returncode: raise AidcError(completed.stderr or completed.stdout, 6, "CAD_CHECK_FAILED", str(source))
         return CommandResult("freecad.check", "FreeCAD 文件检查通过", {"file": str(source), "output": completed.stdout.strip()})
+    if args.domain == "integrate":
+        integrations = IntegrationManager(registry.root)
+        if args.check:
+            data = integrations.check(args.host, args.config)
+            message = f"{args.host} 接入兼容性检查通过"
+        elif args.uninstall:
+            data = integrations.uninstall(args.host, args.config)
+            message = f"{args.host} 接入已卸载"
+        elif args.restore:
+            data = integrations.restore(args.host)
+            message = f"{args.host} 接入备份已恢复"
+        else:
+            data = integrations.install(args.host, args.config)
+            message = f"{args.host} 接入已安装"
+        artifacts = [{"kind": "file", "path": data["configPath"]}] if Path(data["configPath"]).is_file() else []
+        return CommandResult("integrate.host", message, data, artifacts=artifacts)
     if args.domain == "browser" and args.action in {"list", "status"}:
         data = manager.status(); return CommandResult("browser.status", f"共 {len(data)} 个浏览器实例", {"instances": data})
     if args.domain == "browser" and args.action == "stop":

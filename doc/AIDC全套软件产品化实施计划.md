@@ -1,8 +1,8 @@
 # AIDC AI 工具插件化与正式发行实施计划
 
 版本：V1.1  
-状态：P0–P4 已执行；公开发行仍受供应链闸门阻断
-日期：2026-10-12
+状态：P0–P5 已执行；公开发行仍受供应链闸门阻断
+日期：2026-10-13
 
 ## 1. 定位修正
 
@@ -367,7 +367,7 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 
 执行结果：已完成内部发行验收。`distribution/scripts/build_portable.ps1` 统一构建三套前端生产资源和四个单文件服务组件，`assemble_portable.py` 生成带 SHA-256 文件清单的 `distribution/out/aidc-portable/`。运行管理器优先解析 `components/` 发行布局；三维浏览器改为静态资源与工程 `generated/` 叠加托管，不再启动 Vite；Modelica Project Server 和生成器不再调用系统 Python；SysML Parser 固定为 0.8.1 运行时。统一 CLI 已实现 SysML 校验、三维发布/装配导出、Modelica 校验/生成/打包和 FreeCAD 打开/检查。旧 PowerShell 入口仅作为开发包装器转调 CLI。
 
-验收记录：发行目录包含 270 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
+验收记录：P5 加入宿主适配模板后，发行目录包含 274 个经清单记录的文件且不存在 `node_modules`；将 PATH 收缩为 Windows `System32` 后，SysML 校验、三维装配导出、Modelica 生成/校验/打包均成功，SysML、三维模型和 Modelica 三个浏览器分别返回 HTTP 200，三维浏览器能从工程叠加层读取模型清单和姿态预设，运行进程命令中没有 npm、Vite 或外部 Python。生成的 Modelica 工程内置版本锁定的 AIDCRobotics 依赖，可跨盘移动。缺少 OMC 时浏览器使用带 `OMC_UNAVAILABLE` 诊断的只读源码索引；编译仿真和 FreeCAD CAD 能力由 P3 Runtime Pack 解锁。公开二进制发布仍受 P0 许可证门禁约束。
 
 交付：
 
@@ -418,6 +418,12 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 验收：MCP 不依赖具体 AI 主机，在协议测试客户端中完成全部核心调用。
 
 ### P5：Codex、Cursor 与通用 MCP 适配（1–2 周）
+
+执行结果：已完成。`aidc integrate codex|cursor|mcp` 已实现默认安装、`--check` 兼容性检查、`--uninstall` 定向卸载、`--restore` 完整基线恢复和 `--config` 受控路径覆盖。Codex 适配只维护 `~/.codex/config.toml` 中带边界标记的 `mcp_servers.aidc` 区块；Cursor 适配只合并 `~/.cursor/mcp.json` 的 `mcpServers.aidc`；通用模式生成标准 stdio 配置文件。三个入口均解析到同一个 `aidc-mcp`，没有宿主专属核心实现。
+
+Codex 和 Cursor 接入会从统一 `skills/catalog.json` 安装四个相同版本的工程 Skills。首次安装前保存宿主配置和同名 Skill 的基线；重复安装幂等更新，不生成重复 Codex 区块；卸载保留其他宿主配置并恢复接入前同名 Skill；显式恢复可将配置和 Skills 完整回滚到首次接入状态。格式损坏或 Codex 中存在非托管同名服务时拒绝覆盖。
+
+兼容性检查不是静态文件检查：它按宿主生成的 command/args 实际启动 MCP stdio 服务，完成初始化、17 项工具发现、四项 Skill Resources 发现和 `aidc_system_capabilities` 调用。冻结发行验收在 PATH 仅保留 Windows `System32` 的环境中分别安装并检查 Codex、Cursor 和通用配置，通过 Cursor 生成的配置打开 SysML 浏览器、取得启动地址和 `aidc.browser.session` 产物，再停止全部实例并卸载三类接入。
 
 交付：
 

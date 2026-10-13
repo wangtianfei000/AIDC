@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "product": "aidc",
-  "contractVersion": "0.4.0",
+  "contractVersion": "0.5.0",
   "outputContract": "aidc.cli-result/1.0",
   "rules": {
     "humanOutput": "UTF-8 text",
@@ -116,7 +116,7 @@
     },
     {
       "id": "integrate.host",
-      "syntax": "aidc integrate <codex|cursor|mcp> [--check] [--json]",
+      "syntax": "aidc integrate <codex|cursor|mcp> [--check|--uninstall|--restore] [--config PATH] [--json]",
       "sideEffect": "write"
     },
     {

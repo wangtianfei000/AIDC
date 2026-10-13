@@ -22,7 +22,7 @@ def main() -> int:
         completed = subprocess.run([str(MCP)], cwd=MCP.parents[2], env=environment, input="".join(json.dumps(item)+"\n" for item in requests), capture_output=True, text=True, encoding="utf-8", timeout=60, check=False)
         assert completed.returncode == 0, completed.stderr
         responses = [json.loads(line) for line in completed.stdout.splitlines()]
-        assert responses[0]["result"]["serverInfo"]["version"] == "0.4.0"
+        assert responses[0]["result"]["serverInfo"]["version"] == "0.5.0"
         assert len(responses[1]["result"]["tools"]) == 17 and len(responses[2]["result"]["resources"]) == 4
         assert responses[3]["result"]["structuredContent"]["status"] == "succeeded"
         print(json.dumps({"passed":True,"frozenMcp":str(MCP),"toolCount":17,"skillResources":4,"pathIsolation":True},ensure_ascii=False))

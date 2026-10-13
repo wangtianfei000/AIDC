@@ -60,6 +60,9 @@
     "verify:distribution:p3": "npm run test:runtime-packs:p3 && npm run verify:installer:p3 && npm run verify:runtimes:p3 && npm run verify:portable-runtimes:p3",
     "test:mcp:p4": "python -X utf8 -m unittest discover -s tests/p4 -p test_*.py -v",
     "verify:mcp-frozen:p4": "python -X utf8 tests/p4/verify_frozen_mcp.py",
-    "verify:distribution:p4": "npm run test:mcp:p4 && npm run verify:mcp-frozen:p4"
+    "verify:distribution:p4": "npm run test:mcp:p4 && npm run verify:mcp-frozen:p4",
+    "test:integrations:p5": "python -X utf8 -m unittest discover -s tests/p5 -p test_*.py -v",
+    "verify:hosts-frozen:p5": "python -X utf8 tests/p5/verify_frozen_hosts.py",
+    "verify:distribution:p5": "npm run test:integrations:p5 && npm run verify:hosts-frozen:p5"
   }
 }

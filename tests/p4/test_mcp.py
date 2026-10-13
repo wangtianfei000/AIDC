@@ -42,7 +42,7 @@ class McpProtocolTests(unittest.TestCase):
             root = Path(directory); client = Client(root)
             try:
                 initialized = client.request("initialize", {"protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "test", "version": "1"}})
-                self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.4.0")
+                self.assertEqual(initialized["result"]["serverInfo"]["version"], "0.5.0")
                 tools = client.request("tools/list")["result"]["tools"]
                 self.assertEqual(len(tools), 17); self.assertIn("aidc_artifacts_list", {item["name"] for item in tools})
                 resources = client.request("resources/list")["result"]["resources"]
