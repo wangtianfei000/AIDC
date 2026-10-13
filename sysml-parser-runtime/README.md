@@ -24,6 +24,16 @@
 
 脚本执行 CMake Release 构建、C++ 契约测试、安装，并通过 `windeployqt` 把所需 Qt DLL 放入 `dist/bin`。最终用户运行发布目录时不需要单独安装 Qt，但发布包必须携带这些运行库。
 
+P1 已将模型层和 ANTLR4 C++ Runtime 4.13.2 源码迁入仓库。可以关闭现有 Parser Runtime，只验证这两层完全不引用参考项目：
+
+```powershell
+cmake -S . -B build-p1 -DAIDC_BUILD_RUNTIME=OFF
+cmake --build build-p1
+ctest --test-dir build-p1 --output-on-failure
+```
+
+该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure` 和 `antlr4_static`，并校验导入哈希及源码路径边界。当前 HTTP Runtime 在 P2/P3 完成前仍链接外部 Parser 静态库，因此常规完整构建暂时仍需要参考 Parser；P1 没有切换运行行为。
+
 ## 运行
 
 ```powershell

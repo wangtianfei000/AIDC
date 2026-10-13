@@ -142,6 +142,8 @@ antlr4_static
 
 ### P1：迁入模型层和 ANTLR Runtime
 
+**状态：已完成（2026-10-13）。** 已迁入模型层 168 个文件及 ANTLR4 C++ Runtime 4.13.2 的 309 个源码文件，建立仓库内独立 targets、导入完整性校验和外部路径边界测试；关闭 Runtime 后可在全新构建目录独立编译并通过测试。
+
 1. 迁入 `core/common`、`core/infrastructure`、`core/model`。
 2. 迁入 ANTLR4 C++ Runtime 4.13.2、版本文件和许可证。
 3. 建立独立 CMake targets，禁止引用 AIDC 目录之外的头文件和库。

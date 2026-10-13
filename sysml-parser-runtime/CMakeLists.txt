@@ -6,11 +6,40 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
-if(NOT DEFINED REFERENCE_ROOT OR NOT DEFINED REFERENCE_BUILD)
-    message(FATAL_ERROR "REFERENCE_ROOT and REFERENCE_BUILD are required")
+option(AIDC_BUILD_RUNTIME "Build the external-parser-backed runtime during P1" ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Core Test)
+
+add_subdirectory(third_party/antlr4-runtime-4.13.2)
+add_subdirectory(engine)
+
+enable_testing()
+add_executable(aidc-p1-embedded-sources-tests tests/P1EmbeddedSourcesTests.cpp)
+target_link_libraries(aidc-p1-embedded-sources-tests PRIVATE
+    aidc_sysml_model_layer
+    antlr4_static
+    Qt6::Test
+)
+add_test(NAME aidc-p1-embedded-sources-tests COMMAND aidc-p1-embedded-sources-tests)
+
+find_package(Python3 QUIET COMPONENTS Interpreter)
+if(Python3_Interpreter_FOUND)
+    add_test(
+        NAME aidc-p1-import-integrity
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_p1_import.py"
+    )
+    add_test(
+        NAME aidc-embedded-source-boundaries
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/check_embedded_source_boundaries.py"
+    )
 endif()
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Network Concurrent Test)
+if(AIDC_BUILD_RUNTIME)
+if(NOT DEFINED REFERENCE_ROOT OR NOT DEFINED REFERENCE_BUILD)
+    message(FATAL_ERROR "REFERENCE_ROOT and REFERENCE_BUILD are required when AIDC_BUILD_RUNTIME=ON")
+endif()
+
+find_package(Qt6 REQUIRED COMPONENTS Gui Network Concurrent)
 
 set(REFERENCE_LIB_DIR "${REFERENCE_BUILD}/lib")
 set(REFERENCE_LIBS
@@ -65,7 +94,6 @@ target_link_libraries(aidc-sysml-parser-runtime PRIVATE
     Qt6::Concurrent
 )
 
-enable_testing()
 add_executable(aidc-parser-runtime-tests tests/RuntimeTests.cpp)
 target_link_libraries(aidc-parser-runtime-tests PRIVATE
     aidc_parser_runtime_core
@@ -93,3 +121,4 @@ install(FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/standard-library/2026-08/README.md"
     DESTINATION library
 )
+endif()

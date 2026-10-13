@@ -21,6 +21,7 @@ venv/
 
 # Build and generated output
 **/build/
+**/build-*/
 **/dist/
 **/results/
 **/generated/
