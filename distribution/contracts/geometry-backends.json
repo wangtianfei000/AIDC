@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "aidc.geometry.backends/0.1",
+  "setting": "geometry.backend",
+  "defaultBackend": "freecad-occ",
+  "resultContract": "aidc.geometry.validation/0.1",
+  "capabilityContract": [
+    "primitive",
+    "boolean",
+    "distance",
+    "measure",
+    "tessellate"
+  ],
+  "backends": [
+    {
+      "id": "freecad-occ",
+      "status": "production",
+      "processModel": "isolated-command",
+      "exactFormat": "FCStd / OpenCascade TopoDS",
+      "additionalCapabilities": ["cad-document"]
+    },
+    {
+      "id": "usd-brep",
+      "status": "experimental",
+      "processModel": "python",
+      "exactFormat": "OpenUSD BRepArray",
+      "additionalCapabilities": ["usd-roundtrip"],
+      "unsupportedAIDCSource": [".FCStd", ".step", ".stp", ".iges", ".igs", ".jt"]
+    }
+  ],
+  "promotionGate": [
+    "Compare machine-duck and Jingang fixtures with freecad-occ",
+    "Verify malformed CAD input is process-isolated",
+    "Qualify topology, mass properties, units and tessellation",
+    "Complete Runtime Pack license and SBOM review"
+  ]
+}

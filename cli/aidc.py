@@ -18,6 +18,7 @@ from aidc_core.operations import model3d_export, model3d_publish, modelica, sysm
 from aidc_core.dependencies import DependencyManager, RUNTIME_DIRECTORIES
 from aidc_core.artifacts import ArtifactRegistry
 from aidc_core.integrations import IntegrationManager
+from aidc_core.geometry import GeometryBackendRegistry
 from mcp.aidc_mcp import TaskRegistry
 
 
@@ -53,6 +54,11 @@ def parser() -> argparse.ArgumentParser:
             packaged = sub.add_parser("package"); packaged.add_argument("project"); packaged.add_argument("output"); packaged.add_argument("--include-results", action="store_true")
     freecad = commands.add_parser("freecad").add_subparsers(dest="action", required=True)
     for action in ("open", "check"): freecad.add_parser(action).add_argument("file")
+    geometry = commands.add_parser("geometry").add_subparsers(dest="action", required=True)
+    geometry.add_parser("backends")
+    geometry_validate = geometry.add_parser("validate")
+    geometry_validate.add_argument("--backend", choices=("freecad-occ", "usd-brep"), default="freecad-occ")
+    geometry_validate.add_argument("--report", type=Path)
     integration = commands.add_parser("integrate"); integration.add_argument("host", choices=("codex", "cursor", "mcp"))
     integration_action = integration.add_mutually_exclusive_group()
     integration_action.add_argument("--check", action="store_true")
@@ -169,6 +175,23 @@ def execute(args: argparse.Namespace) -> CommandResult:
         completed = subprocess.run([str(command_exe), "-c", "import FreeCAD as App,os;d=App.openDocument(os.environ['AIDC_FREECAD_INPUT']);print(len(d.Objects));App.closeDocument(d.Name)"], cwd=command_exe.parent, env=env, capture_output=True, text=True, errors="replace", timeout=120, check=False)
         if completed.returncode: raise AidcError(completed.stderr or completed.stdout, 6, "CAD_CHECK_FAILED", str(source))
         return CommandResult("freecad.check", "FreeCAD 文件检查通过", {"file": str(source), "output": completed.stdout.strip()})
+    if args.domain == "geometry" and args.action == "backends":
+        backends = GeometryBackendRegistry(registry.root).list()
+        return CommandResult("geometry.backends", f"发现 {len(backends)} 个几何后端", {"setting": "geometry.backend", "default": "freecad-occ", "backends": backends})
+    if args.domain == "geometry" and args.action == "validate":
+        backend = GeometryBackendRegistry(registry.root).get(args.backend)
+        data = backend.validate()
+        artifacts = []
+        if args.report:
+            path = args.report.expanduser().resolve()
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            artifacts.append({"kind": "file", "path": str(path)})
+        if data["state"] == "unavailable":
+            raise AidcError(f"几何后端不可用：{args.backend}（{data['probe']['error']}）", 4, "DEPENDENCY_MISSING")
+        if data["state"] != "passed":
+            return CommandResult("geometry.validate", f"几何后端能力验证失败：{args.backend}", data, status="failed", exit_code=8, diagnostics=[{"code": "GEOMETRY_VALIDATION_FAILED", "severity": "error", "message": item["message"], "path": None, "details": item.get("metrics", {})} for item in data["checks"] if not item["passed"]], artifacts=artifacts)
+        return CommandResult("geometry.validate", f"几何后端能力验证通过：{args.backend}", data, artifacts=artifacts)
     if args.domain == "integrate":
         integrations = IntegrationManager(registry.root)
         if args.check:

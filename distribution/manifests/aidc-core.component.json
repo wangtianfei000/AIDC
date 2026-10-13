@@ -34,7 +34,9 @@
     "integration.mcp",
     "integration.check",
     "integration.uninstall",
-    "integration.restore"
+    "integration.restore",
+    "geometry.backends",
+    "geometry.validate"
   ],
   "entryPoints": [
     {

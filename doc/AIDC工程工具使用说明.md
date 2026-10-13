@@ -139,6 +139,18 @@ $aidc = "$env:LOCALAPPDATA\Programs\AIDC\bin\aidc.exe"
 
 `check` 使用受管 FreeCAD 的无界面入口，适合 AI 和 CI；`open` 启动同一版本的图形入口供人工修改。
 
+### 4.6 精确几何后端验证
+
+`geometry.backend` 当前注册两个实现：`freecad-occ` 是默认生产后端，`usd-brep` 是实验后端。查看运行时状态并执行同一能力基线：
+
+```powershell
+& $aidc geometry backends
+& $aidc geometry validate --backend freecad-occ --report ".\freecad-validation.json"
+& $aidc geometry validate --backend usd-brep --report ".\usd-brep-validation.json"
+```
+
+验证覆盖基础实体、布尔求交、距离、体积和网格化；USD BRep 还验证精确 BRep 的 OpenUSD 往返。实验后端验证通过不代表已经切换生产发布或干涉校核，具体接口和准入边界见 [几何后端接口与能力验证](几何后端接口与能力验证.md)。
+
 ## 5. 浏览器、任务与产物管理
 
 ```powershell
