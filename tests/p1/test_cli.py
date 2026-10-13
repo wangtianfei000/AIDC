@@ -8,6 +8,7 @@ import unittest
 import urllib.error
 import urllib.request
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
@@ -15,6 +16,7 @@ sys.path.insert(0, str(ROOT))
 from aidc_core.gateway import GatewayServer
 from aidc_core.registry import ComponentRegistry
 from aidc_core.result import CommandResult
+from aidc_core.runtime import RuntimeManager
 
 
 class P1ContractTests(unittest.TestCase):
@@ -61,6 +63,13 @@ class P1ContractTests(unittest.TestCase):
             self.assertEqual(caught.exception.code, 401)
             with urllib.request.urlopen(url + "?token=secret") as response: self.assertEqual(response.read(), b"ok")
             server.shutdown(); server.server_close(); thread.join(2)
+
+    @patch("aidc_core.runtime.os.name", "nt")
+    @patch("aidc_core.runtime.subprocess.run")
+    def test_windows_process_probe_does_not_decode_localized_tasklist_output(self, run):
+        run.return_value = subprocess.CompletedProcess([], 0, stdout=b"\xd0\xc5\xcf\xa2: no matching task\r\n", stderr=b"")
+        self.assertFalse(RuntimeManager._alive(987654))
+        self.assertNotIn("text", run.call_args.kwargs)
 
 
 if __name__ == "__main__": unittest.main()

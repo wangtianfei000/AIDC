@@ -166,7 +166,7 @@ def execute(args: argparse.Namespace) -> CommandResult:
             process = subprocess.Popen([str(gui), str(source)], cwd=gui.parent, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
             return CommandResult("freecad.open", "已打开 FreeCAD", {"file": str(source), "executable": str(gui), "pid": process.pid})
         env = os.environ.copy(); env["AIDC_FREECAD_INPUT"] = str(source)
-        completed = subprocess.run([str(command_exe), "-c", "import FreeCAD as App,os;d=App.openDocument(os.environ['AIDC_FREECAD_INPUT']);print(len(d.Objects));App.closeDocument(d.Name)"], cwd=command_exe.parent, env=env, capture_output=True, text=True, timeout=120, check=False)
+        completed = subprocess.run([str(command_exe), "-c", "import FreeCAD as App,os;d=App.openDocument(os.environ['AIDC_FREECAD_INPUT']);print(len(d.Objects));App.closeDocument(d.Name)"], cwd=command_exe.parent, env=env, capture_output=True, text=True, errors="replace", timeout=120, check=False)
         if completed.returncode: raise AidcError(completed.stderr or completed.stdout, 6, "CAD_CHECK_FAILED", str(source))
         return CommandResult("freecad.check", "FreeCAD 文件检查通过", {"file": str(source), "output": completed.stdout.strip()})
     if args.domain == "integrate":

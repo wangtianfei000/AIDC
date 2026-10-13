@@ -48,8 +48,10 @@ class RuntimeManager:
         if pid <= 0: return False
         try:
             if os.name == "nt":
-                result = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/FO", "CSV", "/NH"], capture_output=True, text=True, timeout=3, check=False)
-                return f'"{pid}"' in result.stdout
+                # tasklist writes through the active Windows code page.  Python's
+                # UTF-8 mode must not try to decode its localized "no tasks" text.
+                result = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/FO", "CSV", "/NH"], capture_output=True, timeout=3, check=False)
+                return f'"{pid}"'.encode("ascii") in result.stdout
             os.kill(pid, 0); return True
         except (OSError, subprocess.SubprocessError): return False
 

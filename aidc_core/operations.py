@@ -101,7 +101,7 @@ def model3d_publish(root: Path, config: Path, output: Path) -> dict[str, Any]:
         temporary = Path(stream.name)
     env = os.environ.copy(); env.update({"AIDC_MODEL3D_PUBLISHER": str(publisher), "AIDC_MODEL3D_CONFIG": str(temporary)})
     try:
-        completed = subprocess.run([str(freecad), "-c", "import os,runpy;runpy.run_path(os.environ['AIDC_MODEL3D_PUBLISHER'],run_name='__main__')"], cwd=root, env=env, capture_output=True, text=True, timeout=900, check=False)
+        completed = subprocess.run([str(freecad), "-c", "import os,runpy;runpy.run_path(os.environ['AIDC_MODEL3D_PUBLISHER'],run_name='__main__')"], cwd=root, env=env, capture_output=True, text=True, errors="replace", timeout=900, check=False)
         if completed.returncode: raise AidcError(completed.stderr or completed.stdout, 6, "TOOL_FAILED")
         return {"passed": True, "output": str(output.resolve()), "report": str((output / "publish-report.json").resolve())}
     finally: temporary.unlink(missing_ok=True)

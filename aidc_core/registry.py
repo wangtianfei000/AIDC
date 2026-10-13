@@ -73,7 +73,7 @@ class ComponentRegistry:
     @staticmethod
     def command_version(command: list[str], timeout: float = 5) -> str | None:
         try:
-            completed = subprocess.run(command, capture_output=True, text=True, timeout=timeout, check=False)
+            completed = subprocess.run(command, capture_output=True, text=True, errors="replace", timeout=timeout, check=False)
             return (completed.stdout or completed.stderr).strip().splitlines()[0]
         except (OSError, subprocess.SubprocessError, IndexError):
             return None
