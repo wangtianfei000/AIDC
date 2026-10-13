@@ -89,10 +89,11 @@ class RuntimeManager:
             if instance.get("status") == "running" and not all(self._alive(int(item["pid"])) for item in instance.get("processes", [])):
                 instance["status"] = "stopped"; instance["stoppedAt"] = utc_now(); instance["stopReason"] = "process-exited"
 
-    def start(self, kind: str, target: Path, launch_browser: bool = True) -> dict[str, Any]:
-        target = target.resolve()
+    def start(self, kind: str, target: Path | None = None, launch_browser: bool = True) -> dict[str, Any]:
+        target = target.resolve() if target else None
         state = self._load(); self._clean(state)
-        key = hashlib.sha256(f"{kind}\0{str(target).casefold()}".encode()).hexdigest()
+        target_key = str(target).casefold() if target else "browser-shell"
+        key = hashlib.sha256(f"{kind}\0{target_key}".encode()).hexdigest()
         existing = next((item for item in state["instances"] if item.get("reuseKey") == key and item.get("status") == "running"), None)
         if existing and self._http_ok(existing["healthUrl"]):
             existing["lastUsedAt"] = utc_now(); self._save(state)
@@ -115,7 +116,7 @@ class RuntimeManager:
             self._wait_http(health_url, gateway)
             now = utc_now()
             instance = {
-                "instanceId": instance_id, "kind": kind, "target": str(target), "reuseKey": key, "status": "running",
+                "instanceId": instance_id, "kind": kind, "target": str(target) if target else None, "reuseKey": key, "status": "running",
                 "host": "127.0.0.1", "port": public_port, "url": f"http://127.0.0.1:{public_port}/", "healthUrl": health_url,
                 "token": token, "ownerPid": os.getpid(), "createdAt": now, "lastUsedAt": now,
                 "processes": [{k: v for k, v in item.items() if k != "_process"} for item in processes],
@@ -136,8 +137,8 @@ class RuntimeManager:
         if getattr(sys, "frozen", False): environment["PYINSTALLER_RESET_ENVIRONMENT"] = "1"
         return self._spawn(instance_id, "gateway", command, self.root, environment)
 
-    def _start_sysml(self, instance_id: str, target: Path, public_port: int, token: str) -> list[dict[str, Any]]:
-        if target.suffix.lower() not in {".sysml", ".kerml"}: raise AidcError("SysML 输入必须是 .sysml 或 .kerml 文件", 3, "INPUT_INVALID", str(target))
+    def _start_sysml(self, instance_id: str, target: Path | None, public_port: int, token: str) -> list[dict[str, Any]]:
+        if target and target.suffix.lower() not in {".sysml", ".kerml"}: raise AidcError("SysML 输入必须是 .sysml 或 .kerml 文件", 3, "INPUT_INVALID", str(target))
         executable = next((Path(item["path"]) for item in ComponentRegistry(self.root).dependency_status("sysml-parser-runtime") if item["path"]), None)
         if not executable: raise AidcError("未找到 SysML Parser Runtime 1.0.0", 4, "DEPENDENCY_MISSING")
         static_root = self._component_path("components/sysml/browser", "sysml-browser/dist")
@@ -146,20 +147,25 @@ class RuntimeManager:
         runtime = self._spawn(instance_id, "sysml-runtime", [str(executable), "--port", str(runtime_port)], self.root)
         try:
             self._wait_http(f"http://127.0.0.1:{runtime_port}/health", runtime["_process"])
-            gateway = self._gateway(instance_id, public_port, token, ["--static", str(static_root), "--map", f"/runtime=http://127.0.0.1:{runtime_port}", "--input", str(target)])
+            arguments = ["--static", str(static_root), "--map", f"/runtime=http://127.0.0.1:{runtime_port}"]
+            if target: arguments.extend(["--input", str(target)])
+            gateway = self._gateway(instance_id, public_port, token, arguments)
             return [runtime, gateway]
         except Exception:
             self._stop_pid(runtime["pid"]); raise
 
-    def _start_model3d(self, instance_id: str, target: Path, public_port: int, token: str) -> list[dict[str, Any]]:
-        manifest = target / "generated" / "model3d.manifest.json"
-        if not manifest.is_file(): raise AidcError("三维工程缺少 generated/model3d.manifest.json", 3, "INPUT_INVALID", str(target))
+    def _start_model3d(self, instance_id: str, target: Path | None, public_port: int, token: str) -> list[dict[str, Any]]:
+        if target:
+            manifest = target / "generated" / "model3d.manifest.json"
+            if not manifest.is_file(): raise AidcError("三维工程缺少 generated/model3d.manifest.json", 3, "INPUT_INVALID", str(target))
         static_root = self._component_path("components/model3d/browser", "model3d-viewer/apps/browser/dist")
         if not (static_root / "index.html").is_file(): raise AidcError("三维浏览器生产资源未构建", 4, "COMPONENT_NOT_BUILT")
-        return [self._gateway(instance_id, public_port, token, ["--static", str(static_root), "--project", str(target)])]
+        arguments = ["--static", str(static_root)]
+        if target: arguments.extend(["--project", str(target)])
+        return [self._gateway(instance_id, public_port, token, arguments)]
 
-    def _start_modelica(self, instance_id: str, target: Path, public_port: int, token: str) -> list[dict[str, Any]]:
-        if not (target / "model-project.json").is_file(): raise AidcError("Modelica 工程缺少 model-project.json", 3, "INPUT_INVALID", str(target))
+    def _start_modelica(self, instance_id: str, target: Path | None, public_port: int, token: str) -> list[dict[str, Any]]:
+        if target and not (target / "model-project.json").is_file(): raise AidcError("Modelica 工程缺少 model-project.json", 3, "INPUT_INVALID", str(target))
         web_root = self._component_path("components/modelica/browser", "modelica-browser/apps/web/dist")
         if not (web_root / "index.html").is_file(): raise AidcError("Modelica 浏览器生产资源未构建", 4, "COMPONENT_NOT_BUILT")
         backend_port = self._port(); server_exe = self.root / "components" / "modelica" / "server" / "aidc-modelica-server.exe"; server = self.root / "modelica-browser" / "services" / "project-server" / "server.py"
@@ -171,7 +177,9 @@ class RuntimeManager:
             environment["AIDC_MODELICA_ROOT"] = str(self.root / "components" / "modelica")
             environment["AIDC_ROBOT_IR_ROOT"] = str(self.root / "components" / "modelica" / "packages" / "robot-ir")
             environment["AIDC_ASSEMBLY_PACKAGE_ROOT"] = str(self.root / "components" / "modelica" / "packages" / "assembly-package")
-        backend = self._spawn(instance_id, "modelica-project", [*command, "--project", str(target), "--host", "127.0.0.1", "--port", str(backend_port), "--web-root", str(web_root)], self.root, environment)
+        arguments = [*command, "--host", "127.0.0.1", "--port", str(backend_port), "--web-root", str(web_root)]
+        if target: arguments.extend(["--project", str(target)])
+        backend = self._spawn(instance_id, "modelica-project", arguments, self.root, environment)
         try:
             self._wait_http(f"http://127.0.0.1:{backend_port}/health", backend["_process"], 90)
             gateway = self._gateway(instance_id, public_port, token, ["--proxy", f"http://127.0.0.1:{backend_port}"])

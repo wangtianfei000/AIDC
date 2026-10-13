@@ -8,7 +8,7 @@
   "platform": "windows",
   "architecture": "x86_64",
   "protocolVersion": "0.1",
-  "capabilities": ["sysml.validate", "sysml.open", "sysml.snapshot"],
+  "capabilities": ["sysml.launch", "sysml.validate", "sysml.open", "sysml.snapshot"],
   "entryPoints": [
     {"id": "browser", "relativePath": "components/sysml/browser", "mode": "static", "arguments": []},
     {"id": "runtime", "relativePath": "components/sysml/bin/aidc-sysml-parser-runtime.exe", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]}

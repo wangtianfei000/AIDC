@@ -125,6 +125,11 @@
       "sideEffect": "launch"
     },
     {
+      "id": "sysml.launch",
+      "syntax": "aidc sysml launch [--no-browser] [--json]",
+      "sideEffect": "launch"
+    },
+    {
       "id": "sysml.validate",
       "syntax": "aidc sysml validate FILE [--json]",
       "sideEffect": "read"
@@ -132,6 +137,11 @@
     {
       "id": "model3d.open",
       "syntax": "aidc model3d open PROJECT [--no-browser] [--json]",
+      "sideEffect": "launch"
+    },
+    {
+      "id": "model3d.launch",
+      "syntax": "aidc model3d launch [--no-browser] [--json]",
       "sideEffect": "launch"
     },
     {
@@ -147,6 +157,11 @@
     {
       "id": "modelica.open",
       "syntax": "aidc modelica open PROJECT [--no-browser] [--json]",
+      "sideEffect": "launch"
+    },
+    {
+      "id": "modelica.launch",
+      "syntax": "aidc modelica launch [--no-browser] [--json]",
       "sideEffect": "launch"
     },
     {

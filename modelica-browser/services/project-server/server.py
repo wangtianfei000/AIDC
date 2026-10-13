@@ -501,7 +501,9 @@ class ApiHandler(BaseHTTPRequestHandler):
             scoped = self.server.scoped_service(path)
             if scoped:
                 service, path = scoped
-            if path == "/health": return self._json(200, {"status": "ok", "projectId": service.project["projectId"]})
+            if path == "/health": return self._json(200, {"status": "ok", "projectId": service.project["projectId"] if service else None})
+            if service is None and path.startswith("/api/"):
+                return self._error(404, "NO_PROJECT", "尚未打开 Modelica 工程")
             if path == "/api/v1/project": return self._json(200, service.project_summary())
             if path == "/api/v1/adapters": return self._json(200, {"items": adapter_capabilities()})
             if path == "/api/v1/adapters/fmpy/inspect": return self._json(200, service.inspect_fmu(query.get("path", [""])[0]))
@@ -631,10 +633,10 @@ class ApiHandler(BaseHTTPRequestHandler):
 
 
 class ProjectHttpServer(ThreadingHTTPServer):
-    def __init__(self, address: tuple[str, int], service: ProjectService, web_root: Path | None = None):
+    def __init__(self, address: tuple[str, int], service: ProjectService | None, web_root: Path | None = None):
         super().__init__(address, ApiHandler)
         self.service = service
-        self.services: dict[str, ProjectService] = {service.project["projectId"]: service}
+        self.services: dict[str, ProjectService] = {service.project["projectId"]: service} if service else {}
         self.services_lock = threading.Lock()
         self.web_root = web_root.resolve() if web_root else None
 
@@ -820,11 +822,9 @@ try {
         with self.services_lock:
             if project_id not in self.services:
                 raise ContractError(f"模型工程尚未加载: {project_id}")
-            if len(self.services) == 1:
-                raise ContractError("至少保留一个已加载的模型工程")
             removed = self.services.pop(project_id)
             if self.service is removed:
-                self.service = next(iter(self.services.values()))
+                self.service = next(iter(self.services.values()), None)
 
     def scoped_service(self, path: str) -> tuple[ProjectService, str] | None:
         prefix = "/api/v1/projects/"
@@ -844,16 +844,16 @@ try {
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--project", type=Path, required=True)
+    parser.add_argument("--project", type=Path)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=4185)
     parser.add_argument("--write-ready", type=Path)
     parser.add_argument("--web-root", type=Path, default=MODEL_BROWSER / "apps" / "web" / "dist")
     args = parser.parse_args()
     try:
-        service = ProjectService(args.project)
+        service = ProjectService(args.project) if args.project else None
         server = ProjectHttpServer((args.host, args.port), service, args.web_root)
-        ready = {"status": "ready", "host": args.host, "port": server.server_address[1], "projectId": service.project["projectId"], "sourceDigest": service.digest}
+        ready = {"status": "ready", "host": args.host, "port": server.server_address[1], "projectId": service.project["projectId"] if service else None, "sourceDigest": service.digest if service else None}
         if args.write_ready:
             args.write_ready.parent.mkdir(parents=True, exist_ok=True)
             args.write_ready.write_text(json.dumps(ready, ensure_ascii=False), encoding="utf-8")

@@ -8,7 +8,7 @@
   "platform": "windows",
   "architecture": "x86_64",
   "protocolVersion": "0.1",
-  "capabilities": ["model3d.open", "model3d.publish", "model3d.export-modelica", "model3d.geometry-check"],
+  "capabilities": ["model3d.launch", "model3d.open", "model3d.publish", "model3d.export-modelica", "model3d.geometry-check"],
   "entryPoints": [
     {"id": "browser", "relativePath": "components/model3d/browser", "mode": "static", "arguments": []},
     {"id": "publisher", "relativePath": "components/model3d/tools/publish_model.py", "mode": "library", "arguments": []},

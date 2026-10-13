@@ -8,7 +8,7 @@
   "platform": "windows",
   "architecture": "x86_64",
   "protocolVersion": "0.1",
-  "capabilities": ["modelica.validate", "modelica.generate", "modelica.open", "modelica.simulate", "modelica.package"],
+  "capabilities": ["modelica.launch", "modelica.validate", "modelica.generate", "modelica.open", "modelica.simulate", "modelica.package"],
   "entryPoints": [
     {"id": "browser", "relativePath": "components/modelica/browser", "mode": "static", "arguments": []},
     {"id": "server", "relativePath": "components/modelica/server/aidc-modelica-server.exe", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]},

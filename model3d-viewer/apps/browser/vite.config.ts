@@ -10,7 +10,11 @@ const modelProjectDirectory = resolve(process.env.AIDC_MODEL3D_PROJECT_DIR ?? de
 const generatedDirectory = join(modelProjectDirectory, 'generated');
 const posePresetsFile = join(modelProjectDirectory, 'pose-presets.json');
 const aidcDirectory = fileURLToPath(new URL('../../../', import.meta.url));
-const manifest = JSON.parse(readFileSync(join(generatedDirectory, 'model3d.manifest.json'), 'utf8')) as { modelId: string; revision: string; source?: { cadUri?: string } };
+const manifestFile = join(generatedDirectory, 'model3d.manifest.json');
+const hasDefaultModel = existsSync(manifestFile);
+const manifest = hasDefaultModel
+  ? JSON.parse(readFileSync(manifestFile, 'utf8')) as { modelId: string; revision: string; source?: { cadUri?: string } }
+  : { modelId: 'unloaded', revision: '' };
 const robotIrDirectory = resolve(process.env.AIDC_MODEL3D_ROBOT_IR ?? join(modelProjectDirectory, 'robot-ir'));
 const assemblyOutputDirectory = resolve(process.env.AIDC_MODELICA_ASSEMBLY_OUTPUT ?? join(modelProjectDirectory, 'release', `${manifest.modelId}-${manifest.revision}.aidc-assembly`));
 const exactServicePort = Number(process.env.AIDC_EXACT_SERVICE_PORT ?? 47331);
@@ -20,7 +24,7 @@ const exactServiceScript = join(aidcDirectory, 'model3d-viewer/services/exact-ch
 
 export default defineConfig({
   plugins: [react(), modelProjectPoseStore(), modelicaAssemblyExport(), exactCheckService()],
-  publicDir: generatedDirectory,
+  publicDir: hasDefaultModel ? generatedDirectory : false,
   server: {
     proxy: {
       '/api/exact-check': { target: exactServiceUrl, changeOrigin: true, rewrite: (path) => path.replace(/^\/api\/exact-check/, '') },
@@ -113,6 +117,7 @@ function modelProjectPoseStore(): Plugin {
         if (pathname !== expectedPath) { next(); return; }
         response.setHeader('Content-Type', 'application/json; charset=utf-8');
         if (request.method === 'GET') {
+          if (!existsSync(posePresetsFile)) { response.statusCode = 404; response.end(JSON.stringify({ message: '尚未打开模型' })); return; }
           response.end(readFileSync(posePresetsFile, 'utf8'));
           return;
         }
@@ -139,7 +144,7 @@ function modelProjectPoseStore(): Plugin {
       });
     },
     generateBundle() {
-      this.emitFile({ type: 'asset', fileName: 'pose-presets.json', source: readFileSync(posePresetsFile, 'utf8') });
+      if (hasDefaultModel && existsSync(posePresetsFile)) this.emitFile({ type: 'asset', fileName: 'pose-presets.json', source: readFileSync(posePresetsFile, 'utf8') });
     },
   };
 }

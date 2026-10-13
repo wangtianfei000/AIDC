@@ -17,7 +17,7 @@ AIDC Engineering Tools 是供 Codex、Cursor、通用 MCP 客户端和终端调�
 
 ## 2. 安装与首次检查
 
-在源码开发工作区中，双击 `bin\aidc.cmd` 会显示交互菜单，适合直接打开模型浏览器。也可以在终端中给它传入与 `aidc.exe` 相同的参数，例如 `bin\aidc.cmd doctor`。正式发行包使用下述 `aidc.exe`，不需要安装 Python。
+在源码开发工作区中，双击 `bin\aidc.cmd` 会显示交互菜单。菜单只启动空白浏览器，模型和工程在对应软件的“打开”入口中选择，不需要先在命令行输入路径。也可以在终端中给它传入与 `aidc.exe` 相同的参数，例如 `bin\aidc.cmd doctor`；`sysml launch`、`model3d launch` 和 `modelica launch` 分别只启动对应软件。正式发行包使用下述 `aidc.exe`，不需要安装 Python。
 
 当前 0.6.0 为内部便携发行。解压到固定目录，或由内部安装脚本安装：
 

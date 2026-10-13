@@ -40,6 +40,7 @@ def parser() -> argparse.ArgumentParser:
     for action in ("verify", "rollback", "uninstall"): deps.add_parser(action).add_argument("id")
     for domain, label in (("sysml", "FILE"), ("model3d", "PROJECT"), ("modelica", "PROJECT")):
         sub = commands.add_parser(domain).add_subparsers(dest="action", required=True)
+        launched = sub.add_parser("launch"); launched.add_argument("--no-browser", action="store_true")
         opened = sub.add_parser("open"); opened.add_argument("target", metavar=label); opened.add_argument("--no-browser", action="store_true")
         if domain == "sysml": sub.add_parser("validate").add_argument("target")
         elif domain == "model3d":
@@ -122,10 +123,10 @@ def execute(args: argparse.Namespace) -> CommandResult:
         message = {"install": "依赖包安装完成", "repair": "依赖包修复完成", "verify": "依赖包校验完成", "rollback": "依赖包回滚完成", "uninstall": "依赖包卸载完成"}[args.action]
         if args.action == "verify" and not data["healthy"]: raise AidcError(f"依赖包不健康：{', '.join(data['issues'])}", 6, "DEPENDENCY_UNHEALTHY")
         return CommandResult(f"deps.{args.action}", message, data, artifacts=[{"kind": "directory", "path": data["path"]}] if data.get("path") else [])
-    if args.domain in {"sysml", "model3d", "modelica"} and args.action == "open":
-        target = absolute_existing(args.target, "工程或模型")
+    if args.domain in {"sysml", "model3d", "modelica"} and args.action in {"launch", "open"}:
+        target = absolute_existing(args.target, "工程或模型") if args.action == "open" else None
         data = manager.start(args.domain, target, launch_browser=not args.no_browser)
-        return CommandResult(f"{args.domain}.open", f"已打开 {args.domain} 浏览器", data, task={"taskId": data["taskId"] if not data["reused"] else "reused-" + data["instanceId"], "state": "succeeded", "progress": 1})
+        return CommandResult(f"{args.domain}.{args.action}", f"已打开 {args.domain} 浏览器", data, task={"taskId": data["taskId"] if not data["reused"] else "reused-" + data["instanceId"], "state": "succeeded", "progress": 1})
     if args.domain == "sysml" and args.action == "validate":
         source = absolute_existing(args.target, "SysML 文件"); data = sysml_validate(registry.root, source)
         if not data["passed"]: raise AidcError("SysML 校验失败", 8, "VALIDATION_FAILED", str(source))

@@ -5,11 +5,6 @@ from collections.abc import Callable
 from cli.aidc import main as cli_main, parser
 
 
-def _target(read: Callable[[str], str], prompt: str) -> str:
-    """Read a path typed or dragged into cmd.exe and remove shell quotes."""
-    return read(prompt).strip().strip('"')
-
-
 def _run(arguments: list[str], read: Callable[[str], str]) -> None:
     cli_main(arguments)
     read("\n按回车键返回主菜单……")
@@ -35,15 +30,8 @@ def main(input_fn: Callable[[str], str] | None = None) -> int:
         if choice == "0":
             return 0
         if choice in {"1", "2", "3"}:
-            labels = {
-                "1": ("sysml", "请输入 .sysml 文件路径（可将文件拖到窗口）："),
-                "2": ("model3d", "请输入三维模型工程目录（可将目录拖到窗口）："),
-                "3": ("modelica", "请输入 Modelica 工程目录（可将目录拖到窗口）："),
-            }
-            domain, prompt = labels[choice]
-            target = _target(read, prompt)
-            if target:
-                _run([domain, "open", target], read)
+            domain = {"1": "sysml", "2": "model3d", "3": "modelica"}[choice]
+            _run([domain, "launch"], read)
             continue
         if choice == "4":
             _run(["doctor"], read)
@@ -55,6 +43,9 @@ def main(input_fn: Callable[[str], str] | None = None) -> int:
             parser().print_help()
             print("\n常用终端示例：")
             print(r'  bin\aidc.cmd doctor')
+            print(r'  bin\aidc.cmd sysml launch')
+            print(r'  bin\aidc.cmd model3d launch')
+            print(r'  bin\aidc.cmd modelica launch')
             print(r'  bin\aidc.cmd sysml open "D:\project\architecture.sysml"')
             print(r'  bin\aidc.cmd model3d open "D:\project\model3d"')
             print(r'  bin\aidc.cmd modelica open "D:\project\modelica"')

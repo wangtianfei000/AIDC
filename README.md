@@ -10,13 +10,16 @@ P0 产品契约与供应链基线位于 [distribution/](distribution/README.md)�
 
 ## 统一 CLI
 
-Windows 开发工作区可以直接双击 `bin\aidc.cmd`，通过菜单打开三个模型浏览器、执行环境诊断或查看依赖。终端和自动化脚本仍按下面的命令形式调用；带参数运行时不会显示交互菜单。
+Windows 开发工作区可以直接双击 `bin\aidc.cmd`，通过菜单启动三个空白模型浏览器、执行环境诊断或查看依赖。模型和工程均在对应浏览器内选择。终端和自动化脚本仍按下面的命令形式调用；带参数运行时不会显示交互菜单。
 
 开发工作区可直接运行：
 
 ```powershell
 .\bin\aidc.cmd doctor
 .\bin\aidc.cmd deps status
+.\bin\aidc.cmd sysml launch
+.\bin\aidc.cmd model3d launch
+.\bin\aidc.cmd modelica launch
 .\bin\aidc.cmd sysml open .\samples\jingang-10axis-system-design\architecture.sysml
 .\bin\aidc.cmd model3d open .\samples\jingang-10axis-system-design\model3d
 .\bin\aidc.cmd modelica open .\samples\modelica-t2-single-joint
