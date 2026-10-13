@@ -31,10 +31,10 @@ $bin = Join-Path $dist 'bin'; $schema = Join-Path $dist 'schema'; $doc = Join-Pa
 New-Item -ItemType Directory -Force -Path $bin, $schema, $doc, $library | Out-Null
 Copy-Item -LiteralPath (Join-Path $build 'bin\aidc-sysml-parser-runtime.exe') -Destination (Join-Path $bin 'aidc-sysml-parser-runtime.exe')
 Copy-Item -LiteralPath (Join-Path $build 'bin\aidc-sysml-parser-runtime.exe') -Destination (Join-Path $bin 'aidc-sysml-parser-runtime-1.0.0.exe')
-Copy-Item -LiteralPath (Join-Path $root '..\reference-parser-p0\model-snapshot.schema.json') -Destination $schema
-Copy-Item -LiteralPath (Join-Path $root '..\reference-parser-p0\analysis-snapshot.schema.json') -Destination $schema
+Copy-Item -LiteralPath (Join-Path $root 'contracts\model-snapshot.schema.json') -Destination $schema
+Copy-Item -LiteralPath (Join-Path $root 'contracts\analysis-snapshot.schema.json') -Destination $schema
 Copy-Item -LiteralPath (Join-Path $root 'README.md') -Destination $doc
-Copy-Item -LiteralPath (Join-Path $root '..\reference-parser-p0\parser-contract.md') -Destination $doc
+Copy-Item -LiteralPath (Join-Path $root 'contracts\parser-contract.md') -Destination $doc
 Copy-Item -LiteralPath (Join-Path $root 'run-runtime.ps1') -Destination $dist
 Copy-Item -LiteralPath (Join-Path $root 'standard-library\2026-08\sysml.library') -Destination (Join-Path $library 'sysml.library') -Recurse
 Copy-Item -LiteralPath (Join-Path $root 'standard-library\2026-08\LICENSE') -Destination $library

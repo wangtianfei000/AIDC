@@ -101,15 +101,14 @@ P1 不应先封装 HTTP，再处理语义缺口。建议按以下顺序执行：
 
 P1 的新增门禁：最小需求夹具必须实现元素数、关系端点和 SourceSpan 的精确断言；同一输入连续解析结果相同；任何未支持关系都必须生成能力状态或诊断。
 
-## 6. P0 交付物
+## 6. P0 交付物归档
+
+本节记录 2026-09-17 的历史验证结论。随着无 Qt 的独立 Parser Runtime 落地，早期 C++ 探针、临时能力清单和运行结果已清理；仍作为产品契约使用的文件已迁入 Runtime。
 
 | 交付物 | 位置 |
 |---|---|
-| 固定基线与复用/许可证记录 | `AIDC/reference-parser-p0/source-manifest.json` |
-| 机器可读能力清单 | `AIDC/reference-parser-p0/parser-capabilities.json` |
-| 缺口清单 | `AIDC/reference-parser-p0/parser-gaps.md` |
-| ModelSnapshot JSON Schema v0.1 | `AIDC/reference-parser-p0/model-snapshot.schema.json` |
-| Parser Contract v0.1 | `AIDC/reference-parser-p0/parser-contract.md` |
-| 独立 C++ 探针与测试包装 | `AIDC/reference-parser-p0/probe/` |
-| 原始运行结果 | `AIDC/reference-parser-p0/results/` |
+| ModelSnapshot JSON Schema v0.1 | `AIDC/sysml-parser-runtime/contracts/model-snapshot.schema.json` |
+| AnalysisSnapshot JSON Schema v0.1 | `AIDC/sysml-parser-runtime/contracts/analysis-snapshot.schema.json` |
+| Parser Contract v0.1 | `AIDC/sysml-parser-runtime/contracts/parser-contract.md` |
+| 早期 C++ 探针、能力清单与结果 | 已由无 Qt Runtime 的源码测试和 HTTP 黑盒测试取代，不再保留 |
 

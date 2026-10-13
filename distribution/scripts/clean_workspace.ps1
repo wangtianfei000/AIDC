@@ -47,8 +47,6 @@ $relativeTargets = @(
     'modelica-browser\libraries\AIDCRobotics\results',
     'modelica-browser\results',
     'modelica-browser\test-artifacts',
-    'reference-parser-p0\probe\build',
-    'reference-parser-p0\results',
     'samples\jingang-10axis-system-design\model3d\generated',
     'samples\jingang-10axis-system-design\model3d\release\jingang-native10-p4.robot3d.zip',
     'samples\modelica-p2-manual-single-joint\results',

@@ -7,6 +7,7 @@
 - `src/aidc_sysml_runtime/model.py`：词法扫描、递归结构解析、稳定 ID、源码位置、连接、Calculation 和 View 投影。
 - `src/aidc_sysml_runtime/analysis.py`：表达式、单位、量纲、依赖、约束和异常状态计算。
 - `src/aidc_sysml_runtime/server.py`：仅监听 loopback 的 HTTP 服务、并发请求、请求限制、Origin 校验和取消。
+- `contracts/`：Parser 与浏览器共享的快照 Schema 和稳定接口契约。
 - `standard-library/2026-08/`：随 Parser Runtime 管理和发行的 SysML v2 官方标准库基线。
 - `tests/test_runtime.py`：解析、连接、视图、计算和机器人正式样例的源码级契约测试。
 - `tests/http_smoke.py`：对冻结 EXE 执行 JSON Schema、确定性、并发、取消和安全边界黑盒测试。
@@ -43,4 +44,4 @@ npm run build:sysml-runtime
 - 支持稳定 ID、结构化诊断、嵌套 Package、局部类型、标量表达式、单位换算、量纲检查、约束余量、除零与循环诊断。
 - 复杂泛化、完整 KerML 语义、跨文件工作区解析、高级集合表达式仍属于后续范围。
 
-接口 Schema 与稳定契约位于 `../reference-parser-p0/model-snapshot.schema.json`、`analysis-snapshot.schema.json` 和 `parser-contract.md`。
+接口 Schema 与稳定契约位于本目录的 `contracts/`。

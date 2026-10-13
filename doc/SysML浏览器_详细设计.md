@@ -830,7 +830,7 @@ Renderer 使用通用 View Document 测试：
 
 ### 18.1 P0：参考 Parser 基线与能力盘点，3–5 天
 
-**执行状态（2026-09-17）：已完成，有条件通过。** 详细证据见《参考 Parser P0 基线与能力盘点》和 `AIDC/reference-parser-p0/`。Parser 可构建，核心测试 4/4 通过，自带 Parser 测试 6/8 通过；6 个代表性模型中 3 个无语法错误。稳定 ID、SourceSpan、verify/derive/refine、完整 satisfy 和许可证仍是进入需求浏览 MVP 前的阻断项。
+**历史执行状态（2026-09-17）：已完成，有条件通过。** 详细证据保留在《参考 Parser P0 基线与能力盘点》。早期独立 C++ 探针已在无 Qt Runtime 落地后删除；现行接口契约统一位于 `sysml-parser-runtime/contracts/`。
 
 - 固定本地参考项目当前 commit `9bfba0bced98b7586bab8a6d45746064aff70fe1`，保存构建环境和第三方依赖版本。
 - 构建 `sysml_parser` 并运行现有 Parser 测试，记录可重复的基线结果。

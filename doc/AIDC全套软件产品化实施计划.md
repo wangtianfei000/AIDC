@@ -322,7 +322,7 @@ aidc doctor --report D:\temp\aidc-diagnostics.zip
 | `model3d-viewer/` | 三维静态前端、公共契约和工具服务 |
 | `modelica-browser/` | Modelica 静态前端、服务、生成器和 AIDCRobotics |
 | `node_modules/` | 开发依赖，不发行 |
-| `reference-parser-p0/` | Parser 参考/构建输入，不单独发行 |
+| `sysml-parser-runtime/contracts/` | SysML Parser 与浏览器共享的接口 Schema 和稳定契约 |
 | `samples/` | 可选 Samples Pack |
 | `skills/` | Core 内置技能源，按宿主安装适配 |
 | `sysml-browser/` | SysML 静态前端 |
