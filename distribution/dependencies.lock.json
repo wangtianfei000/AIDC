@@ -163,7 +163,7 @@
         "sha256": null,
         "sizeBytes": null,
         "verificationStatus": "pending-build",
-        "signature": "Standalone implementation is built from source in this repository; release digest is generated during publishing"
+        "signature": "C++ runtime is built from this repository and links the pinned reference ANTLR parser; release digest is generated during publishing"
       },
       "capabilities": [
         "sysml.parse",
@@ -189,13 +189,14 @@
       "distributionStatus": "blocked",
       "blockers": [
         "Select and publish the AIDC project license",
+        "Complete license and source provenance review for the reference parser, ANTLR runtime and Qt deployment",
         "Sign release executable"
       ],
       "healthCheck": {
         "type": "http",
         "target": "/health",
         "arguments": [],
-        "expected": "HTTP 200, runtimeVersion 1.0.0 and qtDependency false"
+        "expected": "HTTP 200, runtimeVersion 1.0.0, parserMode reference-antlr and qtDependency true"
       }
     },
     {

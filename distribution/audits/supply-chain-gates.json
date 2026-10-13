@@ -14,10 +14,10 @@
     {
       "id": "reference-parser-license",
       "severity": "critical",
-      "status": "closed",
+      "status": "blocked",
       "owner": "project-owner",
-      "evidence": "Runtime 1.0.0 uses only the in-repository Python standard-library implementation; the frozen EXE contains no Qt, PySide, PyQt or reference parser binaries.",
-      "exitCriteria": "Completed by replacing the external parser implementation."
+      "evidence": "Runtime 1.0.0 again links the external C++ ANTLR reference parser and deploys Qt runtime libraries.",
+      "exitCriteria": "Record the reference parser source/license provenance and include complete Qt, ANTLR and reference parser notices in the release."
     },
     {
       "id": "openmodelica-pack",

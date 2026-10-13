@@ -64,6 +64,29 @@
     },
     {
       "type": "library",
+      "bom-ref": "pkg:generic/aidc-sysml-reference-parser@9bfba0b",
+      "name": "C++ SysML Reference Parser",
+      "version": "9bfba0b",
+      "externalReferences": [{"type": "vcs", "url": "https://gitee.com/wtf0/sys-ml.git"}],
+      "properties": [{"name": "aidc:licenseStatus", "value": "review-required"}]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/antlr4-cpp-runtime@4.13.2",
+      "name": "ANTLR4 C++ Runtime",
+      "version": "4.13.2",
+      "licenses": [{"license": {"id": "BSD-3-Clause"}}]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/qt@6.8.1",
+      "name": "Qt Core and Network",
+      "version": "6.8.1",
+      "licenses": [{"license": {"id": "LGPL-3.0-only"}}],
+      "properties": [{"name": "aidc:linkage", "value": "dynamic"}]
+    },
+    {
+      "type": "library",
       "bom-ref": "pkg:npm/react@19.0.0",
       "name": "react",
       "version": "19.0.0",
@@ -100,10 +123,22 @@
         "pkg:generic/python@3.12.9",
         "pkg:generic/aidc-sysml-parser-runtime@1.0.0",
         "pkg:generic/sysml-v2-standard-library@2026-08",
+        "pkg:generic/aidc-sysml-reference-parser@9bfba0b",
+        "pkg:generic/antlr4-cpp-runtime@4.13.2",
+        "pkg:generic/qt@6.8.1",
         "pkg:npm/react@19.0.0",
         "pkg:npm/three@0.180.0",
         "pkg:npm/%40maxgraph/core@0.25.0",
         "pkg:npm/elkjs@0.12.0"
+      ]
+    },
+    {
+      "ref": "pkg:generic/aidc-sysml-parser-runtime@1.0.0",
+      "dependsOn": [
+        "pkg:generic/aidc-sysml-reference-parser@9bfba0b",
+        "pkg:generic/antlr4-cpp-runtime@4.13.2",
+        "pkg:generic/qt@6.8.1",
+        "pkg:generic/sysml-v2-standard-library@2026-08"
       ]
     }
   ]

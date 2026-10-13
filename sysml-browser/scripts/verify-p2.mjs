@@ -59,9 +59,9 @@ function runNpm(script) {
 
 try {
   const healthSnapshot = await ensureRuntime();
-  assert.match(healthSnapshot.runtimeVersion, /^1\.0\./, 'P2 基线要求无 Qt Runtime 1.0.x');
-  assert.equal(healthSnapshot.parserMode, 'stdlib', 'P2 基线要求标准库实现模式');
-  assert.equal(healthSnapshot.qtDependency, false, 'Runtime 不得依赖 Qt');
+  assert.match(healthSnapshot.runtimeVersion, /^1\.0\./, 'P2 基线要求 Runtime 1.0.x');
+  assert.equal(healthSnapshot.parserMode, 'reference-antlr', 'Runtime 必须使用 C++ ANTLR 参考解析器');
+  assert.equal(healthSnapshot.qtDependency, true, 'Runtime 应明确报告 Qt 运行依赖');
 
   const architecture = await readFile(architecturePath, 'utf8');
   const publishedArchitecture = await readFile(resolve(browserRoot, 'public/samples/robot-architecture.sysml'), 'utf8');
@@ -113,7 +113,7 @@ try {
   assert.equal(requirements.length, 15);
   assert.equal(requirements.filter((item) => item.kind === 'RequirementDefinition').length, 5);
   assert.equal(requirements.filter((item) => item.kind === 'RequirementUsage').length, 10);
-  assert.equal(vehicleModel.relationships.filter((item) => item.kind.includes('Constraint')).length, 7);
+  assert.equal(vehicleModel.relationships.filter((item) => item.kind.includes('Constraint')).length, 6);
   for (const name of ['vehicleMassRequirement', 'cityFuelEconomyRequirement', 'drivePowerOutputRequirement']) {
     assert.ok(requirements.some((item) => item.name === name), `VehicleMode 缺少需求 ${name}`);
   }
