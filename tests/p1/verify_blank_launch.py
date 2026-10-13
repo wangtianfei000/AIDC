@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import http.cookiejar
+import re
 import sys
 import tempfile
 import urllib.request
@@ -22,9 +24,18 @@ def main() -> int:
                 opened.append(instance)
                 assert instance["target"] is None, instance
                 print(f"checking {kind}: {instance['url']}", flush=True)
-                with urllib.request.urlopen(instance["launchUrl"], timeout=10) as response:
+                opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+                with opener.open(instance["launchUrl"], timeout=10) as response:
                     assert response.status == 200
-                    assert response.read(), kind
+                    page = response.read().decode("utf-8")
+                    assert page, kind
+                if kind == "sysml":
+                    script = re.search(r'<script[^>]+src="\.([^\"]+\.js)"', page)
+                    assert script, "SysML 页面没有 JavaScript 入口"
+                    with opener.open(instance["url"].rstrip("/") + script.group(1), timeout=10) as response:
+                        assert response.status == 200
+                        assert "javascript" in response.headers.get_content_type(), response.headers.get("Content-Type")
+                        assert response.read(), "SysML JavaScript 入口为空"
         finally:
             stopped = manager.stop_all()
         assert len(stopped) == len(opened)

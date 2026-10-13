@@ -13,6 +13,17 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 
+STATIC_CONTENT_TYPES = {
+    ".css": "text/css; charset=utf-8",
+    ".html": "text/html; charset=utf-8",
+    ".js": "text/javascript; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".mjs": "text/javascript; charset=utf-8",
+    ".svg": "image/svg+xml",
+    ".wasm": "application/wasm",
+}
+
+
 class GatewayHandler(BaseHTTPRequestHandler):
     server: "GatewayServer"
 
@@ -67,7 +78,10 @@ class GatewayHandler(BaseHTTPRequestHandler):
         if not candidate.is_file(): candidate = self.server.static_root / "index.html"
         if not candidate.is_file(): self.send_error(HTTPStatus.NOT_FOUND); return
         payload = candidate.read_bytes()
-        content_type = mimetypes.guess_type(candidate.name)[0] or "application/octet-stream"
+        # Windows' MIME registry commonly maps .js to text/plain. ES modules are
+        # rejected by Chromium when served with that type, leaving the shell page
+        # completely blank. Keep browser-critical types deterministic on every host.
+        content_type = STATIC_CONTENT_TYPES.get(candidate.suffix.lower()) or mimetypes.guess_type(candidate.name)[0] or "application/octet-stream"
         self._headers(HTTPStatus.OK, [("Content-Type", content_type), ("Cache-Control", "no-store")], len(payload)); self.wfile.write(payload)
 
     def _model3d_api(self, path: str) -> bool:
