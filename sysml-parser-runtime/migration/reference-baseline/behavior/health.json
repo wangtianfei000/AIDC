@@ -1,0 +1,17 @@
+{
+  "parserBaseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507",
+  "parserMode": "reference-antlr",
+  "qtDependency": true,
+  "runtimeVersion": "1.0.0",
+  "schemaVersion": "0.1",
+  "standardLibrary": {
+    "commit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+    "fileCount": 94,
+    "release": "2026-08",
+    "rootPath": "D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/sysml-parser-runtime/dist/library/sysml.library",
+    "source": "Systems-Modeling/SysML-v2-Release",
+    "status": "loaded",
+    "symbolCount": 2591
+  },
+  "status": "ok"
+}

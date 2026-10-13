@@ -1,0 +1,4 @@
+# Preserve source snapshots exactly; baseline-manifest.json records raw hashes.
+tracked-changes.patch -text
+untracked/** -text
+generated/** -text

@@ -1,0 +1,2461 @@
+{
+  "calculationModel": {
+    "analyses": [
+      {
+        "calculationUsageIds": [
+          "cu-5a9146b23fe7a747bad8fcf2",
+          "cu-1385af0e3a3097c61d3e64e8"
+        ],
+        "constraintIds": [
+          "e-f8041eeaa41b5adda653f146"
+        ],
+        "elementId": "e-60524e55f40595f1efc34d40",
+        "id": "e-60524e55f40595f1efc34d40",
+        "name": "exceptionStatusAnalysis",
+        "resultParameterIds": [
+          "e-0f508af7e6ad7c0676767550",
+          "e-907c55030f1c642fc1c5b8bb",
+          "e-f98572df98c613c2bf785e16",
+          "e-a0d268542cf7e979df9c6b2e",
+          "e-4ad47b8c24ddb19ba2d7ee24",
+          "e-2638e11e2cd6546fe5407c5d",
+          "e-3a23bc5e135b46ff6687273d"
+        ],
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 15,
+            "offset": 451
+          },
+          "start": {
+            "column": 14,
+            "line": 15,
+            "offset": 428
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "subjectId": "e-a4b7f9e1fb591d683e73550b",
+        "subjectReference": "exceptionInputs"
+      }
+    ],
+    "constraints": [
+      {
+        "analysisId": "e-60524e55f40595f1efc34d40",
+        "elementId": "e-f8041eeaa41b5adda653f146",
+        "expression": "healthyResult>=2[h]",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "healthyResult"
+          },
+          "operator": ">=",
+          "right": {
+            "kind": "literal",
+            "raw": "2",
+            "unit": "h",
+            "value": 2
+          }
+        },
+        "id": "e-f8041eeaa41b5adda653f146",
+        "name": "healthyTarget",
+        "source": {
+          "end": {
+            "column": 33,
+            "line": 30,
+            "offset": 1210
+          },
+          "start": {
+            "column": 20,
+            "line": 30,
+            "offset": 1197
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        }
+      }
+    ],
+    "definitions": [
+      {
+        "elementId": "e-9bcd4fc4536ede0a3409eaa2",
+        "id": "e-9bcd4fc4536ede0a3409eaa2",
+        "inputParameterIds": [
+          "e-9d68bef8c328d5c08107682c"
+        ],
+        "localParameterIds": [],
+        "name": "IdentityDuration",
+        "outputParameterIds": [
+          "e-3fd758c46edfc076c4efc624"
+        ],
+        "source": {
+          "end": {
+            "column": 30,
+            "line": 2,
+            "offset": 67
+          },
+          "start": {
+            "column": 14,
+            "line": 2,
+            "offset": 51
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        }
+      }
+    ],
+    "parameters": [
+      {
+        "elementId": "e-9d68bef8c328d5c08107682c",
+        "expression": null,
+        "expressionAst": null,
+        "id": "e-9d68bef8c328d5c08107682c",
+        "name": "durationInput",
+        "ownerId": "e-9bcd4fc4536ede0a3409eaa2",
+        "role": "input",
+        "source": {
+          "end": {
+            "column": 25,
+            "line": 3,
+            "offset": 94
+          },
+          "start": {
+            "column": 9,
+            "line": 3,
+            "offset": 78
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-3fd758c46edfc076c4efc624",
+        "expression": "durationInput",
+        "expressionAst": {
+          "kind": "reference",
+          "path": "durationInput"
+        },
+        "id": "e-3fd758c46edfc076c4efc624",
+        "name": "durationOutput",
+        "ownerId": "e-9bcd4fc4536ede0a3409eaa2",
+        "role": "output",
+        "source": {
+          "end": {
+            "column": 30,
+            "line": 4,
+            "offset": 142
+          },
+          "start": {
+            "column": 16,
+            "line": 4,
+            "offset": 128
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-7b70b8bcd7b2b95eef098b3c",
+        "expression": "2[h]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "2",
+          "unit": "h",
+          "value": 2
+        },
+        "id": "e-7b70b8bcd7b2b95eef098b3c",
+        "name": "healthyDuration",
+        "ownerId": "e-af2ad8e08fcdb6d073e7f3d1",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 8,
+            "offset": 248
+          },
+          "start": {
+            "column": 19,
+            "line": 8,
+            "offset": 233
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": "h"
+      },
+      {
+        "elementId": "e-e12f2f70bca440f6659fb38f",
+        "expression": "2[h]",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "2",
+          "unit": "h",
+          "value": 2
+        },
+        "id": "e-e12f2f70bca440f6659fb38f",
+        "name": "massAsDuration",
+        "ownerId": "e-af2ad8e08fcdb6d073e7f3d1",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 33,
+            "line": 9,
+            "offset": 306
+          },
+          "start": {
+            "column": 19,
+            "line": 9,
+            "offset": 292
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": "h"
+      },
+      {
+        "elementId": "e-ff0c0e52401e3f8116c9318a",
+        "expression": "0",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "0",
+          "value": 0
+        },
+        "id": "e-ff0c0e52401e3f8116c9318a",
+        "name": "zero",
+        "ownerId": "e-af2ad8e08fcdb6d073e7f3d1",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 23,
+            "line": 10,
+            "offset": 350
+          },
+          "start": {
+            "column": 19,
+            "line": 10,
+            "offset": 346
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-0f508af7e6ad7c0676767550",
+        "expression": "IdentityDuration(exceptionInputs.healthyDuration)",
+        "expressionAst": {
+          "arguments": [
+            {
+              "kind": "reference",
+              "path": "exceptionInputs.healthyDuration"
+            }
+          ],
+          "callee": "IdentityDuration",
+          "kind": "call"
+        },
+        "id": "e-0f508af7e6ad7c0676767550",
+        "name": "healthyResult",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 19,
+            "offset": 602
+          },
+          "start": {
+            "column": 19,
+            "line": 19,
+            "offset": 589
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "ISQ::duration",
+        "unit": null
+      },
+      {
+        "elementId": "e-907c55030f1c642fc1c5b8bb",
+        "expression": "exceptionInputs.notDeclared",
+        "expressionAst": {
+          "kind": "reference",
+          "path": "exceptionInputs.notDeclared"
+        },
+        "id": "e-907c55030f1c642fc1c5b8bb",
+        "name": "missingInputResult",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 23,
+            "offset": 782
+          },
+          "start": {
+            "column": 19,
+            "line": 23,
+            "offset": 764
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-f98572df98c613c2bf785e16",
+        "expression": "exceptionInputs.massAsDuration",
+        "expressionAst": {
+          "kind": "reference",
+          "path": "exceptionInputs.massAsDuration"
+        },
+        "id": "e-f98572df98c613c2bf785e16",
+        "name": "unitErrorResult",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 24,
+            "offset": 854
+          },
+          "start": {
+            "column": 19,
+            "line": 24,
+            "offset": 839
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "ISQ::mass",
+        "unit": null
+      },
+      {
+        "elementId": "e-a0d268542cf7e979df9c6b2e",
+        "expression": "UnknownCalculation(exceptionInputs.zero)",
+        "expressionAst": {
+          "arguments": [
+            {
+              "kind": "reference",
+              "path": "exceptionInputs.zero"
+            }
+          ],
+          "callee": "UnknownCalculation",
+          "kind": "call"
+        },
+        "id": "e-a0d268542cf7e979df9c6b2e",
+        "name": "unsupportedResult",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 36,
+            "line": 25,
+            "offset": 937
+          },
+          "start": {
+            "column": 19,
+            "line": 25,
+            "offset": 920
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-4ad47b8c24ddb19ba2d7ee24",
+        "expression": "cycleResultB+1",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "cycleResultB"
+          },
+          "operator": "+",
+          "right": {
+            "kind": "literal",
+            "raw": "1",
+            "value": 1
+          }
+        },
+        "id": "e-4ad47b8c24ddb19ba2d7ee24",
+        "name": "cycleResultA",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 31,
+            "line": 26,
+            "offset": 1019
+          },
+          "start": {
+            "column": 19,
+            "line": 26,
+            "offset": 1007
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-2638e11e2cd6546fe5407c5d",
+        "expression": "cycleResultA+1",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "reference",
+            "path": "cycleResultA"
+          },
+          "operator": "+",
+          "right": {
+            "kind": "literal",
+            "raw": "1",
+            "value": 1
+          }
+        },
+        "id": "e-2638e11e2cd6546fe5407c5d",
+        "name": "cycleResultB",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 53,
+            "line": 26,
+            "offset": 1041
+          },
+          "start": {
+            "column": 41,
+            "line": 26,
+            "offset": 1029
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-3a23bc5e135b46ff6687273d",
+        "expression": "1/exceptionInputs.zero",
+        "expressionAst": {
+          "kind": "binary",
+          "left": {
+            "kind": "literal",
+            "raw": "1",
+            "value": 1
+          },
+          "operator": "/",
+          "right": {
+            "kind": "reference",
+            "path": "exceptionInputs.zero"
+          }
+        },
+        "id": "e-3a23bc5e135b46ff6687273d",
+        "name": "runtimeErrorResult",
+        "ownerId": "e-60524e55f40595f1efc34d40",
+        "role": "result",
+        "source": {
+          "end": {
+            "column": 37,
+            "line": 28,
+            "offset": 1141
+          },
+          "start": {
+            "column": 19,
+            "line": 28,
+            "offset": 1123
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "Real",
+        "unit": null
+      },
+      {
+        "elementId": "e-c505b65c9087aeeebf1410eb",
+        "expression": "\"参数\"",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "\"参数\"",
+          "value": "参数"
+        },
+        "id": "e-c505b65c9087aeeebf1410eb",
+        "name": "label",
+        "ownerId": "e-139da2481cfeef1a0f307a47",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 62,
+            "line": 36,
+            "offset": 1389
+          },
+          "start": {
+            "column": 57,
+            "line": 36,
+            "offset": 1384
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "String",
+        "unit": null
+      },
+      {
+        "elementId": "e-f6adbb19319a1299784449d4",
+        "expression": "\"角色\"",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "\"角色\"",
+          "value": "角色"
+        },
+        "id": "e-f6adbb19319a1299784449d4",
+        "name": "label",
+        "ownerId": "e-9b7da17e64e07a2d1444d261",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 57,
+            "line": 37,
+            "offset": 1469
+          },
+          "start": {
+            "column": 52,
+            "line": 37,
+            "offset": 1464
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "String",
+        "unit": null
+      },
+      {
+        "elementId": "e-1960a4481dd0462b4cfb9788",
+        "expression": "\"当前值\"",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "\"当前值\"",
+          "value": "当前值"
+        },
+        "id": "e-1960a4481dd0462b4cfb9788",
+        "name": "label",
+        "ownerId": "e-97bd404d8df6d3bc14643b9d",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 65,
+            "line": 38,
+            "offset": 1557
+          },
+          "start": {
+            "column": 60,
+            "line": 38,
+            "offset": 1552
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "String",
+        "unit": null
+      },
+      {
+        "elementId": "e-157a20fd3b65cc7779f5a24b",
+        "expression": "\"单位\"",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "\"单位\"",
+          "value": "单位"
+        },
+        "id": "e-157a20fd3b65cc7779f5a24b",
+        "name": "label",
+        "ownerId": "e-8922a19f35b8c69ca14adf82",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 57,
+            "line": 39,
+            "offset": 1640
+          },
+          "start": {
+            "column": 52,
+            "line": 39,
+            "offset": 1635
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "String",
+        "unit": null
+      },
+      {
+        "elementId": "e-0b370838ad16aa31295c9bcc",
+        "expression": "\"状态\"",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "\"状态\"",
+          "value": "状态"
+        },
+        "id": "e-0b370838ad16aa31295c9bcc",
+        "name": "label",
+        "ownerId": "e-7d1bf2683ff1f5cee87cefed",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 59,
+            "line": 40,
+            "offset": 1722
+          },
+          "start": {
+            "column": 54,
+            "line": 40,
+            "offset": 1717
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "String",
+        "unit": null
+      },
+      {
+        "elementId": "e-e622c399fb3ff7f0fe475be0",
+        "expression": "\"来源\"",
+        "expressionAst": {
+          "kind": "literal",
+          "raw": "\"来源\"",
+          "value": "来源"
+        },
+        "id": "e-e622c399fb3ff7f0fe475be0",
+        "name": "label",
+        "ownerId": "e-5e0b39615d2b5d291b4dc66a",
+        "role": "local",
+        "source": {
+          "end": {
+            "column": 59,
+            "line": 41,
+            "offset": 1804
+          },
+          "start": {
+            "column": 54,
+            "line": 41,
+            "offset": 1799
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "typeName": "String",
+        "unit": null
+      }
+    ],
+    "usages": [
+      {
+        "actualParameterIds": [
+          "e-7b70b8bcd7b2b95eef098b3c"
+        ],
+        "analysisId": "e-60524e55f40595f1efc34d40",
+        "arguments": [
+          {
+            "kind": "reference",
+            "path": "exceptionInputs.healthyDuration"
+          }
+        ],
+        "bindings": [
+          {
+            "actualParameterId": "e-7b70b8bcd7b2b95eef098b3c",
+            "actualReference": "exceptionInputs.healthyDuration",
+            "argument": {
+              "kind": "reference",
+              "path": "exceptionInputs.healthyDuration"
+            },
+            "formalParameterId": "e-9d68bef8c328d5c08107682c",
+            "formalParameterName": "durationInput",
+            "index": 0
+          }
+        ],
+        "definitionId": "e-9bcd4fc4536ede0a3409eaa2",
+        "definitionName": "IdentityDuration",
+        "id": "cu-5a9146b23fe7a747bad8fcf2",
+        "resultParameterId": "e-0f508af7e6ad7c0676767550",
+        "source": {
+          "end": {
+            "column": 32,
+            "line": 19,
+            "offset": 602
+          },
+          "start": {
+            "column": 19,
+            "line": 19,
+            "offset": 589
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        }
+      },
+      {
+        "actualParameterIds": [
+          "e-ff0c0e52401e3f8116c9318a"
+        ],
+        "analysisId": "e-60524e55f40595f1efc34d40",
+        "arguments": [
+          {
+            "kind": "reference",
+            "path": "exceptionInputs.zero"
+          }
+        ],
+        "bindings": [
+          {
+            "actualParameterId": "e-ff0c0e52401e3f8116c9318a",
+            "actualReference": "exceptionInputs.zero",
+            "argument": {
+              "kind": "reference",
+              "path": "exceptionInputs.zero"
+            },
+            "formalParameterId": null,
+            "index": 0
+          }
+        ],
+        "definitionId": null,
+        "definitionName": "UnknownCalculation",
+        "id": "cu-1385af0e3a3097c61d3e64e8",
+        "resultParameterId": "e-a0d268542cf7e979df9c6b2e",
+        "source": {
+          "end": {
+            "column": 36,
+            "line": 25,
+            "offset": 937
+          },
+          "start": {
+            "column": 19,
+            "line": 25,
+            "offset": 920
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        }
+      }
+    ],
+    "version": "0.1"
+  },
+  "capabilities": {
+    "analysis.advanced-functions": "unsupported",
+    "analysis.constraints": "supported",
+    "analysis.evaluate": "supported",
+    "analysis.units": "supported",
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "calculation.analysis": "supported",
+    "calculation.argument-binding": "supported",
+    "calculation.definition": "supported",
+    "calculation.expression-ast": "partial",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported",
+    "view.definition": "supported",
+    "view.expose": "supported",
+    "view.table-rendering": "supported"
+  },
+  "diagnostics": [
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 22 elements without a span; 24 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "document": {
+    "contentHash": "d015a0836acf2d6ba825375269c305f0c38efba06990e367aa4acd50b06f7d1c",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507",
+      "capabilityVersion": "1.0.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "baseline:///analysis-exception-acceptance.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-c7f6cfb5a3abc7ead27d328c",
+      "kind": "Package",
+      "name": "AnalysisExceptionAcceptance",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 1,
+          "offset": 35
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-9bcd4fc4536ede0a3409eaa2",
+      "kind": "CalculationDefinition",
+      "name": "IdentityDuration",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::IdentityDuration",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 2,
+          "offset": 67
+        },
+        "start": {
+          "column": 14,
+          "line": 2,
+          "offset": 51
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-9d68bef8c328d5c08107682c",
+      "kind": "ActionInputOutput",
+      "name": "in durationInput",
+      "ownerId": "e-9bcd4fc4536ede0a3409eaa2",
+      "properties": {
+        "defaultValue": "",
+        "hasItemKeyword": false,
+        "isInput": true,
+        "itemName": "durationInput",
+        "itemType": "ISQ::duration",
+        "multiplicity": "",
+        "redefinesName": ""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::IdentityDuration::in durationInput",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 3,
+          "offset": 94
+        },
+        "start": {
+          "column": 9,
+          "line": 3,
+          "offset": 78
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-3fd758c46edfc076c4efc624",
+      "kind": "ReturnParameter",
+      "name": "durationOutput",
+      "ownerId": "e-9bcd4fc4536ede0a3409eaa2",
+      "properties": {
+        "expression": "durationInput",
+        "typeId": "lib-8a726b5a1b15f30b42579922",
+        "typeName": "ISQ::duration",
+        "typeResolution": "official-library"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::IdentityDuration::durationOutput",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 4,
+          "offset": 142
+        },
+        "start": {
+          "column": 16,
+          "line": 4,
+          "offset": 128
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-af2ad8e08fcdb6d073e7f3d1",
+      "kind": "PartDefinition",
+      "name": "ExceptionInputs",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::ExceptionInputs",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 7,
+          "offset": 212
+        },
+        "start": {
+          "column": 14,
+          "line": 7,
+          "offset": 197
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-7b70b8bcd7b2b95eef098b3c",
+      "kind": "Feature",
+      "name": "healthyDuration",
+      "ownerId": "e-af2ad8e08fcdb6d073e7f3d1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "h",
+        "valueExpression": "2[h]"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::ExceptionInputs::healthyDuration",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 8,
+          "offset": 248
+        },
+        "start": {
+          "column": 19,
+          "line": 8,
+          "offset": 233
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-e12f2f70bca440f6659fb38f",
+      "kind": "Feature",
+      "name": "massAsDuration",
+      "ownerId": "e-af2ad8e08fcdb6d073e7f3d1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "unitExpression": "h",
+        "valueExpression": "2[h]"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::ExceptionInputs::massAsDuration",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 9,
+          "offset": 306
+        },
+        "start": {
+          "column": 19,
+          "line": 9,
+          "offset": 292
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-ff0c0e52401e3f8116c9318a",
+      "kind": "Feature",
+      "name": "zero",
+      "ownerId": "e-af2ad8e08fcdb6d073e7f3d1",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "0"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::ExceptionInputs::zero",
+      "source": {
+        "end": {
+          "column": 23,
+          "line": 10,
+          "offset": 350
+        },
+        "start": {
+          "column": 19,
+          "line": 10,
+          "offset": 346
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-c186623b08ffa6e53312eef1",
+      "kind": "ViewDefinition",
+      "name": "ExceptionStatusTable",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "viewType": "GridView"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::ExceptionStatusTable",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 44,
+          "offset": 1868
+        },
+        "start": {
+          "column": 14,
+          "line": 44,
+          "offset": 1848
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-ead7f652ad00ab797b2641b1",
+      "kind": "ViewRenderingMember",
+      "name": "exceptionStatusTableRendering",
+      "ownerId": "e-c186623b08ffa6e53312eef1",
+      "properties": {
+        "renderingReference": "exceptionStatusTableRendering"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::ExceptionStatusTable::exceptionStatusTableRendering",
+      "source": {
+        "end": {
+          "column": 44,
+          "line": 35,
+          "offset": 1307
+        },
+        "start": {
+          "column": 15,
+          "line": 35,
+          "offset": 1278
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-a4b7f9e1fb591d683e73550b",
+      "kind": "PartUsage",
+      "name": "exceptionInputs",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "direction": "DirectionNone",
+        "isAbstract": false,
+        "isConstant": false,
+        "isDerived": false,
+        "isIndividual": false,
+        "isRef": false,
+        "isVariation": false,
+        "memberKind": "",
+        "portionKind": "PortionNone",
+        "typeId": "e-af2ad8e08fcdb6d073e7f3d1",
+        "typeName": "ExceptionInputs",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionInputs",
+      "source": {
+        "end": {
+          "column": 25,
+          "line": 13,
+          "offset": 394
+        },
+        "start": {
+          "column": 10,
+          "line": 13,
+          "offset": 379
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-60524e55f40595f1efc34d40",
+      "kind": "AnalysisCase",
+      "name": "exceptionStatusAnalysis",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "subjectReference": "exceptionInputs"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 15,
+          "offset": 451
+        },
+        "start": {
+          "column": 14,
+          "line": 15,
+          "offset": 428
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-67a2ff513900f3b6cf3a0c33",
+      "kind": "AnalysisSubject",
+      "name": "subject",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "reference": "exceptionInputs"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::subject",
+      "source": {
+        "end": {
+          "column": 16,
+          "line": 16,
+          "offset": 469
+        },
+        "start": {
+          "column": 9,
+          "line": 16,
+          "offset": 462
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-0f508af7e6ad7c0676767550",
+      "kind": "Feature",
+      "name": "healthyResult",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "IdentityDuration(exceptionInputs.healthyDuration)"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::healthyResult",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 19,
+          "offset": 602
+        },
+        "start": {
+          "column": 19,
+          "line": 19,
+          "offset": 589
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-907c55030f1c642fc1c5b8bb",
+      "kind": "Feature",
+      "name": "missingInputResult",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "exceptionInputs.notDeclared"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::missingInputResult",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 23,
+          "offset": 782
+        },
+        "start": {
+          "column": 19,
+          "line": 23,
+          "offset": 764
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-f98572df98c613c2bf785e16",
+      "kind": "Feature",
+      "name": "unitErrorResult",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "exceptionInputs.massAsDuration"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::unitErrorResult",
+      "source": {
+        "end": {
+          "column": 34,
+          "line": 24,
+          "offset": 854
+        },
+        "start": {
+          "column": 19,
+          "line": 24,
+          "offset": 839
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-a0d268542cf7e979df9c6b2e",
+      "kind": "Feature",
+      "name": "unsupportedResult",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "UnknownCalculation(exceptionInputs.zero)"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::unsupportedResult",
+      "source": {
+        "end": {
+          "column": 36,
+          "line": 25,
+          "offset": 937
+        },
+        "start": {
+          "column": 19,
+          "line": 25,
+          "offset": 920
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-4ad47b8c24ddb19ba2d7ee24",
+      "kind": "Feature",
+      "name": "cycleResultA",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "cycleResultB+1"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::cycleResultA",
+      "source": {
+        "end": {
+          "column": 31,
+          "line": 26,
+          "offset": 1019
+        },
+        "start": {
+          "column": 19,
+          "line": 26,
+          "offset": 1007
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-2638e11e2cd6546fe5407c5d",
+      "kind": "Feature",
+      "name": "cycleResultB",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "cycleResultA+1"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::cycleResultB",
+      "source": {
+        "end": {
+          "column": 53,
+          "line": 26,
+          "offset": 1041
+        },
+        "start": {
+          "column": 41,
+          "line": 26,
+          "offset": 1029
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-3a23bc5e135b46ff6687273d",
+      "kind": "Feature",
+      "name": "runtimeErrorResult",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "1/exceptionInputs.zero"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::runtimeErrorResult",
+      "source": {
+        "end": {
+          "column": 37,
+          "line": 28,
+          "offset": 1141
+        },
+        "start": {
+          "column": 19,
+          "line": 28,
+          "offset": 1123
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-f8041eeaa41b5adda653f146",
+      "kind": "ConstraintStatement",
+      "name": "healthyTarget",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "expression": "healthyResult>=2[h]"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::healthyTarget",
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 30,
+          "offset": 1210
+        },
+        "start": {
+          "column": 20,
+          "line": 30,
+          "offset": 1197
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-231d4cc124dbd4a1d9b143e8",
+      "kind": "RenderingUsage",
+      "name": "exceptionStatusTableRendering",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "renderingType": "asElementTable"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering",
+      "source": {
+        "end": {
+          "column": 45,
+          "line": 45,
+          "offset": 1927
+        },
+        "start": {
+          "column": 16,
+          "line": 45,
+          "offset": 1898
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-139da2481cfeef1a0f307a47",
+      "kind": "ViewUsage",
+      "name": "parameterColumn",
+      "ownerId": "e-231d4cc124dbd4a1d9b143e8",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::parameterColumn",
+      "source": {
+        "end": {
+          "column": 29,
+          "line": 36,
+          "offset": 1356
+        },
+        "start": {
+          "column": 14,
+          "line": 36,
+          "offset": 1341
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-c505b65c9087aeeebf1410eb",
+      "kind": "Feature",
+      "name": "label",
+      "ownerId": "e-139da2481cfeef1a0f307a47",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"参数\""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::parameterColumn::label",
+      "source": {
+        "end": {
+          "column": 62,
+          "line": 36,
+          "offset": 1389
+        },
+        "start": {
+          "column": 57,
+          "line": 36,
+          "offset": 1384
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-9b7da17e64e07a2d1444d261",
+      "kind": "ViewUsage",
+      "name": "roleColumn",
+      "ownerId": "e-231d4cc124dbd4a1d9b143e8",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::roleColumn",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 37,
+          "offset": 1436
+        },
+        "start": {
+          "column": 14,
+          "line": 37,
+          "offset": 1426
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-f6adbb19319a1299784449d4",
+      "kind": "Feature",
+      "name": "label",
+      "ownerId": "e-9b7da17e64e07a2d1444d261",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"角色\""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::roleColumn::label",
+      "source": {
+        "end": {
+          "column": 57,
+          "line": 37,
+          "offset": 1469
+        },
+        "start": {
+          "column": 52,
+          "line": 37,
+          "offset": 1464
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-97bd404d8df6d3bc14643b9d",
+      "kind": "ViewUsage",
+      "name": "currentValueColumn",
+      "ownerId": "e-231d4cc124dbd4a1d9b143e8",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::currentValueColumn",
+      "source": {
+        "end": {
+          "column": 32,
+          "line": 38,
+          "offset": 1524
+        },
+        "start": {
+          "column": 14,
+          "line": 38,
+          "offset": 1506
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-1960a4481dd0462b4cfb9788",
+      "kind": "Feature",
+      "name": "label",
+      "ownerId": "e-97bd404d8df6d3bc14643b9d",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"当前值\""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::currentValueColumn::label",
+      "source": {
+        "end": {
+          "column": 65,
+          "line": 38,
+          "offset": 1557
+        },
+        "start": {
+          "column": 60,
+          "line": 38,
+          "offset": 1552
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-8922a19f35b8c69ca14adf82",
+      "kind": "ViewUsage",
+      "name": "unitColumn",
+      "ownerId": "e-231d4cc124dbd4a1d9b143e8",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::unitColumn",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 39,
+          "offset": 1607
+        },
+        "start": {
+          "column": 14,
+          "line": 39,
+          "offset": 1597
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-157a20fd3b65cc7779f5a24b",
+      "kind": "Feature",
+      "name": "label",
+      "ownerId": "e-8922a19f35b8c69ca14adf82",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"单位\""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::unitColumn::label",
+      "source": {
+        "end": {
+          "column": 57,
+          "line": 39,
+          "offset": 1640
+        },
+        "start": {
+          "column": 52,
+          "line": 39,
+          "offset": 1635
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-7d1bf2683ff1f5cee87cefed",
+      "kind": "ViewUsage",
+      "name": "statusColumn",
+      "ownerId": "e-231d4cc124dbd4a1d9b143e8",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::statusColumn",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 40,
+          "offset": 1689
+        },
+        "start": {
+          "column": 14,
+          "line": 40,
+          "offset": 1677
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-0b370838ad16aa31295c9bcc",
+      "kind": "Feature",
+      "name": "label",
+      "ownerId": "e-7d1bf2683ff1f5cee87cefed",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"状态\""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::statusColumn::label",
+      "source": {
+        "end": {
+          "column": 59,
+          "line": 40,
+          "offset": 1722
+        },
+        "start": {
+          "column": 54,
+          "line": 40,
+          "offset": 1717
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-5e0b39615d2b5d291b4dc66a",
+      "kind": "ViewUsage",
+      "name": "sourceColumn",
+      "ownerId": "e-231d4cc124dbd4a1d9b143e8",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "typeName": "columnView",
+        "typeResolution": "unresolved"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::sourceColumn",
+      "source": {
+        "end": {
+          "column": 26,
+          "line": 41,
+          "offset": 1771
+        },
+        "start": {
+          "column": 14,
+          "line": 41,
+          "offset": 1759
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-e622c399fb3ff7f0fe475be0",
+      "kind": "Feature",
+      "name": "label",
+      "ownerId": "e-5e0b39615d2b5d291b4dc66a",
+      "properties": {
+        "direction": 0,
+        "isAbstract": false,
+        "isConst": false,
+        "isDerived": false,
+        "isRedefines": false,
+        "isRef": false,
+        "isSimplifiedAttribute": false,
+        "valueExpression": "\"来源\""
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTableRendering::sourceColumn::label",
+      "source": {
+        "end": {
+          "column": 59,
+          "line": 41,
+          "offset": 1804
+        },
+        "start": {
+          "column": 54,
+          "line": 41,
+          "offset": 1799
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-bc84294f99e445b9bf80ea54",
+      "kind": "ViewUsage",
+      "name": "exceptionStatusTable",
+      "ownerId": "e-c7f6cfb5a3abc7ead27d328c",
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false,
+        "renderMethod": "exceptionStatusTableRendering",
+        "typeId": "e-c186623b08ffa6e53312eef1",
+        "typeName": "ExceptionStatusTable",
+        "typeResolution": "local"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTable",
+      "source": {
+        "end": {
+          "column": 30,
+          "line": 48,
+          "offset": 1965
+        },
+        "start": {
+          "column": 10,
+          "line": 48,
+          "offset": 1945
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "e-9f51bde582b880655ed3fa1b",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::healthyResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-d1ea52a08d5974cce9f18fa2",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::missingInputResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-652dfd2841a9e1ca4f1d7f1f",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::unitErrorResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-0f6adb0dbad4802f0c5fce8d",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::unsupportedResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-c1155f44536834adf248461d",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::cycleResultA",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-7b64546872d9bd83894a64c0",
+      "kind": "ExposeStatement",
+      "name": null,
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "exposeType": 0,
+        "exposedQualifiedName": "AnalysisExceptionAcceptance::exceptionStatusAnalysis::runtimeErrorResult",
+        "recursive": false
+      },
+      "qualifiedName": null,
+      "source": null
+    },
+    {
+      "id": "e-4a2beeb7f18e8d1061d5f3e1",
+      "kind": "ViewRenderingMember",
+      "name": "exceptionStatusTableRendering",
+      "ownerId": "e-bc84294f99e445b9bf80ea54",
+      "properties": {
+        "renderingReference": "exceptionStatusTableRendering"
+      },
+      "qualifiedName": "AnalysisExceptionAcceptance::exceptionStatusTable::exceptionStatusTableRendering",
+      "source": {
+        "end": {
+          "column": 45,
+          "line": 55,
+          "offset": 2554
+        },
+        "start": {
+          "column": 16,
+          "line": 55,
+          "offset": 2525
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      }
+    },
+    {
+      "id": "lib-8a726b5a1b15f30b42579922",
+      "kind": "LibraryElement",
+      "name": "duration",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::duration",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::duration",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 58,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 58,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-f8f29077ef90cf588ee7146c",
+      "kind": "LibraryElement",
+      "name": "mass",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ISQBase::mass",
+        "declarationKind": "attribute",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Domain Libraries/Quantities and Units/ISQBase.sysml"
+      },
+      "qualifiedName": "ISQ::mass",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 83,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 83,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Domain Libraries/Quantities and Units/ISQBase.sysml"
+      }
+    },
+    {
+      "id": "lib-79b96ce78c9e1c5526e171dd",
+      "kind": "LibraryElement",
+      "name": "Real",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::Real",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "Real",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 18,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 18,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    },
+    {
+      "id": "lib-5a980a521e389768d6fc94be",
+      "kind": "LibraryElement",
+      "name": "String",
+      "ownerId": null,
+      "properties": {
+        "canonicalQualifiedName": "ScalarValues::String",
+        "declarationKind": "datatype",
+        "libraryCommit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "libraryRelease": "2026-08",
+        "librarySource": "Systems-Modeling/SysML-v2-Release",
+        "resolutionStatus": "official-library",
+        "sourcePath": "Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      },
+      "qualifiedName": "String",
+      "source": {
+        "end": {
+          "column": 1,
+          "line": 13,
+          "offset": 0
+        },
+        "start": {
+          "column": 1,
+          "line": 13,
+          "offset": 0
+        },
+        "uri": "sysml-library://2026-08/Kernel Libraries/Kernel Data Type Library/ScalarValues.kerml"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-9389602e3f998a95cfaf9e41",
+      "kind": "FeatureTyping",
+      "ownerId": "e-7b70b8bcd7b2b95eef098b3c",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-7b70b8bcd7b2b95eef098b3c"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-611ae8b1f6474bc20876f852",
+      "kind": "FeatureTyping",
+      "ownerId": "e-e12f2f70bca440f6659fb38f",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-e12f2f70bca440f6659fb38f"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-3d2073e6c036a063f7b6abce",
+      "kind": "FeatureTyping",
+      "ownerId": "e-ff0c0e52401e3f8116c9318a",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-ff0c0e52401e3f8116c9318a"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-2c2b4f10fa38f9a1a7cd5b55",
+      "kind": "FeatureTyping",
+      "ownerId": "e-0f508af7e6ad7c0676767550",
+      "properties": {
+        "typeName": "ISQ::duration"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0f508af7e6ad7c0676767550"
+      ],
+      "targetIds": [
+        "lib-8a726b5a1b15f30b42579922"
+      ]
+    },
+    {
+      "id": "e-68c52acbfc6cd4dbca11f79a",
+      "kind": "FeatureTyping",
+      "ownerId": "e-907c55030f1c642fc1c5b8bb",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-907c55030f1c642fc1c5b8bb"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-878a253e95f3597af426de1e",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f98572df98c613c2bf785e16",
+      "properties": {
+        "typeName": "ISQ::mass"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f98572df98c613c2bf785e16"
+      ],
+      "targetIds": [
+        "lib-f8f29077ef90cf588ee7146c"
+      ]
+    },
+    {
+      "id": "e-aa13e2c49c300ef55a24f7eb",
+      "kind": "FeatureTyping",
+      "ownerId": "e-a0d268542cf7e979df9c6b2e",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-a0d268542cf7e979df9c6b2e"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-2e305e9b2ab8ae335ef6ec0c",
+      "kind": "FeatureTyping",
+      "ownerId": "e-4ad47b8c24ddb19ba2d7ee24",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-4ad47b8c24ddb19ba2d7ee24"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-8c37a93d3682b4789aecb8b6",
+      "kind": "FeatureTyping",
+      "ownerId": "e-2638e11e2cd6546fe5407c5d",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-2638e11e2cd6546fe5407c5d"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-879468f9b0068f6191c6fcd4",
+      "kind": "FeatureTyping",
+      "ownerId": "e-3a23bc5e135b46ff6687273d",
+      "properties": {
+        "typeName": "Real"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-3a23bc5e135b46ff6687273d"
+      ],
+      "targetIds": [
+        "lib-79b96ce78c9e1c5526e171dd"
+      ]
+    },
+    {
+      "id": "e-be45cbec4c8b1b1a7d010f73",
+      "kind": "FeatureTyping",
+      "ownerId": "e-c505b65c9087aeeebf1410eb",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-c505b65c9087aeeebf1410eb"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-4fdb269649ff0ac9c509c200",
+      "kind": "FeatureTyping",
+      "ownerId": "e-f6adbb19319a1299784449d4",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-f6adbb19319a1299784449d4"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-d15655036e7a7f50f23dec9c",
+      "kind": "FeatureTyping",
+      "ownerId": "e-1960a4481dd0462b4cfb9788",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-1960a4481dd0462b4cfb9788"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-371fc404e8d9baafb62d62eb",
+      "kind": "FeatureTyping",
+      "ownerId": "e-157a20fd3b65cc7779f5a24b",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-157a20fd3b65cc7779f5a24b"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-685c01951f9547b7d310326b",
+      "kind": "FeatureTyping",
+      "ownerId": "e-0b370838ad16aa31295c9bcc",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-0b370838ad16aa31295c9bcc"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "e-b8fb74ffccc6696e847aa0f2",
+      "kind": "FeatureTyping",
+      "ownerId": "e-e622c399fb3ff7f0fe475be0",
+      "properties": {
+        "typeName": "String"
+      },
+      "source": null,
+      "sourceIds": [
+        "e-e622c399fb3ff7f0fe475be0"
+      ],
+      "targetIds": [
+        "lib-5a980a521e389768d6fc94be"
+      ]
+    },
+    {
+      "id": "r-3058e3d0aba6f9c2477bde54",
+      "kind": "Constraint",
+      "ownerId": "e-60524e55f40595f1efc34d40",
+      "properties": {
+        "expression": "healthyResult>=2[h]",
+        "statementKind": "ConstraintStatement"
+      },
+      "source": {
+        "end": {
+          "column": 33,
+          "line": 30,
+          "offset": 1210
+        },
+        "start": {
+          "column": 20,
+          "line": 30,
+          "offset": 1197
+        },
+        "uri": "baseline:///analysis-exception-acceptance.sysml"
+      },
+      "sourceIds": [
+        "e-60524e55f40595f1efc34d40"
+      ],
+      "targetIds": [
+        "e-f8041eeaa41b5adda653f146"
+      ]
+    }
+  ],
+  "schemaVersion": "0.1",
+  "viewModel": {
+    "definitions": [
+      {
+        "elementId": "e-c186623b08ffa6e53312eef1",
+        "id": "e-c186623b08ffa6e53312eef1",
+        "name": "ExceptionStatusTable",
+        "renderingId": "e-231d4cc124dbd4a1d9b143e8",
+        "renderingReference": "exceptionStatusTableRendering",
+        "source": {
+          "end": {
+            "column": 34,
+            "line": 44,
+            "offset": 1868
+          },
+          "start": {
+            "column": 14,
+            "line": 44,
+            "offset": 1848
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        },
+        "viewKind": "grid",
+        "viewType": "GridView"
+      }
+    ],
+    "renderings": [
+      {
+        "columns": [
+          {
+            "columnView": "columnView",
+            "id": "e-139da2481cfeef1a0f307a47",
+            "key": "parameterColumn",
+            "label": "参数",
+            "name": "parameterColumn",
+            "source": {
+              "end": {
+                "column": 29,
+                "line": 36,
+                "offset": 1356
+              },
+              "start": {
+                "column": 14,
+                "line": 36,
+                "offset": 1341
+              },
+              "uri": "baseline:///analysis-exception-acceptance.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-9b7da17e64e07a2d1444d261",
+            "key": "roleColumn",
+            "label": "角色",
+            "name": "roleColumn",
+            "source": {
+              "end": {
+                "column": 24,
+                "line": 37,
+                "offset": 1436
+              },
+              "start": {
+                "column": 14,
+                "line": 37,
+                "offset": 1426
+              },
+              "uri": "baseline:///analysis-exception-acceptance.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-97bd404d8df6d3bc14643b9d",
+            "key": "currentValueColumn",
+            "label": "当前值",
+            "name": "currentValueColumn",
+            "source": {
+              "end": {
+                "column": 32,
+                "line": 38,
+                "offset": 1524
+              },
+              "start": {
+                "column": 14,
+                "line": 38,
+                "offset": 1506
+              },
+              "uri": "baseline:///analysis-exception-acceptance.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-8922a19f35b8c69ca14adf82",
+            "key": "unitColumn",
+            "label": "单位",
+            "name": "unitColumn",
+            "source": {
+              "end": {
+                "column": 24,
+                "line": 39,
+                "offset": 1607
+              },
+              "start": {
+                "column": 14,
+                "line": 39,
+                "offset": 1597
+              },
+              "uri": "baseline:///analysis-exception-acceptance.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-7d1bf2683ff1f5cee87cefed",
+            "key": "statusColumn",
+            "label": "状态",
+            "name": "statusColumn",
+            "source": {
+              "end": {
+                "column": 26,
+                "line": 40,
+                "offset": 1689
+              },
+              "start": {
+                "column": 14,
+                "line": 40,
+                "offset": 1677
+              },
+              "uri": "baseline:///analysis-exception-acceptance.sysml"
+            }
+          },
+          {
+            "columnView": "columnView",
+            "id": "e-5e0b39615d2b5d291b4dc66a",
+            "key": "sourceColumn",
+            "label": "来源",
+            "name": "sourceColumn",
+            "source": {
+              "end": {
+                "column": 26,
+                "line": 41,
+                "offset": 1771
+              },
+              "start": {
+                "column": 14,
+                "line": 41,
+                "offset": 1759
+              },
+              "uri": "baseline:///analysis-exception-acceptance.sysml"
+            }
+          }
+        ],
+        "elementId": "e-231d4cc124dbd4a1d9b143e8",
+        "id": "e-231d4cc124dbd4a1d9b143e8",
+        "name": "exceptionStatusTableRendering",
+        "renderingKind": "element-table",
+        "renderingType": "asElementTable",
+        "source": {
+          "end": {
+            "column": 45,
+            "line": 45,
+            "offset": 1927
+          },
+          "start": {
+            "column": 16,
+            "line": 45,
+            "offset": 1898
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        }
+      }
+    ],
+    "version": "0.1",
+    "views": [
+      {
+        "definitionId": "e-c186623b08ffa6e53312eef1",
+        "definitionReference": "ExceptionStatusTable",
+        "elementId": "e-bc84294f99e445b9bf80ea54",
+        "exposedElementIds": [
+          "e-0f508af7e6ad7c0676767550",
+          "e-907c55030f1c642fc1c5b8bb",
+          "e-f98572df98c613c2bf785e16",
+          "e-a0d268542cf7e979df9c6b2e",
+          "e-4ad47b8c24ddb19ba2d7ee24",
+          "e-3a23bc5e135b46ff6687273d"
+        ],
+        "exposedReferences": [
+          "AnalysisExceptionAcceptance::exceptionStatusAnalysis::healthyResult",
+          "AnalysisExceptionAcceptance::exceptionStatusAnalysis::missingInputResult",
+          "AnalysisExceptionAcceptance::exceptionStatusAnalysis::unitErrorResult",
+          "AnalysisExceptionAcceptance::exceptionStatusAnalysis::unsupportedResult",
+          "AnalysisExceptionAcceptance::exceptionStatusAnalysis::cycleResultA",
+          "AnalysisExceptionAcceptance::exceptionStatusAnalysis::runtimeErrorResult"
+        ],
+        "id": "e-bc84294f99e445b9bf80ea54",
+        "name": "exceptionStatusTable",
+        "renderingId": "e-231d4cc124dbd4a1d9b143e8",
+        "renderingReference": "exceptionStatusTableRendering",
+        "source": {
+          "end": {
+            "column": 30,
+            "line": 48,
+            "offset": 1965
+          },
+          "start": {
+            "column": 10,
+            "line": 48,
+            "offset": 1945
+          },
+          "uri": "baseline:///analysis-exception-acceptance.sysml"
+        }
+      }
+    ]
+  }
+}

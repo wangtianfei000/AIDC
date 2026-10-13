@@ -1,0 +1,107 @@
+{
+  "calculationModel": {
+    "analyses": [],
+    "constraints": [],
+    "definitions": [],
+    "parameters": [],
+    "usages": [],
+    "version": "0.1"
+  },
+  "capabilities": {
+    "analysis.advanced-functions": "unsupported",
+    "analysis.constraints": "supported",
+    "analysis.evaluate": "supported",
+    "analysis.units": "supported",
+    "architecture.connection": "partial",
+    "architecture.part": "partial",
+    "architecture.port": "partial",
+    "architecture.typed-instance-port": "supported",
+    "calculation.analysis": "supported",
+    "calculation.argument-binding": "supported",
+    "calculation.definition": "supported",
+    "calculation.expression-ast": "partial",
+    "diagnostic.structured": "supported",
+    "library.standard-models": "supported",
+    "model.package-ownership": "supported",
+    "model.source-span": "partial",
+    "model.stable-id": "supported",
+    "model.type-reference": "supported",
+    "parse.file": "supported",
+    "reference.cross-file": "partial",
+    "requirement.constraint": "supported",
+    "requirement.definition": "partial",
+    "requirement.usage": "partial",
+    "trace.derive": "unsupported",
+    "trace.refine": "unsupported",
+    "trace.satisfy": "partial",
+    "trace.verify": "unsupported",
+    "view.definition": "supported",
+    "view.expose": "supported",
+    "view.table-rendering": "supported"
+  },
+  "diagnostics": [
+    {
+      "code": "SYNTAX_ERROR",
+      "message": "no viable alternative at input 'thisis' (near 'is')",
+      "relatedElementIds": [],
+      "severity": "error",
+      "source": {
+        "end": {
+          "column": 24,
+          "line": 1,
+          "offset": 23
+        },
+        "start": {
+          "column": 23,
+          "line": 1,
+          "offset": 22
+        },
+        "uri": "baseline:///invalid.sysml"
+      }
+    }
+  ],
+  "document": {
+    "contentHash": "15eae8c586ab01178136b42291bcc71ccce209f0ffd7fab7aa5df4c5f6d614e0",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507",
+      "capabilityVersion": "1.0.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "baseline:///invalid.sysml"
+  },
+  "elements": [
+    {
+      "id": "e-0642030db440a476b078ff7d",
+      "kind": "Package",
+      "name": "Broken",
+      "ownerId": null,
+      "properties": {
+        "isAbstract": false,
+        "isIndividual": false,
+        "isVariation": false
+      },
+      "qualifiedName": "Broken",
+      "source": {
+        "end": {
+          "column": 15,
+          "line": 1,
+          "offset": 14
+        },
+        "start": {
+          "column": 9,
+          "line": 1,
+          "offset": 8
+        },
+        "uri": "baseline:///invalid.sysml"
+      }
+    }
+  ],
+  "relationships": [],
+  "schemaVersion": "0.1",
+  "viewModel": {
+    "definitions": [],
+    "renderings": [],
+    "version": "0.1",
+    "views": []
+  }
+}

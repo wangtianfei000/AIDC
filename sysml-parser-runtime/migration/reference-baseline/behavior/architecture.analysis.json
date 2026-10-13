@@ -1,0 +1,811 @@
+{
+  "analyses": [
+    {
+      "analysisId": "e-dfb2f8ab1e83df4c952a1af5",
+      "constraints": [
+        {
+          "actual": 816.8000000000001,
+          "comparison": "<=",
+          "constraintId": "e-4198778a0e0a59df32f99a03",
+          "expression": "totalMassResult<=jingangConfiguration.maximumMass",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "totalMassResult"
+            },
+            "operator": "<=",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumMass"
+            }
+          },
+          "inputParameterIds": [
+            "e-05d31464b4c5e7056fd91c50",
+            "e-2334f73fc34d2bb6ae5c42b8",
+            "e-39c3be0fc73b391638d72f1c",
+            "e-6e46b0b0f94c58841d67a587",
+            "e-a69c865a5c0d2298bd5f8d97",
+            "e-b4c15a91656ec8b27663b301",
+            "e-bc8fba5ca7b9a6eba8943fc6",
+            "e-eb3f71995c0309f1f702d0f4"
+          ],
+          "margin": -16.800000000000036,
+          "name": "REQ_PHY_001_massWithinLimit",
+          "resultParameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "source": {
+            "end": {
+              "column": 47,
+              "line": 276,
+              "offset": 13777
+            },
+            "start": {
+              "column": 20,
+              "line": 276,
+              "offset": 13750
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "fail",
+          "target": 800,
+          "targetParameterId": "e-eb3f71995c0309f1f702d0f4",
+          "unit": "g"
+        },
+        {
+          "actual": 1.9199999999999997,
+          "comparison": ">=",
+          "constraintId": "e-8552c413a06bbff0fa0536ef",
+          "expression": "enduranceResult>=jingangConfiguration.minimumEndurance",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "enduranceResult"
+            },
+            "operator": ">=",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.minimumEndurance"
+            }
+          },
+          "inputParameterIds": [
+            "e-1b54f0b18cc07907f1f18915",
+            "e-224663f60e59c6d824ce1b68",
+            "e-36f0a03ee0500f5ca6febb7a",
+            "e-3b475706a52a7c18fab0970a",
+            "e-45a6920de29d835bf1ed10dc",
+            "e-748a80677eff927069cebb20",
+            "e-93b3948ed1402dbe5eb00e3b",
+            "e-a0bddfd7208932780f745f26",
+            "e-cce09becc0d6f7b32cc48296",
+            "e-dcc5369ead181a60549c0e35",
+            "e-e665c70a682660385a01366c"
+          ],
+          "margin": -0.08000000000000025,
+          "name": "REQ_PER_001_enduranceMeetsMinimum",
+          "resultParameterId": "e-e665c70a682660385a01366c",
+          "source": {
+            "end": {
+              "column": 53,
+              "line": 287,
+              "offset": 14413
+            },
+            "start": {
+              "column": 20,
+              "line": 287,
+              "offset": 14380
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "fail",
+          "target": 2,
+          "targetParameterId": "e-224663f60e59c6d824ce1b68",
+          "unit": "h"
+        },
+        {
+          "actual": 19.840000000000003,
+          "comparison": "<=",
+          "constraintId": "e-ef63742ae8733cdb33bc1715",
+          "expression": "peakElectricalPowerResult<=maximumPeakElectricalPower",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "peakElectricalPowerResult"
+            },
+            "operator": "<=",
+            "right": {
+              "kind": "reference",
+              "path": "maximumPeakElectricalPower"
+            }
+          },
+          "inputParameterIds": [
+            "e-1b2d7417d48e1ad554da65f9",
+            "e-6fe057022bd2d3966d537c61",
+            "e-78649c2a65853de99fa4cd31",
+            "e-b6af1c87fe2b38e539e988a7",
+            "e-cce09becc0d6f7b32cc48296",
+            "e-dcc5369ead181a60549c0e35",
+            "e-de1ee0666283e6b8a4bcef65"
+          ],
+          "margin": -0.6400000000000006,
+          "name": "powerWithinSharedLimit",
+          "resultParameterId": "e-6fe057022bd2d3966d537c61",
+          "source": {
+            "end": {
+              "column": 42,
+              "line": 300,
+              "offset": 15136
+            },
+            "start": {
+              "column": 20,
+              "line": 300,
+              "offset": 15114
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "fail",
+          "target": 19.200000000000003,
+          "targetParameterId": "e-b6af1c87fe2b38e539e988a7",
+          "unit": "W"
+        },
+        {
+          "actual": 128,
+          "comparison": "<=",
+          "constraintId": "e-d2c641649ffe8880b7513d20",
+          "expression": "stopResponseTimeResult<=jingangConfiguration.maximumStopTime",
+          "expressionAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "stopResponseTimeResult"
+            },
+            "operator": "<=",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumStopTime"
+            }
+          },
+          "inputParameterIds": [
+            "e-29113e1d46060d2e5ac448bd",
+            "e-41185021ed5d36be6f391bfa",
+            "e-88cbc1905a91033a39614539",
+            "e-cfba3d5b77773896ae372146",
+            "e-d1472f698c6ccf0df2235cb4",
+            "e-e43aaa158e74d9a601d0df1d"
+          ],
+          "margin": 372,
+          "name": "REQ_SAF_001_stopResponseWithinLimit",
+          "resultParameterId": "e-cfba3d5b77773896ae372146",
+          "source": {
+            "end": {
+              "column": 55,
+              "line": 310,
+              "offset": 15685
+            },
+            "start": {
+              "column": 20,
+              "line": 310,
+              "offset": 15650
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "pass",
+          "target": 500,
+          "targetParameterId": "e-d1472f698c6ccf0df2235cb4",
+          "unit": "ms"
+        }
+      ],
+      "dependencies": [
+        {
+          "sourceParameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "targetParameterId": "e-39c3be0fc73b391638d72f1c"
+        },
+        {
+          "sourceParameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "targetParameterId": "e-6e46b0b0f94c58841d67a587"
+        },
+        {
+          "sourceParameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "targetParameterId": "e-a69c865a5c0d2298bd5f8d97"
+        },
+        {
+          "sourceParameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "targetParameterId": "e-b4c15a91656ec8b27663b301"
+        },
+        {
+          "sourceParameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "targetParameterId": "e-bc8fba5ca7b9a6eba8943fc6"
+        },
+        {
+          "sourceParameterId": "e-51bbe0b30b18f716b8449e8c",
+          "targetParameterId": "e-224663f60e59c6d824ce1b68"
+        },
+        {
+          "sourceParameterId": "e-51bbe0b30b18f716b8449e8c",
+          "targetParameterId": "e-e665c70a682660385a01366c"
+        },
+        {
+          "sourceParameterId": "e-522c2c776fb2b4faeca5879b",
+          "targetParameterId": "e-cfba3d5b77773896ae372146"
+        },
+        {
+          "sourceParameterId": "e-522c2c776fb2b4faeca5879b",
+          "targetParameterId": "e-d1472f698c6ccf0df2235cb4"
+        },
+        {
+          "sourceParameterId": "e-6fe057022bd2d3966d537c61",
+          "targetParameterId": "e-1b2d7417d48e1ad554da65f9"
+        },
+        {
+          "sourceParameterId": "e-6fe057022bd2d3966d537c61",
+          "targetParameterId": "e-cce09becc0d6f7b32cc48296"
+        },
+        {
+          "sourceParameterId": "e-6fe057022bd2d3966d537c61",
+          "targetParameterId": "e-dcc5369ead181a60549c0e35"
+        },
+        {
+          "sourceParameterId": "e-b6af1c87fe2b38e539e988a7",
+          "targetParameterId": "e-78649c2a65853de99fa4cd31"
+        },
+        {
+          "sourceParameterId": "e-b6af1c87fe2b38e539e988a7",
+          "targetParameterId": "e-dcc5369ead181a60549c0e35"
+        },
+        {
+          "sourceParameterId": "e-cfba3d5b77773896ae372146",
+          "targetParameterId": "e-41185021ed5d36be6f391bfa"
+        },
+        {
+          "sourceParameterId": "e-cfba3d5b77773896ae372146",
+          "targetParameterId": "e-88cbc1905a91033a39614539"
+        },
+        {
+          "sourceParameterId": "e-cfba3d5b77773896ae372146",
+          "targetParameterId": "e-e43aaa158e74d9a601d0df1d"
+        },
+        {
+          "sourceParameterId": "e-daeda45a1fe527d845deabd8",
+          "targetParameterId": "e-6fe057022bd2d3966d537c61"
+        },
+        {
+          "sourceParameterId": "e-daeda45a1fe527d845deabd8",
+          "targetParameterId": "e-b6af1c87fe2b38e539e988a7"
+        },
+        {
+          "sourceParameterId": "e-dbb8e0545194ab565c494914",
+          "targetParameterId": "e-2334f73fc34d2bb6ae5c42b8"
+        },
+        {
+          "sourceParameterId": "e-dbb8e0545194ab565c494914",
+          "targetParameterId": "e-eb3f71995c0309f1f702d0f4"
+        },
+        {
+          "sourceParameterId": "e-e665c70a682660385a01366c",
+          "targetParameterId": "e-1b54f0b18cc07907f1f18915"
+        },
+        {
+          "sourceParameterId": "e-e665c70a682660385a01366c",
+          "targetParameterId": "e-45a6920de29d835bf1ed10dc"
+        },
+        {
+          "sourceParameterId": "e-e665c70a682660385a01366c",
+          "targetParameterId": "e-93b3948ed1402dbe5eb00e3b"
+        },
+        {
+          "sourceParameterId": "e-e665c70a682660385a01366c",
+          "targetParameterId": "e-cce09becc0d6f7b32cc48296"
+        },
+        {
+          "sourceParameterId": "e-e665c70a682660385a01366c",
+          "targetParameterId": "e-dcc5369ead181a60549c0e35"
+        }
+      ],
+      "evaluationOrder": [
+        "e-2334f73fc34d2bb6ae5c42b8",
+        "e-dbb8e0545194ab565c494914",
+        "e-e665c70a682660385a01366c",
+        "e-51bbe0b30b18f716b8449e8c",
+        "e-6fe057022bd2d3966d537c61",
+        "e-b6af1c87fe2b38e539e988a7",
+        "e-daeda45a1fe527d845deabd8",
+        "e-cfba3d5b77773896ae372146",
+        "e-522c2c776fb2b4faeca5879b"
+      ],
+      "name": "coreParameterAnalysis",
+      "results": [
+        {
+          "calculationDefinitionId": "e-ecb8dd266edae79766b106a3",
+          "calculationUsageId": "cu-22594789977f1dbecd46969a",
+          "dimension": "M^1",
+          "formula": "ComputeTotalMass(jingangConfiguration.actuatorGroupPlanningMass,jingangConfiguration.structureAndFootPlanningMass,jingangConfiguration.electronicsAndBatteryPlanningMass,jingangConfiguration.bearingAndFastenerPlanningMass,jingangConfiguration.harnessAndConnectorPlanningMass)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.actuatorGroupPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.structureAndFootPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.electronicsAndBatteryPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.bearingAndFastenerPlanningMass"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.harnessAndConnectorPlanningMass"
+              }
+            ],
+            "callee": "ComputeTotalMass",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-05d31464b4c5e7056fd91c50",
+            "e-2334f73fc34d2bb6ae5c42b8",
+            "e-39c3be0fc73b391638d72f1c",
+            "e-6e46b0b0f94c58841d67a587",
+            "e-a69c865a5c0d2298bd5f8d97",
+            "e-b4c15a91656ec8b27663b301",
+            "e-bc8fba5ca7b9a6eba8943fc6"
+          ],
+          "name": "totalMassResult",
+          "parameterId": "e-2334f73fc34d2bb6ae5c42b8",
+          "siValue": 0.8168000000000001,
+          "source": {
+            "end": {
+              "column": 34,
+              "line": 269,
+              "offset": 13278
+            },
+            "start": {
+              "column": 19,
+              "line": 269,
+              "offset": 13263
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::mass",
+          "unit": "g",
+          "value": 816.8000000000001
+        },
+        {
+          "dimension": "M^1",
+          "formula": "jingangConfiguration.maximumMass-totalMassResult",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumMass"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "totalMassResult"
+            }
+          },
+          "inputParameterIds": [
+            "e-05d31464b4c5e7056fd91c50",
+            "e-2334f73fc34d2bb6ae5c42b8",
+            "e-39c3be0fc73b391638d72f1c",
+            "e-6e46b0b0f94c58841d67a587",
+            "e-a69c865a5c0d2298bd5f8d97",
+            "e-b4c15a91656ec8b27663b301",
+            "e-bc8fba5ca7b9a6eba8943fc6",
+            "e-dbb8e0545194ab565c494914",
+            "e-eb3f71995c0309f1f702d0f4"
+          ],
+          "name": "massMargin",
+          "parameterId": "e-dbb8e0545194ab565c494914",
+          "siValue": -0.016800000000000037,
+          "source": {
+            "end": {
+              "column": 29,
+              "line": 275,
+              "offset": 13663
+            },
+            "start": {
+              "column": 19,
+              "line": 275,
+              "offset": 13653
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::mass",
+          "unit": "g",
+          "value": -16.800000000000036
+        },
+        {
+          "calculationDefinitionId": "e-dd4c2eea003eb1e0a118e00e",
+          "calculationUsageId": "cu-9c78cf3ae0c158f3721219d7",
+          "dimension": "T^1",
+          "formula": "ComputeEndurance(jingangConfiguration.powerSystem.batteryVoltage,jingangConfiguration.powerSystem.batteryCapacity,jingangConfiguration.powerSystem.usableEnergyFraction,jingangConfiguration.powerSystem.electronicsCurrent,jingangConfiguration.powerSystem.servoBusAverageCurrent)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.batteryVoltage"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.batteryCapacity"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.usableEnergyFraction"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.electronicsCurrent"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.servoBusAverageCurrent"
+              }
+            ],
+            "callee": "ComputeEndurance",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-1b54f0b18cc07907f1f18915",
+            "e-36f0a03ee0500f5ca6febb7a",
+            "e-3b475706a52a7c18fab0970a",
+            "e-45a6920de29d835bf1ed10dc",
+            "e-748a80677eff927069cebb20",
+            "e-93b3948ed1402dbe5eb00e3b",
+            "e-a0bddfd7208932780f745f26",
+            "e-cce09becc0d6f7b32cc48296",
+            "e-dcc5369ead181a60549c0e35",
+            "e-e665c70a682660385a01366c"
+          ],
+          "name": "enduranceResult",
+          "parameterId": "e-e665c70a682660385a01366c",
+          "siValue": 6911.999999999999,
+          "source": {
+            "end": {
+              "column": 34,
+              "line": 280,
+              "offset": 13888
+            },
+            "start": {
+              "column": 19,
+              "line": 280,
+              "offset": 13873
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "h",
+          "value": 1.9199999999999997
+        },
+        {
+          "dimension": "T^1",
+          "formula": "enduranceResult-jingangConfiguration.minimumEndurance",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "enduranceResult"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.minimumEndurance"
+            }
+          },
+          "inputParameterIds": [
+            "e-1b54f0b18cc07907f1f18915",
+            "e-224663f60e59c6d824ce1b68",
+            "e-36f0a03ee0500f5ca6febb7a",
+            "e-3b475706a52a7c18fab0970a",
+            "e-45a6920de29d835bf1ed10dc",
+            "e-51bbe0b30b18f716b8449e8c",
+            "e-748a80677eff927069cebb20",
+            "e-93b3948ed1402dbe5eb00e3b",
+            "e-a0bddfd7208932780f745f26",
+            "e-cce09becc0d6f7b32cc48296",
+            "e-dcc5369ead181a60549c0e35",
+            "e-e665c70a682660385a01366c"
+          ],
+          "name": "enduranceMargin",
+          "parameterId": "e-51bbe0b30b18f716b8449e8c",
+          "siValue": -288.0000000000009,
+          "source": {
+            "end": {
+              "column": 34,
+              "line": 286,
+              "offset": 14284
+            },
+            "start": {
+              "column": 19,
+              "line": 286,
+              "offset": 14269
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "h",
+          "value": -0.08000000000000025
+        },
+        {
+          "calculationDefinitionId": "e-711450e5ed6021a3ad0a09da",
+          "calculationUsageId": "cu-bf2f0d27020035957c48bfbb",
+          "dimension": "L^2 M^1 T^-3",
+          "formula": "ComputePeakElectricalPower(jingangConfiguration.powerSystem.batteryVoltage,jingangConfiguration.powerSystem.electronicsCurrent,jingangConfiguration.powerSystem.servoBusPeakCurrent)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.batteryVoltage"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.electronicsCurrent"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.powerSystem.servoBusPeakCurrent"
+              }
+            ],
+            "callee": "ComputePeakElectricalPower",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-1b2d7417d48e1ad554da65f9",
+            "e-6fe057022bd2d3966d537c61",
+            "e-cce09becc0d6f7b32cc48296",
+            "e-dcc5369ead181a60549c0e35",
+            "e-de1ee0666283e6b8a4bcef65"
+          ],
+          "name": "peakElectricalPowerResult",
+          "parameterId": "e-6fe057022bd2d3966d537c61",
+          "siValue": 19.840000000000003,
+          "source": {
+            "end": {
+              "column": 44,
+              "line": 291,
+              "offset": 14539
+            },
+            "start": {
+              "column": 19,
+              "line": 291,
+              "offset": 14514
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::power",
+          "unit": "W",
+          "value": 19.840000000000003
+        },
+        {
+          "dimension": "L^2 M^1 T^-3",
+          "formula": "jingangConfiguration.powerSystem.batteryVoltage*jingangConfiguration.powerSystem.maximumSharedCurrent",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "jingangConfiguration.powerSystem.batteryVoltage"
+            },
+            "operator": "*",
+            "right": {
+              "kind": "reference",
+              "path": "jingangConfiguration.powerSystem.maximumSharedCurrent"
+            }
+          },
+          "inputParameterIds": [
+            "e-78649c2a65853de99fa4cd31",
+            "e-b6af1c87fe2b38e539e988a7",
+            "e-dcc5369ead181a60549c0e35"
+          ],
+          "name": "maximumPeakElectricalPower",
+          "parameterId": "e-b6af1c87fe2b38e539e988a7",
+          "siValue": 19.200000000000003,
+          "source": {
+            "end": {
+              "column": 45,
+              "line": 295,
+              "offset": 14821
+            },
+            "start": {
+              "column": 19,
+              "line": 295,
+              "offset": 14795
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::power",
+          "unit": "W",
+          "value": 19.200000000000003
+        },
+        {
+          "dimension": "L^2 M^1 T^-3",
+          "formula": "maximumPeakElectricalPower-peakElectricalPowerResult",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "maximumPeakElectricalPower"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "peakElectricalPowerResult"
+            }
+          },
+          "inputParameterIds": [
+            "e-1b2d7417d48e1ad554da65f9",
+            "e-6fe057022bd2d3966d537c61",
+            "e-78649c2a65853de99fa4cd31",
+            "e-b6af1c87fe2b38e539e988a7",
+            "e-cce09becc0d6f7b32cc48296",
+            "e-daeda45a1fe527d845deabd8",
+            "e-dcc5369ead181a60549c0e35",
+            "e-de1ee0666283e6b8a4bcef65"
+          ],
+          "name": "peakElectricalPowerMargin",
+          "parameterId": "e-daeda45a1fe527d845deabd8",
+          "siValue": -0.6400000000000006,
+          "source": {
+            "end": {
+              "column": 44,
+              "line": 298,
+              "offset": 15010
+            },
+            "start": {
+              "column": 19,
+              "line": 298,
+              "offset": 14985
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::power",
+          "unit": "W",
+          "value": -0.6400000000000006
+        },
+        {
+          "calculationDefinitionId": "e-ce0fd1abc48a5c92a723dd65",
+          "calculationUsageId": "cu-1f6382185b2ec2705003f541",
+          "dimension": "T^1",
+          "formula": "ComputeStopResponseTime(jingangConfiguration.motionController.commandDetectionTime,jingangConfiguration.motionController.controlProcessingTime,ServoActuator.assumedStopResponseTime)",
+          "formulaAst": {
+            "arguments": [
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.motionController.commandDetectionTime"
+              },
+              {
+                "kind": "reference",
+                "path": "jingangConfiguration.motionController.controlProcessingTime"
+              },
+              {
+                "kind": "reference",
+                "path": "ServoActuator.assumedStopResponseTime"
+              }
+            ],
+            "callee": "ComputeStopResponseTime",
+            "kind": "call"
+          },
+          "inputParameterIds": [
+            "e-29113e1d46060d2e5ac448bd",
+            "e-41185021ed5d36be6f391bfa",
+            "e-88cbc1905a91033a39614539",
+            "e-cfba3d5b77773896ae372146",
+            "e-e43aaa158e74d9a601d0df1d"
+          ],
+          "name": "stopResponseTimeResult",
+          "parameterId": "e-cfba3d5b77773896ae372146",
+          "siValue": 0.128,
+          "source": {
+            "end": {
+              "column": 41,
+              "line": 304,
+              "offset": 15258
+            },
+            "start": {
+              "column": 19,
+              "line": 304,
+              "offset": 15236
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "ms",
+          "value": 128
+        },
+        {
+          "dimension": "T^1",
+          "formula": "jingangConfiguration.maximumStopTime-stopResponseTimeResult",
+          "formulaAst": {
+            "kind": "binary",
+            "left": {
+              "kind": "reference",
+              "path": "jingangConfiguration.maximumStopTime"
+            },
+            "operator": "-",
+            "right": {
+              "kind": "reference",
+              "path": "stopResponseTimeResult"
+            }
+          },
+          "inputParameterIds": [
+            "e-29113e1d46060d2e5ac448bd",
+            "e-41185021ed5d36be6f391bfa",
+            "e-522c2c776fb2b4faeca5879b",
+            "e-88cbc1905a91033a39614539",
+            "e-cfba3d5b77773896ae372146",
+            "e-d1472f698c6ccf0df2235cb4",
+            "e-e43aaa158e74d9a601d0df1d"
+          ],
+          "name": "stopResponseMargin",
+          "parameterId": "e-522c2c776fb2b4faeca5879b",
+          "siValue": 0.372,
+          "source": {
+            "end": {
+              "column": 37,
+              "line": 308,
+              "offset": 15536
+            },
+            "start": {
+              "column": 19,
+              "line": 308,
+              "offset": 15518
+            },
+            "uri": "baseline:///architecture.sysml"
+          },
+          "status": "computed",
+          "typeName": "ISQ::duration",
+          "unit": "ms",
+          "value": 372
+        }
+      ],
+      "subjectId": "e-62b1e041ab7a0af53fb35d75",
+      "subjectReference": "jingangConfiguration"
+    }
+  ],
+  "capabilities": {
+    "advanced-functions": "unsupported",
+    "constraint-margin": "supported",
+    "dependency-cycle": "supported",
+    "dimension-check": "supported",
+    "scalar-arithmetic": "supported",
+    "unit-conversion": "supported"
+  },
+  "diagnostics": [],
+  "document": {
+    "contentHash": "0dc6b4d68f8726838b1dfb10e32cc8060985e5bac10ea62f49140def27b9b03e",
+    "parser": {
+      "baseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507",
+      "capabilityVersion": "1.0.0",
+      "name": "AIDC Reference C++ Parser Runtime"
+    },
+    "uri": "baseline:///architecture.sysml"
+  },
+  "engine": {
+    "name": "AIDC Unit-aware Calculation Engine",
+    "version": "0.1.0"
+  },
+  "parseDiagnostics": [
+    {
+      "code": "AIDC_SOURCE_SPAN_PARTIAL",
+      "message": "Conservative source mapping left 163 elements without a span; 161 named elements had multiple textual candidates",
+      "relatedElementIds": [],
+      "severity": "warning",
+      "source": null
+    }
+  ],
+  "schemaVersion": "0.1"
+}

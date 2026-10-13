@@ -131,6 +131,8 @@ antlr4_static
 
 ### P0：冻结实际基线
 
+**状态：已完成（2026-10-13）。** 冻结产物位于 `sysml-parser-runtime/migration/reference-baseline/`，源码重建、C++、HTTP、浏览器集成与便携包验收均已通过，汇总见 `validation-summary.json`。
+
 1. 停止修改参考项目。
 2. 生成受控导入清单，记录每个迁移文件的来源、状态和 SHA-256。
 3. 导出相对 `9bfba0b` 的补丁，并记录未跟踪源码。

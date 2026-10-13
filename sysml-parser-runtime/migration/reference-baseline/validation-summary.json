@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "aidc.sysml-reference-validation/0.1",
+  "verifiedAt": "2026-10-13T15:03:12.819679+00:00",
+  "baselineCommit": "9bfba0bced98b7586bab8a6d45746064aff70fe1",
+  "sourceReconstruction": {
+    "status": "pass",
+    "sourceFiles": 554,
+    "generatedFiles": 12,
+    "validatedStaticLibraries": 7
+  },
+  "runtime": {
+    "path": "sysml-parser-runtime/dist/bin/aidc-sysml-parser-runtime.exe",
+    "sizeBytes": 78082646,
+    "sha256": "1404829403629350a75e15a6e055b1fa91cfd9ffe3cd10bb63673d005ebd6205",
+    "engine": "external-reference-static-libraries"
+  },
+  "nativeTests": {
+    "status": "pass",
+    "ctestSuites": 1,
+    "failedSuites": 0,
+    "evidence": "ctest.txt"
+  },
+  "httpSmoke": {
+    "status": "pass",
+    "results": {
+      "health": "pass",
+      "capabilities": "pass",
+      "schemaValidation": "pass",
+      "deterministicParses": 100,
+      "parallelParses": 2,
+      "structuredInvalidDiagnostic": "pass",
+      "inactiveCancel": "pass",
+      "activeCancel": "pass",
+      "nonLocalOriginRejected": "pass",
+      "oversizedRequestRejected": "pass",
+      "elementCount": 3,
+      "relationshipCount": 0,
+      "fixtures": [],
+      "analysis": {
+        "schemaValidation": "pass",
+        "deterministicAnalyses": 2,
+        "results": 9,
+        "constraints": 4,
+        "calculationDiagnostics": 0,
+        "inputChangePropagation": "pass"
+      }
+    },
+    "evidence": "http-smoke.json"
+  },
+  "browserIntegration": {
+    "status": "pass",
+    "results": {
+      "milestone": "P2-R4",
+      "verifiedAt": "2026-10-13T14:59:29.115Z",
+      "browserVersion": "0.9.0",
+      "runtimeVersion": "1.0.0",
+      "samples": {
+        "architectureSha256": "c543e3b230a3c9fca5306c9ddb56df541663d5c02d76db4d614481915e8e729f",
+        "vehicleModeSha256": "ec02fdc4289171477cfb15b387ebdcd4411037b771f96ae05f95a0bfef30387f",
+        "exceptionStatusSha256": "d015a0836acf2d6ba825375269c305f0c38efba06990e367aa4acd50b06f7d1c",
+        "synchronized": true,
+        "builtSamplesSynchronized": true
+      },
+      "architecture": {
+        "elements": 230,
+        "relationships": 163,
+        "tableRows": 4,
+        "tableColumns": 8,
+        "parseErrors": 0,
+        "results": {
+          "totalMassResult": [
+            816.8,
+            "g"
+          ],
+          "enduranceResult": [
+            1.92,
+            "h"
+          ],
+          "peakElectricalPowerResult": [
+            19.84,
+            "W"
+          ],
+          "stopResponseTimeResult": [
+            128,
+            "ms"
+          ]
+        }
+      },
+      "recalculation": {
+        "changedInput": "batteryCapacity: 1.8 Ah -> 2 Ah",
+        "enduranceBefore": 1.92,
+        "enduranceAfter": 2.133333333333333,
+        "marginAfter": 0.13333333333333308,
+        "constraintAfter": "pass",
+        "unrelatedResultsUnchanged": true
+      },
+      "vehicleMode": {
+        "elements": 435,
+        "relationships": 106,
+        "requirements": 15,
+        "requirementDefinitions": 5,
+        "requirementUsages": 10,
+        "constraintRelationships": 6
+      },
+      "browser": {
+        "testFiles": 10,
+        "testsPassed": 34,
+        "productionBuild": "passed",
+        "navigationHistoryRegression": "passed"
+      }
+    },
+    "evidence": "browser-p2-r4.json"
+  },
+  "portableDistribution": {
+    "status": "pass",
+    "results": {
+      "passed": true,
+      "portable": "D:\\Document\\4.AIStudy\\13.AIProject\\7.RoB\\AIDC\\distribution\\out\\aidc-portable",
+      "nodeModules": false,
+      "browsers": [
+        {
+          "command": "sysml.open",
+          "status": 200,
+          "bytes": 526,
+          "roles": [
+            "sysml-runtime",
+            "gateway"
+          ]
+        },
+        {
+          "command": "model3d.open",
+          "status": 200,
+          "bytes": 386,
+          "roles": [
+            "gateway"
+          ]
+        },
+        {
+          "command": "modelica.open",
+          "status": 200,
+          "bytes": 454,
+          "roles": [
+            "modelica-project",
+            "gateway"
+          ]
+        }
+      ],
+      "package": "C:\\Users\\wangt\\AppData\\Local\\Temp\\aidc-p2-ncvyf9gu\\single-joint.aidcmpkg"
+    },
+    "evidence": "portable-verification.json"
+  },
+  "behaviorSnapshots": {
+    "status": "pass",
+    "files": [
+      "analysis-exception.model.json",
+      "architecture.analysis.json",
+      "architecture.model.json",
+      "capabilities.json",
+      "health.json",
+      "invalid-syntax.model.json",
+      "vehicle-mode.model.json"
+    ]
+  },
+  "overall": "pass"
+}
