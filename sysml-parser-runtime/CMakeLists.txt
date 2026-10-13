@@ -7,7 +7,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 option(AIDC_BUILD_RUNTIME "Build the SysML parser runtime" ON)
-set(AIDC_SYSML_ENGINE "external" CACHE STRING "SysML parser engine: external or embedded")
+set(AIDC_SYSML_ENGINE "embedded" CACHE STRING "SysML parser engine: external or embedded")
 set_property(CACHE AIDC_SYSML_ENGINE PROPERTY STRINGS external embedded)
 if(NOT AIDC_SYSML_ENGINE STREQUAL "external" AND NOT AIDC_SYSML_ENGINE STREQUAL "embedded")
     message(FATAL_ERROR "AIDC_SYSML_ENGINE must be external or embedded")

@@ -45,6 +45,7 @@
 #include "core/model/ViewUsage.h"
 #include "core/model/ExposeStatement.h"
 #include "core/model/ViewRenderingMember.h"
+#include "core/model/Transition.h"
 #include "StandardLibraryIndex.h"
 
 using namespace SysML;
@@ -313,13 +314,18 @@ QJsonObject elementProperties(Element* element)
     for (int i = 0; i < meta->propertyCount(); ++i) {
         const QMetaProperty property = meta->property(i);
         const QString propertyName = QString::fromLatin1(property.name());
-        if (excluded.contains(propertyName) || !property.isReadable()) {
+        if (excluded.contains(propertyName) || propertyName == "isInitial" || !property.isReadable()) {
             continue;
         }
         const QJsonValue value = scalarProperty(property.read(element));
         if (!value.isUndefined()) {
             result.insert(propertyName, value);
         }
+    }
+    if (auto* transition = qobject_cast<Transition*>(element)) {
+        // The imported reference model leaves its backing bool uninitialized.
+        // The parsed states are authoritative and make the public snapshot stable.
+        result.insert("isInitial", transition->sourceState().isEmpty() && !transition->targetState().isEmpty());
     }
     if (auto* value = qobject_cast<RequirementUsage*>(element); value && !value->typeName().isEmpty()) {
         result.insert("typeName", value->typeName());

@@ -164,6 +164,8 @@ antlr4_static
 
 ### P3：行为等价验证
 
+**状态：已完成（2026-10-13）。** 外部静态库与仓内实现均通过完整 HTTP 黑盒；7 组能力、模型、分析和错误输入快照规范化后逐字段一致。迁移同时在 AIDC 快照适配层消除了参考模型 `Transition::m_isInitial` 未初始化造成的随机输出，没有改动冻结的迁入源码。验证证据位于 `sysml-parser-runtime/migration/p3-validation.json`，默认构建已切换为 `embedded`。
+
 对同一组输入同时运行“旧外部静态库版本”和“AIDC 内建源码版本”，比较规范化后的输出：
 
 - ModelSnapshot 元素、关系、类型、owner、诊断和能力声明

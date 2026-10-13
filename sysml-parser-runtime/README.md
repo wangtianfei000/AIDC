@@ -19,7 +19,7 @@
 开发机构建需要 Qt 6.8.1 MinGW 和 CMake。P2 已把 Grammar、ANTLR 生成代码、Parser 和 Visitor 迁入仓库；普通构建不需要 Java、ANTLR Tool JAR、参考工程源码或参考工程静态库：
 
 ```powershell
-./build-runtime.ps1 -Engine embedded
+./build-runtime.ps1
 ```
 
 脚本执行 CMake Release 构建、C++ 契约测试、安装，并通过 `windeployqt` 把所需 Qt DLL 放入 `dist/bin`。最终用户运行发布目录时不需要单独安装 Qt，但发布包必须携带这些运行库。
@@ -32,7 +32,18 @@ cmake --build build-p2
 ctest --test-dir build-p2 --output-on-failure
 ```
 
-该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验 P1/P2 导入哈希及源码路径边界。P3 行为等价验证完成前，CMake 默认值仍为 `external`，可用 `-DAIDC_SYSML_ENGINE=external` 对照旧静态库。
+该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验 P1/P2 导入哈希及源码路径边界。P3 行为等价验证已通过，CMake 与发行脚本默认使用 `embedded`；P4 删除外部路径前仍可显式指定 `-DAIDC_SYSML_ENGINE=external` 做回归对照。
+
+P3 双实现黑盒与字段级等价门禁：
+
+```powershell
+python -X utf8 tools/verify_p3_equivalence.py `
+  --external-runtime build-p2-external/bin/aidc-sysml-parser-runtime.exe `
+  --embedded-runtime build-p2/bin/aidc-sysml-parser-runtime.exe `
+  --output migration/p3-validation.json
+```
+
+门禁覆盖重复/并发解析、活动与非活动取消、非法语法、超大请求、Origin 限制、Schema、VehicleMode、金刚架构与计算，并对两个实现的规范化快照逐字段比较。
 
 常规构建直接使用已提交的 12 个 ANTLR 生成文件。只有修改 `engine/parser/grammar/SysML.g4` 时才需要 ANTLR Tool 4.13.2：
 

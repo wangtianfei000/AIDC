@@ -60,7 +60,8 @@ function runNpm(script) {
 try {
   const healthSnapshot = await ensureRuntime();
   assert.match(healthSnapshot.runtimeVersion, /^1\.0\./, 'P2 基线要求 Runtime 1.0.x');
-  assert.equal(healthSnapshot.parserMode, 'reference-antlr', 'Runtime 必须使用 C++ ANTLR 参考解析器');
+  assert.equal(healthSnapshot.parserMode, 'embedded-antlr', 'Runtime 必须使用仓内 C++ ANTLR 解析器');
+  assert.match(healthSnapshot.parserBaseline, /^aidc-engine\/0\.2\.0\+sha256:/, 'Runtime 必须报告仓内源码基线');
   assert.equal(healthSnapshot.qtDependency, true, 'Runtime 应明确报告 Qt 运行依赖');
 
   const architecture = await readFile(architecturePath, 'utf8');
@@ -135,7 +136,7 @@ try {
     architecture: { elements: model.elements.length, relationships: model.relationships.length, tableRows: 4, tableColumns: 8, parseErrors: 0, results: expected },
     recalculation: { changedInput: 'batteryCapacity: 1.8 Ah -> 2 Ah', enduranceBefore: 1.92, enduranceAfter: changedResults.enduranceResult.value, marginAfter: changedEnduranceConstraint.margin, constraintAfter: 'pass', unrelatedResultsUnchanged: true },
     vehicleMode: { elements: vehicleModel.elements.length, relationships: vehicleModel.relationships.length, requirements: 15, requirementDefinitions: 5, requirementUsages: 10, constraintRelationships: 6 },
-    browser: { testFiles: 10, testsPassed: 34, productionBuild: 'passed', navigationHistoryRegression: 'passed' },
+    browser: { testFiles: 11, testsPassed: 39, productionBuild: 'passed', navigationHistoryRegression: 'passed' },
   };
   await mkdir(dirname(evidencePath), { recursive: true });
   await writeFile(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`, 'utf8');

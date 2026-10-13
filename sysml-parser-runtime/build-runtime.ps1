@@ -4,7 +4,7 @@ param(
     [string]$CompilerRoot = 'D:\Software\Qt\Tools\mingw1310_64',
     [string]$CMake = 'D:\Software\Qt\Tools\CMake_64\bin\cmake.exe',
     [ValidateSet('external', 'embedded')]
-    [string]$Engine = 'external',
+    [string]$Engine = 'embedded',
     [string]$ReferenceRoot = 'D:\Document\7.AWorks\BlockSim\2.Development\SysML',
     [string]$ReferenceBuild = 'D:\Document\7.AWorks\BlockSim\2.Development\SysML\build\Desktop_Qt_6_8_1_MinGW_64_bit-Debug',
     [switch]$SkipTests

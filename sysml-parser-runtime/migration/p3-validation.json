@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "aidc.sysml-parser-p3-validation/1.0",
+  "status": "passed",
+  "engines": {
+    "external": {
+      "parserMode": "reference-antlr",
+      "parserBaseline": "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507",
+      "standardLibrary": {
+        "commit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "fileCount": 94,
+        "release": "2026-08",
+        "source": "Systems-Modeling/SysML-v2-Release",
+        "status": "loaded",
+        "symbolCount": 2591
+      },
+      "httpSmoke": {
+        "health": "pass",
+        "capabilities": "pass",
+        "schemaValidation": "pass",
+        "deterministicParses": 100,
+        "parallelParses": 2,
+        "structuredInvalidDiagnostic": "pass",
+        "inactiveCancel": "pass",
+        "activeCancel": "pass",
+        "nonLocalOriginRejected": "pass",
+        "oversizedRequestRejected": "pass",
+        "elementCount": 3,
+        "relationshipCount": 0,
+        "fixtures": [
+          {
+            "file": "VehicleMode.sysml",
+            "elements": 435,
+            "relationships": 106,
+            "relationshipsWithBothEnds": 84,
+            "errors": 97,
+            "warnings": 70
+          },
+          {
+            "file": "architecture.sysml",
+            "elements": 230,
+            "relationships": 163,
+            "relationshipsWithBothEnds": 163,
+            "errors": 0,
+            "warnings": 1
+          }
+        ],
+        "analysis": {
+          "schemaValidation": "pass",
+          "deterministicAnalyses": 2,
+          "results": 9,
+          "constraints": 4,
+          "calculationDiagnostics": 0,
+          "inputChangePropagation": "pass"
+        },
+        "timeout": "pass"
+      }
+    },
+    "embedded": {
+      "parserMode": "embedded-antlr",
+      "parserBaseline": "aidc-engine/0.2.0+sha256:1c873619ca1261c6",
+      "standardLibrary": {
+        "commit": "fb97b754f29588b8e9c7a35f370880cd15eb29e7",
+        "fileCount": 94,
+        "release": "2026-08",
+        "source": "Systems-Modeling/SysML-v2-Release",
+        "status": "loaded",
+        "symbolCount": 2591
+      },
+      "httpSmoke": {
+        "health": "pass",
+        "capabilities": "pass",
+        "schemaValidation": "pass",
+        "deterministicParses": 100,
+        "parallelParses": 2,
+        "structuredInvalidDiagnostic": "pass",
+        "inactiveCancel": "pass",
+        "activeCancel": "pass",
+        "nonLocalOriginRejected": "pass",
+        "oversizedRequestRejected": "pass",
+        "elementCount": 3,
+        "relationshipCount": 0,
+        "fixtures": [
+          {
+            "file": "VehicleMode.sysml",
+            "elements": 435,
+            "relationships": 106,
+            "relationshipsWithBothEnds": 84,
+            "errors": 97,
+            "warnings": 70
+          },
+          {
+            "file": "architecture.sysml",
+            "elements": 230,
+            "relationships": 163,
+            "relationshipsWithBothEnds": 163,
+            "errors": 0,
+            "warnings": 1
+          }
+        ],
+        "analysis": {
+          "schemaValidation": "pass",
+          "deterministicAnalyses": 2,
+          "results": 9,
+          "constraints": 4,
+          "calculationDiagnostics": 0,
+          "inputChangePropagation": "pass"
+        },
+        "timeout": "pass"
+      }
+    }
+  },
+  "equivalence": {
+    "normalization": [
+      "implementation identity",
+      "standard-library deployment path",
+      "Transition.isInitial derived from source/target states"
+    ],
+    "cases": [
+      {
+        "name": "analysis-exception.model.json",
+        "status": "passed",
+        "differences": []
+      },
+      {
+        "name": "architecture.analysis.json",
+        "status": "passed",
+        "differences": []
+      },
+      {
+        "name": "architecture.model.json",
+        "status": "passed",
+        "differences": []
+      },
+      {
+        "name": "capabilities.json",
+        "status": "passed",
+        "differences": []
+      },
+      {
+        "name": "health.json",
+        "status": "passed",
+        "differences": []
+      },
+      {
+        "name": "invalid-syntax.model.json",
+        "status": "passed",
+        "differences": []
+      },
+      {
+        "name": "vehicle-mode.model.json",
+        "status": "passed",
+        "differences": []
+      }
+    ]
+  }
+}
