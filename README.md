@@ -10,6 +10,8 @@ P0 产品契约与供应链基线位于 [distribution/](distribution/README.md)�
 
 ## 统一 CLI
 
+Windows 开发工作区可以直接双击 `bin\aidc.cmd`，通过菜单打开三个模型浏览器、执行环境诊断或查看依赖。终端和自动化脚本仍按下面的命令形式调用；带参数运行时不会显示交互菜单。
+
 开发工作区可直接运行：
 
 ```powershell
