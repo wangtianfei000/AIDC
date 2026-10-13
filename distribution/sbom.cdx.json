@@ -45,9 +45,9 @@
     },
     {
       "type": "application",
-      "bom-ref": "pkg:generic/aidc-sysml-parser-runtime@0.9.0",
+      "bom-ref": "pkg:generic/aidc-sysml-parser-runtime@1.0.0",
       "name": "AIDC SysML Parser Runtime",
-      "version": "0.9.0",
+      "version": "1.0.0",
       "properties": [
         {"name": "aidc:licenseStatus", "value": "blocked-project-license-pending"},
         {"name": "aidc:distributionStatus", "value": "blocked"}
@@ -98,7 +98,7 @@
         "pkg:generic/freecad@1.1.3",
         "pkg:generic/openmodelica@1.27.1",
         "pkg:generic/python@3.12.9",
-        "pkg:generic/aidc-sysml-parser-runtime@0.9.0",
+        "pkg:generic/aidc-sysml-parser-runtime@1.0.0",
         "pkg:generic/sysml-v2-standard-library@2026-08",
         "pkg:npm/react@19.0.0",
         "pkg:npm/three@0.180.0",

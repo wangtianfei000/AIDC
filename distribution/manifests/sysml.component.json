@@ -3,7 +3,7 @@
   "id": "aidc.sysml",
   "displayName": "AIDC SysML Tools",
   "description": "Read-only SysML parsing, analysis and browser resources.",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "kind": "browser",
   "platform": "windows",
   "architecture": "x86_64",
@@ -14,7 +14,7 @@
     {"id": "runtime", "relativePath": "components/sysml/bin/aidc-sysml-parser-runtime.exe", "mode": "http", "arguments": ["--port", "${AIDC_PORT}"]}
   ],
   "dependencies": [
-    {"id": "sysml-parser-runtime", "versionRange": "0.9.0", "required": true, "capability": "sysml.parse"},
+    {"id": "sysml-parser-runtime", "versionRange": "1.0.0", "required": true, "capability": "sysml.parse"},
     {"id": "sysml-standard-library", "versionRange": "2026-08", "required": true, "capability": "sysml.library"}
   ],
   "licenses": [

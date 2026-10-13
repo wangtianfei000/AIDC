@@ -156,7 +156,7 @@
     {
       "id": "sysml-parser-runtime",
       "name": "AIDC SysML Parser Runtime",
-      "version": "0.9.0",
+      "version": "1.0.0",
       "source": {
         "type": "internal-build",
         "url": null,
@@ -195,7 +195,7 @@
         "type": "http",
         "target": "/health",
         "arguments": [],
-        "expected": "HTTP 200 and runtimeVersion 0.9.0"
+        "expected": "HTTP 200, runtimeVersion 1.0.0 and qtDependency false"
       }
     },
     {

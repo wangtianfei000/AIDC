@@ -1,46 +1,34 @@
-# AIDC Standalone SysML Parser Runtime
+# AIDC SysML Parser Runtime 1.0
 
-该目录包含可独立构建的只读 SysML Parser、标准库索引、分析引擎和本机 HTTP Runtime。0.9.0 不再引用外部参考 Parser，不需要 `REFERENCE_ROOT`、`REFERENCE_BUILD`、ANTLR 生成代码或参考项目静态库。参考 Parser 的 P0 材料仅保留在 `../reference-parser-p0` 作为历史兼容基线。
+本目录提供完全不依赖 Qt 的只读 SysML Parser、分析引擎和本机 HTTP Runtime。解析、模型投影、JSON、HTTP、并发与测试均使用 Python 3.12 标准库实现；发行时通过 PyInstaller 冻结为单文件 EXE，目标机器不需要安装 Python、Qt、CMake、编译器或外部参考 Parser。
 
 ## 组成
 
-- `StandaloneSysMLParser.*`：仓库内自带的词法扫描和递归结构解析，建立最小语义对象树。
-- `StandaloneModel.h`：Parser 与快照适配器之间的内部对象模型。
-- `ModelSnapshotAdapter.*`：稳定 ID、源码位置、类型/连接解析以及 ModelSnapshot 投影。
-- `StandardLibraryIndex.*`：固定版本 SysML/KerML 标准库符号索引。
-- `AnalysisEngine.*`：表达式、单位、依赖、约束和诊断计算。
-- `RuntimeServer.*`：仅监听 loopback 的 `/parse`、`/analyze`、`/health`、`/capabilities`、`/cancel` 服务。
+- `src/aidc_sysml_runtime/model.py`：词法扫描、递归结构解析、稳定 ID、源码位置、连接、Calculation 和 View 投影。
+- `src/aidc_sysml_runtime/analysis.py`：表达式、单位、量纲、依赖、约束和异常状态计算。
+- `src/aidc_sysml_runtime/server.py`：仅监听 loopback 的 HTTP 服务、并发请求、请求限制、Origin 校验和取消。
+- `tests/test_runtime.py`：解析、连接、视图、计算和机器人正式样例的源码级契约测试。
+- `tests/http_smoke.py`：对冻结 EXE 执行 JSON Schema、确定性、并发、取消和安全边界黑盒测试。
 
-## 独立构建
+## 构建
 
-源代码构建只要求 CMake、Qt 6.8.1 和与 Qt 匹配的 MinGW。可以通过 `AIDC_QT_ROOT`、`AIDC_MINGW_ROOT` 指定工具链位置：
+开发机需要 Python 3.12 与 PyInstaller：
 
 ```powershell
 npm run build:sysml-runtime
 ```
 
-脚本会配置、编译、运行契约测试、安装标准库，并使用 `windeployqt` 将 Qt DLL 放入 `dist/bin`。生成的 `dist` 可复制到没有参考 Parser 源码和构建目录的机器运行。
-
-也可以直接配置源码：
-
-```powershell
-cmake -S . -B build -G "MinGW Makefiles" `
-  -DCMAKE_PREFIX_PATH=D:/Software/Qt/6.8.1/mingw_64 `
-  -DCMAKE_CXX_COMPILER=D:/Software/Qt/Tools/mingw1310_64/bin/g++.exe `
-  -DCMAKE_MAKE_PROGRAM=D:/Software/Qt/Tools/mingw1310_64/bin/mingw32-make.exe
-cmake --build build --parallel 4
-ctest --test-dir build --output-on-failure
-```
+脚本先执行源码级契约测试，再生成 `dist/bin/aidc-sysml-parser-runtime.exe` 和带版本名的 `aidc-sysml-parser-runtime-1.0.0.exe`。构建脚本会检查 `dist`，发现 `Qt*`、`PySide*` 或 `PyQt*` 文件即失败。发行 EXE 使用 Windows 系统网络栈和 Python 冻结运行时，不加载 Qt DLL。
 
 ## 接口
 
 | 方法 | 路径 | 用途 |
 |---|---|---|
-| `GET` | `/health` | Runtime、Schema、Parser 和标准库状态 |
-| `GET` | `/capabilities` | supported/partial/unsupported 能力矩阵 |
+| `GET` | `/health` | Runtime、Parser 和无 Qt 状态 |
+| `GET` | `/capabilities` | 能力矩阵 |
 | `POST` | `/parse` | 输入 `{uri,text,requestId?}`，返回 ModelSnapshot |
 | `POST` | `/analyze` | 解析并返回 AnalysisSnapshot |
-| `POST` | `/cancel` | 协作式取消活动任务 |
+| `POST` | `/cancel` | 取消活动任务 |
 
 运行：
 
@@ -48,12 +36,10 @@ ctest --test-dir build --output-on-failure
 ./run-runtime.ps1 -Port 47321
 ```
 
-## 0.9.0 支持边界
+## 1.0 支持边界
 
-- 包、需求、部件、端口、属性、连接、计算定义、分析、约束、View 和表格 Rendering 已有契约测试。
-- 支持确定性稳定 ID、结构化诊断、嵌套 Package owner、局部类型和官方标准库类型解析。
-- 支持标量表达式 AST、调用绑定、单位换算、量纲检查、约束判断、除零和循环诊断。
-- 复杂泛化、完整 KerML 语义、跨文件工作区解析、高级集合表达式和标准库整体对象化仍为后续范围。
-- SourceSpan 当前采用保守名称定位；重名或匿名元素仍可能报告 `AIDC_SOURCE_SPAN_PARTIAL`。
+- 支持包、需求、部件、端口、属性、连接、Calculation、Analysis、Constraint、View 和表格 Rendering 的只读子集。
+- 支持稳定 ID、结构化诊断、嵌套 Package、局部类型、标量表达式、单位换算、量纲检查、约束余量、除零与循环诊断。
+- 复杂泛化、完整 KerML 语义、跨文件工作区解析、高级集合表达式仍属于后续范围。
 
 接口 Schema 与稳定契约位于 `../reference-parser-p0/model-snapshot.schema.json`、`analysis-snapshot.schema.json` 和 `parser-contract.md`。

@@ -9,9 +9,9 @@ param(
 
 $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $installedExecutable = Join-Path $scriptRoot 'bin\aidc-sysml-parser-runtime.exe'
-$installedVersionedExecutable = Join-Path $scriptRoot 'bin\aidc-sysml-parser-runtime-0.9.0.exe'
+$installedVersionedExecutable = Join-Path $scriptRoot 'bin\aidc-sysml-parser-runtime-1.0.0.exe'
 $packagedExecutable = Join-Path $scriptRoot 'dist\bin\aidc-sysml-parser-runtime.exe'
-$packagedVersionedExecutable = Join-Path $scriptRoot 'dist\bin\aidc-sysml-parser-runtime-0.9.0.exe'
+$packagedVersionedExecutable = Join-Path $scriptRoot 'dist\bin\aidc-sysml-parser-runtime-1.0.0.exe'
 $developmentExecutable = Join-Path $scriptRoot 'build\bin\aidc-sysml-parser-runtime.exe'
 
 if (Test-Path -LiteralPath $installedVersionedExecutable) {

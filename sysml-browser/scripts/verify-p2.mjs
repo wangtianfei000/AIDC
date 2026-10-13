@@ -32,7 +32,7 @@ async function ensureRuntime() {
   const existing = await health();
   if (existing) return existing;
   assert.equal(runtimeUrl, 'http://127.0.0.1:47321', '自动启动仅支持默认本机端口；自定义 AIDC_RUNTIME_URL 需要预先启动 Runtime');
-  const executable = resolve(runtimeRoot, 'dist/bin/aidc-sysml-parser-runtime-0.9.0.exe');
+  const executable = resolve(runtimeRoot, 'dist/bin/aidc-sysml-parser-runtime-1.0.0.exe');
   ownedRuntime = spawn(executable, ['--port', '47321', '--standard-library', resolve(runtimeRoot, 'dist/library/sysml.library')], {
     cwd: resolve(runtimeRoot, 'dist'), stdio: 'ignore', windowsHide: true,
   });
@@ -59,8 +59,9 @@ function runNpm(script) {
 
 try {
   const healthSnapshot = await ensureRuntime();
-  assert.match(healthSnapshot.runtimeVersion, /^0\.9\./, 'P2 基线要求独立 Runtime 0.9.x');
-  assert.equal(healthSnapshot.parserMode, 'standalone', 'P2 基线要求独立解析器模式');
+  assert.match(healthSnapshot.runtimeVersion, /^1\.0\./, 'P2 基线要求无 Qt Runtime 1.0.x');
+  assert.equal(healthSnapshot.parserMode, 'stdlib', 'P2 基线要求标准库实现模式');
+  assert.equal(healthSnapshot.qtDependency, false, 'Runtime 不得依赖 Qt');
 
   const architecture = await readFile(architecturePath, 'utf8');
   const publishedArchitecture = await readFile(resolve(browserRoot, 'public/samples/robot-architecture.sysml'), 'utf8');

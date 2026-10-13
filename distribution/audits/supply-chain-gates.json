@@ -16,7 +16,7 @@
       "severity": "critical",
       "status": "closed",
       "owner": "project-owner",
-      "evidence": "Runtime 0.9.0 uses the in-repository StandaloneSysMLParser and no longer compiles or links reference parser code.",
+      "evidence": "Runtime 1.0.0 uses only the in-repository Python standard-library implementation; the frozen EXE contains no Qt, PySide, PyQt or reference parser binaries.",
       "exitCriteria": "Completed by replacing the external parser implementation."
     },
     {
