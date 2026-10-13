@@ -35,7 +35,7 @@ class P1ContractTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stderr)
         document = json.loads(completed.stdout)
         self.assertEqual(document["command"], "system.version")
-        self.assertEqual(document["data"]["contractVersion"], "0.5.0")
+        self.assertEqual(document["data"]["contractVersion"], "0.6.0")
         self.assertEqual(completed.stderr, "")
 
     def test_invalid_command_has_structured_usage_error(self):

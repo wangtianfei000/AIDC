@@ -63,6 +63,8 @@
     "verify:distribution:p4": "npm run test:mcp:p4 && npm run verify:mcp-frozen:p4",
     "test:integrations:p5": "python -X utf8 -m unittest discover -s tests/p5 -p test_*.py -v",
     "verify:hosts-frozen:p5": "python -X utf8 tests/p5/verify_frozen_hosts.py",
-    "verify:distribution:p5": "npm run test:integrations:p5 && npm run verify:hosts-frozen:p5"
+    "verify:distribution:p5": "npm run test:integrations:p5 && npm run verify:hosts-frozen:p5",
+    "verify:release:p6": "python -X utf8 tests/p6/verify_release.py",
+    "verify:distribution:p6": "npm run verify:distribution:p0 && npm run verify:distribution:p2 && npm run verify:distribution:p3 && npm run verify:distribution:p4 && npm run verify:distribution:p5 && npm run verify:release:p6"
   }
 }

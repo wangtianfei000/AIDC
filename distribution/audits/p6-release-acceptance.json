@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "aidc.release-acceptance/1.0",
+  "productVersion": "0.6.0",
+  "acceptanceStatus": "passed-internal",
+  "publicReleaseStatus": "blocked",
+  "entryPoints": {
+    "cli": "passed",
+    "codex": "passed",
+    "cursor": "passed",
+    "genericMcp": "passed"
+  },
+  "flows": {
+    "sysmlParseAndBrowser": "passed",
+    "microduck3dMotionDataAndAssemblyExport": "passed",
+    "assemblyToModelicaAndOmc": "passed",
+    "freecadGuiOpenExactReadAndHeadlessPublish": "passed"
+  },
+  "resilience": {
+    "dependencyMissing": "passed",
+    "dependencyCorruption": "passed",
+    "dynamicPort": "passed",
+    "serviceCrashRecovery": "passed",
+    "unicodeAndSpacePath": "passed",
+    "offlineOperation": "passed",
+    "upgradeRollback": "passed",
+    "uninstallPreservesProjects": "passed",
+    "hostConfigRemoval": "passed"
+  },
+  "evidence": {
+    "microduckBodies": 13,
+    "microduckJoints": 12,
+    "freecadObjectOutput": "212",
+    "freecadGuiLaunch": "passed",
+    "mcpTools": 17,
+    "skillResources": 4
+  },
+  "supplyChain": {
+    "releaseGate": "blocked",
+    "blockedGateIds": [
+      "aidc-license",
+      "reference-parser-license",
+      "openmodelica-pack",
+      "python-runtime-pack"
+    ]
+  }
+}

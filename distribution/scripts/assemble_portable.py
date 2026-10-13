@@ -62,7 +62,7 @@ def main() -> int:
     for path in sorted(item for item in OUTPUT.rglob("*") if item.is_file()):
         if path.name == "portable-manifest.json": continue
         files.append({"path": path.relative_to(OUTPUT).as_posix(), "size": path.stat().st_size, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
-    manifest = {"schemaVersion": "aidc.portable/0.1", "productVersion": "0.5.0", "distributionStatus": "internal-acceptance", "files": files}
+    manifest = {"schemaVersion": "aidc.portable/0.1", "productVersion": "0.6.0", "distributionStatus": "internal-acceptance", "files": files}
     (OUTPUT / "portable-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({"output": str(OUTPUT), "fileCount": len(files), "nodeModules": any(item.name == "node_modules" for item in OUTPUT.rglob("*"))}, ensure_ascii=False))
     return 0

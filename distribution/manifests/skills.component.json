@@ -27,7 +27,7 @@
   "dependencies": [
     {
       "id": "aidc.core",
-      "versionRange": "0.5.x",
+      "versionRange": "0.6.x",
       "required": true,
       "capability": "system.capabilities"
     }

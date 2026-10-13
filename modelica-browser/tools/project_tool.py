@@ -84,7 +84,7 @@ def run_project(project_root:Path,on_stage:Callable[[str,dict[str,Any]],None]|No
     build_dir=run_dir/"build";logs_dir=run_dir/"logs";build_dir.mkdir(parents=True,exist_ok=False);logs_dir.mkdir()
     manifest_path=run_dir/"run-manifest.json";diagnostics_path=run_dir/"diagnostics.json";summary_path=run_dir/"summary.json";started=timestamp.isoformat().replace("+00:00","Z")
     if not OMC.is_file():raise ContractError(f"OpenModelica 编译器不存在: {OMC}")
-    omc_version=subprocess.run([str(OMC),"--version"],capture_output=True,text=True,check=True).stdout.strip();sim={**model_simulation_settings(loaded["modelFile"]),**(simulation_settings or {})};solver_flags=sim.get("solverFlags") or {};intervals=round((sim["stopTime"]-sim["startTime"])/sim["outputInterval"])
+    omc_version=subprocess.run([str(OMC),"--version"],capture_output=True,text=True,encoding="utf-8",errors="replace",check=True).stdout.strip();sim={**model_simulation_settings(loaded["modelFile"]),**(simulation_settings or {})};solver_flags=sim.get("solverFlags") or {};intervals=round((sim["stopTime"]-sim["startTime"])/sim["outputInterval"])
     if intervals<=0:raise ContractError("仿真区间无效")
     libraries=[]
     for dependency in project["modelica"]["libraries"]:
@@ -100,7 +100,11 @@ def run_project(project_root:Path,on_stage:Callable[[str,dict[str,Any]],None]|No
         manifest["stage"]=name;manifest["status"]=name;write_json(manifest_path,manifest)
         if on_stage:on_stage(name,{})
     try:
-        stage("compiling");compiled=subprocess.run([str(OMC),str(mos_path)],cwd=project_root,capture_output=True,text=True);compile_log=logs_dir/"compile.log";compile_log.write_text(compiled.stdout+("\n"+compiled.stderr if compiled.stderr else ""),encoding="utf-8");executable=build_dir/"ModelRun.exe"
+        # OpenModelica on Windows expects UTF-8 command-line bytes and rejects a
+        # full .mos path containing CJK characters.  The process API accepts a
+        # Unicode cwd, so pass only the ASCII basename while keeping the script
+        # and all outputs in the user's original project directory.
+        stage("compiling");compiled=subprocess.run([str(OMC),mos_path.name],cwd=run_dir,capture_output=True,text=True,encoding="utf-8",errors="replace");compile_log=logs_dir/"compile.log";compile_log.write_text(compiled.stdout+("\n"+compiled.stderr if compiled.stderr else ""),encoding="utf-8");executable=build_dir/"ModelRun.exe"
         if compiled.returncode or not executable.is_file():raise ContractError(f"OpenModelica 检查或编译失败，退出码 {compiled.returncode}")
         stage("initializing");env=os.environ.copy();env["OPENMODELICAHOME"]=str(OMC.parents[1])
         runtime_roots=[project_root.resolve()/"modelica",*[item["path"].parent for item in loaded["libraryFiles"]]]
@@ -111,7 +115,7 @@ def run_project(project_root:Path,on_stage:Callable[[str,dict[str,Any]],None]|No
         for name,value in solver_flags.items():
             if value is True:command.append(f"-{name}")
             elif value not in (None,"",False):command.append(f"-{name}={value}")
-        stage("solving");solved=subprocess.run(command,cwd=build_dir,capture_output=True,text=True,env=env);solve_log=logs_dir/"solve.log";solve_log.write_text(solved.stdout+("\n"+solved.stderr if solved.stderr else ""),encoding="utf-8");result_csv=build_dir/"ModelRun_res.csv"
+        stage("solving");solved=subprocess.run(command,cwd=build_dir,capture_output=True,text=True,encoding="utf-8",errors="replace",env=env);solve_log=logs_dir/"solve.log";solve_log.write_text(solved.stdout+("\n"+solved.stderr if solved.stderr else ""),encoding="utf-8");result_csv=build_dir/"ModelRun_res.csv"
         if solved.returncode or not result_csv.is_file():raise ContractError(f"OpenModelica 求解失败，退出码 {solved.returncode}")
         stage("evaluating");series_path=run_dir/"series.csv";shutil.copy2(result_csv,series_path)
         with series_path.open("r",encoding="utf-8-sig",newline="") as handle:

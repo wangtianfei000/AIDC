@@ -4,6 +4,8 @@
 
 面向 Codex、Cursor 等 AI 主机的统一 CLI、MCP、安装和依赖管理规划见 [AIDC AI 工具插件化与正式发行实施计划](doc/AIDC全套软件产品化实施计划.md)。
 
+安装、宿主接入、完整工程流程和故障处理见 [AIDC Engineering Tools 使用说明](doc/AIDC工程工具使用说明.md)。
+
 P0 产品契约与供应链基线位于 [distribution/](distribution/README.md)，可运行 `npm run verify:distribution:p0` 验证。
 
 ## 统一 CLI

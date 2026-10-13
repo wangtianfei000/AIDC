@@ -39,6 +39,18 @@ def _modelica_command(root: Path) -> tuple[list[str], dict[str, str]]:
     return [sys.executable, str(root / "modelica-browser" / "tools" / "aidc_modelica.py")], env
 
 
+def _modelica_resource_roots(root: Path) -> dict[str, str]:
+    """Resolve the same schema roots in source and frozen distributions."""
+    packaged = root / "components" / "modelica"
+    source = root / "modelica-browser"
+    base = packaged if packaged.is_dir() else source
+    return {
+        "AIDC_MODELICA_ROOT": str(base),
+        "AIDC_ROBOT_IR_ROOT": str(base / "packages" / "robot-ir"),
+        "AIDC_ASSEMBLY_PACKAGE_ROOT": str(base / "packages" / "assembly-package"),
+    }
+
+
 def modelica(root: Path, action: str, arguments: list[str]) -> dict[str, Any]:
     command, env = _modelica_command(root)
     return _run_json([*command, action, *arguments], cwd=root, env=env, timeout=600)
@@ -74,11 +86,7 @@ def model3d_export(root: Path, project: Path, output: Path) -> dict[str, Any]:
     robot_ir = next((candidate for candidate in (project / "robot-ir", project.parent / "robot-ir", project) if (candidate / "physics.json").is_file()), None)
     if not manifest.is_file() or robot_ir is None: raise AidcError("三维工程缺少 generated/model3d.manifest.json 或 robot-ir", 3, "INPUT_INVALID")
     command = [str(tool)] if tool.is_file() else [sys.executable, str(root / "model3d-viewer" / "tools" / "freecad-publisher" / "src" / "export_modelica_assembly.py")]
-    env = os.environ.copy(); env.update({
-        "AIDC_MODELICA_ROOT": str(root / "components" / "modelica"),
-        "AIDC_ROBOT_IR_ROOT": str(root / "components" / "modelica" / "packages" / "robot-ir"),
-        "AIDC_ASSEMBLY_PACKAGE_ROOT": str(root / "components" / "modelica" / "packages" / "assembly-package"),
-    })
+    env = os.environ.copy(); env.update(_modelica_resource_roots(root))
     return _run_json([*command, "--manifest", str(manifest), "--robot-ir", str(robot_ir), "--output", str(output)], cwd=root, env=env, timeout=600)
 
 

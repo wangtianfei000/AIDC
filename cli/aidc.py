@@ -93,7 +93,7 @@ def _doctor(registry: ComponentRegistry) -> dict[str, Any]:
 def execute(args: argparse.Namespace) -> CommandResult:
     registry = ComponentRegistry(); manager = RuntimeManager()
     if args.domain == "version":
-        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.5.0", "pythonVersion": platform.python_version()})
+        return CommandResult("system.version", f"AIDC CLI {__version__}", {"cliVersion": __version__, "contractVersion": "0.6.0", "pythonVersion": platform.python_version()})
     if args.domain == "capabilities":
         return CommandResult("system.capabilities", f"发现 {len(registry.capabilities())} 项能力", {"capabilities": registry.capabilities(), "components": registry.components()})
     if args.domain == "doctor":
@@ -162,8 +162,8 @@ def execute(args: argparse.Namespace) -> CommandResult:
         if args.action == "open":
             gui = command_exe.with_name("FreeCAD.exe")
             if not gui.is_file(): raise AidcError("未找到 FreeCAD 图形入口", 4, "DEPENDENCY_MISSING")
-            subprocess.Popen([str(gui), str(source)], cwd=gui.parent, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
-            return CommandResult("freecad.open", "已打开 FreeCAD", {"file": str(source), "executable": str(gui)})
+            process = subprocess.Popen([str(gui), str(source)], cwd=gui.parent, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
+            return CommandResult("freecad.open", "已打开 FreeCAD", {"file": str(source), "executable": str(gui), "pid": process.pid})
         env = os.environ.copy(); env["AIDC_FREECAD_INPUT"] = str(source)
         completed = subprocess.run([str(command_exe), "-c", "import FreeCAD as App,os;d=App.openDocument(os.environ['AIDC_FREECAD_INPUT']);print(len(d.Objects));App.closeDocument(d.Name)"], cwd=command_exe.parent, env=env, capture_output=True, text=True, timeout=120, check=False)
         if completed.returncode: raise AidcError(completed.stderr or completed.stdout, 6, "CAD_CHECK_FAILED", str(source))

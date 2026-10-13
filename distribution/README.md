@@ -1,6 +1,6 @@
 # AIDC Distribution Baseline
 
-该目录保存 AIDC Engineering Tools 的公共产品契约和供应链基线。P0 冻结后续实现必须遵守的机器可读边界；P1 已增加统一 CLI 与运行管理器；P2 已增加现有工具的内部便携发行构建；P3 已增加 Runtime Pack 管理和安装器；P4 已增加宿主无关的 MCP stdio 服务和版本化 Skills；P5 已增加 Codex、Cursor 和通用 MCP 客户端适配。
+该目录保存 AIDC Engineering Tools 的公共产品契约和供应链基线。P0 冻结后续实现必须遵守的机器可读边界；P1 已增加统一 CLI 与运行管理器；P2 已增加现有工具的内部便携发行构建；P3 已增加 Runtime Pack 管理和安装器；P4 已增加宿主无关的 MCP stdio 服务和版本化 Skills；P5 已增加 Codex、Cursor 和通用 MCP 客户端适配；P6 已增加冻结包端到端发布验收和机器可读审计。
 
 P1 的开发入口位于 `bin/aidc.cmd`，可执行文件通过 `distribution/scripts/build_cli.ps1` 生成。运行管理器提供组件发现、动态端口、健康检查、本机会话令牌、服务复用和进程回收。
 
@@ -11,6 +11,8 @@ P3 规定 `.aidcpack` 为自包含运行时包：根目录包含 `pack-manifest.
 P4 的 `aidc-mcp` 使用 MCP JSON-RPC stdio，不监听网络端口。17 个工具覆盖系统、SysML、三维模型、Modelica、FreeCAD、任务和产物查询；长操作立即返回任务 ID，状态、取消、日志与产物索引持久化到用户状态目录。四个工程 Skills 由 `skills/catalog.json` 锁定版本和所需能力，并作为只读 MCP Resources 暴露。Skill 只引用稳定 MCP 工具或 `aidc` 命令，不要求用户运行仓库内 npm、Python 或 PowerShell 脚本。
 
 P5 的 `aidc integrate codex|cursor|mcp` 将同一 `aidc-mcp` 注册到不同宿主。Codex 使用用户级 `config.toml` 托管区块，Cursor 合并用户级 `mcp.json`，通用模式输出可移植的 stdio 配置；Codex 和 Cursor 同时安装四个版本化 Skills。首次接入会保存宿主配置和同名 Skill 的基线备份。`--uninstall` 只移除 AIDC 管理项，`--restore` 显式恢复完整基线，`--check` 会启动配置中的服务并验证协议、17 个工具、四个资源和核心能力调用。
+
+P6 使用机器鸭的 13 刚体/12 关节发布模型验证三维浏览、装配导出、Modelica 生成和 OMC 仿真，同时用受管 FreeCAD 验证精确读取和无界面发布。验收还覆盖中文/空格路径、离线运行、依赖缺失和损坏、动态端口、服务崩溃恢复、升级回滚及安全卸载。结果写入 `audits/p6-release-acceptance.json`；`passed-internal` 只表示工程内测闭环通过，不能越过 P0 的公开发行供应链闸门。
 
 ```text
 AIDC/
@@ -39,6 +41,7 @@ npm run verify:distribution:p2
 npm run verify:distribution:p3
 npm run verify:distribution:p4
 npm run verify:distribution:p5
+npm run verify:release:p6
 ```
 
 宿主接入：

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "product": "aidc",
-  "contractVersion": "0.5.0",
+  "contractVersion": "0.6.0",
   "outputContract": "aidc.cli-result/1.0",
   "rules": {
     "humanOutput": "UTF-8 text",
