@@ -156,14 +156,14 @@
     {
       "id": "sysml-parser-runtime",
       "name": "AIDC SysML Parser Runtime",
-      "version": "0.8.1",
+      "version": "0.9.0",
       "source": {
         "type": "internal-build",
         "url": null,
-        "sha256": "377f098ef1efadf2c2ced73c0ebe414d955e3bf37992b3508f7eac515114834a",
-        "sizeBytes": 85338108,
-        "verificationStatus": "verified",
-        "signature": null
+        "sha256": null,
+        "sizeBytes": null,
+        "verificationStatus": "pending-build",
+        "signature": "Standalone implementation is built from source in this repository; release digest is generated during publishing"
       },
       "capabilities": [
         "sysml.parse",
@@ -173,10 +173,10 @@
       ],
       "licenses": [
         {
-          "name": "Reference parser license unresolved",
+          "name": "AIDC project license decision pending",
           "spdx": null,
-          "status": "blocked",
-          "source": "reference-parser-p0/source-manifest.json"
+          "status": "review-required",
+          "source": "distribution/licenses/THIRD_PARTY_BASELINE.md"
         }
       ],
       "install": {
@@ -188,15 +188,14 @@
       },
       "distributionStatus": "blocked",
       "blockers": [
-        "Resolve ownership and redistribution terms of the reference parser",
-        "Sign release executable",
-        "Remove obsolete runtime versions from pack"
+        "Select and publish the AIDC project license",
+        "Sign release executable"
       ],
       "healthCheck": {
         "type": "http",
         "target": "/health",
         "arguments": [],
-        "expected": "HTTP 200 and runtimeVersion 0.8.1"
+        "expected": "HTTP 200 and runtimeVersion 0.9.0"
       }
     },
     {

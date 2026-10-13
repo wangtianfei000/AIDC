@@ -58,6 +58,7 @@ $relativeTargets = @(
     'sysml-browser\dist',
     'sysml-browser\results',
     'sysml-parser-runtime\dist',
+    'sysml-parser-runtime\build',
     'sysml-parser-runtime\results'
 )
 

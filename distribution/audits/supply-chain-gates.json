@@ -14,10 +14,10 @@
     {
       "id": "reference-parser-license",
       "severity": "critical",
-      "status": "blocked",
+      "status": "closed",
       "owner": "project-owner",
-      "evidence": "reference-parser-p0/source-manifest.json records an unresolved upstream license.",
-      "exitCriteria": "Obtain documented redistribution rights or replace the parser implementation."
+      "evidence": "Runtime 0.9.0 uses the in-repository StandaloneSysMLParser and no longer compiles or links reference parser code.",
+      "exitCriteria": "Completed by replacing the external parser implementation."
     },
     {
       "id": "openmodelica-pack",

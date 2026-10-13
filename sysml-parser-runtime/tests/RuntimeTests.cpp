@@ -21,6 +21,7 @@ private slots:
     void packageHierarchyFromSourceScopes();
     void calculationSemanticProjection();
     void tableViewSemanticProjection();
+    void standaloneDocumentationAndImports();
     void unitAwareAnalysisAndFailures();
 };
 
@@ -29,6 +30,10 @@ void RuntimeTests::healthAndCapabilities()
     QCOMPARE(ModelSnapshotAdapter::healthResponse().value("status").toString(), QString("ok"));
     QCOMPARE(ModelSnapshotAdapter::capabilitiesResponse().value("schemaVersion").toString(),
              QString("0.1"));
+    QCOMPARE(ModelSnapshotAdapter::healthResponse().value("parserMode").toString(),
+             QString("standalone"));
+    QCOMPARE(ModelSnapshotAdapter::capabilitiesResponse().value("parserBaseline").toString(),
+             QString("aidc-standalone-parser-0.1"));
 }
 
 void RuntimeTests::parseBasicRequirement()
@@ -308,6 +313,43 @@ void RuntimeTests::tableViewSemanticProjection()
     QCOMPARE(firstColumn.value("label").toString(), QString("名称"));
     QCOMPARE(snapshot.value("capabilities").toObject().value("view.table-rendering").toString(),
              QString("supported"));
+
+    int renderingMemberCount = 0;
+    for (const QJsonValue& value : snapshot.value("elements").toArray()) {
+        if (value.toObject().value("kind") == "ViewRenderingMember") ++renderingMemberCount;
+    }
+    QCOMPARE(renderingMemberCount, 2);
+}
+
+void RuntimeTests::standaloneDocumentationAndImports()
+{
+    const QString text = R"(package Standalone {
+        private import Views::*;
+        public import StandardViewDefinitions::*;
+        part def Robot {
+            doc /*由独立解析器保留的说明。*/
+            attribute mass :> ISQ::mass = 1[kg];
+        }
+    })";
+    ModelSnapshotAdapter adapter;
+    const QJsonObject snapshot = adapter.parse("memory://standalone.sysml", text).snapshot;
+    int docs = 0;
+    int attributes = 0;
+    for (const QJsonValue& value : snapshot.value("elements").toArray()) {
+        const QJsonObject element = value.toObject();
+        if (element.value("kind") == "DocStatement") {
+            ++docs;
+            QVERIFY(element.value("properties").toObject().value("content").toString().contains("独立解析器"));
+        }
+        if (element.value("kind") == "AttributeUsage" && element.value("name") == "mass") ++attributes;
+    }
+    int imports = 0;
+    for (const QJsonValue& value : snapshot.value("relationships").toArray()) {
+        if (value.toObject().value("kind") == "NamespaceImport") ++imports;
+    }
+    QCOMPARE(docs, 1);
+    QCOMPARE(attributes, 1);
+    QCOMPARE(imports, 2);
 }
 
 void RuntimeTests::unitAwareAnalysisAndFailures()

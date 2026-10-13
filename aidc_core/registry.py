@@ -45,7 +45,7 @@ class ComponentRegistry:
         elif dep_id == "sysml-parser-runtime":
             candidates = [
                 self.root / "components" / "sysml" / "bin" / "aidc-sysml-parser-runtime.exe",
-                self.root / "sysml-parser-runtime" / "dist" / "bin" / "aidc-sysml-parser-runtime-0.8.1.exe",
+                self.root / "sysml-parser-runtime" / "dist" / "bin" / "aidc-sysml-parser-runtime-0.9.0.exe",
                 self.root / "sysml-parser-runtime" / "dist" / "bin" / "aidc-sysml-parser-runtime.exe",
                 self.root / "sysml-parser-runtime" / "build" / "bin" / "aidc-sysml-parser-runtime.exe",
             ]

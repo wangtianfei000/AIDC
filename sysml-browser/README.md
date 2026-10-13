@@ -105,7 +105,7 @@ npm run dev
 - 多输入计算按上下顺序分配独立入边端口，绑定标签靠近各自输入；CalculationDefinition 使用独立上方泳道，避免输入绑定线穿过定义节点。
 - `CALC DEF` 节点按公式内容自动调整尺寸并限制最大宽度，在依赖图中直接展示 CalculationDefinition 的局部量和返回值表达式；超长语句优先在运算符边界换行，完整保留内容且只在语句末尾显示分号。
 
-## 计算详情（0.8.1）
+## 计算详情（0.9.0）
 
 - 详情区显示计算定义、分析中的计算调用、分析输出和关联约束，四类对象均可定位属性或源码。
 - 以表格逐项显示形式参数到实际参数的稳定绑定，以及实际参数在模型中声明的值和单位。
@@ -126,15 +126,15 @@ npm run dev
 - `samples/jingang-10axis-system-design/architecture.sysml` 是正式金刚架构样例的唯一源；VehicleMode 和计算异常样例也使用同一同步清单。
 - `npm run samples:sync` 更新浏览器发布副本，`npm run samples:check` 校验 SHA-256；生产构建会先执行哈希检查，副本分叉时直接失败。
 - 导航历史抽离为可测试状态模型，覆盖参数表、计算依赖图、源码之间的前进/后退和选中结果恢复。
-- `npm run verify:p2` 一次完成 Runtime 0.8.x 健康检查、正式模型真值、输入变更重算、VehicleMode 回归、浏览器测试、样例哈希和生产构建。
+- `npm run verify:p2` 一次完成独立 Runtime 0.9.x 健康检查、正式模型真值、输入变更重算、VehicleMode 回归、浏览器测试、样例哈希和生产构建。
 - 门禁运行后生成 `results/p2-r4-integration-verification.json`，保存本次版本、哈希、真值和回归结果。
 
 ## 当前边界
 
-- 参考 C++ Parser 尚不支持 `verify`、`derive`、`refine`，`satisfy` 也未形成可用于业务验收的完整关系集。
+- 独立 C++ Parser 尚不支持 `verify`、`derive`、`refine`，`satisfy` 也未形成可用于业务验收的完整关系集。
 - 当前 SourceSpan 是元素名称级定位，Runtime 会返回 `AIDC_SOURCE_SPAN_PARTIAL` 警告。
-- `VehicleMode.sysml` 可形成 408 个元素、15 条需求、104 条关系和 5 条约束关系；参考 Parser 对该文件仍产生 97 个错误和 200 个警告，因此当前属于可浏览的部分解析结果。
-- Package 层级已由 Runtime 的源码作用域恢复；非 Package 元素的归属仍依赖参考 Parser，在严重语法恢复区域可能出现偏差。
-- 参考 Parser 许可证尚待确认，当前交付仅用于内部评估。
+- `VehicleMode.sysml` 可形成 380 个元素、15 条需求、109 条关系和 7 条约束关系；其中超出轻量语法子集的高级声明仍产生结构化诊断，因此当前属于可浏览的部分解析结果。
+- Package 和普通元素层级均由仓库内解析器的源码作用域恢复；严重语法恢复区域仍可能出现归属偏差。
+- Runtime 已不包含外部参考 Parser 代码；公开发行仍需确定 AIDC 仓库许可证并完成二进制签名。
 
 默认示例位于 `public/samples/VehicleMode.sysml`，机器可读验证结果位于 `results/vehicle-mode-verification.json`。

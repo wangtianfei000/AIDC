@@ -15,9 +15,8 @@ struct ParseOutcome {
 class ModelSnapshotAdapter {
 public:
     static constexpr const char* SchemaVersion = "0.1";
-    static constexpr const char* RuntimeVersion = "0.8.1";
-    static constexpr const char* ParserBaseline =
-        "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507";
+    static constexpr const char* RuntimeVersion = "0.9.0";
+    static constexpr const char* ParserBaseline = "aidc-standalone-parser-0.1";
 
     ParseOutcome parse(const QString& uri,
                        const QString& text,

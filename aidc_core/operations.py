@@ -58,7 +58,7 @@ def modelica(root: Path, action: str, arguments: list[str]) -> dict[str, Any]:
 
 def sysml_validate(root: Path, source: Path) -> dict[str, Any]:
     runtime = next((Path(item["path"]) for item in ComponentRegistry(root).dependency_status("sysml-parser-runtime") if item["path"]), None)
-    if not runtime: raise AidcError("未找到 SysML Parser Runtime 0.8.1", 4, "DEPENDENCY_MISSING")
+    if not runtime: raise AidcError("未找到 SysML Parser Runtime 0.9.0", 4, "DEPENDENCY_MISSING")
     with socket.socket() as sock: sock.bind(("127.0.0.1", 0)); port = sock.getsockname()[1]
     process = subprocess.Popen([str(runtime), "--port", str(port)], cwd=runtime.parent, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
     try:

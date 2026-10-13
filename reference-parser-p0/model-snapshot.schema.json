@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aidc.local/schema/model-snapshot-0.1.json",
   "title": "AIDC ModelSnapshot",
-  "description": "Parser-neutral, read-only SysML browsing snapshot. The reference C++ model must be adapted to this contract.",
+  "description": "Parser-neutral, read-only SysML browsing snapshot emitted by the standalone AIDC runtime.",
   "type": "object",
   "required": ["schemaVersion", "document", "elements", "relationships", "diagnostics", "capabilities"],
   "properties": {

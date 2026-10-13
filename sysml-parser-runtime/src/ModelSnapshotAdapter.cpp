@@ -10,44 +10,8 @@
 
 #include <algorithm>
 
-#include "parser/SysMLParser.h"
-#include "core/infrastructure/Resource.h"
-#include "core/model/Element.h"
-#include "core/model/Relationship.h"
-#include "core/model/Feature.h"
-#include "core/model/Type.h"
-#include "core/model/Namespace.h"
-#include "core/model/FeatureTyping.h"
-#include "core/model/Redefinition.h"
-#include "core/model/Subsetting.h"
-#include "core/model/Subclassification.h"
-#include "core/model/Conjugation.h"
-#include "core/model/Dependency.h"
-#include "core/model/Membership.h"
-#include "core/model/Import.h"
-#include "core/model/MembershipImport.h"
-#include "core/model/NamespaceImport.h"
-#include "core/model/RequirementUsage.h"
-#include "core/model/PartUsage.h"
-#include "core/model/PortUsage.h"
-#include "core/model/ConnectStatement.h"
-#include "core/model/RequireStatement.h"
-#include "core/model/AssertStatement.h"
-#include "core/model/AssumeStatement.h"
-#include "core/model/ConstraintStatement.h"
-#include "core/model/ActionInputOutput.h"
-#include "core/model/CalculationDefinition.h"
-#include "core/model/AnalysisCase.h"
-#include "core/model/AnalysisSubject.h"
-#include "core/model/RenderingUsage.h"
-#include "core/model/ReturnParameter.h"
-#include "core/model/ViewDefinition.h"
-#include "core/model/ViewUsage.h"
-#include "core/model/ExposeStatement.h"
-#include "core/model/ViewRenderingMember.h"
+#include "StandaloneSysMLParser.h"
 #include "StandardLibraryIndex.h"
-
-using namespace SysML;
 
 namespace Aidc {
 namespace {
@@ -321,13 +285,13 @@ QJsonObject elementProperties(Element* element)
             result.insert(propertyName, value);
         }
     }
-    if (auto* value = qobject_cast<RequirementUsage*>(element); value && !value->typeName().isEmpty()) {
+    if (auto* value = dynamic_cast<RequirementUsage*>(element); value && !value->typeName().isEmpty()) {
         result.insert("typeName", value->typeName());
-    } else if (auto* value = qobject_cast<PartUsage*>(element); value && !value->typeName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<PartUsage*>(element); value && !value->typeName().isEmpty()) {
         result.insert("typeName", value->typeName());
-    } else if (auto* value = qobject_cast<PortUsage*>(element); value && !value->typeName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<PortUsage*>(element); value && !value->typeName().isEmpty()) {
         result.insert("typeName", value->typeName());
-    } else if (auto* value = qobject_cast<Feature*>(element)) {
+    } else if (auto* value = dynamic_cast<Feature*>(element)) {
         result.insert("isAbstract", value->isAbstract());
         result.insert("isConst", value->isConst());
         result.insert("isDerived", value->isDerived());
@@ -338,58 +302,64 @@ QJsonObject elementProperties(Element* element)
         if (!value->defaultValue().isEmpty()) result.insert("defaultValue", value->defaultValue());
         result.insert("isSimplifiedAttribute", value->isSimplifiedAttribute());
         result.insert("isRedefines", value->isRedefines());
-    } else if (auto* value = qobject_cast<FeatureTyping*>(element); value && !value->typeName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<FeatureTyping*>(element); value && !value->typeName().isEmpty()) {
         result.insert("typeName", value->typeName());
-    } else if (auto* value = qobject_cast<Redefinition*>(element); value && !value->redefinedFeatureName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<Redefinition*>(element); value && !value->redefinedFeatureName().isEmpty()) {
         result.insert("redefinedFeatureName", value->redefinedFeatureName());
-    } else if (auto* value = qobject_cast<Subsetting*>(element); value && !value->subsettedFeatureName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<Subsetting*>(element); value && !value->subsettedFeatureName().isEmpty()) {
         result.insert("subsettedFeatureName", value->subsettedFeatureName());
-    } else if (auto* value = qobject_cast<Conjugation*>(element); value && !value->originalTypeName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<Conjugation*>(element); value && !value->originalTypeName().isEmpty()) {
         result.insert("originalTypeName", value->originalTypeName());
-    } else if (auto* value = qobject_cast<Dependency*>(element); value && !value->supplierElementName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<Dependency*>(element); value && !value->supplierElementName().isEmpty()) {
         result.insert("supplierElementName", value->supplierElementName());
-    } else if (auto* value = qobject_cast<NamespaceImport*>(element); value && !value->importedNamespaceName().isEmpty()) {
+    } else if (auto* value = dynamic_cast<NamespaceImport*>(element); value && !value->importedNamespaceName().isEmpty()) {
         result.insert("importedNamespaceName", value->importedNamespaceName());
-    } else if (auto* value = qobject_cast<RequireStatement*>(element)) {
+    } else if (auto* value = dynamic_cast<ConnectStatement*>(element)) {
+        QJsonArray ends;
+        for (const QString& end : value->ends()) ends.append(end);
+        result.insert("ends", ends);
+    } else if (auto* value = dynamic_cast<RequireStatement*>(element)) {
         result.insert("expression", value->expression());
         result.insert("hasConstraintKeyword", value->hasConstraintKeyword());
-    } else if (auto* value = qobject_cast<AssertStatement*>(element)) {
+    } else if (auto* value = dynamic_cast<AssertStatement*>(element)) {
         result.insert("expression", value->expression());
-    } else if (auto* value = qobject_cast<AssumeStatement*>(element)) {
+    } else if (auto* value = dynamic_cast<AssumeStatement*>(element)) {
         result.insert("expression", value->expression());
-    } else if (auto* value = qobject_cast<ConstraintStatement*>(element)) {
+    } else if (auto* value = dynamic_cast<ConstraintStatement*>(element)) {
         result.insert("expression", value->expression());
-    } else if (auto* value = qobject_cast<ViewUsage*>(element)) {
+    } else if (auto* value = dynamic_cast<ViewUsage*>(element)) {
         if (!value->typeName().isEmpty()) result.insert("typeName", value->typeName());
         if (!value->renderMethod().isEmpty()) result.insert("renderMethod", value->renderMethod());
         if (!value->filterExpression().isEmpty()) result.insert("filterExpression", value->filterExpression());
-    } else if (auto* value = qobject_cast<ExposeStatement*>(element)) {
+    } else if (auto* value = dynamic_cast<ExposeStatement*>(element)) {
         result.insert("exposedQualifiedName", value->exposedQualifiedName());
         result.insert("recursive", value->isRecursive());
         result.insert("exposeType", static_cast<int>(value->exposeType()));
-    } else if (auto* value = qobject_cast<ViewDefinition*>(element)) {
+    } else if (auto* value = dynamic_cast<ViewDefinition*>(element)) {
         if (!value->filterExpression().isEmpty()) result.insert("filterExpression", value->filterExpression());
-    } else if (auto* value = qobject_cast<ViewRenderingMember*>(element)) {
+    } else if (auto* value = dynamic_cast<ViewRenderingMember*>(element)) {
         if (!value->declaredName().isEmpty()) result.insert("renderingReference", value->declaredName());
+    } else if (auto* value = dynamic_cast<DocStatement*>(element)) {
+        if (!value->content().isEmpty()) result.insert("content", value->content());
     }
     return result;
 }
 
 QString constraintExpression(Element* element)
 {
-    if (auto* value = qobject_cast<RequireStatement*>(element)) return value->expression();
-    if (auto* value = qobject_cast<AssertStatement*>(element)) return value->expression();
-    if (auto* value = qobject_cast<AssumeStatement*>(element)) return value->expression();
-    if (auto* value = qobject_cast<ConstraintStatement*>(element)) return value->expression();
+    if (auto* value = dynamic_cast<RequireStatement*>(element)) return value->expression();
+    if (auto* value = dynamic_cast<AssertStatement*>(element)) return value->expression();
+    if (auto* value = dynamic_cast<AssumeStatement*>(element)) return value->expression();
+    if (auto* value = dynamic_cast<ConstraintStatement*>(element)) return value->expression();
     return {};
 }
 
 QString constraintRelationshipKind(Element* element)
 {
-    if (qobject_cast<RequireStatement*>(element)) return "RequirementConstraint";
-    if (qobject_cast<AssertStatement*>(element)) return "AssertConstraint";
-    if (qobject_cast<AssumeStatement*>(element)) return "AssumeConstraint";
-    if (qobject_cast<ConstraintStatement*>(element)) return "Constraint";
+    if (dynamic_cast<RequireStatement*>(element)) return "RequirementConstraint";
+    if (dynamic_cast<AssertStatement*>(element)) return "AssertConstraint";
+    if (dynamic_cast<AssumeStatement*>(element)) return "AssumeConstraint";
+    if (dynamic_cast<ConstraintStatement*>(element)) return "Constraint";
     return {};
 }
 
@@ -556,46 +526,46 @@ QJsonArray endpointIds(Element* relationship,
                        bool source)
 {
     QJsonArray result;
-    if (auto* value = qobject_cast<FeatureTyping*>(relationship)) {
+    if (auto* value = dynamic_cast<FeatureTyping*>(relationship)) {
         appendEndpoint(result, source ? static_cast<Element*>(value->typedFeature())
                                       : static_cast<Element*>(value->type()), ids);
         if (!source && result.isEmpty()) {
             appendEndpoint(result, resolveByName(value->typeName(), records), ids);
         }
-    } else if (auto* value = qobject_cast<Redefinition*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Redefinition*>(relationship)) {
         appendEndpoint(result, source ? static_cast<Element*>(value->redefiningFeature())
                                       : static_cast<Element*>(value->redefinedFeature()), ids);
         if (!source && result.isEmpty()) {
             appendEndpoint(result, resolveByName(value->redefinedFeatureName(), records), ids);
         }
-    } else if (auto* value = qobject_cast<Subsetting*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Subsetting*>(relationship)) {
         appendEndpoint(result, source ? static_cast<Element*>(value->subsettingFeature())
                                       : static_cast<Element*>(value->subsettedFeature()), ids);
         if (!source && result.isEmpty()) {
             appendEndpoint(result, resolveByName(value->subsettedFeatureName(), records), ids);
         }
-    } else if (auto* value = qobject_cast<Subclassification*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Subclassification*>(relationship)) {
         appendEndpoint(result, source ? static_cast<Element*>(value->subtype())
                                       : static_cast<Element*>(value->supertype()), ids);
-    } else if (auto* value = qobject_cast<Conjugation*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Conjugation*>(relationship)) {
         appendEndpoint(result, source ? static_cast<Element*>(value->conjugatedType())
                                       : static_cast<Element*>(value->originalType()), ids);
         if (!source && result.isEmpty()) {
             appendEndpoint(result, resolveByName(value->originalTypeName(), records), ids);
         }
-    } else if (auto* value = qobject_cast<Dependency*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Dependency*>(relationship)) {
         appendEndpoint(result, source ? value->clientElement() : value->supplierElement(), ids);
         if (!source && result.isEmpty()) {
             appendEndpoint(result, resolveByName(value->supplierElementName(), records), ids);
         }
-    } else if (auto* value = qobject_cast<Membership*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Membership*>(relationship)) {
         appendEndpoint(result, source ? owner : value->memberElement(), ids);
-    } else if (auto* value = qobject_cast<MembershipImport*>(relationship)) {
+    } else if (auto* value = dynamic_cast<MembershipImport*>(relationship)) {
         appendEndpoint(result, source ? owner : static_cast<Element*>(value->importedMembership()), ids);
-    } else if (auto* value = qobject_cast<Import*>(relationship)) {
+    } else if (auto* value = dynamic_cast<Import*>(relationship)) {
         appendEndpoint(result, source ? owner : dynamic_cast<Element*>(value->importedNamespace()), ids);
         if (!source && result.isEmpty()) {
-            if (auto* namespaceImport = qobject_cast<NamespaceImport*>(relationship)) {
+            if (auto* namespaceImport = dynamic_cast<NamespaceImport*>(relationship)) {
                 appendEndpoint(result, resolveByName(namespaceImport->importedNamespaceName(), records), ids);
             }
         }
@@ -611,7 +581,7 @@ QJsonArray endpointIds(Element* relationship,
         const QVariant value = meta->property(index).read(relationship);
         if (value.canConvert<QObject*>()) {
             QObject* object = value.value<QObject*>();
-            Element* endpoint = qobject_cast<Element*>(object);
+            Element* endpoint = dynamic_cast<Element*>(object);
             if (endpoint && ids.contains(endpoint)) {
                 appendEndpoint(result, endpoint, ids);
             }
@@ -742,7 +712,7 @@ QString ownedFeatureType(Element* element)
 {
     if (!element) return {};
     for (Relationship* relationship : element->ownedRelationships()) {
-        if (auto* typing = qobject_cast<FeatureTyping*>(relationship); typing && !typing->typeName().isEmpty()) return typing->typeName();
+        if (auto* typing = dynamic_cast<FeatureTyping*>(relationship); typing && !typing->typeName().isEmpty()) return typing->typeName();
     }
     return {};
 }
@@ -929,8 +899,8 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
         const QJsonValue source = record.source.valid
                                       ? QJsonValue(record.source.json)
                                       : QJsonValue(QJsonValue::Null);
-        auto* connectStatement = qobject_cast<ConnectStatement*>(record.element);
-        const bool isRelationship = qobject_cast<Relationship*>(record.element) != nullptr || connectStatement;
+        auto* connectStatement = dynamic_cast<ConnectStatement*>(record.element);
+        const bool isRelationship = dynamic_cast<Relationship*>(record.element) != nullptr || connectStatement;
         if (isRelationship) {
             QJsonArray sources = connectStatement
                                            ? connectEndpointIds(connectStatement, record.owner, records, ids, true)
@@ -938,13 +908,13 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
             QJsonArray targets = connectStatement
                                            ? connectEndpointIds(connectStatement, record.owner, records, ids, false)
                                            : endpointIds(record.element, record.owner, records, ids, false);
-            if (auto* typing = qobject_cast<FeatureTyping*>(record.element);
+            if (auto* typing = dynamic_cast<FeatureTyping*>(record.element);
                 typing && targets.isEmpty() && !typing->typeName().isEmpty()) {
                 QString targetId = localTypeId(typing->typeName());
                 if (targetId.isEmpty()) targetId = ensureLibraryElement(typing->typeName());
                 if (!targetId.isEmpty()) targets.append(targetId);
             }
-            if (auto* namespaceImport = qobject_cast<NamespaceImport*>(record.element);
+            if (auto* namespaceImport = dynamic_cast<NamespaceImport*>(record.element);
                 namespaceImport && targets.isEmpty()) {
                 const QString packageId = ensureLibraryPackage(namespaceImport->importedNamespaceName());
                 if (!packageId.isEmpty()) targets.append(packageId);
@@ -1052,13 +1022,13 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
     };
 
     for (const Record& record : records) {
-        if (auto* input = qobject_cast<ActionInputOutput*>(record.element)) {
+        if (auto* input = dynamic_cast<ActionInputOutput*>(record.element)) {
             appendParameter(record, input->isInput() ? "input" : "output",
                             input->itemName(), input->itemType(), input->defaultValue(), {});
-        } else if (auto* output = qobject_cast<ReturnParameter*>(record.element)) {
+        } else if (auto* output = dynamic_cast<ReturnParameter*>(record.element)) {
             appendParameter(record, "output", record.name, output->typeName(), output->expression(), {});
-        } else if (auto* feature = qobject_cast<Feature*>(record.element)) {
-            QString role = qobject_cast<AnalysisCase*>(record.owner) ? "result" : "local";
+        } else if (auto* feature = dynamic_cast<Feature*>(record.element)) {
+            QString role = dynamic_cast<AnalysisCase*>(record.owner) ? "result" : "local";
             appendParameter(record, role, record.name, ownedFeatureType(feature),
                             feature->valueExpression(), feature->unitExpression());
             const QJsonObject ast = expressionAst(feature->valueExpression());
@@ -1070,7 +1040,7 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
                     {"id", usageId}, {"resultParameterId", record.id},
                     {"definitionName", ast.value("callee")},
                     {"definitionId", definition ? QJsonValue(ids.value(definition)) : QJsonValue::Null},
-                    {"analysisId", record.owner && qobject_cast<AnalysisCase*>(record.owner)
+                    {"analysisId", record.owner && dynamic_cast<AnalysisCase*>(record.owner)
                                        ? QJsonValue(ids.value(record.owner)) : QJsonValue::Null},
                     {"arguments", ast.value("arguments")}, {"source", sourceValue(record)}
                 };
@@ -1079,8 +1049,8 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
             }
         }
 
-        if (qobject_cast<ConstraintStatement*>(record.element) && record.owner &&
-            qobject_cast<AnalysisCase*>(record.owner)) {
+        if (dynamic_cast<ConstraintStatement*>(record.element) && record.owner &&
+            dynamic_cast<AnalysisCase*>(record.owner)) {
             const QString expression = constraintExpression(record.element);
             calculationConstraints.append(QJsonObject{
                 {"id", record.id}, {"elementId", record.id}, {"name", record.name},
@@ -1092,7 +1062,7 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
     }
 
     for (const Record& record : records) {
-        if (qobject_cast<CalculationDefinition*>(record.element)) {
+        if (dynamic_cast<CalculationDefinition*>(record.element)) {
             QJsonArray inputs, outputs, locals;
             for (const QString& parameterId : parameterIdsByOwner.value(record.element)) {
                 for (const QJsonValue& parameterValue : parameters) {
@@ -1110,7 +1080,7 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
                 {"inputParameterIds", inputs}, {"outputParameterIds", outputs},
                 {"localParameterIds", locals}, {"source", sourceValue(record)}
             });
-        } else if (auto* analysis = qobject_cast<AnalysisCase*>(record.element)) {
+        } else if (auto* analysis = dynamic_cast<AnalysisCase*>(record.element)) {
             QJsonArray resultIds, constraintIds, usageIds;
             for (const QString& id : parameterIdsByOwner.value(record.element)) resultIds.append(id);
             for (const QString& id : constraintIdsByOwner.value(record.element)) constraintIds.append(id);
@@ -1183,15 +1153,15 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
     QJsonArray viewUsages;
     QHash<QString, const Record*> renderingByName;
     for (const Record& record : records) {
-        if (auto* rendering = qobject_cast<RenderingUsage*>(record.element)) {
+        if (auto* rendering = dynamic_cast<RenderingUsage*>(record.element)) {
             renderingByName.insert(record.name, &record);
             QJsonArray columns;
             for (const Record& candidate : records) {
-                auto* column = qobject_cast<ViewUsage*>(candidate.element);
+                auto* column = dynamic_cast<ViewUsage*>(candidate.element);
                 if (!column || candidate.owner != record.element) continue;
                 QString label = candidate.name;
                 for (const Record& member : records) {
-                    auto* feature = qobject_cast<Feature*>(member.element);
+                    auto* feature = dynamic_cast<Feature*>(member.element);
                     if (!feature || member.owner != candidate.element || member.name != "label") continue;
                     const QString declaredLabel = stringLiteralValue(feature->valueExpression());
                     if (!declaredLabel.isEmpty()) label = declaredLabel;
@@ -1213,10 +1183,10 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
         }
     }
     for (const Record& record : records) {
-        if (auto* definition = qobject_cast<ViewDefinition*>(record.element)) {
+        if (auto* definition = dynamic_cast<ViewDefinition*>(record.element)) {
             QString renderingReference;
             for (const Record& child : records) {
-                if (child.owner == record.element && qobject_cast<ViewRenderingMember*>(child.element)) {
+                if (child.owner == record.element && dynamic_cast<ViewRenderingMember*>(child.element)) {
                     renderingReference = child.name; break;
                 }
             }
@@ -1229,11 +1199,11 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
                 {"renderingId", rendering ? QJsonValue(rendering->id) : QJsonValue::Null},
                 {"source", sourceValue(record)}
             });
-        } else if (auto* view = qobject_cast<ViewUsage*>(record.element)) {
-            if (qobject_cast<RenderingUsage*>(record.owner)) continue;
+        } else if (auto* view = dynamic_cast<ViewUsage*>(record.element)) {
+            if (dynamic_cast<RenderingUsage*>(record.owner)) continue;
             QJsonArray exposedReferences, exposedElementIds;
             for (const Record& child : records) {
-                auto* expose = qobject_cast<ExposeStatement*>(child.element);
+                auto* expose = dynamic_cast<ExposeStatement*>(child.element);
                 if (!expose || child.owner != record.element) continue;
                 exposedReferences.append(expose->exposedQualifiedName());
                 if (Element* exposed = resolveByName(expose->exposedQualifiedName(), records)) {
@@ -1313,7 +1283,7 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
              {"uri", uri},
              {"contentHash", sha256(text.toUtf8())},
              {"parser", QJsonObject{
-                  {"name", "AIDC Reference C++ Parser Runtime"},
+                  {"name", "AIDC Standalone SysML Parser"},
                   {"baseline", ParserBaseline},
                   {"capabilityVersion", RuntimeVersion}
               }}
@@ -1337,6 +1307,7 @@ QJsonObject ModelSnapshotAdapter::capabilitiesResponse()
         {"runtimeVersion", RuntimeVersion},
         {"schemaVersion", SchemaVersion},
         {"parserBaseline", ParserBaseline},
+        {"parserMode", "standalone"},
         {"capabilities", QJsonObject{
              {"parse.file", "supported"},
              {"cancel.cooperative", "partial"},
@@ -1378,6 +1349,7 @@ QJsonObject ModelSnapshotAdapter::healthResponse()
         {"runtimeVersion", RuntimeVersion},
         {"schemaVersion", SchemaVersion},
         {"parserBaseline", ParserBaseline},
+        {"parserMode", "standalone"},
         {"standardLibrary", standardLibrary.status()}
     };
 }

@@ -31,7 +31,7 @@ def main() -> int:
 
     runtime_bin = require(ROOT / "sysml-parser-runtime" / "dist" / "bin")
     sysml_bin = OUTPUT / "components" / "sysml" / "bin"; sysml_bin.mkdir(parents=True)
-    shutil.copy2(require(runtime_bin / "aidc-sysml-parser-runtime-0.8.1.exe"), sysml_bin / "aidc-sysml-parser-runtime.exe")
+    shutil.copy2(require(runtime_bin / "aidc-sysml-parser-runtime-0.9.0.exe"), sysml_bin / "aidc-sysml-parser-runtime.exe")
     for item in runtime_bin.rglob("*"):
         if item.is_file() and (item.suffix.lower() == ".dll"):
             destination = sysml_bin / item.relative_to(runtime_bin); destination.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(item, destination)

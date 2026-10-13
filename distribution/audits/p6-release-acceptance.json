@@ -38,7 +38,6 @@
     "releaseGate": "blocked",
     "blockedGateIds": [
       "aidc-license",
-      "reference-parser-license",
       "openmodelica-pack",
       "python-runtime-pack"
     ]

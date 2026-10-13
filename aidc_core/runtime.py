@@ -139,7 +139,7 @@ class RuntimeManager:
     def _start_sysml(self, instance_id: str, target: Path, public_port: int, token: str) -> list[dict[str, Any]]:
         if target.suffix.lower() not in {".sysml", ".kerml"}: raise AidcError("SysML 输入必须是 .sysml 或 .kerml 文件", 3, "INPUT_INVALID", str(target))
         executable = next((Path(item["path"]) for item in ComponentRegistry(self.root).dependency_status("sysml-parser-runtime") if item["path"]), None)
-        if not executable: raise AidcError("未找到 SysML Parser Runtime 0.8.1", 4, "DEPENDENCY_MISSING")
+        if not executable: raise AidcError("未找到 SysML Parser Runtime 0.9.0", 4, "DEPENDENCY_MISSING")
         static_root = self._component_path("components/sysml/browser", "sysml-browser/dist")
         if not (static_root / "index.html").is_file(): raise AidcError("SysML 浏览器生产资源未构建", 4, "COMPONENT_NOT_BUILT")
         runtime_port = self._port()

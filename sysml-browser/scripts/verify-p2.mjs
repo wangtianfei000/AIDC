@@ -32,7 +32,7 @@ async function ensureRuntime() {
   const existing = await health();
   if (existing) return existing;
   assert.equal(runtimeUrl, 'http://127.0.0.1:47321', '自动启动仅支持默认本机端口；自定义 AIDC_RUNTIME_URL 需要预先启动 Runtime');
-  const executable = resolve(runtimeRoot, 'dist/bin/aidc-sysml-parser-runtime-0.8.1.exe');
+  const executable = resolve(runtimeRoot, 'dist/bin/aidc-sysml-parser-runtime-0.9.0.exe');
   ownedRuntime = spawn(executable, ['--port', '47321', '--standard-library', resolve(runtimeRoot, 'dist/library/sysml.library')], {
     cwd: resolve(runtimeRoot, 'dist'), stdio: 'ignore', windowsHide: true,
   });
@@ -59,7 +59,8 @@ function runNpm(script) {
 
 try {
   const healthSnapshot = await ensureRuntime();
-  assert.match(healthSnapshot.runtimeVersion, /^0\.8\./, 'P2 基线要求 Runtime 0.8.x');
+  assert.match(healthSnapshot.runtimeVersion, /^0\.9\./, 'P2 基线要求独立 Runtime 0.9.x');
+  assert.equal(healthSnapshot.parserMode, 'standalone', 'P2 基线要求独立解析器模式');
 
   const architecture = await readFile(architecturePath, 'utf8');
   const publishedArchitecture = await readFile(resolve(browserRoot, 'public/samples/robot-architecture.sysml'), 'utf8');
@@ -111,7 +112,7 @@ try {
   assert.equal(requirements.length, 15);
   assert.equal(requirements.filter((item) => item.kind === 'RequirementDefinition').length, 5);
   assert.equal(requirements.filter((item) => item.kind === 'RequirementUsage').length, 10);
-  assert.equal(vehicleModel.relationships.filter((item) => item.kind.includes('Constraint')).length, 6);
+  assert.equal(vehicleModel.relationships.filter((item) => item.kind.includes('Constraint')).length, 7);
   for (const name of ['vehicleMassRequirement', 'cityFuelEconomyRequirement', 'drivePowerOutputRequirement']) {
     assert.ok(requirements.some((item) => item.name === name), `VehicleMode 缺少需求 ${name}`);
   }
