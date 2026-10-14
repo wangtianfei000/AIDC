@@ -209,7 +209,7 @@ export default function App() {
     <input ref={fileInput} type="file" multiple accept=".sysml,.kerml,text/plain" hidden onChange={(event) => { if (event.target.files?.length) void openFiles(event.target.files); event.target.value = ''; }} />
     <header className="topbar">
       <div className="topbar-brand"><span>A</span><strong>AIDC</strong></div>
-      <div className="document-identity"><FileCode2 size={20} /><div><strong>{source?.name ?? '尚未打开模型'}</strong><span>{snapshot ? `${requirements.length} 条需求 · ${snapshot.elements.length} 个元素${documents.length > 1 ? ` · 已打开 ${documents.length} 个模型` : ''}` : 'SysML v2 只读浏览'}</span></div>{staleSnapshot && <span className="stale-chip">旧快照</span>}</div>
+      <div className="document-identity"><FileCode2 size={20} /><div>{documents.length > 1 ? <select className="document-switcher" aria-label="当前模型" value={activeDocument?.id} onChange={(event) => activateDocument(event.target.value)}>{documents.map((document) => <option key={document.id} value={document.id}>{document.source.name}</option>)}</select> : <strong>{source?.name ?? '尚未打开模型'}</strong>}<span>{snapshot ? `${requirements.length} 条需求 · ${snapshot.elements.length} 个元素${documents.length > 1 ? ` · 已打开 ${documents.length} 个模型` : ''}` : 'SysML v2 只读浏览'}</span></div>{staleSnapshot && <span className="stale-chip">旧快照</span>}{activeDocument && documents.length > 1 && <button className="document-close" onClick={() => closeDocument(activeDocument.id)} title={`关闭 ${activeDocument.source.name}`} aria-label={`关闭 ${activeDocument.source.name}`}><X size={13} /></button>}</div>
       <div className="topbar-actions"><div className={`runtime-chip ${health ? 'online' : 'offline'}`} title={health?.parserBaseline ?? runtimeError}><CircleDot size={13} /> Runtime {health ? `v${health.runtimeVersion}` : '离线'}</div><button className="ghost-button" onClick={() => void refresh()} disabled={!source || busy}><RefreshCw size={16} className={busy ? 'spin' : ''} />刷新</button><button className="primary-button" onClick={() => fileInput.current?.click()}><Upload size={16} />打开 SysML</button><button className="icon-button" onClick={() => setSettingsOpen(true)} aria-label="Runtime 设置"><Settings2 size={18} /></button></div>
     </header>
 
@@ -221,7 +221,7 @@ export default function App() {
     </main>
 
     <aside className="model-dock">
-      {documents.length ? <ModelNavigator documents={documents} activeDocumentId={activeDocument?.id} selectedId={selectedId} activeViewId={view} onActivate={activateDocument} onSelect={(documentId, elementId) => activateDocument(documentId, elementId)} onOpenView={(documentId, elementId, viewId) => activateDocument(documentId, elementId, viewId)} onShowProperties={(documentId, elementId) => activateDocument(documentId, elementId)} onClose={closeDocument} /> : <div className="navigator-empty"><Network size={28} /><strong>尚未打开模型</strong><span>打开 SysML 文件后在这里浏览模型结构。</span></div>}
+      {documents.length ? <ModelNavigator documents={documents} activeDocumentId={activeDocument?.id} selectedId={selectedId} activeViewId={view} onSelect={(documentId, elementId) => activateDocument(documentId, elementId)} onOpenView={(documentId, elementId, viewId) => activateDocument(documentId, elementId, viewId)} onShowProperties={(documentId, elementId) => activateDocument(documentId, elementId)} /> : <div className="navigator-empty"><Network size={28} /><strong>尚未打开模型</strong><span>打开 SysML 文件后在这里浏览模型结构。</span></div>}
       <div className="navigator-footer"><ShieldCheck size={15} /><span>只读浏览，不修改源文件</span></div>
     </aside>
     <aside className="property-inspector"><div className="property-inspector-head"><SlidersHorizontal size={16} /><div><strong>属性查看</strong><span>当前模型元素</span></div></div><Inspector element={selected} requirement={selectedRequirement} analysisResult={analysis?.analyses.flatMap((item) => item.results).find((item) => item.parameterId === selectedId)} analysis={analysis} query={query} onSource={() => navigateTo('core.source', selectedId)} /></aside>
@@ -231,28 +231,24 @@ export default function App() {
   </div>;
 }
 
-export function ModelNavigator({ documents, activeDocumentId, selectedId, activeViewId, onActivate, onSelect, onOpenView, onShowProperties, onClose }: {
+export function ModelNavigator({ documents, activeDocumentId, selectedId, activeViewId, onSelect, onOpenView, onShowProperties }: {
   documents: OpenModelDocument[];
   activeDocumentId?: string;
   selectedId?: string;
   activeViewId: string;
-  onActivate: (documentId: string) => void;
   onSelect: (documentId: string, id: string) => void;
   onOpenView: (documentId: string, id: string, viewId: string) => void;
   onShowProperties: (documentId: string, id: string) => void;
-  onClose: (documentId: string) => void;
 }) {
   const [expanded, setExpanded] = useState(() => new Set<string>());
   const [search, setSearch] = useState('');
   const [menu, setMenu] = useState<ContextMenuState>();
   const models = useMemo(() => documents.map((document) => ({ ...document, query: new ModelQuery(document.snapshot) })), [documents]);
-  const modelKey = (documentId: string) => `model:${documentId}`;
   const nodeKey = (documentId: string, elementId: string) => `node:${documentId}:${elementId}`;
   useEffect(() => {
     setExpanded((current) => {
       const next = new Set(current);
       for (const model of models) {
-        next.add(modelKey(model.id));
         for (const root of model.query.children(null)) next.add(nodeKey(model.id, root.id));
       }
       return next;
@@ -290,15 +286,9 @@ export function ModelNavigator({ documents, activeDocumentId, selectedId, active
   const menuModel = menu ? models.find((model) => model.id === menu.documentId) : undefined;
   const menuViews = menu && menuModel ? viewsForElement(menu.element, menuModel.snapshot, menuModel.query) : [];
   const visibleCount = models.reduce((sum, model) => sum + model.snapshot.elements.filter(isNavigable).length, 0);
-  return <div className="navigator-body"><div className="navigator-head"><div><strong>模型结构</strong><span>{documents.length} 个模型 · 节点右键可选择视图</span></div><em>{visibleCount}</em></div><div className="navigator-search"><Search size={15} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索模型或节点…" />{search && <button onClick={() => setSearch('')}><X size={13} /></button>}</div><div className="navigator-tree">{visibleModels.map((model) => {
-    const key = modelKey(model.id);
-    const isExpanded = expanded.has(key) || Boolean(search);
+  return <div className="navigator-body"><div className="navigator-head"><div><strong>模型结构</strong><span>{documents.length} 个模型 · 按 Package 合并显示</span></div><em>{visibleCount}</em></div><div className="navigator-search"><Search size={15} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索模型节点…" />{search && <button onClick={() => setSearch('')}><X size={13} /></button>}</div><div className="navigator-tree">{visibleModels.map((model) => {
     const modelMatches = Boolean(search.trim()) && model.source.name.toLowerCase().includes(search.trim().toLowerCase());
-    return <div className="navigator-document" key={model.id}><div className={`navigator-document-row ${activeDocumentId === model.id ? 'active' : ''}`}>
-      <button className="tree-expander" onClick={() => toggle(key)} aria-label={isExpanded ? '折叠模型' : '展开模型'}><ChevronRight size={14} className={isExpanded ? 'expanded' : ''} /></button>
-      <button className="navigator-document-node" onClick={() => onActivate(model.id)} title={model.source.name}><FileCode2 size={15} /><span><strong>{model.source.name}</strong><small>{model.snapshot.elements.length} 个元素</small></span></button>
-      <button className="navigator-document-close" onClick={() => onClose(model.id)} title={`关闭 ${model.source.name}`} aria-label={`关闭 ${model.source.name}`}><X size={13} /></button>
-    </div>{isExpanded && renderElements(model, null, 1, modelMatches)}</div>;
+    return <div className="navigator-model-elements" key={model.id}>{renderElements(model, null, 0, modelMatches)}</div>;
   })}</div>{menu && menuModel && <div className="node-context-menu" style={{ left: Math.min(menu.x, window.innerWidth - 220), top: Math.min(menu.y, window.innerHeight - 320) }} onClick={(event) => event.stopPropagation()}><div className="context-title"><strong>{menu.element.name ?? '未命名元素'}</strong><span>{menu.element.kind}</span></div><button onClick={() => { onShowProperties(menu.documentId, menu.element.id); setMenu(undefined); }}><SlidersHorizontal size={15} /><span><strong>属性查看</strong><small>属性、关系与源码位置</small></span></button>{menuViews.map((item) => <button key={item.id} onClick={() => { onOpenView(menu.documentId, menu.element.id, item.id); setMenu(undefined); }}><item.icon size={15} /><span><strong>{item.label}</strong><small>{item.hint}</small></span>{activeDocumentId === menu.documentId && activeViewId === item.id && <CircleDot size={11} />}</button>)}</div>}</div>;
 }
 

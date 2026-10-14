@@ -8,7 +8,7 @@ import { closeOpenDocument, type OpenModelDocument, upsertOpenDocument } from '.
 const snapshot = (uri: string): ModelSnapshot => ({
   schemaVersion: '0.1',
   document: { uri, contentHash: uri, parser: { name: 'test', baseline: 'test', capabilityVersion: '0.1' } },
-  elements: [], relationships: [], diagnostics: [], capabilities: {},
+  elements: [{ id: `${uri}-root`, kind: 'Package', name: `${uri}Package`, qualifiedName: `${uri}Package`, ownerId: null, source: null, properties: {} }], relationships: [], diagnostics: [], capabilities: {},
 });
 
 const document = (id: string): OpenModelDocument => ({
@@ -39,20 +39,19 @@ describe('multi-model workspace', () => {
     expect(result.nextDocumentId).toBe('third');
   });
 
-  it('renders every open model as a first-level model tree node', () => {
+  it('merges top-level packages without adding filename nodes', () => {
     const markup = renderToStaticMarkup(createElement(ModelNavigator, {
       documents: [document('first'), document('second')],
       activeDocumentId: 'first',
       activeViewId: 'architecture.tree',
-      onActivate: () => undefined,
       onSelect: () => undefined,
       onOpenView: () => undefined,
       onShowProperties: () => undefined,
-      onClose: () => undefined,
     }));
     expect(markup).toContain('2 个模型');
-    expect(markup).toContain('first.sysml');
-    expect(markup).toContain('second.sysml');
-    expect(markup.match(/navigator-document-row/g)).toHaveLength(2);
+    expect(markup).toContain('firstPackage');
+    expect(markup).toContain('secondPackage');
+    expect(markup).not.toContain('first.sysml');
+    expect(markup).not.toContain('navigator-document-row');
   });
 });
