@@ -287,6 +287,7 @@ button { color: inherit; }
 .inspector-content { padding: 21px 18px 30px; }
 .inspector-eyebrow { color: var(--accent); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .inspector-content h2 { margin: 5px 0 5px; font-size: 18px; line-height: 1.25; }
+.element-identifier { margin: -2px 0 5px; color: #66768a; font-size: 10px; font-family: var(--font-mono); }
 .qualified-name { display: block; color: #8290a3; font-size: 9px; line-height: 1.4; overflow-wrap: anywhere; }
 .inspector-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 17px 0 4px; background: #e3e7ed; border: 1px solid #e3e7ed; border-radius: 9px; overflow: hidden; }
 .inspector-summary div { display: flex; flex-direction: column; gap: 3px; padding: 9px 10px; background: #f8f9fb; }

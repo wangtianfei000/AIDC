@@ -6,6 +6,7 @@ import { applyGraphicMetadata } from '../diagram/metadata';
 import { MaxGraphArchitecture } from '../diagram/MaxGraphArchitecture';
 import { projectInterconnection } from '../diagram/projection';
 import type { DiagramDirection, DiagramModel } from '../diagram/model';
+import { elementDisplayName, localizedElementName } from '../model/displayName';
 import type { ModelElement } from '../model/types';
 import { architectureChildren, buildArchitectureModel } from './architecture';
 import type { BrowserViewContext, BrowserViewDefinition } from './viewRegistry';
@@ -17,7 +18,7 @@ function ArchitectureTreeView(context: BrowserViewContext) {
       <button className={`architecture-tree-row ${context.selectedId === element.id ? 'selected' : ''}`} style={{ paddingLeft: 18 + depth * 24 }} onClick={() => context.onSelect(element.id)}>
         <ChevronRight size={14} className={architectureChildren(context.query, element.id).length ? '' : 'leaf-chevron'} />
         <ArchitectureIcon kind={element.kind} />
-        <span><strong>{element.name ?? '未命名元素'}</strong><small>{element.kind}{element.properties.typeName ? ` · ${String(element.properties.typeName)}` : ''}</small></span>
+        <span><strong>{elementDisplayName(context.snapshot, element)}</strong><small>{localizedElementName(context.snapshot, element) && element.name ? `${element.name} · ` : ''}{element.kind}{element.properties.typeName ? ` · ${String(element.properties.typeName)}` : ''}</small></span>
       </button>
       {render(element.id, depth + 1)}
     </div>);
@@ -67,7 +68,7 @@ function ArchitectureDiagramView(context: BrowserViewContext) {
       <div className="architecture-layout-controls">
         {projection && <span className="architecture-layout-source">{projection.model.layoutSource === 'graphic-metadata' ? '参考图形元数据' : projection.model.layoutSource === 'mixed' ? '元数据 + ELK' : 'ELK 自动布局'}</span>}
         <select aria-label="结构上下文" value={container?.id ?? ''} onChange={(event) => context.openView('architecture.diagram', event.target.value)}>
-          {model.containers.map((item) => <option key={item.id} value={item.id}>{item.qualifiedName ?? item.name ?? item.kind}</option>)}
+          {model.containers.map((item) => <option key={item.id} value={item.id}>{elementDisplayName(context.snapshot, item)}{localizedElementName(context.snapshot, item) && item.name ? ` · ${item.name}` : ''}</option>)}
         </select>
         <select aria-label="布局方向" value={direction} onChange={(event) => setDirection(event.target.value as DiagramDirection)}>
           <option value="RIGHT">从左到右</option>

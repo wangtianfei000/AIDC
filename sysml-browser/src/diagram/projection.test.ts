@@ -69,4 +69,20 @@ describe('interconnection DiagramProjection', () => {
     expect(new Set(powerPorts.map((port) => port.semanticOwnerId)).size).toBe(4);
     expect(new Set(powerPorts.map((port) => port.id)).size).toBe(4);
   });
+
+  it('uses a short Chinese doc comment as a diagram label', () => {
+    const contextElementId = elementId('JingangNative10Architecture::JingangNative10');
+    const part = snapshot.elements.find((item) => item.qualifiedName === 'JingangNative10Architecture::JingangNative10::sensingSystem')!;
+    const localizedSnapshot: ModelSnapshot = {
+      ...snapshot,
+      elements: [...snapshot.elements, {
+        id: 'localized-doc', kind: 'DocStatement', name: null, qualifiedName: null,
+        ownerId: part.id, source: null, properties: { content: '感知系统' },
+      }],
+    };
+    const result = projectInterconnection(localizedSnapshot, {
+      viewId: 'localized-label', contextElementId, selection: { mode: 'owned', depth: 1 },
+    });
+    expect(result.model.nodes.find((node) => node.semanticElementId === part.id)?.label).toBe('感知系统');
+  });
 });

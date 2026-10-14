@@ -1,4 +1,5 @@
 import type { ModelElement, ModelRelationship, ModelSnapshot } from '../model/types';
+import { elementDisplayName } from '../model/displayName';
 import {
   DIAGRAM_MODEL_SCHEMA_VERSION,
   diagramEdgeId,
@@ -136,7 +137,7 @@ export function projectInterconnection(
     role: 'context',
     parentId: null,
     typeElementId: stringProperty(context, 'typeId') ?? null,
-    label: context.name ?? context.qualifiedName ?? context.kind,
+    label: elementDisplayName(snapshot, context),
     bounds: null,
     pinned: false,
   }];
@@ -150,7 +151,7 @@ export function projectInterconnection(
       role: 'part',
       parentId: diagramNodeId(options.viewId, semanticParentId),
       typeElementId: stringProperty(part, 'typeId') ?? null,
-      label: part.name ?? part.qualifiedName ?? part.kind,
+      label: elementDisplayName(snapshot, part),
       bounds: null,
       pinned: false,
     });
@@ -172,7 +173,7 @@ export function projectInterconnection(
         semanticElementId: endpoint.port.id,
         semanticOwnerId: endpoint.owner.id,
         nodeId,
-        label: endpoint.port.name ?? endpoint.path,
+        label: elementDisplayName(snapshot, endpoint.port),
         projection: endpoint.projection,
         side: 'UNDEFINED',
         order: 0,
