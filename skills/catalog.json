@@ -11,7 +11,7 @@
     },
     {
       "id": "robot-system-architecture",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "path": "robot-system-architecture/SKILL.md",
       "requiredCapabilities": ["sysml.validate", "sysml.open"],
       "hosts": ["codex", "cursor", "mcp"]
