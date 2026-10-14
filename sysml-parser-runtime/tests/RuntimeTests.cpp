@@ -338,6 +338,10 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
             attribute zero : Real = 0;
             attribute kilograms :> ISQ::mass = 1[kg];
             attribute grams :> ISQ::mass = 500[g];
+            attribute distance :> ISQ::length = 0.25[m];
+            attribute speed :> ISQ::speed = 0.96[m/s];
+            attribute gravity :> ISQ::acceleration = 9.81[m/s^2];
+            attribute powerLimit :> ISQ::power = 1[kW];
         }
         part inputs : Inputs;
         analysis check {
@@ -349,6 +353,12 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
             attribute divideResult : Real = 1 / inputs.zero;
             attribute cycleA : Real = cycleB + 1;
             attribute cycleB : Real = cycleA + 1;
+            attribute lengthResult :> ISQ::length = inputs.distance;
+            attribute speedResult :> ISQ::speed = inputs.speed;
+            attribute accelerationResult :> ISQ::acceleration = inputs.gravity;
+            attribute forceResult :> ISQ::force = inputs.kilograms * inputs.gravity;
+            attribute torqueResult :> ISQ::torque = inputs.kilograms * inputs.gravity * inputs.distance;
+            attribute powerResult :> ISQ::power = inputs.powerLimit;
             constraint durationTarget { total >= 1500[ms] }
         }
     })";
@@ -372,6 +382,19 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
     QCOMPARE(results.value("divideResult").value("status").toString(), QString("runtime-error"));
     QCOMPARE(results.value("cycleA").value("status").toString(), QString("cycle"));
     QCOMPARE(results.value("cycleB").value("status").toString(), QString("cycle"));
+    QCOMPARE(results.value("lengthResult").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("lengthResult").value("unit").toString(), QString("m"));
+    QCOMPARE(results.value("speedResult").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("speedResult").value("unit").toString(), QString("m/s"));
+    QCOMPARE(results.value("accelerationResult").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("accelerationResult").value("unit").toString(), QString("m/s^2"));
+    QCOMPARE(results.value("forceResult").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("forceResult").value("unit").toString(), QString("N"));
+    QCOMPARE(results.value("torqueResult").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("torqueResult").value("unit").toString(), QString("N.m"));
+    QCOMPARE(results.value("powerResult").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("powerResult").value("value").toDouble(), 1.0);
+    QCOMPARE(results.value("powerResult").value("unit").toString(), QString("kW"));
     const QJsonObject constraint = analysis.value("constraints").toArray().first().toObject();
     QCOMPARE(constraint.value("status").toString(), QString("pass"));
     QCOMPARE(constraint.value("margin").toDouble(), 0.0);

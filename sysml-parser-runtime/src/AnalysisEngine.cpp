@@ -55,6 +55,9 @@ const QHash<QString, UnitDefinition>& units()
         {"1", {"1", 1.0, {}}},
         {"g", {"g", 0.001, dims({{"M", 1}})}},
         {"kg", {"kg", 1.0, dims({{"M", 1}})}},
+        {"m", {"m", 1.0, dims({{"L", 1}})}},
+        {"m/s", {"m/s", 1.0, dims({{"L", 1}, {"T", -1}})}},
+        {"m/s^2", {"m/s^2", 1.0, dims({{"L", 1}, {"T", -2}})}},
         {"ms", {"ms", 0.001, dims({{"T", 1}})}},
         {"s", {"s", 1.0, dims({{"T", 1}})}},
         {"min", {"min", 60.0, dims({{"T", 1}})}},
@@ -65,7 +68,10 @@ const QHash<QString, UnitDefinition>& units()
         {"V", {"V", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -3}, {"I", -1}})}},
         {"J", {"J", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -2}})}},
         {"Wh", {"Wh", 3600.0, dims({{"M", 1}, {"L", 2}, {"T", -2}})}},
-        {"W", {"W", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -3}})}}
+        {"W", {"W", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -3}})}},
+        {"kW", {"kW", 1000.0, dims({{"M", 1}, {"L", 2}, {"T", -3}})}},
+        {"N", {"N", 1.0, dims({{"M", 1}, {"L", 1}, {"T", -2}})}},
+        {"N.m", {"N.m", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -2}})}}
     };
     return value;
 }
@@ -74,6 +80,11 @@ Dimensions expectedDimensions(const QString& typeName)
 {
     const QString type = typeName.section("::", -1);
     if (type == "mass") return units().value("kg").dimensions;
+    if (type == "length") return units().value("m").dimensions;
+    if (type == "speed") return units().value("m/s").dimensions;
+    if (type == "acceleration") return units().value("m/s^2").dimensions;
+    if (type == "force") return units().value("N").dimensions;
+    if (type == "torque") return units().value("N.m").dimensions;
     if (type == "duration" || type == "time") return units().value("s").dimensions;
     if (type == "electricCurrent") return units().value("A").dimensions;
     if (type == "electricCharge") return units().value("C").dimensions;
@@ -111,7 +122,7 @@ QString preferredProductUnit(const Quantity& left, const Quantity& right, const 
     if (pair == QSet<QString>{"V", "A"}) return "W";
     if (left.dimensions.isEmpty()) return right.unit;
     if (right.dimensions.isEmpty()) return left.unit;
-    const QStringList candidates{"kg", "s", "A", "C", "V", "W", "Wh", "J"};
+    const QStringList candidates{"kg", "m", "m/s", "m/s^2", "s", "A", "C", "V", "N", "N.m", "W", "Wh", "J"};
     for (const QString& candidate : candidates) if (units().value(candidate).dimensions == result) return candidate;
     return {};
 }
@@ -120,7 +131,7 @@ QString preferredDivisionUnit(const Quantity& left, const Quantity& right, const
 {
     if (left.unit == "Wh" && right.unit == "W") return "h";
     if (right.dimensions.isEmpty()) return left.unit;
-    const QStringList candidates{"kg", "s", "A", "C", "V", "W", "Wh", "J"};
+    const QStringList candidates{"kg", "m", "m/s", "m/s^2", "s", "A", "C", "V", "N", "N.m", "W", "Wh", "J"};
     for (const QString& candidate : candidates) if (units().value(candidate).dimensions == result) return candidate;
     return {};
 }
