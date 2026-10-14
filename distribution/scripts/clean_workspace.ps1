@@ -67,7 +67,6 @@ $relativeTargets = @(
 
 if ($RuntimeBuildsOnly) {
     $relativeTargets = @(
-        'sysml-parser-runtime\dist',
         'sysml-parser-runtime\build',
         'sysml-parser-runtime\build-p1',
         'sysml-parser-runtime\build-p1-full',
