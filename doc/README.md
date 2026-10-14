@@ -8,6 +8,7 @@
 | [机器人全流程工具链：开源工具选型目录](机器人全流程工具链_开源工具选型目录.md) | 各类开源候选、官方来源、集成方法、许可证线索、限制和选型验证方法 |
 | [机器人需求与验收定义：业务流程与 SysML 浏览器方案](需求与验收定义_深度调研与实施方案.md) | 单个 SysML v2 需求文档、外部 AI/技能文本编辑、只读需求表格/树/关系图/验证矩阵浏览和金刚 PoC |
 | [SysML 浏览器详细设计](SysML浏览器_详细设计.md) | Web SPA/PWA、首期 C++/ANTLR Parser localhost Runtime、分阶段能力门禁、通用只读浏览内核及可插拔需求与架构视图 |
+| [SysML 参数分析内核化重构计划](SysML参数分析内核化重构计划.md) | 将表达式、名称解析、类型、单位、量纲、Calculation 和 Constraint 求值从 Runtime 下沉到仓内 SysML engine，使 Runtime 回归 HTTP 编排与 JSON 序列化 |
 | [参考 Parser P0 基线与能力盘点](参考Parser_P0基线与能力盘点.md) | 实际构建与测试结果、可复现基线、需求/架构解析能力、阻断缺口、ModelSnapshot 契约和 P1 调整入口 |
 | [C++ 只读 Parser Runtime P1 实施报告](C++只读Parser_Runtime_P1实施报告.md) | localhost Runtime、ModelSnapshot Adapter、四个接口、安全边界、黑盒回归、Release 包及剩余 Parser 限制 |
 | [SysML 需求浏览器 P3 实施报告](需求浏览器_P3实施报告.md) | 只读 Web MVP、需求表格/树/追溯/矩阵/源码、端到端验证结果和 Parser 能力门禁 |
