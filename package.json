@@ -14,6 +14,7 @@
     "clean:preview": "powershell -NoProfile -ExecutionPolicy Bypass -File distribution/scripts/clean_workspace.ps1",
     "clean:legacy": "powershell -NoProfile -ExecutionPolicy Bypass -File distribution/scripts/clean_workspace.ps1 -Execute -IncludeLegacyCopies",
     "build:sysml-runtime": "powershell -NoProfile -ExecutionPolicy Bypass -File sysml-parser-runtime/build-runtime.ps1",
+    "verify:sysml-engine:p5": "python -X utf8 sysml-parser-runtime/tools/verify_engine_maintenance.py && python -X utf8 sysml-parser-runtime/tools/verify_p4_self_contained.py",
     "dev:browser": "npm --workspace aidc-sysml-browser run dev",
     "dev:model3d": "npm --workspace @aidc/model3d-browser run dev",
     "build:model3d": "npm --workspace @aidc/model3d-browser run build",

@@ -29,10 +29,12 @@ void RuntimeTests::healthAndCapabilities()
     const QJsonObject health = ModelSnapshotAdapter::healthResponse();
     QCOMPARE(health.value("status").toString(), QString("ok"));
     QCOMPARE(health.value("runtimeVersion").toString(), QString("1.0.0"));
+    QCOMPARE(health.value("engineVersion").toString(), QString(ModelSnapshotAdapter::EngineVersion));
     QCOMPARE(health.value("parserMode").toString(), QString(ModelSnapshotAdapter::ParserMode));
     QCOMPARE(health.value("qtDependency").toBool(), true);
     const QJsonObject capabilities = ModelSnapshotAdapter::capabilitiesResponse();
     QCOMPARE(capabilities.value("schemaVersion").toString(), QString("0.1"));
+    QCOMPARE(capabilities.value("engineVersion").toString(), QString(ModelSnapshotAdapter::EngineVersion));
     QCOMPARE(capabilities.value("parserMode").toString(), QString(ModelSnapshotAdapter::ParserMode));
     QCOMPARE(capabilities.value("qtDependency").toBool(), true);
 }

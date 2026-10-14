@@ -32,20 +32,16 @@ add_test(NAME aidc-p2-embedded-parser-tests COMMAND aidc-p2-embedded-parser-test
 find_package(Python3 QUIET COMPONENTS Interpreter)
 if(Python3_Interpreter_FOUND)
     add_test(
-        NAME aidc-p1-import-integrity
-        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_p1_import.py"
-    )
-    add_test(
-        NAME aidc-p2-import-integrity
-        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_p2_import.py"
-    )
-    add_test(
         NAME aidc-embedded-source-boundaries
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/check_embedded_source_boundaries.py"
     )
     add_test(
         NAME aidc-p4-self-contained
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_p4_self_contained.py"
+    )
+    add_test(
+        NAME aidc-p5-engine-maintenance
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/tools/verify_engine_maintenance.py"
     )
 endif()
 
@@ -69,6 +65,7 @@ target_include_directories(aidc_parser_runtime_core PUBLIC "${CMAKE_CURRENT_SOUR
 string(SUBSTRING "${AIDC_SYSML_ENGINE_SOURCE_DIGEST}" 0 16 AIDC_SYSML_ENGINE_DIGEST_SHORT)
 target_compile_definitions(aidc_parser_runtime_core PUBLIC
     AIDC_PARSER_MODE="embedded-antlr"
+    AIDC_PARSER_ENGINE_VERSION="${AIDC_SYSML_ENGINE_VERSION}"
     AIDC_PARSER_BASELINE="aidc-engine/${AIDC_SYSML_ENGINE_VERSION}+sha256:${AIDC_SYSML_ENGINE_DIGEST_SHORT}"
 )
 target_link_libraries(aidc_parser_runtime_core PUBLIC

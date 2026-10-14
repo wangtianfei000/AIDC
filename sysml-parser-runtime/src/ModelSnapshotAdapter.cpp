@@ -1341,6 +1341,7 @@ QJsonObject ModelSnapshotAdapter::capabilitiesResponse()
     const StandardLibraryIndex& standardLibrary = StandardLibraryIndex::instance();
     return {
         {"runtimeVersion", RuntimeVersion},
+        {"engineVersion", EngineVersion},
         {"schemaVersion", SchemaVersion},
         {"parserMode", ParserMode},
         {"parserBaseline", ParserBaseline},
@@ -1384,6 +1385,7 @@ QJsonObject ModelSnapshotAdapter::healthResponse()
     return {
         {"status", standardLibrary.isLoaded() ? "ok" : "degraded"},
         {"runtimeVersion", RuntimeVersion},
+        {"engineVersion", EngineVersion},
         {"schemaVersion", SchemaVersion},
         {"parserMode", ParserMode},
         {"parserBaseline", ParserBaseline},

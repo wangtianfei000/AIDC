@@ -3,6 +3,7 @@ import type { AnalysisSnapshot, ModelSnapshot } from '../model/types';
 export interface RuntimeHealth {
   status: string;
   runtimeVersion: string;
+  engineVersion: string;
   schemaVersion: string;
   parserBaseline: string;
 }

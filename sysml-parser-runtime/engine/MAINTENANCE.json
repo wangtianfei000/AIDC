@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "aidc.sysml-engine-maintenance/1.0",
+  "engineVersion": "0.2.1",
+  "antlrToolVersion": "4.13.2",
+  "grammar": {
+    "path": "engine/parser/grammar/SysML.g4",
+    "sha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93"
+  },
+  "generated": {
+    "files": [
+      "SysML.interp",
+      "SysML.tokens",
+      "SysMLBaseVisitor.cpp",
+      "SysMLBaseVisitor.h",
+      "SysMLLexer.cpp",
+      "SysMLLexer.h",
+      "SysMLLexer.interp",
+      "SysMLLexer.tokens",
+      "SysMLParser.cpp",
+      "SysMLParser.h",
+      "SysMLVisitor.cpp",
+      "SysMLVisitor.h"
+    ],
+    "sha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815"
+  },
+  "sourceDigest": "744092285383f11a3b4fa6987919e998a71d621c135e18834cdd6c5dd4b04cff",
+  "sourceFileCount": 190,
+  "history": [
+    {
+      "engineVersion": "0.2.1",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "744092285383f11a3b4fa6987919e998a71d621c135e18834cdd6c5dd4b04cff",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "P5 maintenance baseline; normalized generated provenance paths"
+    }
+  ]
+}

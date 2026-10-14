@@ -31,8 +31,6 @@ def main() -> int:
             text = path.read_text(encoding="utf-8", errors="strict")
             for line_number, line in enumerate(text.splitlines(), 1):
                 relative = path.relative_to(RUNTIME_ROOT).as_posix()
-                if relative.startswith("engine/parser/generated/") and line.startswith("// Generated from "):
-                    continue
                 if any(pattern.search(line) for pattern in FORBIDDEN):
                     violations.append(f"{relative}:{line_number}: {line.strip()}")
     if violations:

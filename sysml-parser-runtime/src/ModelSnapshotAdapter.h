@@ -15,6 +15,10 @@ namespace Aidc {
 #define AIDC_PARSER_BASELINE "9bfba0bced98b7586bab8a6d45746064aff70fe1+c2-64a64a94ea26a507"
 #endif
 
+#ifndef AIDC_PARSER_ENGINE_VERSION
+#define AIDC_PARSER_ENGINE_VERSION "unversioned"
+#endif
+
 struct ParseOutcome {
     QJsonObject snapshot;
     bool canceled = false;
@@ -24,6 +28,7 @@ class ModelSnapshotAdapter {
 public:
     static constexpr const char* SchemaVersion = "0.1";
     static constexpr const char* RuntimeVersion = "1.0.0";
+    static constexpr const char* EngineVersion = AIDC_PARSER_ENGINE_VERSION;
     static constexpr const char* ParserMode = AIDC_PARSER_MODE;
     static constexpr const char* ParserBaseline = AIDC_PARSER_BASELINE;
 

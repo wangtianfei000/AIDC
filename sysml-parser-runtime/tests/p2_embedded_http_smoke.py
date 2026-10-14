@@ -47,10 +47,12 @@ def main() -> int:
         status, health = request_json(base_url, "/health")
         assert status == 200 and health["status"] == "ok"
         assert health["parserMode"] == "embedded-antlr"
-        assert health["parserBaseline"].startswith("aidc-engine/0.2.0+sha256:")
+        assert health["engineVersion"]
+        assert health["parserBaseline"].startswith(f"aidc-engine/{health['engineVersion']}+sha256:")
 
         status, capabilities = request_json(base_url, "/capabilities")
         assert status == 200 and capabilities["parserMode"] == "embedded-antlr"
+        assert capabilities["engineVersion"] == health["engineVersion"]
 
         status, snapshot = request_json(
             base_url,

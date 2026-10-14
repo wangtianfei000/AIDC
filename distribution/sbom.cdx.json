@@ -112,7 +112,7 @@
         },
         {
           "name": "aidc:engineBaseline",
-          "value": "aidc-engine/0.2.0"
+          "value": "aidc-engine/0.2.1"
         }
       ]
     },

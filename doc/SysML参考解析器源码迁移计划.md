@@ -192,6 +192,8 @@ antlr4_static
 
 ### P5：建立长期维护规则
 
+**状态：已完成（2026-10-14）。** 已建立版本化 `MAINTENANCE.json`、模型新增覆盖策略、依赖边界检查、Grammar/生成代码原子更新工具和 CTest 门禁；Runtime 明确分别暴露 `runtimeVersion`、`engineVersion` 与 `schemaVersion`，来源同步记录由 `ORIGIN.md` 持续维护。
+
 1. Grammar、生成代码和生成器版本必须同一提交更新。
 2. 模型类新增时必须包含 Parser 构造测试和 Snapshot 投影测试。
 3. 禁止 engine 依赖浏览器、桌面 UI、AIDC CLI 或 RuntimeServer。
