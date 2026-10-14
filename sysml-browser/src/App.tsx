@@ -5,6 +5,7 @@ import {
   Search, Server, Settings2, ShieldCheck, SlidersHorizontal, Table2, Upload, X,
 } from 'lucide-react';
 import { ModelQuery } from './model/query';
+import { constrainPanelWidth, type PanelSide, type PanelWidths } from './model/panelLayout';
 import { visibleInspectorProperties } from './model/propertyVisibility';
 import type { AnalysisResult, AnalysisSnapshot, Diagnostic, ModelElement, ModelSnapshot, ModelSource, RequirementRecord } from './model/types';
 import { closeOpenDocument, type OpenModelDocument, upsertOpenDocument } from './model/workspace';
@@ -39,6 +40,18 @@ export default function App() {
   const [activeDocumentId, setActiveDocumentId] = useState<string>();
   const [busy, setBusy] = useState(false);
   const [runtimeError, setRuntimeError] = useState<string>();
+  const [panelWidths, setPanelWidths] = useState<PanelWidths>(() => {
+    const compact = window.innerWidth <= 1250;
+    const storedLeft = Number(localStorage.getItem('aidc-sysml-left-panel-width'));
+    const storedRight = Number(localStorage.getItem('aidc-sysml-right-panel-width'));
+    let widths = {
+      left: Number.isFinite(storedLeft) && storedLeft > 0 ? storedLeft : compact ? 285 : 320,
+      right: Number.isFinite(storedRight) && storedRight > 0 ? storedRight : compact ? 270 : 300,
+    };
+    widths = { ...widths, left: constrainPanelWidth('left', widths.left, widths, window.innerWidth) };
+    widths = { ...widths, right: constrainPanelWidth('right', widths.right, widths, window.innerWidth) };
+    return widths;
+  });
   const [view, setView] = useState(defaultViewId);
   const [selectedId, setSelectedId] = useState<string>();
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
@@ -60,6 +73,46 @@ export default function App() {
   const selected = query?.byId.get(selectedId ?? '');
   const selectedRequirement = requirements.find((item) => item.element.id === selectedId);
   const activeView = browserViews.find((item) => item.id === view) ?? browserViews[0];
+  useEffect(() => {
+    const fitPanels = () => setPanelWidths((current) => {
+      let next = { ...current, left: constrainPanelWidth('left', current.left, current, window.innerWidth) };
+      next = { ...next, right: constrainPanelWidth('right', current.right, next, window.innerWidth) };
+      return next;
+    });
+    window.addEventListener('resize', fitPanels);
+    return () => window.removeEventListener('resize', fitPanels);
+  }, []);
+
+  const setPanelWidth = useCallback((side: PanelSide, value: number, persist = true) => {
+    setPanelWidths((current) => {
+      const width = constrainPanelWidth(side, value, current, window.innerWidth);
+      const next = { ...current, [side]: width };
+      if (persist) localStorage.setItem(`aidc-sysml-${side}-panel-width`, String(width));
+      return next;
+    });
+  }, []);
+  const startPanelResize = (side: PanelSide, event: React.PointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const startX = event.clientX;
+    const startWidth = panelWidths[side];
+    let latestWidth = startWidth;
+    document.body.classList.add('panel-resizing');
+    const move = (moveEvent: PointerEvent) => {
+      const delta = side === 'left' ? moveEvent.clientX - startX : startX - moveEvent.clientX;
+      latestWidth = constrainPanelWidth(side, startWidth + delta, panelWidths, window.innerWidth);
+      setPanelWidths((current) => ({ ...current, [side]: latestWidth }));
+    };
+    const finish = () => {
+      document.body.classList.remove('panel-resizing');
+      localStorage.setItem(`aidc-sysml-${side}-panel-width`, String(latestWidth));
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', finish);
+      window.removeEventListener('pointercancel', finish);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', finish);
+    window.addEventListener('pointercancel', finish);
+  };
 
   const checkHealth = useCallback(async () => {
     try { const result = await client.health(); setHealth(result); setRuntimeError(undefined); return true; }
@@ -160,9 +213,6 @@ export default function App() {
   const openFiles = async (files: FileList | File[]) => {
     for (const file of Array.from(files)) await openFile(file);
   };
-  const loadSample = async () => { const response = await fetch('./samples/VehicleMode.sysml'); await parseSource({ name: 'VehicleMode.sysml', uri: 'sample:///VehicleMode.sysml', text: await response.text() }); };
-  const loadArchitectureSample = async () => { const response = await fetch('./samples/robot-architecture.sysml'); await parseSource({ name: 'robot-architecture.sysml', uri: 'sample:///robot-architecture.sysml', text: await response.text() }, 'analysis.table'); };
-  const loadAnalysisExceptionSample = async () => { const response = await fetch('./samples/analysis-exception-acceptance.sysml'); await parseSource({ name: 'analysis-exception-acceptance.sysml', uri: 'sample:///analysis-exception-acceptance.sysml', text: await response.text() }, 'analysis.table'); };
   const refresh = async () => { if (source) await parseSource({ ...source, text: source.file ? await source.file.text() : source.text }, view); };
   const activateDocument = useCallback((documentId: string, elementId?: string, viewId?: string) => {
     const document = documents.find((item) => item.id === documentId);
@@ -205,7 +255,7 @@ export default function App() {
   }, [snapshot, analysis]);
   const warnings = combinedDiagnostics.filter((item) => item.severity === 'warning').length;
 
-  return <div className="app-shell navigator-layout" onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); if (event.dataTransfer.files.length) void openFiles(event.dataTransfer.files); }}>
+  return <div className="app-shell navigator-layout" style={{ '--left-panel-width': `${panelWidths.left}px`, '--right-panel-width': `${panelWidths.right}px` } as React.CSSProperties} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); if (event.dataTransfer.files.length) void openFiles(event.dataTransfer.files); }}>
     <input ref={fileInput} type="file" multiple accept=".sysml,.kerml,text/plain" hidden onChange={(event) => { if (event.target.files?.length) void openFiles(event.target.files); event.target.value = ''; }} />
     <header className="topbar">
       <div className="topbar-brand"><span>A</span><strong>AIDC</strong></div>
@@ -214,7 +264,7 @@ export default function App() {
     </header>
 
     <main className="workspace">
-      {!snapshot ? <Welcome busy={busy} error={runtimeError} onOpen={() => fileInput.current?.click()} onSample={() => void loadSample()} onArchitecture={() => void loadArchitectureSample()} onAnalysisExceptions={() => void loadAnalysisExceptionSample()} /> : <>
+      {!snapshot ? <Welcome busy={busy} error={runtimeError} onOpen={() => fileInput.current?.click()} /> : <>
         <section className="workspace-head"><div className="workspace-title"><div className="view-history"><button type="button" aria-label="后退" title="后退" disabled={!canMoveNavigation(navigation.current, -1)} onClick={() => moveHistory(-1)}><ArrowLeft size={16} /></button><button type="button" aria-label="前进" title="前进" disabled={!canMoveNavigation(navigation.current, 1)} onClick={() => moveHistory(1)}><ArrowRight size={16} /></button></div><div><div className="eyebrow">{activeView?.hint}</div><h1>{activeView?.label}</h1>{selected && <span className="workspace-context">{selected.qualifiedName ?? selected.name}</span>}</div></div><div className="model-stats"><span><strong>{requirements.length}</strong> 需求</span><span><strong>{snapshot.relationships.length}</strong> 关系</span><button className={errors ? 'has-error' : ''} onClick={() => setDiagnosticsOpen(true)}><strong>{errors}</strong> 错误 · {warnings} 警告</button></div></section>
         <section className="view-surface">{busy && <div className="loading-overlay"><RefreshCw className="spin" /><span>正在解析并计算模型…</span></div>}{activeView && query && <activeView.component snapshot={snapshot} analysis={analysis} analysisError={analysisError} query={query} sourceText={source?.text ?? ''} selected={selected} selectedId={selectedId} viewContextId={currentNavigationEntry(navigation.current)?.viewContextId} viewState={currentNavigationEntry(navigation.current)?.viewState} onSelect={selectElement} selectInView={selectInView} openView={(viewId, elementId) => navigateTo(viewId, elementId ?? selectedId)} saveViewState={saveViewState} />}</section>
       </>}
@@ -224,7 +274,9 @@ export default function App() {
       {documents.length ? <ModelNavigator documents={documents} activeDocumentId={activeDocument?.id} selectedId={selectedId} activeViewId={view} onSelect={(documentId, elementId) => activateDocument(documentId, elementId)} onOpenView={(documentId, elementId, viewId) => activateDocument(documentId, elementId, viewId)} onShowProperties={(documentId, elementId) => activateDocument(documentId, elementId)} /> : <div className="navigator-empty"><Network size={28} /><strong>尚未打开模型</strong><span>打开 SysML 文件后在这里浏览模型结构。</span></div>}
       <div className="navigator-footer"><ShieldCheck size={15} /><span>只读浏览，不修改源文件</span></div>
     </aside>
+    <div className="panel-resizer panel-resizer-left" role="separator" aria-label="调整模型树宽度" aria-orientation="vertical" tabIndex={0} onPointerDown={(event) => startPanelResize('left', event)} onKeyDown={(event) => { if (event.key === 'ArrowLeft') setPanelWidth('left', panelWidths.left - 10); if (event.key === 'ArrowRight') setPanelWidth('left', panelWidths.left + 10); }} />
     <aside className="property-inspector"><div className="property-inspector-head"><SlidersHorizontal size={16} /><div><strong>属性查看</strong><span>当前模型元素</span></div></div><Inspector element={selected} requirement={selectedRequirement} analysisResult={analysis?.analyses.flatMap((item) => item.results).find((item) => item.parameterId === selectedId)} analysis={analysis} query={query} onSource={() => navigateTo('core.source', selectedId)} /></aside>
+    <div className="panel-resizer panel-resizer-right" role="separator" aria-label="调整属性栏宽度" aria-orientation="vertical" tabIndex={0} onPointerDown={(event) => startPanelResize('right', event)} onKeyDown={(event) => { if (event.key === 'ArrowLeft') setPanelWidth('right', panelWidths.right + 10); if (event.key === 'ArrowRight') setPanelWidth('right', panelWidths.right - 10); }} />
 
     {snapshot && <DiagnosticsBar diagnostics={combinedDiagnostics} open={diagnosticsOpen} onToggle={() => setDiagnosticsOpen((value) => !value)} onSelect={(diagnostic) => { const id = diagnostic.relatedElementIds?.[0]; if (diagnostic.source) navigateTo('core.source', id ?? selectedId); else if (id) selectElement(id); }} />}
     {settingsOpen && <div className="modal-backdrop" onMouseDown={() => setSettingsOpen(false)}><div className="settings-modal" onMouseDown={(event) => event.stopPropagation()}><div className="modal-head"><div><Server size={20} /><span><strong>Parser Runtime</strong><small>localhost 连接设置</small></span></div><button className="icon-button" onClick={() => setSettingsOpen(false)}><X size={18} /></button></div><label>Runtime URL<input value={runtimeUrl} onChange={(event) => setRuntimeUrl(event.target.value)} placeholder="http://127.0.0.1:47321" /></label><p>浏览器只向本机 Runtime 发送当前打开的 SysML 文本。文件不会上传到远程服务。</p><div className="modal-actions"><button className="ghost-button" onClick={() => setSettingsOpen(false)}>取消</button><button className="primary-button" onClick={saveRuntimeUrl}>保存并检测</button></div></div></div>}
@@ -334,6 +386,6 @@ function Inspector({ element, requirement, analysisResult, analysis, query, onSo
   return <div className="inspector-content"><div className="inspector-eyebrow">{element.kind}</div><h2>{element.name ?? '未命名元素'}</h2><code className="qualified-name">{element.qualifiedName ?? element.id}</code>{requirement && <div className="inspector-summary"><div><span>需求 ID</span><strong>{requirement.displayId}</strong></div><div><span>验证覆盖</span><strong>{requirement.coverage === 'unsupported' ? '暂不支持' : requirement.coverage}</strong></div></div>}{analysisResult && <section className="inspector-analysis"><h3>计算结果</h3><div className="inspector-summary"><div><span>当前值</span><strong>{analysisResult.value == null ? '—' : `${Number(analysisResult.value).toLocaleString('zh-CN', { maximumFractionDigits: 6 })} ${analysisResult.unit ?? ''}`}</strong></div><div><span>状态</span><strong>{analysisStatusLabel(analysisConstraint?.status ?? analysisResult.status)}</strong></div>{analysisConstraint && <><div><span>目标</span><strong>{analysisConstraint.target?.toLocaleString('zh-CN', { maximumFractionDigits: 6 })} {analysisConstraint.unit ?? ''}</strong></div><div><span>余量</span><strong>{analysisConstraint.margin?.toLocaleString('zh-CN', { maximumFractionDigits: 6 })} {analysisConstraint.unit ?? ''}</strong></div></>}</div></section>}{requirement?.statement && requirement.statement !== '—' && <section><h3>需求正文</h3><p className="statement-card">{requirement.statement}</p></section>}{requirement && requirement.constraints.length > 0 && <section><h3>需求约束 <span>{requirement.constraints.length}</span></h3><div className="constraint-list">{requirement.constraints.map((constraint, index) => <code key={`${constraint}-${index}`}>{constraint}</code>)}</div></section>}<section><h3>模型属性 <span>{properties.length}</span></h3>{properties.length ? <dl className="property-list">{properties.map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{typeof value === 'object' ? JSON.stringify(value) : String(value)}</dd></div>)}</dl> : <p className="muted-copy">没有可显示的模型属性</p>}</section><section><h3>{requirement ? '追溯关系' : '关系'} <span>{relationships.length}</span></h3><div className="relation-pills">{relationships.map((item) => <span key={item.id}>{relationshipText(item)}</span>)}{!relationships.length && <p className="muted-copy">{requirement ? '没有已解析的需求追溯关系' : '没有已解析关系'}</p>}</div></section><section><h3>源码位置</h3>{element.source ? <button className="source-link" onClick={onSource}><FileCode2 size={16} /><span>第 {element.source.start.line} 行，第 {element.source.start.column} 列</span><ChevronRight size={15} /></button> : <p className="muted-copy">Parser 未提供可靠位置</p>}</section></div>;
 }
 
-function Welcome({ busy, error, onOpen, onSample, onArchitecture, onAnalysisExceptions }: { busy: boolean; error?: string; onOpen: () => void; onSample: () => void; onArchitecture: () => void; onAnalysisExceptions: () => void }) { return <div className="welcome"><div className="welcome-graphic"><div className="orbit orbit-a" /><div className="orbit orbit-b" /><FileSearch size={48} /></div><div className="welcome-copy"><span className="welcome-kicker">SYSML V2 · READ ONLY</span><h1>从文本模型，看清机器人需求与架构</h1><p>打开模型后，在左侧导航树选择节点，并进入该节点适用的需求、架构或源码视图。</p>{error && <div className="welcome-error"><AlertTriangle size={17} /><span>{error}<small>请先启动本机 Parser Runtime，或在右上角设置连接地址。</small></span></div>}<div className="welcome-actions"><button className="primary-button large" onClick={onOpen} disabled={busy}><Upload size={18} />选择 SysML 文件</button><button className="ghost-button large" onClick={onSample} disabled={busy}>VehicleMode 示例</button><button className="ghost-button large" onClick={onArchitecture} disabled={busy}>架构示例</button><button className="ghost-button large" onClick={onAnalysisExceptions} disabled={busy}>计算异常示例</button></div><span className="drop-hint">也可以将 .sysml 文件拖到此窗口</span></div><div className="welcome-features"><span><Table2 />需求字段化</span><span><GitBranch />关系可追溯</span><span><ShieldCheck />源码只读</span></div></div>; }
+function Welcome({ busy, error, onOpen }: { busy: boolean; error?: string; onOpen: () => void }) { return <div className="welcome"><div className="welcome-graphic"><div className="orbit orbit-a" /><div className="orbit orbit-b" /><FileSearch size={48} /></div><div className="welcome-copy"><span className="welcome-kicker">SYSML V2 · READ ONLY</span><h1>从文本模型，看清机器人需求与架构</h1><p>打开模型后，在左侧导航树选择节点，并进入该节点适用的需求、架构或源码视图。</p>{error && <div className="welcome-error"><AlertTriangle size={17} /><span>{error}<small>请先启动本机 Parser Runtime，或在右上角设置连接地址。</small></span></div>}<div className="welcome-actions"><button className="primary-button large" onClick={onOpen} disabled={busy}><Upload size={18} />选择 SysML 文件</button></div><span className="drop-hint">也可以将一个或多个 .sysml / .kerml 文件拖到此窗口</span></div><div className="welcome-features"><span><Table2 />需求字段化</span><span><GitBranch />关系可追溯</span><span><ShieldCheck />源码只读</span></div></div>; }
 
 function DiagnosticsBar({ diagnostics, open, onToggle, onSelect }: { diagnostics: Diagnostic[]; open: boolean; onToggle: () => void; onSelect: (diagnostic: Diagnostic) => void }) { const errors = diagnostics.filter((item) => item.severity === 'error').length; const warnings = diagnostics.filter((item) => item.severity === 'warning').length; return <div className={`diagnostics ${open ? 'open' : ''}`}><button className="diagnostics-toggle" onClick={onToggle}><AlertTriangle size={15} /><span>解析诊断</span><em className={errors ? 'error-count' : ''}>{errors} 错误</em><em>{warnings} 警告</em><ChevronDown size={15} /></button>{open && <div className="diagnostics-list">{diagnostics.length ? diagnostics.map((item, index) => <button key={`${item.code}-${index}`} onClick={() => onSelect(item)}><span className={`severity-dot ${item.severity}`} /><code>{item.code}</code><p>{item.message}</p><small>{item.source ? `${item.source.start.line}:${item.source.start.column}` : '无源码位置'}</small></button>) : <div className="diagnostics-clean"><ShieldCheck size={18} />没有解析诊断</div>}</div>}</div>; }
