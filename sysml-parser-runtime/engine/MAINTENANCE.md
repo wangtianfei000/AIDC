@@ -1,6 +1,6 @@
 # SysML Engine 长期维护规则
 
-`engine/` 是 AIDC 直接维护的解析内核。`P1-IMPORT.json`、`P2-IMPORT.json` 和 `migration/` 只记录首次迁入历史，不再作为当前源码不可修改的约束。
+`engine/` 是 AIDC 直接维护的解析内核。`P1-IMPORT.json` 和 `P2-IMPORT.json` 只记录首次迁入来源，不再作为当前源码不可修改的约束。迁移过程的详细证据已从工作树清理，必要时可通过 Git 历史恢复。
 
 ## 必须通过的门禁
 

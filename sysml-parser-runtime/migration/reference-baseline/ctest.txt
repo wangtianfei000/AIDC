@@ -1,8 +1,0 @@
-Internal ctest changing into directory: D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/sysml-parser-runtime/build
-Test project D:/Document/4.AIStudy/13.AIProject/7.RoB/AIDC/sysml-parser-runtime/build
-    Start 1: aidc-parser-runtime-tests
-1/1 Test #1: aidc-parser-runtime-tests ........   Passed    2.93 sec
-
-100% tests passed, 0 tests failed out of 1
-
-Total Test time (real) =   2.93 sec

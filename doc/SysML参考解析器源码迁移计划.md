@@ -131,7 +131,7 @@ antlr4_static
 
 ### P0：冻结实际基线
 
-**状态：已完成（2026-10-13）。** 冻结产物位于 `sysml-parser-runtime/migration/reference-baseline/`，源码重建、C++、HTTP、浏览器集成与便携包验收均已通过，汇总见 `validation-summary.json`。
+**状态：已完成（2026-10-13）。** 源码重建、C++、HTTP、浏览器集成与便携包验收均已通过。冻结基线曾随提交 `02458ba` 保存，完成迁移后已从当前工作树清理，需要时可从 Git 历史恢复。
 
 1. 停止修改参考项目。
 2. 生成受控导入清单，记录每个迁移文件的来源、状态和 SHA-256。
@@ -164,7 +164,7 @@ antlr4_static
 
 ### P3：行为等价验证
 
-**状态：已完成（2026-10-13）。** 外部静态库与仓内实现均通过完整 HTTP 黑盒；7 组能力、模型、分析和错误输入快照规范化后逐字段一致。迁移同时在 AIDC 快照适配层消除了参考模型 `Transition::m_isInitial` 未初始化造成的随机输出，没有改动冻结的迁入源码。验证证据位于 `sysml-parser-runtime/migration/p3-validation.json`，默认构建已切换为 `embedded`。
+**状态：已完成（2026-10-13）。** 外部静态库与仓内实现均通过完整 HTTP 黑盒；7 组能力、模型、分析和错误输入快照规范化后逐字段一致。迁移同时在 AIDC 快照适配层消除了参考模型 `Transition::m_isInitial` 未初始化造成的随机输出，没有改动冻结的迁入源码。等价验证由提交 `7f7699e` 固化，默认构建已切换为 `embedded`。
 
 对同一组输入同时运行“旧外部静态库版本”和“AIDC 内建源码版本”，比较规范化后的输出：
 
@@ -209,7 +209,7 @@ antlr4_static
 3. `feat: build SysML parser from in-repository sources`
 4. `refactor: remove external reference parser dependency`
 
-P3 期间保留 CMake 开关 `AIDC_SYSML_ENGINE=external|embedded` 完成双实现对照；P3 证据冻结后，P4 已删除该开关和 `external` 分支。需要审计迁移差异时读取 `migration/p3-validation.json`，不恢复生产构建对外部目录的访问。
+P3 期间保留 CMake 开关 `AIDC_SYSML_ENGINE=external|embedded` 完成双实现对照；P3 证据冻结后，P4 已删除该开关和 `external` 分支。需要审计迁移差异时查看提交 `7f7699e`，不恢复生产构建对外部目录的访问。
 
 ## 8. 完成标准
 

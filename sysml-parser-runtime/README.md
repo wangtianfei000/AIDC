@@ -32,7 +32,7 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验源码边界、P4 自包含门禁和 P5 引擎维护契约。P1/P2 导入哈希保留为历史来源证据，不再阻止有版本记录和测试覆盖的正常源码修改。P3 的双实现等价结果保存在 `migration/p3-validation.json`；生产构建只有仓库内引擎这一条路径。
+该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验源码边界、P4 自包含门禁和 P5 引擎维护契约。P1/P2 导入清单只记录最初来源，不再阻止有版本记录和测试覆盖的正常源码修改。生产构建只有仓库内引擎这一条路径。
 
 常规构建直接使用已提交的 12 个 ANTLR 生成文件。只有修改 `engine/parser/grammar/SysML.g4` 时才需要 ANTLR Tool 4.13.2：
 
