@@ -12,12 +12,12 @@
       "exitCriteria": "Select an AIDC source and binary distribution license and add its text and notices."
     },
     {
-      "id": "reference-parser-license",
-      "severity": "critical",
-      "status": "blocked",
+      "id": "sysml-engine-provenance",
+      "severity": "high",
+      "status": "open",
       "owner": "project-owner",
-      "evidence": "Runtime 1.0.0 again links the external C++ ANTLR reference parser and deploys Qt runtime libraries.",
-      "exitCriteria": "Record the reference parser source/license provenance and include complete Qt, ANTLR and reference parser notices in the release."
+      "evidence": "P4 removed the external parser build branch and all production reference paths. Runtime 1.0.0 builds from the repository-maintained engine, vendored ANTLR runtime and dynamically deployed Qt libraries.",
+      "exitCriteria": "Complete the imported engine provenance review and include complete AIDC engine, Qt and ANTLR notices in the release."
     },
     {
       "id": "openmodelica-pack",
@@ -53,4 +53,3 @@
     }
   ]
 }
-

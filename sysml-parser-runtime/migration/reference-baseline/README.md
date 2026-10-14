@@ -25,10 +25,6 @@
 
 在 AIDC 根目录运行：
 
-```powershell
-python sysml-parser-runtime/tools/verify_reference_baseline.py
-```
-
-校验器会确认本地参考工作树、ANTLR 生成文件和 7 个静态库未变化；随后从记录的提交创建临时源码树，应用 `tracked-changes.patch`，合并 `untracked/`，逐文件比较规范化内容哈希。验证过程不会写入参考项目。
+该目录是 P0 冻结证据，不是当前构建输入。P4 已删除依赖本地参考工作树和静态库的重放脚本；当前构建由 `tools/verify_p4_self_contained.py` 保证只使用仓库内源码。需要追溯首次导入时，读取 manifest、补丁、未跟踪文件快照和 P3 等价结果，不要把历史参考目录重新接入生产构建。
 
 冻结脚本默认拒绝覆盖已有基线，只有显式添加 `--force` 才会重新生成，以免误删行为与测试证据。

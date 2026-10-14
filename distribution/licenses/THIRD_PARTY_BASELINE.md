@@ -9,7 +9,7 @@ P0 只冻结已知来源和发布闸门。此清单不替代最终安装包中�
 | Python 3.12.9 | PSF-2.0，wheels 各自许可 | 阻断 | 选择嵌入包并汇总 wheels 许可证 |
 | SysML v2 Standard Library 2026-08 | EPL-2.0 | 候选 | 保留 LICENSE 和来源/版本 |
 | AIDC SysML Parser Runtime | AIDC 项目许可证待定 | 阻断公开发行 | 发布前确定仓库许可证 |
-| C++ SysML 参考 Parser（提交 `9bfba0b`） | 待核实 | 阻断公开发行 | 记录源码来源、许可证与修改，并随发布包提供通知 |
+| AIDC 内置 SysML Parser Engine（历史基线 `9bfba0b`） | 来源与许可复核中 | 阻断公开发行 | 维护仓库内源码和变更记录，确认历史来源许可并随发布包提供通知；运行时不依赖外部工程 |
 | ANTLR4 C++ Runtime 4.13.2 | BSD-3-Clause | 已识别 | 保留版权和许可文本 |
 | Qt 6.8.1 Core/Network | LGPL-3.0-only/GPL 商业多许可 | 阻断公开发行 | 选择适用许可路径，保留 LGPL 文本、Qt 通知及可替换动态库机制 |
 | Three.js | MIT | 已识别 | 保留许可文本 |

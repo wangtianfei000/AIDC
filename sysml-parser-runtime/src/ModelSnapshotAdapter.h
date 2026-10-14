@@ -8,7 +8,7 @@
 namespace Aidc {
 
 #ifndef AIDC_PARSER_MODE
-#define AIDC_PARSER_MODE "reference-antlr"
+#define AIDC_PARSER_MODE "embedded-antlr"
 #endif
 
 #ifndef AIDC_PARSER_BASELINE

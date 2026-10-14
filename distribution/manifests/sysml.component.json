@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "id": "aidc.sysml",
   "displayName": "AIDC SysML Tools",
-  "description": "Read-only SysML parsing, analysis and browser resources.",
+  "description": "Read-only SysML parsing, analysis and browser resources with a repository-maintained C++/ANTLR engine.",
   "version": "1.0.0",
   "kind": "browser",
   "platform": "windows",

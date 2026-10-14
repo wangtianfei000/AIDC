@@ -10,4 +10,4 @@
 
 P1 迁入模型层；P2 继续迁入 Grammar、对应的 12 个 ANTLR 4.13.2 生成文件、`SysMLTextParser`、`ModelBuilderVisitor` 和独立 Serializer。P2 文件级来源、摘要和排除项见 `../P2-IMPORT.json`。
 
-桌面 UI、参考构建产物以及依赖架构图 UI metadata 的 `AnnotationParser` 未迁入核心 target。参考项目许可证仍为“待定”，因此公开发行继续受供应链闸门约束。
+桌面 UI、历史构建产物以及依赖架构图 UI metadata 的 `AnnotationParser` 未迁入核心 target。P4 起这些源码由 AIDC 仓库直接维护，构建和运行不再访问原项目；其历史来源和许可仍需在公开发行前完成复核。

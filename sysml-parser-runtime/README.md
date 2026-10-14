@@ -12,7 +12,7 @@
 | `POST` | `/analyze` | 输入 `{uri,text,requestId?}`，返回 AnalysisSnapshot，并附解析诊断 |
 | `POST` | `/cancel` | 输入 `{requestId}`，协作式取消活动任务 |
 
-`/parse` 和 `/analyze` 的请求 ID 通过响应头 `X-Request-Id` 返回。前者严格返回 ModelSnapshot；后者先解析再求值，返回 AnalysisSnapshot，并把 Parser 诊断放在 `parseDiagnostics`。取消是协作式的：参考 Parser 自身尚无中断点，因此正在执行的 ANTLR 阶段会完成，结果在返回前被丢弃。
+`/parse` 和 `/analyze` 的请求 ID 通过响应头 `X-Request-Id` 返回。前者严格返回 ModelSnapshot；后者先解析再求值，返回 AnalysisSnapshot，并把 Parser 诊断放在 `parseDiagnostics`。取消是协作式的：Parser 自身尚无中断点，因此正在执行的 ANTLR 阶段会完成，结果在返回前被丢弃。
 
 ## 构建
 
@@ -27,23 +27,12 @@
 也可直接执行独立的内建 Runtime 构建：
 
 ```powershell
-cmake -S . -B build-p2 -DAIDC_SYSML_ENGINE=embedded
-cmake --build build-p2
-ctest --test-dir build-p2 --output-on-failure
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
 ```
 
-该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验 P1/P2 导入哈希及源码路径边界。P3 行为等价验证已通过，CMake 与发行脚本默认使用 `embedded`；P4 删除外部路径前仍可显式指定 `-DAIDC_SYSML_ENGINE=external` 做回归对照。
-
-P3 双实现黑盒与字段级等价门禁：
-
-```powershell
-python -X utf8 tools/verify_p3_equivalence.py `
-  --external-runtime build-p2-external/bin/aidc-sysml-parser-runtime.exe `
-  --embedded-runtime build-p2/bin/aidc-sysml-parser-runtime.exe `
-  --output migration/p3-validation.json
-```
-
-门禁覆盖重复/并发解析、活动与非活动取消、非法语法、超大请求、Origin 限制、Schema、VehicleMode、金刚架构与计算，并对两个实现的规范化快照逐字段比较。
+该模式构建 `aidc_sysml_common`、`aidc_sysml_model`、`aidc_sysml_infrastructure`、`antlr4_static`、`aidc_sysml_parser`、独立的 `aidc_sysml_serializer` 和完整 HTTP Runtime，并校验 P1/P2 导入哈希、源码边界和 P4 自包含门禁。P3 的双实现等价结果保存在 `migration/p3-validation.json`；P4 已删除外部引擎开关、参考源码路径、参考构建路径和静态库分支，生产构建只有仓库内引擎这一条路径。
 
 常规构建直接使用已提交的 12 个 ANTLR 生成文件。只有修改 `engine/parser/grammar/SysML.g4` 时才需要 ANTLR Tool 4.13.2：
 

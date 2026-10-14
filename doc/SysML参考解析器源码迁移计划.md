@@ -2,7 +2,7 @@
 
 ## 1. 目标
 
-把当前位于 `D:\Document\7.AWorks\BlockSim\2.Development\SysML` 的参考解析器必要源码迁入 AIDC，由 `sysml-parser-runtime` 直接编译和维护，移除以下开发期外部依赖：
+把历史参考解析器的必要源码迁入 AIDC，由 `sysml-parser-runtime` 直接编译和维护，移除以下开发期外部依赖：
 
 - `REFERENCE_ROOT`
 - `REFERENCE_BUILD`
@@ -99,8 +99,8 @@ sysml-parser-runtime/
 │     ├─ VERSION
 │     └─ runtime/
 ├─ tools/
-│  ├─ import-reference-source.ps1
-│  └─ regenerate-parser.ps1
+│  ├─ regenerate-parser.ps1
+│  └─ verify_p4_self_contained.py
 ├─ src/                          # AIDC Runtime、Adapter、Analysis
 ├─ contracts/
 ├─ standard-library/
@@ -181,6 +181,8 @@ antlr4_static
 
 ### P4：切换并删除外部依赖
 
+**状态：已完成（2026-10-14）。** CMake 和发行构建脚本已删除双引擎开关、参考源码/构建参数以及外部静态库分支；一次性迁移脚本已删除，历史基线与 P3 等价结果继续作为只读证据保存。SBOM、依赖锁、第三方通知和供应链闸门已改为仓库内引擎口径，并新增自包含 CTest 门禁。
+
 1. 修改顶层 CMake 和 `build-runtime.ps1`，只引用仓库内 `engine`。
 2. 删除 `REFERENCE_ROOT`、`REFERENCE_BUILD` 和外部 `.a` 文件检查。
 3. 更新 README、SBOM、依赖锁、第三方通知和供应链闸门。
@@ -205,7 +207,7 @@ antlr4_static
 3. `feat: build SysML parser from in-repository sources`
 4. `refactor: remove external reference parser dependency`
 
-在 P3 完成前保留 CMake 开关 `AIDC_SYSML_ENGINE=external|embedded`，默认仍为 `external`。P3 通过后改为 `embedded`，P4 完成时删除 `external` 分支。这样每个阶段都能快速回退，并能做双实现差异测试。
+P3 期间保留 CMake 开关 `AIDC_SYSML_ENGINE=external|embedded` 完成双实现对照；P3 证据冻结后，P4 已删除该开关和 `external` 分支。需要审计迁移差异时读取 `migration/p3-validation.json`，不恢复生产构建对外部目录的访问。
 
 ## 8. 完成标准
 
@@ -219,4 +221,4 @@ antlr4_static
 
 ## 9. 建议执行顺序
 
-先执行 P0，冻结当前脏工作区对应的真实源码，而不是立即复制目录。随后完成 P1、P2，并保留一次外部/内建双实现对照；通过 P3 后再切换默认实现和删除外部路径。整个迁移不应同时修改语法或业务行为。
+P0–P4 已按顺序完成：冻结真实基线、迁入模型与 ANTLR、迁入 Parser、完成双实现等价验证、删除外部路径。后续按 P5 维护规则演进 Grammar 和模型层，不再把历史参考工程接回生产构建。

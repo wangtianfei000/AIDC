@@ -1,0 +1,54 @@
+{
+  "phase": "P4",
+  "completedAt": "2026-10-14T10:10:00+08:00",
+  "result": "passed",
+  "productionEngine": "repository-maintained-cpp-antlr",
+  "parserMode": "embedded-antlr",
+  "removedInputs": [
+    "REFERENCE_ROOT",
+    "REFERENCE_BUILD",
+    "AIDC_SYSML_ENGINE external branch",
+    "external parser static archives",
+    "one-shot reference import and comparison scripts"
+  ],
+  "preservedEvidence": [
+    "migration/reference-baseline",
+    "migration/p1-validation.json",
+    "migration/p2-validation.json",
+    "migration/p3-validation.json"
+  ],
+  "verification": [
+    {
+      "name": "P4 self-contained source gate",
+      "command": "python -X utf8 tools/verify_p4_self_contained.py",
+      "result": "passed"
+    },
+    {
+      "name": "clean runtime build and CTest",
+      "command": "build-runtime.ps1",
+      "result": "passed",
+      "tests": "8/8"
+    },
+    {
+      "name": "SysML browser P2-R4 regression",
+      "command": "npm --workspace aidc-sysml-browser run verify:p2",
+      "result": "passed",
+      "tests": "39/39"
+    },
+    {
+      "name": "supply-chain contract",
+      "command": "npm run verify:distribution:p0",
+      "result": "passed"
+    },
+    {
+      "name": "portable package build and launch",
+      "command": "npm run build:distribution:p2 && npm run verify:distribution:p2",
+      "result": "passed",
+      "browsers": [
+        "sysml.open",
+        "model3d.open",
+        "modelica.open"
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## 1. 边界
 
-浏览器只依赖 `ModelSnapshot`，不直接依赖 Qt `Resource*`、`Element*`、ANTLR 上下文或参考项目的类名。Parser Runtime 接收 UTF-8 SysML 文本和文档 URI，返回符合 `model-snapshot.schema.json` 的一次性只读快照。
+浏览器只依赖 `ModelSnapshot`，不直接依赖 Qt `Resource*`、`Element*`、ANTLR 上下文或引擎内部类名。Parser Runtime 接收 UTF-8 SysML 文本和文档 URI，返回符合 `model-snapshot.schema.json` 的一次性只读快照。
 
 ## 2. 操作
 
@@ -32,9 +32,9 @@ P0 只冻结契约，HTTP/进程传输在 P1 实现。
 - 语法恢复后产生的元素必须与 error 诊断同时返回，消费者不能把 `resourceCreated=true` 等同于解析成功。
 - 不用猜测补出 verify、derive、refine 等关系。能力为 `unsupported` 时，浏览器显示“Parser 尚不支持”。
 
-## 5. 当前参考 Parser 适配要求
+## 5. 当前内置 Parser 适配要求
 
-参考 Parser 现状不能直接满足 Schema：缺少稳定 ID、元素源码范围、结构化诊断和完整追溯关系。P1 必须增加 Adapter/IR 层，并先补足需求 MVP 使用到的元模型和 Visitor；Qt 对象模型只能作为进程内部中间状态。
+内置 Parser 的类型化对象树不能直接满足 Schema：缺少稳定 ID、元素源码范围、结构化诊断和完整追溯关系。Adapter/IR 层负责补齐需求 MVP 使用到的投影；Qt 对象模型只能作为进程内部中间状态。
 
 ## 6. C1 计算与视图扩展
 
