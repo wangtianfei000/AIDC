@@ -1,7 +1,6 @@
 #include "RuntimeServer.h"
 
-#include "ModelSnapshotAdapter.h"
-#include "AnalysisEngine.h"
+#include "services/SysMLKernelService.h"
 
 #include <QFutureWatcher>
 #include <QHostAddress>
@@ -120,11 +119,11 @@ void RuntimeServer::route(QTcpSocket* socket, const Request& request)
         return;
     }
     if (request.method == "GET" && request.path == "/health") {
-        writeJson(socket, 200, ModelSnapshotAdapter::healthResponse(), origin);
+        writeJson(socket, 200, SysMLKernelService::healthResponse(), origin);
         return;
     }
     if (request.method == "GET" && request.path == "/capabilities") {
-        writeJson(socket, 200, ModelSnapshotAdapter::capabilitiesResponse(), origin);
+        writeJson(socket, 200, SysMLKernelService::capabilitiesResponse(), origin);
         return;
     }
     if (request.method != "POST" || (request.path != "/parse" && request.path != "/analyze" && request.path != "/cancel")) {
@@ -181,14 +180,9 @@ void RuntimeServer::startAnalyze(QTcpSocket* socket,
         else writeJson(guardedSocket, 200, result.body, origin);
     });
     watcher->setFuture(QtConcurrent::run([uri, text, canceled] {
-        ModelSnapshotAdapter adapter;
-        const ParseOutcome parsed = adapter.parse(uri, text, canceled.get());
-        if (parsed.canceled) return WorkerResult{{}, true};
-        AnalysisEngine engine;
-        const AnalysisOutcome analyzed = engine.analyze(parsed.snapshot, canceled.get());
-        QJsonObject body = analyzed.snapshot;
-        body.insert("parseDiagnostics", parsed.snapshot.value("diagnostics"));
-        return WorkerResult{body, analyzed.canceled};
+        const KernelAnalysisOutcome analyzed =
+            SysMLKernelService().analyze(uri, text, canceled.get());
+        return WorkerResult{analyzed.snapshot, analyzed.canceled};
     }));
 }
 
@@ -240,8 +234,7 @@ void RuntimeServer::startParse(QTcpSocket* socket,
     });
 
     watcher->setFuture(QtConcurrent::run([uri, text, canceled] {
-        ModelSnapshotAdapter adapter;
-        const ParseOutcome outcome = adapter.parse(uri, text, canceled.get());
+        const ParseOutcome outcome = SysMLKernelService().parse(uri, text, canceled.get());
         return WorkerResult{outcome.snapshot, outcome.canceled};
     }));
 }

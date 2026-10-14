@@ -1,6 +1,6 @@
 {
   "schemaVersion": "aidc.sysml-engine-maintenance/1.0",
-  "engineVersion": "0.2.1",
+  "engineVersion": "0.5.1",
   "antlrToolVersion": "4.13.2",
   "grammar": {
     "path": "engine/parser/grammar/SysML.g4",
@@ -23,8 +23,8 @@
     ],
     "sha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815"
   },
-  "sourceDigest": "744092285383f11a3b4fa6987919e998a71d621c135e18834cdd6c5dd4b04cff",
-  "sourceFileCount": 190,
+  "sourceDigest": "46fa826ba488331dad6f3ff0d08db83005f4aa1153e393921a71cd320262521f",
+  "sourceFileCount": 201,
   "history": [
     {
       "engineVersion": "0.2.1",
@@ -33,6 +33,54 @@
       "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
       "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
       "note": "P5 maintenance baseline; normalized generated provenance paths"
+    },
+    {
+      "engineVersion": "0.3.0",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "b90f8ab8757205c144ec3509fa5a69460ae1068d67b181204f547b6ab926304c",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "Move unit-aware parameter analysis into the maintained SysML kernel"
+    },
+    {
+      "engineVersion": "0.3.1",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "5e8c616b8f4b817b4ecdb48f7654106e1bb02ef140b38dfd6654687135500f32",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "Move the standard-library symbol index into the SysML semantic kernel"
+    },
+    {
+      "engineVersion": "0.4.0",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "f3c2dada6e17d70ef7936eb3415d4e41c95f54adcb21f53b48c05c78c231e0f7",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "Move model snapshot and calculation projection behind the SysML kernel service boundary"
+    },
+    {
+      "engineVersion": "0.4.1",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "a01a44e1624a93be526bccbcca9931744f39eb378e295cb40190a0338020e7c5",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "Add a SysML kernel facade so Runtime only transports parse and analysis requests"
+    },
+    {
+      "engineVersion": "0.5.0",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "c0c39a6b4d436017a231a71e72da90b0a39b0613ac97cbeeb6a9fb05fd31d3fc",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "Bind analysis references deterministically by qualified path and canonical element ID"
+    },
+    {
+      "engineVersion": "0.5.1",
+      "recordedAt": "2026-10-14",
+      "sourceDigest": "46fa826ba488331dad6f3ff0d08db83005f4aa1153e393921a71cd320262521f",
+      "grammarSha256": "38220e37446f44eba61f7e1115e86205d0ac4d30f2d7962e643f059f828bbc93",
+      "generatedSha256": "a08173d6b54b0aeb4345b238aa850434af988da0a22d9cec11aa3ce4ba6a3815",
+      "note": "Expose health, capabilities, parse and analyze through the kernel facade"
     }
   ]
 }

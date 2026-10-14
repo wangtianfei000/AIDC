@@ -10,7 +10,7 @@ struct AnalysisOutcome {
     bool canceled = false;
 };
 
-class AnalysisEngine {
+class AnalysisService {
 public:
     static constexpr const char* EngineVersion = "0.1.0";
     AnalysisOutcome analyze(const QJsonObject& modelSnapshot,

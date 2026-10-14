@@ -1,6 +1,6 @@
 # AIDC SysML 只读 Parser Runtime
 
-该程序把仓库内维护的 C++/ANTLR Parser 和类型化模型封装为仅监听 `127.0.0.1` 的只读 HTTP Runtime。Runtime 使用 Qt Core、Network 和 Concurrent 提供模型适配、JSON 与本机 HTTP 服务；Web 浏览器只消费稳定 JSON 契约，不直接链接 Qt 或 ANTLR 类型。
+该程序把仓库内维护的 C++/ANTLR SysML 内核封装为仅监听 `127.0.0.1` 的只读 HTTP Runtime。Parser、标准库符号、单位/量纲和参数分析均位于 `engine/`；Runtime 使用 Qt Network 和 Concurrent 提供本机 HTTP、取消与超时，Web 浏览器只消费稳定 JSON 契约，不直接链接 Qt 或 ANTLR 类型。
 
 ## 接口
 
@@ -66,7 +66,7 @@ $env:PATH="D:/Software/Qt/6.8.1/mingw_64/bin;D:/Software/Qt/Tools/mingw1310_64/b
 - Parser 语法中没有 verify、derive、refine，Runtime 明确返回 `unsupported`，不会推测关系。
 - `requirement.constraint` 为 `supported`：Runtime 分别输出 `RequirementConstraint`、`AssertConstraint`、`AssumeConstraint` 和 `Constraint` 关系。该状态只表示已解析语句的适配完整，不代表参考 Parser 可接受所有正式 SysML v2 语法。
 - `calculation.definition`、`calculation.analysis` 和 `view.table-rendering` 已通过金刚 C0 契约黑盒测试；表达式 AST 当前覆盖标量字面量、单位、特征路径、四则运算、比较和函数调用，高级函数与集合表达式仍为 `partial`。
-- `/analyze` 支持确定性标量四则运算、函数输入绑定、无环依赖求值、兼容单位换算、量纲检查、除零/溢出/循环诊断，以及约束目标、余量和通过状态。首版单位覆盖质量、时间、电流、电荷、电压、能量和功率；幂、集合、`sum/min/max`、采样函数和外部求解器尚不支持。
+- `/analyze` 由 `engine/core/analysis` 提供确定性标量四则运算、函数输入绑定、无环依赖求值、兼容单位换算、量纲检查、除零/溢出/循环诊断，以及约束目标、余量和通过状态。`engine/core/semantic` 支持标准单位别名以及乘、除、整数幂组成的单位表达式；集合、`sum/min/max`、采样函数和外部求解器尚不支持。
 - View 文件跨文件解析时，`exposedReferences` 始终保留限定名；只有目标元素已位于当前解析资源中时才填写 `exposedElementIds`。跨文件链接将在后续工作区索引阶段完成。
 - Package 层级由源码大括号作用域校正，可在部分解析结果中保持模型导航树的包结构。普通模型元素的 owner 仍来自参考 Parser；解析错误较多时，个别非 Package 元素仍可能被挂到上级 Package。
 - Runtime 只接受无 Origin、`null` Origin 或 localhost/127.0.0.1 Web Origin，并限制请求大小。

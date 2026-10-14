@@ -1,8 +1,9 @@
 #include <QtTest>
 
-#include "ModelSnapshotAdapter.h"
-#include "StandardLibraryIndex.h"
-#include "AnalysisEngine.h"
+#include "services/ModelSnapshotAdapter.h"
+#include "semantic/StandardLibraryIndex.h"
+#include "semantic/UnitSystem.h"
+#include "analysis/AnalysisService.h"
 
 using namespace Aidc;
 
@@ -22,6 +23,7 @@ private slots:
     void calculationSemanticProjection();
     void tableViewSemanticProjection();
     void unitAwareAnalysisAndFailures();
+    void kernelUnitSystem();
 };
 
 void RuntimeTests::healthAndCapabilities()
@@ -344,10 +346,12 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
             attribute powerLimit :> ISQ::power = 1[kW];
         }
         part inputs : Inputs;
+        part otherInputs { attribute grams :> ISQ::mass = 250[g]; }
         analysis check {
             subject = inputs;
             attribute total :> ISQ::duration = AddDuration(inputs.lhs, inputs.second);
             attribute mixedMass :> ISQ::mass = AddMass(inputs.kilograms, inputs.grams);
+            attribute qualifiedMass :> ISQ::mass = AddMass(inputs.kilograms, otherInputs.grams);
             attribute badResult :> ISQ::mass = inputs.badMass;
             attribute missingResult : Real = inputs.notDeclared;
             attribute divideResult : Real = 1 / inputs.zero;
@@ -364,7 +368,7 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
     })";
     ModelSnapshotAdapter adapter;
     const QJsonObject model = adapter.parse("memory://analysis-test.sysml", text).snapshot;
-    AnalysisEngine engine;
+    AnalysisService engine;
     const QJsonObject analysis = engine.analyze(model).snapshot.value("analyses").toArray().first().toObject();
     QHash<QString, QJsonObject> results;
     for (const QJsonValue& value : analysis.value("results").toArray()) {
@@ -377,6 +381,9 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
     QCOMPARE(results.value("mixedMass").value("status").toString(), QString("computed"));
     QCOMPARE(results.value("mixedMass").value("value").toDouble(), 1.5);
     QCOMPARE(results.value("mixedMass").value("unit").toString(), QString("kg"));
+    QCOMPARE(results.value("qualifiedMass").value("status").toString(), QString("computed"));
+    QCOMPARE(results.value("qualifiedMass").value("value").toDouble(), 1.25);
+    QCOMPARE(results.value("qualifiedMass").value("unit").toString(), QString("kg"));
     QCOMPARE(results.value("badResult").value("status").toString(), QString("unit-error"));
     QCOMPARE(results.value("missingResult").value("status").toString(), QString("missing-input"));
     QCOMPARE(results.value("divideResult").value("status").toString(), QString("runtime-error"));
@@ -398,6 +405,24 @@ void RuntimeTests::unitAwareAnalysisAndFailures()
     const QJsonObject constraint = analysis.value("constraints").toArray().first().toObject();
     QCOMPARE(constraint.value("status").toString(), QString("pass"));
     QCOMPARE(constraint.value("margin").toDouble(), 0.0);
+}
+
+void RuntimeTests::kernelUnitSystem()
+{
+    const Semantic::UnitSystem& units = Semantic::UnitSystem::standard();
+    Semantic::UnitDefinition acceleration;
+    QVERIFY(units.resolve("m/s^2", &acceleration));
+    QCOMPARE(units.dimensionsText(acceleration.dimensions), QString("L^1 T^-2"));
+
+    Semantic::UnitDefinition compositeForce;
+    QVERIFY(units.resolve("kg*m/s^2", &compositeForce));
+    QCOMPARE(units.dimensionsText(compositeForce.dimensions), QString("L^1 M^1 T^-2"));
+    QCOMPARE(units.preferredUnit(compositeForce.dimensions), QString("N"));
+
+    Semantic::UnitDefinition compositeTorque;
+    QVERIFY(units.resolve("kg*m^2/s^2", &compositeTorque));
+    QCOMPARE(units.preferredUnit(compositeTorque.dimensions), QString("N.m"));
+    QVERIFY(!units.resolve("notAUnit"));
 }
 
 QTEST_MAIN(RuntimeTests)

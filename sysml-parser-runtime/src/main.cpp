@@ -1,5 +1,5 @@
 #include "RuntimeServer.h"
-#include "ModelSnapshotAdapter.h"
+#include "services/SysMLKernelService.h"
 
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
     QCoreApplication app(argc, argv);
     qInstallMessageHandler(runtimeMessageHandler);
     QCoreApplication::setApplicationName("aidc-sysml-parser-runtime");
-    QCoreApplication::setApplicationVersion(Aidc::ModelSnapshotAdapter::RuntimeVersion);
+    QCoreApplication::setApplicationVersion(Aidc::SysMLKernelService::RuntimeVersion);
 
     QCommandLineParser parser;
     parser.setApplicationDescription("AIDC read-only SysML v2 parser runtime");

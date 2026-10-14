@@ -78,6 +78,20 @@ def verify_boundaries() -> None:
             if pattern.search(text):
                 fail(f"{relative} crosses the {label} boundary")
 
+    runtime_semantic_rules = {
+        "unit catalog": re.compile(r"\bUnitDefinition\b|\bUnitSystem\b|expectedDimensions"),
+        "expression evaluator": re.compile(r"evaluateNode|ExpressionProjector|preferredProductUnit"),
+        "calculation projection": re.compile(r"calculationModel|CalculationDefinition|ConstraintEvaluator"),
+    }
+    runtime_source = ROOT / "src"
+    for path in runtime_source.glob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".cpp", ".h", ".hpp"}:
+            continue
+        text = path.read_text(encoding="utf-8", errors="strict")
+        for label, pattern in runtime_semantic_rules.items():
+            if pattern.search(text):
+                fail(f"{path.relative_to(ROOT).as_posix()} contains SysML {label}; move it into engine/")
+
 
 def main() -> int:
     manifest = verify_manifest()
@@ -92,6 +106,7 @@ def main() -> int:
                 "generatedFiles": len(GENERATED_FILES),
                 "modelPolicy": "pass",
                 "dependencyBoundaries": "pass",
+                "runtimeSemanticBoundary": "pass",
             },
             ensure_ascii=False,
         )

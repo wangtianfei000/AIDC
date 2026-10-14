@@ -48,29 +48,19 @@ endif()
 if(AIDC_BUILD_RUNTIME)
 find_package(Qt6 REQUIRED COMPONENTS Gui Network Concurrent)
 
-add_library(aidc_parser_runtime_core STATIC
-    src/ModelSnapshotAdapter.h
-    src/ModelSnapshotAdapter.cpp
-    src/StandardLibraryIndex.h
-    src/StandardLibraryIndex.cpp
-    src/AnalysisEngine.h
-    src/AnalysisEngine.cpp
-)
+add_library(aidc_parser_runtime_core INTERFACE)
 file(TO_CMAKE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/standard-library/2026-08/sysml.library" AIDC_SYSML_LIBRARY_ROOT)
-target_compile_definitions(aidc_parser_runtime_core PRIVATE
-    ANTLR4CPP_STATIC
+target_compile_definitions(aidc_sysml_semantic PRIVATE
     AIDC_DEFAULT_SYSML_LIBRARY_ROOT="${AIDC_SYSML_LIBRARY_ROOT}"
 )
-target_include_directories(aidc_parser_runtime_core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
 string(SUBSTRING "${AIDC_SYSML_ENGINE_SOURCE_DIGEST}" 0 16 AIDC_SYSML_ENGINE_DIGEST_SHORT)
-target_compile_definitions(aidc_parser_runtime_core PUBLIC
+target_compile_definitions(aidc_sysml_services PUBLIC
     AIDC_PARSER_MODE="embedded-antlr"
     AIDC_PARSER_ENGINE_VERSION="${AIDC_SYSML_ENGINE_VERSION}"
     AIDC_PARSER_BASELINE="aidc-engine/${AIDC_SYSML_ENGINE_VERSION}+sha256:${AIDC_SYSML_ENGINE_DIGEST_SHORT}"
 )
-target_link_libraries(aidc_parser_runtime_core PUBLIC
-    aidc_sysml_parser
-    Qt6::Core
+target_link_libraries(aidc_parser_runtime_core INTERFACE
+    aidc_sysml_services
 )
 
 add_executable(aidc-sysml-parser-runtime
@@ -78,6 +68,7 @@ add_executable(aidc-sysml-parser-runtime
     src/RuntimeServer.h
     src/RuntimeServer.cpp
 )
+target_include_directories(aidc-sysml-parser-runtime PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
 target_link_libraries(aidc-sysml-parser-runtime PRIVATE
     aidc_parser_runtime_core
     Qt6::Network
@@ -94,6 +85,7 @@ if(Python3_Interpreter_FOUND)
 endif()
 
 add_executable(aidc-parser-runtime-tests tests/RuntimeTests.cpp)
+target_include_directories(aidc-parser-runtime-tests PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
 target_link_libraries(aidc-parser-runtime-tests PRIVATE
     aidc_parser_runtime_core
     Qt6::Test

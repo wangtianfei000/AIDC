@@ -46,7 +46,7 @@
 #include "core/model/ExposeStatement.h"
 #include "core/model/ViewRenderingMember.h"
 #include "core/model/Transition.h"
-#include "StandardLibraryIndex.h"
+#include "semantic/StandardLibraryIndex.h"
 
 using namespace SysML;
 
@@ -1046,6 +1046,7 @@ ParseOutcome ModelSnapshotAdapter::parse(const QString& uri,
                                const QString& expression, const QString& unit) {
         QJsonObject parameter = {
             {"id", record.id}, {"elementId", record.id}, {"name", name},
+            {"qualifiedName", record.qualifiedName},
             {"role", role}, {"typeName", typeName.isEmpty() ? QJsonValue::Null : QJsonValue(typeName)},
             {"expression", expression.isEmpty() ? QJsonValue::Null : QJsonValue(expression)},
             {"expressionAst", expression.isEmpty() ? QJsonValue::Null : QJsonValue(expressionAst(expression))},

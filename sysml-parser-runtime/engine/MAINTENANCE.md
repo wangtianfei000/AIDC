@@ -17,6 +17,16 @@ python -X utf8 tools/verify_engine_maintenance.py
 2. 新增模型类必须在 `MODEL-MAINTENANCE.json.newModelCoverage` 中登记 Parser 构造测试和 ModelSnapshot 投影测试。
 3. `engine/` 不得引用浏览器、桌面 UI、AIDC CLI、`aidc_core`、`RuntimeServer`、Qt Widgets/Gui/Network。
 4. 当前版本必须对应维护历史中的最后一条记录。
+5. `src/` Runtime 层不得重新实现单位目录、表达式求值或 Calculation/Constraint 语义；这些能力必须位于 `engine/core/semantic`、`engine/core/analysis` 或 `engine/services`。
+
+## 参数分析边界
+
+- `engine/core/semantic` 维护标准库符号、类型、单位表达式和量纲规则；
+- `engine/core/analysis` 维护参数依赖、表达式求值、Calculation 调用和 Constraint 判断；
+- `engine/services` 是解析与分析门面，并负责稳定快照投影；
+- `src/RuntimeServer` 只负责 HTTP、并发、取消、超时和请求校验。
+
+增加单位或修改分析语义时必须修改内核及其测试。禁止在 Runtime 或浏览器中通过单位字符串白名单、公式正则或结果修正规则弥补内核缺口。
 
 CTest 中的 `aidc-p5-engine-maintenance` 会再次执行同一门禁，发行构建无法绕过。
 

@@ -1,7 +1,7 @@
 # SysML 参数分析内核化重构计划
 
-状态：待实施  
-规划日期：2026-10-14  
+状态：P0–P6 首轮实施完成（Kernel 0.5.1）
+规划日期：2026-10-14
 适用范围：`sysml-parser-runtime`、仓内 SysML `engine`、ModelSnapshot/AnalysisSnapshot 契约和 SysML 浏览器
 
 ## 1. 结论
@@ -342,3 +342,20 @@ ModelSnapshot 和 AnalysisSnapshot 仍是对外稳定契约，但由 Serializer 
 按 **P0 → P1 → P2 → P3 → P4 → P5 → P6** 顺序执行。P0–P3 完成前不再向 `src/AnalysisEngine.cpp` 增加新业务能力；确有生产阻断时只允许最小兼容修复，并必须同时增加待迁移测试。
 
 最关键的验收标准是：未来增加一个标准单位、修正一种表达式类型规则或加入新的约束语义时，只修改 `engine/` 及其测试；Runtime 和浏览器无需理解该语义。
+
+## 12. 实施结果
+
+2026-10-14 已按本计划完成首轮内核化：
+
+- `engine/core/semantic` 承接标准库符号索引、单位目录、复合单位解析和量纲规则；
+- `engine/core/analysis` 承接表达式求值、Calculation 调用、依赖图、单位换算和 Constraint 判断；
+- `engine/services` 承接模型快照投影以及 parse/analyze 内核门面；
+- `src/` 删除 `AnalysisEngine`、`ModelSnapshotAdapter` 和 `StandardLibraryIndex`，只保留 HTTP Runtime；
+- CMake 新增 `aidc_sysml_semantic`、`aidc_sysml_analysis`、`aidc_sysml_kernel` 和 `aidc_sysml_services` 分层 target；
+- 维护门禁会拒绝 Runtime 中重新出现单位目录、表达式求值和 Calculation 投影；
+- 单位表达式不再仅依赖完整字符串白名单，支持乘、除和整数幂组合；
+- 参数引用优先使用 Adapter 已绑定的稳定元素 ID，其余引用使用唯一限定路径；同名引用不再按 `QHash` 遍历顺序随机覆盖。
+
+迁移验证发现并修复了旧实现的非确定性缺陷：金刚模型中多个部件都具有 `planningMass`，旧求值器按简单名称保存到 `QHash`，不同进程可能选中不同部件。Kernel 0.5.1 按 `jingangV1.powerSystem.planningMass`、`jingangV1.phoneSystem.planningMass` 等限定路径绑定后，两个全新进程生成完全一致的 AnalysisSnapshot。当前模型得到 17 项结果、4 项约束全部通过、0 条分析错误；按模型声明计算的规划质量为 `15.318 kg`，续航为约 `2.0833 h`。
+
+当前 AnalysisService 仍接收 Kernel Service 生成的 CalculationModel 投影，这是为了保持 Schema 0.1 与现有浏览器完全兼容。该 JSON 只在 `engine/` 内部流转，Runtime 和浏览器不参与语义判断。后续若 Parser 模型层增加稳定的表达式对象所有权，可在不改变 HTTP 契约的情况下把内部载体替换为纯 C++ SemanticModel。

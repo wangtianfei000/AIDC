@@ -1,4 +1,5 @@
-#include "AnalysisEngine.h"
+#include "AnalysisService.h"
+#include "../semantic/UnitSystem.h"
 
 #include <QHash>
 #include <QJsonArray>
@@ -11,13 +12,9 @@
 namespace Aidc {
 namespace {
 
-using Dimensions = QHash<QString, int>;
-
-struct UnitDefinition {
-    QString symbol;
-    double factor = 1.0;
-    Dimensions dimensions;
-};
+using Semantic::Dimensions;
+using Semantic::UnitDefinition;
+using Semantic::UnitSystem;
 
 struct Quantity {
     bool valid = false;
@@ -31,88 +28,50 @@ struct Quantity {
     QSet<QString> sourceIds;
 };
 
-Dimensions dims(std::initializer_list<std::pair<QString, int>> values)
-{
-    Dimensions result;
-    for (const auto& [name, exponent] : values) if (exponent) result.insert(name, exponent);
-    return result;
-}
-
-Dimensions combine(Dimensions left, const Dimensions& right, int sign)
-{
-    for (auto it = right.begin(); it != right.end(); ++it) {
-        const int value = left.value(it.key()) + sign * it.value();
-        if (value) left.insert(it.key(), value); else left.remove(it.key());
-    }
-    return left;
-}
-
-bool sameDimensions(const Dimensions& left, const Dimensions& right) { return left == right; }
-
-const QHash<QString, UnitDefinition>& units()
-{
-    static const QHash<QString, UnitDefinition> value = {
-        {"1", {"1", 1.0, {}}},
-        {"g", {"g", 0.001, dims({{"M", 1}})}},
-        {"kg", {"kg", 1.0, dims({{"M", 1}})}},
-        {"m", {"m", 1.0, dims({{"L", 1}})}},
-        {"m/s", {"m/s", 1.0, dims({{"L", 1}, {"T", -1}})}},
-        {"m/s^2", {"m/s^2", 1.0, dims({{"L", 1}, {"T", -2}})}},
-        {"ms", {"ms", 0.001, dims({{"T", 1}})}},
-        {"s", {"s", 1.0, dims({{"T", 1}})}},
-        {"min", {"min", 60.0, dims({{"T", 1}})}},
-        {"h", {"h", 3600.0, dims({{"T", 1}})}},
-        {"A", {"A", 1.0, dims({{"I", 1}})}},
-        {"C", {"C", 1.0, dims({{"I", 1}, {"T", 1}})}},
-        {"Ah", {"Ah", 3600.0, dims({{"I", 1}, {"T", 1}})}},
-        {"V", {"V", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -3}, {"I", -1}})}},
-        {"J", {"J", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -2}})}},
-        {"Wh", {"Wh", 3600.0, dims({{"M", 1}, {"L", 2}, {"T", -2}})}},
-        {"W", {"W", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -3}})}},
-        {"kW", {"kW", 1000.0, dims({{"M", 1}, {"L", 2}, {"T", -3}})}},
-        {"N", {"N", 1.0, dims({{"M", 1}, {"L", 1}, {"T", -2}})}},
-        {"N.m", {"N.m", 1.0, dims({{"M", 1}, {"L", 2}, {"T", -2}})}}
-    };
-    return value;
-}
-
 Dimensions expectedDimensions(const QString& typeName)
 {
-    const QString type = typeName.section("::", -1);
-    if (type == "mass") return units().value("kg").dimensions;
-    if (type == "length") return units().value("m").dimensions;
-    if (type == "speed") return units().value("m/s").dimensions;
-    if (type == "acceleration") return units().value("m/s^2").dimensions;
-    if (type == "force") return units().value("N").dimensions;
-    if (type == "torque") return units().value("N.m").dimensions;
-    if (type == "duration" || type == "time") return units().value("s").dimensions;
-    if (type == "electricCurrent") return units().value("A").dimensions;
-    if (type == "electricCharge") return units().value("C").dimensions;
-    if (type == "electricPotential") return units().value("V").dimensions;
-    if (type == "energy") return units().value("J").dimensions;
-    if (type == "power") return units().value("W").dimensions;
-    return {};
+    return UnitSystem::standard().dimensionsForType(typeName);
 }
 
 QString dimensionsText(const Dimensions& dimensions)
 {
-    if (dimensions.isEmpty()) return "1";
-    QStringList keys = dimensions.keys();
-    keys.sort();
-    QStringList parts;
-    for (const QString& key : keys) parts.append(QStringLiteral("%1^%2").arg(key).arg(dimensions.value(key)));
-    return parts.join(" ");
+    return UnitSystem::standard().dimensionsText(dimensions);
+}
+
+bool sameDimensions(const Dimensions& left, const Dimensions& right)
+{
+    return UnitSystem::sameDimensions(left, right);
 }
 
 double displayValue(const Quantity& value, const QString& unit = {})
 {
     const QString selected = unit.isEmpty() ? value.unit : unit;
-    return units().contains(selected) ? value.siValue / units().value(selected).factor : value.siValue;
+    UnitDefinition definition;
+    return UnitSystem::standard().resolve(selected, &definition)
+        ? value.siValue / definition.factor
+        : value.siValue;
 }
 
 Quantity failure(const QString& status, const QString& message)
 {
     Quantity value; value.status = status; value.message = message; return value;
+}
+
+QString normalizedReference(QString value)
+{
+    value.replace("::", ".");
+    while (value.startsWith('.')) value.remove(0, 1);
+    return value;
+}
+
+QStringList referenceSuffixes(const QString& qualifiedName)
+{
+    const QStringList parts = normalizedReference(qualifiedName).split('.', Qt::SkipEmptyParts);
+    QStringList result;
+    for (int start = 0; start < parts.size(); ++start) {
+        result.append(parts.mid(start).join('.'));
+    }
+    return result;
 }
 
 QString preferredProductUnit(const Quantity& left, const Quantity& right, const Dimensions& result)
@@ -122,18 +81,14 @@ QString preferredProductUnit(const Quantity& left, const Quantity& right, const 
     if (pair == QSet<QString>{"V", "A"}) return "W";
     if (left.dimensions.isEmpty()) return right.unit;
     if (right.dimensions.isEmpty()) return left.unit;
-    const QStringList candidates{"kg", "m", "m/s", "m/s^2", "s", "A", "C", "V", "N", "N.m", "W", "Wh", "J"};
-    for (const QString& candidate : candidates) if (units().value(candidate).dimensions == result) return candidate;
-    return {};
+    return UnitSystem::standard().preferredUnit(result);
 }
 
 QString preferredDivisionUnit(const Quantity& left, const Quantity& right, const Dimensions& result)
 {
     if (left.unit == "Wh" && right.unit == "W") return "h";
     if (right.dimensions.isEmpty()) return left.unit;
-    const QStringList candidates{"kg", "m", "m/s", "m/s^2", "s", "A", "C", "V", "N", "N.m", "W", "Wh", "J"};
-    for (const QString& candidate : candidates) if (units().value(candidate).dimensions == result) return candidate;
-    return {};
+    return UnitSystem::standard().preferredUnit(result);
 }
 
 class Evaluator {
@@ -175,7 +130,11 @@ public:
         for (auto it = m_parameters.begin(); it != m_parameters.end(); ++it) {
             const QJsonObject parameter = it.value();
             if (!semanticOwners.contains(parameter.value("ownerId").toString()) && parameter.value("expressionAst").isObject()) {
-                m_globalParameterByName.insert(parameter.value("name").toString(), it.key());
+                QStringList keys = referenceSuffixes(parameter.value("qualifiedName").toString());
+                if (keys.isEmpty()) keys.append(parameter.value("name").toString());
+                for (const QString& key : keys) {
+                    if (!key.isEmpty()) m_globalParameterIdsByReference[key].append(it.key());
+                }
             }
         }
     }
@@ -211,7 +170,7 @@ public:
             {"schemaVersion", "0.1"},
             {"document", m_snapshot.value("document")},
             {"engine", QJsonObject{{"name", "AIDC Unit-aware Calculation Engine"},
-                                     {"version", AnalysisEngine::EngineVersion}}},
+                                     {"version", AnalysisService::EngineVersion}}},
             {"analyses", analyses}, {"diagnostics", m_diagnostics},
             {"capabilities", QJsonObject{{"scalar-arithmetic", "supported"},
                                            {"unit-conversion", "supported"},
@@ -267,7 +226,17 @@ private:
         for (int i = 0; i < inputIds.size(); ++i) {
             const QString inputId = inputIds.at(i).toString();
             const QString name = m_parameters.value(inputId).value("name").toString();
-            Quantity argument = evaluateNode(arguments.at(i).toObject(), {});
+            Quantity argument;
+            const QJsonArray bindings = usage.value("bindings").toArray();
+            const QString actualId = i < bindings.size()
+                ? bindings.at(i).toObject().value("actualParameterId").toString()
+                : QString();
+            if (!actualId.isEmpty() && m_parameters.contains(actualId)) {
+                addDependency(actualId);
+                argument = evaluateParameter(actualId);
+            } else {
+                argument = evaluateNode(arguments.at(i).toObject(), {});
+            }
             if (!argument.valid) return argument;
             const Dimensions expected = expectedDimensions(m_parameters.value(inputId).value("typeName").toString());
             if (!expected.isEmpty() && !sameDimensions(expected, argument.dimensions)) {
@@ -311,8 +280,10 @@ private:
             Quantity result; result.valid = true;
             if (node.value("value").isBool()) { result.boolean = true; result.boolValue = node.value("value").toBool(); return result; }
             const QString unit = node.value("unit").toString();
-            if (!unit.isEmpty() && !units().contains(unit)) return failure("unit-error", QStringLiteral("Unsupported unit %1").arg(unit));
-            const UnitDefinition definition = units().value(unit, UnitDefinition{"1", 1.0, {}});
+            UnitDefinition definition;
+            if (!UnitSystem::standard().resolve(unit, &definition)) {
+                return failure("unit-error", QStringLiteral("Unsupported unit %1").arg(unit));
+            }
             result.siValue = node.value("value").toDouble() * definition.factor;
             result.unit = unit; result.dimensions = definition.dimensions; return result;
         }
@@ -348,11 +319,13 @@ private:
                 result.siValue = op == "+" ? left.siValue + right.siValue : left.siValue - right.siValue;
                 result.dimensions = left.dimensions; result.unit = left.unit.isEmpty() ? right.unit : left.unit;
             } else if (op == "*") {
-                result.siValue = left.siValue * right.siValue; result.dimensions = combine(left.dimensions, right.dimensions, 1);
+                result.siValue = left.siValue * right.siValue;
+                result.dimensions = UnitSystem::combine(left.dimensions, right.dimensions, 1);
                 result.unit = preferredProductUnit(left, right, result.dimensions);
             } else if (op == "/") {
                 if (std::abs(right.siValue) < 1e-15) return failure("runtime-error", "Division by zero");
-                result.siValue = left.siValue / right.siValue; result.dimensions = combine(left.dimensions, right.dimensions, -1);
+                result.siValue = left.siValue / right.siValue;
+                result.dimensions = UnitSystem::combine(left.dimensions, right.dimensions, -1);
                 result.unit = preferredDivisionUnit(left, right, result.dimensions);
             } else if (op == "<" || op == "<=" || op == ">" || op == ">=" || op == "==" || op == "!=") {
                 if (!sameDimensions(left.dimensions, right.dimensions)) return failure("unit-error", "Comparison requires matching dimensions");
@@ -372,16 +345,25 @@ private:
 
     Quantity resolveReference(const QString& path)
     {
-        const QString simple = path.section('.', -1);
+        const QString normalized = normalizedReference(path);
+        const QString simple = normalized.section('.', -1);
         const QString analysisId = m_analysisParameterByName.value(m_currentAnalysisId).value(simple);
         if (!analysisId.isEmpty()) {
             addDependency(analysisId);
             return evaluateParameter(analysisId);
         }
-        const QString globalId = m_globalParameterByName.value(simple);
-        if (!globalId.isEmpty()) {
-            addDependency(globalId);
-            return evaluateParameter(globalId);
+        const QStringList exactIds = m_globalParameterIdsByReference.value(normalized);
+        if (exactIds.size() == 1) {
+            addDependency(exactIds.first());
+            return evaluateParameter(exactIds.first());
+        }
+        const QStringList simpleIds = m_globalParameterIdsByReference.value(simple);
+        if (simpleIds.size() == 1) {
+            addDependency(simpleIds.first());
+            return evaluateParameter(simpleIds.first());
+        }
+        if (!exactIds.isEmpty() || !simpleIds.isEmpty()) {
+            return failure("ambiguous-reference", QStringLiteral("Reference %1 is ambiguous").arg(path));
         }
         return failure("missing-input", QStringLiteral("Reference %1 is unresolved").arg(path));
     }
@@ -446,7 +428,11 @@ private:
                 if (ast.value("right").toObject().value("kind") == "reference") {
                     const QString name = ast.value("right").toObject().value("path").toString().section('.', -1);
                     QString targetId = m_analysisParameterByName.value(m_currentAnalysisId).value(name);
-                    if (targetId.isEmpty()) targetId = m_globalParameterByName.value(name);
+                    if (targetId.isEmpty()) {
+                        const QStringList ids = m_globalParameterIdsByReference.value(
+                            normalizedReference(ast.value("right").toObject().value("path").toString()));
+                        if (ids.size() == 1) targetId = ids.first();
+                    }
                     if (!targetId.isEmpty()) result.insert("targetParameterId", targetId);
                 }
             }
@@ -486,7 +472,8 @@ private:
     QJsonObject m_snapshot;
     const std::atomic_bool* m_canceled = nullptr;
     QHash<QString, QJsonObject> m_parameters, m_definitions, m_analyses;
-    QHash<QString, QString> m_definitionByName, m_globalParameterByName;
+    QHash<QString, QString> m_definitionByName;
+    QHash<QString, QStringList> m_globalParameterIdsByReference;
     QHash<QString, QJsonObject> m_usageByResult;
     QHash<QString, QList<QJsonObject>> m_constraintsByAnalysis;
     QHash<QString, QHash<QString, QString>> m_analysisParameterByName;
@@ -499,7 +486,7 @@ private:
 
 } // namespace
 
-AnalysisOutcome AnalysisEngine::analyze(const QJsonObject& modelSnapshot,
+AnalysisOutcome AnalysisService::analyze(const QJsonObject& modelSnapshot,
                                         const std::atomic_bool* canceled) const
 {
     if (canceled && canceled->load()) return {{}, true};

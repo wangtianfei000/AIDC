@@ -45,8 +45,8 @@ Runtime 0.6.0 在同一个 `ModelSnapshot 0.1` 中增加两个可选投影：
 
 这些投影是 Parser 语义对象的只读索引，不是第二套所有权模型。跨文件 `expose` 目标尚未加载时必须保留 `exposedReferences` 并将 `exposedElementIds` 留空，消费者不得按名称猜测目标。表达式 AST 当前为 `partial`，只承诺已经过测试的标量、单位、引用、四则、比较与调用子集。
 
-## 7. C2 计算扩展
+## 7. C2 计算扩展与内核边界
 
-Runtime 0.8.0 的 `/analyze` 在同一次只读请求中先生成 ModelSnapshot，再消费其 CalculationModel。`AnalysisSnapshot 0.1` 按分析返回结果、约束、求值顺序和直接依赖，结果状态限定为 `computed`、`missing-input`、`unit-error`、`unsupported`、`cycle` 或 `runtime-error`。约束在可以比较时返回 `actual`、`target`、`margin`、`unit`、`pass/fail` 和直接目标参数 ID。CalculationUsage 同时返回有序的形式参数/实际参数绑定，实际参数使用 ModelSnapshot 的稳定元素 ID。
+`/analyze` 委托 SysML Kernel Service 在同一次只读请求中完成解析、语义投影和参数分析。`AnalysisSnapshot 0.1` 按分析返回结果、约束、求值顺序和直接依赖，结果状态限定为 `computed`、`missing-input`、`unit-error`、`unsupported`、`cycle` 或 `runtime-error`。约束在可以比较时返回 `actual`、`target`、`margin`、`unit`、`pass/fail` 和直接目标参数 ID。CalculationUsage 同时返回有序的形式参数/实际参数绑定，实际参数使用 ModelSnapshot 的稳定元素 ID。
 
-数值统一换算到 SI 基值运算，并保留模型声明的显示单位。相加、相减和比较要求量纲一致；乘除生成合成量纲。未知单位、类型量纲冲突、除零、非有限结果和循环依赖必须产生显式诊断，不能返回伪数值。浏览器只消费计算结果，不执行 SysML 表达式。
+数值统一换算到 SI 基值运算，并保留模型声明的显示单位。相加、相减和比较要求量纲一致；乘除及整数幂单位表达式生成合成量纲。参数引用优先使用 Parser Adapter 已绑定的稳定元素 ID，其余引用必须按唯一限定路径解析；同名且无法唯一绑定时返回诊断，不得按容器遍历顺序选择。未知单位、类型量纲冲突、除零、非有限结果和循环依赖必须产生显式诊断，不能返回伪数值。浏览器只消费计算结果，不执行 SysML 表达式；Runtime 不维护单位、表达式或约束规则。

@@ -1,4 +1,5 @@
 add_subdirectory(core)
 add_subdirectory(parser)
+add_subdirectory(services)
 set(AIDC_SYSML_ENGINE_VERSION "${AIDC_SYSML_ENGINE_VERSION}" PARENT_SCOPE)
 set(AIDC_SYSML_ENGINE_SOURCE_DIGEST "${AIDC_SYSML_ENGINE_SOURCE_DIGEST}" PARENT_SCOPE)
