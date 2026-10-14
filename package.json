@@ -57,7 +57,7 @@
     "verify:distribution:p0": "python -X utf8 distribution/scripts/validate_p0.py",
     "test:cli": "python -X utf8 -m unittest discover -s tests/p1 -p test_*.py",
     "verify:geometry": "python -X utf8 -m unittest discover -s tests/p1 -p test_geometry_*.py -v",
-    "verify:runtime:p1": "python -X utf8 tests/p1/verify_runtime.py",
+    "verify:runtime:p1": "python -X utf8 tests/p1/verify_runtime.py && python -X utf8 tests/p1/verify_browser_lifecycle.py",
     "build:distribution:p2": "powershell -NoProfile -ExecutionPolicy Bypass -File distribution/scripts/build_portable.ps1",
     "verify:distribution:p2": "python -X utf8 tests/p2/verify_portable.py",
     "test:runtime-packs:p3": "python -X utf8 -m unittest discover -s tests/p3 -p test_*.py",

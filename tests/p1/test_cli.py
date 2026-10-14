@@ -4,7 +4,10 @@ import json
 import subprocess
 import sys
 import tempfile
+import threading
+import time
 import unittest
+import http.cookiejar
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -56,13 +59,46 @@ class P1ContractTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); (root / "index.html").write_text("ok", encoding="utf-8")
             server = GatewayServer(("127.0.0.1", 0), "secret", root, None, [], None)
-            import threading
             thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
             url = f"http://127.0.0.1:{server.server_address[1]}/"
-            with self.assertRaises(urllib.error.HTTPError) as caught: urllib.request.urlopen(url)
-            self.assertEqual(caught.exception.code, 401)
-            with urllib.request.urlopen(url + "?token=secret") as response: self.assertEqual(response.read(), b"ok")
-            server.shutdown(); server.server_close(); thread.join(2)
+            try:
+                with self.assertRaises(urllib.error.HTTPError) as caught: urllib.request.urlopen(url)
+                self.assertEqual(caught.exception.code, 401)
+                with urllib.request.urlopen(url + "?token=secret") as response:
+                    page = response.read()
+                    self.assertIn(b"ok", page)
+                    self.assertIn(b"data-aidc-session-client", page)
+            finally:
+                server.shutdown(); server.server_close(); thread.join(2)
+
+    def test_gateway_stops_when_last_browser_client_leaves(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / "index.html").write_text("<html><body>ok</body></html>", encoding="utf-8")
+            server = GatewayServer(("127.0.0.1", 0), "secret", root, None, [], None, disconnect_grace=0.2, heartbeat_timeout=2, registration_timeout=2)
+            thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
+            base = f"http://127.0.0.1:{server.server_address[1]}"
+            opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+            with opener.open(base + "/?token=secret") as response:
+                self.assertIn(b"data-aidc-session-client", response.read())
+
+            def client(action: str, client_id: str) -> dict:
+                request = urllib.request.Request(
+                    base + "/session/client/" + action,
+                    data=json.dumps({"clientId": client_id}).encode(),
+                    headers={"Content-Type": "application/json"},
+                    method="POST",
+                )
+                with opener.open(request) as response: return json.loads(response.read())
+
+            self.assertEqual(client("register", "first")["clients"], 1)
+            self.assertEqual(client("register", "second")["clients"], 2)
+            self.assertEqual(client("unregister", "first")["clients"], 1)
+            time.sleep(0.4)
+            self.assertTrue(thread.is_alive(), "一个页面仍连接时网关不应退出")
+            self.assertEqual(client("unregister", "second")["clients"], 0)
+            thread.join(3)
+            self.assertFalse(thread.is_alive(), "最后一个页面关闭后网关应退出")
+            server.server_close()
 
     @patch("aidc_core.runtime.os.name", "nt")
     @patch("aidc_core.runtime.subprocess.run")

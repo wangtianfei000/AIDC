@@ -29,7 +29,7 @@ Windows 开发工作区可以直接双击 `bin\aidc.cmd`，通过菜单启动三
 .\bin\aidc.cmd geometry validate --backend freecad-occ
 ```
 
-CLI 自动分配端口、执行健康检查、复用相同工程实例，并在 `%LOCALAPPDATA%\AIDC\state` 记录任务、进程和脱敏日志。`--json` 可以放在命令任意位置，输出 `aidc.cli-result/1.0` 结构。
+CLI 自动分配端口、执行健康检查、复用相同工程实例，并在 `%LOCALAPPDATA%\AIDC\state` 记录任务、进程和脱敏日志。浏览器页面通过会话注册和心跳绑定后台生命周期；最后一个页面关闭后，网关会在短暂重连窗口结束时关闭对应后端并退出。`--json` 可以放在命令任意位置，输出 `aidc.cli-result/1.0` 结构。
 
 ## 源码结构
 
@@ -57,6 +57,7 @@ FreeCAD、OpenModelica、Python 和 SysML Parser 的版本、摘要、许可证�
 npm run clean:preview
 npm run clean
 npm run clean:legacy
+npm run clean:sysml-runtime
 ```
 
-常规清理会删除包管理器依赖目录、编译输出、测试结果和缓存；`clean:legacy` 额外删除旧的 FreeCAD 源码镜像、根目录运行时、下载缓存、社区 MCP 副本和快捷方式。两种模式均保留产品源码、锁文件、标准库、样例输入和已安装的 `runtimes/`，也不会操作仓库之外的 `tools/`。依赖目录可用 `npm ci` 恢复，发行物可按使用说明重新构建。
+常规清理会删除包管理器依赖目录、编译输出、测试结果和缓存；`clean:legacy` 额外删除旧的 FreeCAD 源码镜像、根目录运行时、下载缓存、社区 MCP 副本和快捷方式。`clean:sysml-runtime` 只删除 SysML Runtime 编译缓存，保留菜单启动需要的 `dist`。这些模式均保留产品源码、锁文件、标准库、样例输入和已安装的 `runtimes/`，也不会操作仓库之外的 `tools/`。依赖目录可用 `npm ci` 恢复，发行物可按使用说明重新构建。

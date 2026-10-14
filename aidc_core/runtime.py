@@ -133,8 +133,9 @@ class RuntimeManager:
             task["state"] = "failed"; task["finishedAt"] = utc_now(); state["tasks"].append(task); self._save(state)
             raise
 
-    def _gateway(self, instance_id: str, public_port: int, token: str, arguments: list[str]) -> dict[str, Any]:
-        command = [sys.executable, "__gateway", "--port", str(public_port), *arguments] if getattr(sys, "frozen", False) else [sys.executable, "-m", "aidc_core.gateway", "--port", str(public_port), *arguments]
+    def _gateway(self, instance_id: str, public_port: int, token: str, arguments: list[str], managed_pids: list[int] | None = None) -> dict[str, Any]:
+        lifecycle_arguments = [value for pid in (managed_pids or []) for value in ("--managed-pid", str(pid))]
+        command = [sys.executable, "__gateway", "--port", str(public_port), *arguments, *lifecycle_arguments] if getattr(sys, "frozen", False) else [sys.executable, "-m", "aidc_core.gateway", "--port", str(public_port), *arguments, *lifecycle_arguments]
         environment = os.environ.copy(); environment["AIDC_SESSION_TOKEN"] = token
         if getattr(sys, "frozen", False): environment["PYINSTALLER_RESET_ENVIRONMENT"] = "1"
         return self._spawn(instance_id, "gateway", command, self.root, environment)
@@ -151,7 +152,7 @@ class RuntimeManager:
             self._wait_http(f"http://127.0.0.1:{runtime_port}/health", runtime["_process"])
             arguments = ["--static", str(static_root), "--map", f"/runtime=http://127.0.0.1:{runtime_port}"]
             if target: arguments.extend(["--input", str(target)])
-            gateway = self._gateway(instance_id, public_port, token, arguments)
+            gateway = self._gateway(instance_id, public_port, token, arguments, [runtime["pid"]])
             return [runtime, gateway]
         except Exception:
             self._stop_pid(runtime["pid"]); raise
@@ -184,7 +185,7 @@ class RuntimeManager:
         backend = self._spawn(instance_id, "modelica-project", arguments, self.root, environment)
         try:
             self._wait_http(f"http://127.0.0.1:{backend_port}/health", backend["_process"], 90)
-            gateway = self._gateway(instance_id, public_port, token, ["--proxy", f"http://127.0.0.1:{backend_port}"])
+            gateway = self._gateway(instance_id, public_port, token, ["--proxy", f"http://127.0.0.1:{backend_port}"], [backend["pid"]])
             return [backend, gateway]
         except Exception:
             self._stop_pid(backend["pid"]); raise
