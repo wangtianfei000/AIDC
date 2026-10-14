@@ -7,25 +7,36 @@ import {
 import { ModelQuery } from './model/query';
 import { visibleInspectorProperties } from './model/propertyVisibility';
 import type { AnalysisResult, AnalysisSnapshot, Diagnostic, ModelElement, ModelSnapshot, ModelSource, RequirementRecord } from './model/types';
+import { closeOpenDocument, type OpenModelDocument, upsertOpenDocument } from './model/workspace';
 import {
   canMoveNavigation, createNavigationState, currentNavigationEntry, moveNavigationState,
   navigateNavigationState, resetNavigationState, selectInCurrentNavigation, type NavigationEntry,
-  updateCurrentNavigationViewState,
+  updateCurrentNavigationViewState, type NavigationState,
 } from './navigation/history';
 import { analysisStatusLabel } from './plugins/parameterAnalysis';
 import { buildRequirements, isTraceRelationship } from './plugins/requirements';
 import { browserViews, defaultViewId } from './plugins/viewRegistry';
 import { ParserClient, ParserRuntimeError, type RuntimeHealth } from './services/parserClient';
 
-interface ContextMenuState { x: number; y: number; element: ModelElement }
+interface ContextMenuState { x: number; y: number; documentId: string; element: ModelElement }
+
+function defaultNavigationEntry(document: OpenModelDocument): NavigationEntry {
+  const query = new ModelQuery(document.snapshot);
+  const firstRequirement = buildRequirements(document.snapshot, query)[0];
+  const firstAnalysisView = document.snapshot.viewModel?.views.find((item) =>
+    document.snapshot.viewModel?.renderings.some((rendering) => rendering.id === item.renderingId && rendering.renderingKind === 'element-table'),
+  );
+  return {
+    selectedId: firstRequirement?.element.id ?? firstAnalysisView?.exposedElementIds[0] ?? firstAnalysisView?.id ?? document.snapshot.elements[0]?.id,
+    viewId: firstRequirement ? 'requirements.table' : firstAnalysisView ? 'analysis.table' : 'architecture.tree',
+  };
+}
+
 export default function App() {
   const [runtimeUrl, setRuntimeUrl] = useState(() => new URLSearchParams(window.location.search).get('runtime') ?? localStorage.getItem('aidc-runtime-url') ?? 'http://127.0.0.1:47321');
   const [health, setHealth] = useState<RuntimeHealth>();
-  const [source, setSource] = useState<ModelSource>();
-  const [snapshot, setSnapshot] = useState<ModelSnapshot>();
-  const [analysis, setAnalysis] = useState<AnalysisSnapshot>();
-  const [analysisError, setAnalysisError] = useState<string>();
-  const [staleSnapshot, setStaleSnapshot] = useState(false);
+  const [documents, setDocuments] = useState<OpenModelDocument[]>([]);
+  const [activeDocumentId, setActiveDocumentId] = useState<string>();
   const [busy, setBusy] = useState(false);
   const [runtimeError, setRuntimeError] = useState<string>();
   const [view, setView] = useState(defaultViewId);
@@ -33,10 +44,17 @@ export default function App() {
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const navigation = useRef(createNavigationState());
+  const documentNavigation = useRef(new Map<string, NavigationState>());
   const [, setNavigationRevision] = useState(0);
   const fileInput = useRef<HTMLInputElement>(null);
   const sessionInputLoaded = useRef(false);
   const client = useMemo(() => new ParserClient(runtimeUrl.replace(/\/$/, '')), [runtimeUrl]);
+  const activeDocument = documents.find((item) => item.id === activeDocumentId) ?? documents[0];
+  const source = activeDocument?.source;
+  const snapshot = activeDocument?.snapshot;
+  const analysis = activeDocument?.analysis;
+  const analysisError = activeDocument?.analysisError;
+  const staleSnapshot = activeDocument?.staleSnapshot ?? false;
   const query = useMemo(() => (snapshot ? new ModelQuery(snapshot) : undefined), [snapshot]);
   const requirements = useMemo(() => (snapshot && query ? buildRequirements(snapshot, query) : []), [snapshot, query]);
   const selected = query?.byId.get(selectedId ?? '');
@@ -49,8 +67,17 @@ export default function App() {
   }, [client]);
   useEffect(() => { void checkHealth(); }, [checkHealth]);
 
-  const resetNavigation = useCallback((entry: NavigationEntry) => {
-    navigation.current = resetNavigationState(entry);
+  const applyNavigation = useCallback((documentId: string, next: NavigationState) => {
+    navigation.current = next;
+    documentNavigation.current.set(documentId, next);
+    const entry = currentNavigationEntry(next);
+    if (entry) { setView(entry.viewId); setSelectedId(entry.selectedId); }
+    setNavigationRevision((value) => value + 1);
+  }, []);
+  const resetNavigation = useCallback((documentId: string, entry: NavigationEntry) => {
+    const next = resetNavigationState(entry);
+    navigation.current = next;
+    documentNavigation.current.set(documentId, next);
     setView(entry.viewId); setSelectedId(entry.selectedId);
     setNavigationRevision((value) => value + 1);
   }, []);
@@ -58,30 +85,38 @@ export default function App() {
     const next = navigateNavigationState(navigation.current, { viewId, selectedId: elementId, viewContextId: elementId });
     if (next === navigation.current) return;
     navigation.current = next;
+    if (activeDocumentId) documentNavigation.current.set(activeDocumentId, next);
     setView(viewId); setSelectedId(elementId);
     setNavigationRevision((value) => value + 1);
-  }, []);
+  }, [activeDocumentId]);
   const selectElement = useCallback((elementId: string) => {
     setSelectedId(elementId);
-  }, []);
+    if (activeDocumentId) {
+      navigation.current = selectInCurrentNavigation(navigation.current, elementId);
+      documentNavigation.current.set(activeDocumentId, navigation.current);
+    }
+  }, [activeDocumentId]);
   const selectInView = useCallback((elementId: string) => {
     navigation.current = selectInCurrentNavigation(navigation.current, elementId);
+    if (activeDocumentId) documentNavigation.current.set(activeDocumentId, navigation.current);
     setSelectedId(elementId);
-  }, []);
+  }, [activeDocumentId]);
   const moveHistory = (offset: -1 | 1) => {
     const next = moveNavigationState(navigation.current, offset);
     const entry = currentNavigationEntry(next);
     if (next === navigation.current || !entry) return;
     navigation.current = next;
+    if (activeDocumentId) documentNavigation.current.set(activeDocumentId, next);
     setView(entry.viewId); setSelectedId(entry.selectedId);
     setNavigationRevision((value) => value + 1);
   };
   const saveViewState = useCallback((viewState: Record<string, unknown>) => {
     navigation.current = updateCurrentNavigationViewState(navigation.current, viewState);
-  }, []);
+    if (activeDocumentId) documentNavigation.current.set(activeDocumentId, navigation.current);
+  }, [activeDocumentId]);
 
   const parseSource = useCallback(async (nextSource: ModelSource, preferredView?: string) => {
-    setBusy(true); setRuntimeError(undefined); setAnalysis(undefined); setAnalysisError(undefined); setSource(nextSource);
+    setBusy(true); setRuntimeError(undefined);
     try {
       const result = await client.parse(nextSource.uri, nextSource.text);
       let nextAnalysis: AnalysisSnapshot | undefined;
@@ -93,15 +128,20 @@ export default function App() {
       const firstAnalysisView = result.viewModel?.views.find((item) =>
         result.viewModel?.renderings.some((rendering) => rendering.id === item.renderingId && rendering.renderingKind === 'element-table'),
       );
-      setSnapshot(result); setAnalysis(nextAnalysis); setAnalysisError(nextAnalysisError); setStaleSnapshot(false);
-      resetNavigation({
+      const documentId = nextSource.uri;
+      setDocuments((current) => upsertOpenDocument(current, { id: documentId, source: nextSource, snapshot: result, analysis: nextAnalysis, analysisError: nextAnalysisError, staleSnapshot: false }));
+      setActiveDocumentId(documentId);
+      resetNavigation(documentId, {
         selectedId: firstRequirement?.element.id ?? firstAnalysisView?.exposedElementIds[0] ?? firstAnalysisView?.id ?? result.elements[0]?.id,
         viewId: preferredView ?? (firstRequirement ? 'requirements.table' : firstAnalysisView ? 'analysis.table' : 'architecture.tree'),
       });
       setDiagnosticsOpen(result.elements.length === 0 && result.diagnostics.some((item) => item.severity === 'error'));
-    } catch (error) { setRuntimeError(error instanceof ParserRuntimeError ? error.message : '解析失败'); setStaleSnapshot(Boolean(snapshot)); }
+    } catch (error) {
+      setRuntimeError(error instanceof ParserRuntimeError ? error.message : '解析失败');
+      setDocuments((current) => current.map((item) => item.id === nextSource.uri ? { ...item, staleSnapshot: true } : item));
+    }
     finally { setBusy(false); }
-  }, [client, resetNavigation, snapshot]);
+  }, [client, resetNavigation]);
   useEffect(() => {
     if (sessionInputLoaded.current) return;
     sessionInputLoaded.current = true;
@@ -114,13 +154,38 @@ export default function App() {
 
   const openFile = async (file: File) => {
     if (!file.name.toLowerCase().endsWith('.sysml') && !file.name.toLowerCase().endsWith('.kerml')) { setRuntimeError('请选择 .sysml 或 .kerml 文本文件'); return; }
-    await parseSource({ name: file.name, uri: `browser-file:///${encodeURIComponent(file.name)}`, text: await file.text(), file });
+    const identity = `${encodeURIComponent(file.name)}?size=${file.size}&modified=${file.lastModified}`;
+    await parseSource({ name: file.name, uri: `browser-file:///${identity}`, text: await file.text(), file });
+  };
+  const openFiles = async (files: FileList | File[]) => {
+    for (const file of Array.from(files)) await openFile(file);
   };
   const loadSample = async () => { const response = await fetch('./samples/VehicleMode.sysml'); await parseSource({ name: 'VehicleMode.sysml', uri: 'sample:///VehicleMode.sysml', text: await response.text() }); };
   const loadArchitectureSample = async () => { const response = await fetch('./samples/robot-architecture.sysml'); await parseSource({ name: 'robot-architecture.sysml', uri: 'sample:///robot-architecture.sysml', text: await response.text() }, 'analysis.table'); };
   const loadAnalysisExceptionSample = async () => { const response = await fetch('./samples/analysis-exception-acceptance.sysml'); await parseSource({ name: 'analysis-exception-acceptance.sysml', uri: 'sample:///analysis-exception-acceptance.sysml', text: await response.text() }, 'analysis.table'); };
   const refresh = async () => { if (source) await parseSource({ ...source, text: source.file ? await source.file.text() : source.text }, view); };
-  const openElementView = (elementId: string, viewId: string) => navigateTo(viewId, elementId);
+  const activateDocument = useCallback((documentId: string, elementId?: string, viewId?: string) => {
+    const document = documents.find((item) => item.id === documentId);
+    if (!document) return;
+    let next = documentNavigation.current.get(documentId) ?? createNavigationState(defaultNavigationEntry(document));
+    const current = currentNavigationEntry(next) ?? defaultNavigationEntry(document);
+    if (viewId) next = navigateNavigationState(next, { viewId, selectedId: elementId, viewContextId: elementId });
+    else if (elementId) next = selectInCurrentNavigation(next.index < 0 ? createNavigationState(current) : next, elementId);
+    setActiveDocumentId(documentId);
+    applyNavigation(documentId, next);
+  }, [applyNavigation, documents]);
+  const closeDocument = useCallback((documentId: string) => {
+    const result = closeOpenDocument(documents, documentId);
+    if (result.documents === documents) return;
+    setDocuments(result.documents); documentNavigation.current.delete(documentId);
+    if (activeDocumentId !== documentId) return;
+    const next = result.documents.find((item) => item.id === result.nextDocumentId);
+    if (next) activateDocument(next.id);
+    else {
+      setActiveDocumentId(undefined); navigation.current = createNavigationState(); setSelectedId(undefined); setView(defaultViewId);
+      setNavigationRevision((value) => value + 1);
+    }
+  }, [activeDocumentId, activateDocument, documents]);
   const saveRuntimeUrl = () => { localStorage.setItem('aidc-runtime-url', runtimeUrl.replace(/\/$/, '')); setSettingsOpen(false); void checkHealth(); };
   const errors = (snapshot?.diagnostics.filter((item) => item.severity === 'error').length ?? 0) + (analysis?.diagnostics.filter((item) => item.severity === 'error').length ?? 0);
   const combinedDiagnostics = useMemo<Diagnostic[]>(() => {
@@ -140,11 +205,11 @@ export default function App() {
   }, [snapshot, analysis]);
   const warnings = combinedDiagnostics.filter((item) => item.severity === 'warning').length;
 
-  return <div className="app-shell navigator-layout" onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); const file = event.dataTransfer.files[0]; if (file) void openFile(file); }}>
-    <input ref={fileInput} type="file" accept=".sysml,.kerml,text/plain" hidden onChange={(event) => { const file = event.target.files?.[0]; if (file) void openFile(file); event.target.value = ''; }} />
+  return <div className="app-shell navigator-layout" onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); if (event.dataTransfer.files.length) void openFiles(event.dataTransfer.files); }}>
+    <input ref={fileInput} type="file" multiple accept=".sysml,.kerml,text/plain" hidden onChange={(event) => { if (event.target.files?.length) void openFiles(event.target.files); event.target.value = ''; }} />
     <header className="topbar">
       <div className="topbar-brand"><span>A</span><strong>AIDC</strong></div>
-      <div className="document-identity"><FileCode2 size={20} /><div><strong>{source?.name ?? '尚未打开模型'}</strong><span>{snapshot ? `${requirements.length} 条需求 · ${snapshot.elements.length} 个元素` : 'SysML v2 只读浏览'}</span></div>{staleSnapshot && <span className="stale-chip">旧快照</span>}</div>
+      <div className="document-identity"><FileCode2 size={20} /><div><strong>{source?.name ?? '尚未打开模型'}</strong><span>{snapshot ? `${requirements.length} 条需求 · ${snapshot.elements.length} 个元素${documents.length > 1 ? ` · 已打开 ${documents.length} 个模型` : ''}` : 'SysML v2 只读浏览'}</span></div>{staleSnapshot && <span className="stale-chip">旧快照</span>}</div>
       <div className="topbar-actions"><div className={`runtime-chip ${health ? 'online' : 'offline'}`} title={health?.parserBaseline ?? runtimeError}><CircleDot size={13} /> Runtime {health ? `v${health.runtimeVersion}` : '离线'}</div><button className="ghost-button" onClick={() => void refresh()} disabled={!source || busy}><RefreshCw size={16} className={busy ? 'spin' : ''} />刷新</button><button className="primary-button" onClick={() => fileInput.current?.click()}><Upload size={16} />打开 SysML</button><button className="icon-button" onClick={() => setSettingsOpen(true)} aria-label="Runtime 设置"><Settings2 size={18} /></button></div>
     </header>
 
@@ -156,7 +221,7 @@ export default function App() {
     </main>
 
     <aside className="model-dock">
-      {query && snapshot ? <ModelNavigator query={query} snapshot={snapshot} selectedId={selectedId} activeViewId={view} onSelect={selectElement} onOpenView={openElementView} onShowProperties={selectElement} /> : <div className="navigator-empty"><Network size={28} /><strong>尚未打开模型</strong><span>打开 SysML 文件后在这里浏览模型结构。</span></div>}
+      {documents.length ? <ModelNavigator documents={documents} activeDocumentId={activeDocument?.id} selectedId={selectedId} activeViewId={view} onActivate={activateDocument} onSelect={(documentId, elementId) => activateDocument(documentId, elementId)} onOpenView={(documentId, elementId, viewId) => activateDocument(documentId, elementId, viewId)} onShowProperties={(documentId, elementId) => activateDocument(documentId, elementId)} onClose={closeDocument} /> : <div className="navigator-empty"><Network size={28} /><strong>尚未打开模型</strong><span>打开 SysML 文件后在这里浏览模型结构。</span></div>}
       <div className="navigator-footer"><ShieldCheck size={15} /><span>只读浏览，不修改源文件</span></div>
     </aside>
     <aside className="property-inspector"><div className="property-inspector-head"><SlidersHorizontal size={16} /><div><strong>属性查看</strong><span>当前模型元素</span></div></div><Inspector element={selected} requirement={selectedRequirement} analysisResult={analysis?.analyses.flatMap((item) => item.results).find((item) => item.parameterId === selectedId)} analysis={analysis} query={query} onSource={() => navigateTo('core.source', selectedId)} /></aside>
@@ -166,29 +231,75 @@ export default function App() {
   </div>;
 }
 
-function ModelNavigator({ query, snapshot, selectedId, activeViewId, onSelect, onOpenView, onShowProperties }: { query: ModelQuery; snapshot: ModelSnapshot; selectedId?: string; activeViewId: string; onSelect: (id: string) => void; onOpenView: (id: string, viewId: string) => void; onShowProperties: (id: string) => void }) {
+export function ModelNavigator({ documents, activeDocumentId, selectedId, activeViewId, onActivate, onSelect, onOpenView, onShowProperties, onClose }: {
+  documents: OpenModelDocument[];
+  activeDocumentId?: string;
+  selectedId?: string;
+  activeViewId: string;
+  onActivate: (documentId: string) => void;
+  onSelect: (documentId: string, id: string) => void;
+  onOpenView: (documentId: string, id: string, viewId: string) => void;
+  onShowProperties: (documentId: string, id: string) => void;
+  onClose: (documentId: string) => void;
+}) {
   const [expanded, setExpanded] = useState(() => new Set<string>());
   const [search, setSearch] = useState('');
   const [menu, setMenu] = useState<ContextMenuState>();
-  useEffect(() => { setExpanded(new Set(query.children(null).map((item) => item.id))); }, [query]);
+  const models = useMemo(() => documents.map((document) => ({ ...document, query: new ModelQuery(document.snapshot) })), [documents]);
+  const modelKey = (documentId: string) => `model:${documentId}`;
+  const nodeKey = (documentId: string, elementId: string) => `node:${documentId}:${elementId}`;
+  useEffect(() => {
+    setExpanded((current) => {
+      const next = new Set(current);
+      for (const model of models) {
+        next.add(modelKey(model.id));
+        for (const root of model.query.children(null)) next.add(nodeKey(model.id, root.id));
+      }
+      return next;
+    });
+  }, [models]);
   useEffect(() => { const close = () => setMenu(undefined); window.addEventListener('click', close); return () => window.removeEventListener('click', close); }, []);
   const isNavigable = (element: ModelElement) => !['LibraryElement', 'LibraryPackage'].includes(element.kind);
-  const navigableChildren = (ownerId: string | null) => query.children(ownerId).filter(isNavigable);
   const matches = (element: ModelElement) => !search.trim() || `${element.name ?? ''} ${element.kind} ${element.qualifiedName ?? ''}`.toLowerCase().includes(search.trim().toLowerCase());
-  const hasMatchingDescendant = (element: ModelElement) => query.descendants(element.id).some((item) => isNavigable(item) && matches(item));
-  const toggle = (id: string) => setExpanded((current) => { const next = new Set(current); next.has(id) ? next.delete(id) : next.add(id); return next; });
-  const render = (ownerId: string | null, depth: number): React.ReactNode => navigableChildren(ownerId).filter((element) => matches(element) || hasMatchingDescendant(element)).map((element) => {
-    const children = navigableChildren(element.id); const isExpanded = expanded.has(element.id) || Boolean(search); const actions = viewsForElement(element, snapshot, query); const primary = actions[0];
-    return <div key={element.id}><div className={`navigator-row ${selectedId === element.id ? 'selected' : ''}`} style={{ paddingLeft: 8 + depth * 16 }} onContextMenu={(event) => { event.preventDefault(); onSelect(element.id); setMenu({ x: event.clientX, y: event.clientY, element }); }}>
-      <button className="tree-expander" onClick={() => children.length && toggle(element.id)} aria-label={isExpanded ? '折叠节点' : '展开节点'}>{children.length ? <ChevronRight size={14} className={isExpanded ? 'expanded' : ''} /> : <span />}</button>
-      <button className="navigator-node" onClick={() => onSelect(element.id)} title={element.qualifiedName ?? element.name ?? element.kind}><KindIcon kind={element.kind} /><span><strong>{element.name ?? '未命名元素'}</strong><small>{element.kind}</small></span></button>
-      {primary && <button className={`node-open ${selectedId === element.id && activeViewId === primary.id ? 'active' : ''}`} onClick={() => onOpenView(element.id, primary.id)} title={`打开${primary.label}`} aria-label={`打开 ${element.name ?? element.kind} 的${primary.label}`}><ExternalLink size={14} /></button>}
-      <button className="node-menu" onClick={(event) => { event.stopPropagation(); setMenu({ x: event.clientX, y: event.clientY, element }); }} aria-label={`更多 ${element.name ?? element.kind} 视图`}><MoreHorizontal size={15} /></button>
-    </div>{isExpanded && render(element.id, depth + 1)}</div>;
+  const toggle = (key: string) => setExpanded((current) => { const next = new Set(current); next.has(key) ? next.delete(key) : next.add(key); return next; });
+
+  const renderElements = (model: typeof models[number], ownerId: string | null, depth: number, modelMatches: boolean): React.ReactNode => {
+    const childrenFor = (id: string | null) => model.query.children(id).filter(isNavigable);
+    const hasMatchingDescendant = (element: ModelElement) => model.query.descendants(element.id).some((item) => isNavigable(item) && matches(item));
+    return childrenFor(ownerId).filter((element) => modelMatches || matches(element) || hasMatchingDescendant(element)).map((element) => {
+      const children = childrenFor(element.id);
+      const key = nodeKey(model.id, element.id);
+      const isExpanded = expanded.has(key) || Boolean(search);
+      const actions = viewsForElement(element, model.snapshot, model.query);
+      const primary = actions[0];
+      const selected = activeDocumentId === model.id && selectedId === element.id;
+      return <div key={`${model.id}:${element.id}`}><div className={`navigator-row ${selected ? 'selected' : ''}`} style={{ paddingLeft: 8 + depth * 16 }} onContextMenu={(event) => { event.preventDefault(); onSelect(model.id, element.id); setMenu({ x: event.clientX, y: event.clientY, documentId: model.id, element }); }}>
+        <button className="tree-expander" onClick={() => children.length && toggle(key)} aria-label={isExpanded ? '折叠节点' : '展开节点'}>{children.length ? <ChevronRight size={14} className={isExpanded ? 'expanded' : ''} /> : <span />}</button>
+        <button className="navigator-node" onClick={() => onSelect(model.id, element.id)} title={element.qualifiedName ?? element.name ?? element.kind}><KindIcon kind={element.kind} /><span><strong>{element.name ?? '未命名元素'}</strong><small>{element.kind}</small></span></button>
+        {primary && <button className={`node-open ${selected && activeViewId === primary.id ? 'active' : ''}`} onClick={() => onOpenView(model.id, element.id, primary.id)} title={`打开${primary.label}`} aria-label={`打开 ${element.name ?? element.kind} 的${primary.label}`}><ExternalLink size={14} /></button>}
+        <button className="node-menu" onClick={(event) => { event.stopPropagation(); setMenu({ x: event.clientX, y: event.clientY, documentId: model.id, element }); }} aria-label={`更多 ${element.name ?? element.kind} 视图`}><MoreHorizontal size={15} /></button>
+      </div>{isExpanded && renderElements(model, element.id, depth + 1, modelMatches)}</div>;
+    });
+  };
+
+  const visibleModels = models.filter((model) => {
+    if (!search.trim()) return true;
+    if (model.source.name.toLowerCase().includes(search.trim().toLowerCase())) return true;
+    return model.snapshot.elements.some((element) => isNavigable(element) && matches(element));
   });
-  const menuViews = menu ? viewsForElement(menu.element, snapshot, query) : [];
-  const visibleCount = snapshot.elements.filter(isNavigable).length;
-  return <div className="navigator-body"><div className="navigator-head"><div><strong>模型结构</strong><span>节点右键可选择视图</span></div><em>{visibleCount}</em></div><div className="navigator-search"><Search size={15} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索模型节点…" />{search && <button onClick={() => setSearch('')}><X size={13} /></button>}</div><div className="navigator-tree">{render(null, 0)}</div>{menu && <div className="node-context-menu" style={{ left: Math.min(menu.x, window.innerWidth - 220), top: Math.min(menu.y, window.innerHeight - 320) }} onClick={(event) => event.stopPropagation()}><div className="context-title"><strong>{menu.element.name ?? '未命名元素'}</strong><span>{menu.element.kind}</span></div><button onClick={() => { onShowProperties(menu.element.id); setMenu(undefined); }}><SlidersHorizontal size={15} /><span><strong>属性查看</strong><small>属性、关系与源码位置</small></span></button>{menuViews.map((item) => <button key={item.id} onClick={() => { onOpenView(menu.element.id, item.id); setMenu(undefined); }}><item.icon size={15} /><span><strong>{item.label}</strong><small>{item.hint}</small></span>{activeViewId === item.id && <CircleDot size={11} />}</button>)}</div>}</div>;
+  const menuModel = menu ? models.find((model) => model.id === menu.documentId) : undefined;
+  const menuViews = menu && menuModel ? viewsForElement(menu.element, menuModel.snapshot, menuModel.query) : [];
+  const visibleCount = models.reduce((sum, model) => sum + model.snapshot.elements.filter(isNavigable).length, 0);
+  return <div className="navigator-body"><div className="navigator-head"><div><strong>模型结构</strong><span>{documents.length} 个模型 · 节点右键可选择视图</span></div><em>{visibleCount}</em></div><div className="navigator-search"><Search size={15} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索模型或节点…" />{search && <button onClick={() => setSearch('')}><X size={13} /></button>}</div><div className="navigator-tree">{visibleModels.map((model) => {
+    const key = modelKey(model.id);
+    const isExpanded = expanded.has(key) || Boolean(search);
+    const modelMatches = Boolean(search.trim()) && model.source.name.toLowerCase().includes(search.trim().toLowerCase());
+    return <div className="navigator-document" key={model.id}><div className={`navigator-document-row ${activeDocumentId === model.id ? 'active' : ''}`}>
+      <button className="tree-expander" onClick={() => toggle(key)} aria-label={isExpanded ? '折叠模型' : '展开模型'}><ChevronRight size={14} className={isExpanded ? 'expanded' : ''} /></button>
+      <button className="navigator-document-node" onClick={() => onActivate(model.id)} title={model.source.name}><FileCode2 size={15} /><span><strong>{model.source.name}</strong><small>{model.snapshot.elements.length} 个元素</small></span></button>
+      <button className="navigator-document-close" onClick={() => onClose(model.id)} title={`关闭 ${model.source.name}`} aria-label={`关闭 ${model.source.name}`}><X size={13} /></button>
+    </div>{isExpanded && renderElements(model, null, 1, modelMatches)}</div>;
+  })}</div>{menu && menuModel && <div className="node-context-menu" style={{ left: Math.min(menu.x, window.innerWidth - 220), top: Math.min(menu.y, window.innerHeight - 320) }} onClick={(event) => event.stopPropagation()}><div className="context-title"><strong>{menu.element.name ?? '未命名元素'}</strong><span>{menu.element.kind}</span></div><button onClick={() => { onShowProperties(menu.documentId, menu.element.id); setMenu(undefined); }}><SlidersHorizontal size={15} /><span><strong>属性查看</strong><small>属性、关系与源码位置</small></span></button>{menuViews.map((item) => <button key={item.id} onClick={() => { onOpenView(menu.documentId, menu.element.id, item.id); setMenu(undefined); }}><item.icon size={15} /><span><strong>{item.label}</strong><small>{item.hint}</small></span>{activeDocumentId === menu.documentId && activeViewId === item.id && <CircleDot size={11} />}</button>)}</div>}</div>;
 }
 
 function viewsForElement(element: ModelElement, snapshot: ModelSnapshot, query: ModelQuery) {
