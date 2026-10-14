@@ -153,6 +153,17 @@ button { color: inherit; }
 .requirements-table tbody tr { cursor: pointer; transition: background .12s; }
 .requirements-table tbody tr:hover { background: #f7faf9; }
 .requirements-table tbody tr.selected { background: #ecf6f4; box-shadow: inset 3px 0 var(--accent); }
+.requirements-table tbody .requirement-package-row { cursor: default; }
+.requirements-table tbody .requirement-package-row:hover { background: transparent; }
+.requirement-package-row td { padding: 0; background: #f3f6f8; border-right: 0; border-bottom-color: #dfe5eb; }
+.requirement-package-row + .requirement-package-row td { border-top: 0; }
+.requirement-package-toggle { width: 100%; min-height: 36px; display: flex; align-items: center; gap: 7px; border: 0; background: transparent; color: #415067; text-align: left; cursor: pointer; }
+.requirement-package-toggle:hover { background: #eaf0f2; }
+.requirement-package-toggle svg { flex: 0 0 auto; color: #477d78; }
+.requirement-package-toggle strong { font-size: 11px; }
+.requirement-package-toggle span { margin-left: 3px; color: #8490a1; font-size: 9px; font-weight: 500; }
+.requirement-name-level { position: relative; display: flex; align-items: flex-start; gap: 7px; }
+.requirement-leaf { width: 8px; height: 8px; flex: 0 0 auto; margin-top: 4px; border: 2px solid #78a8a2; border-radius: 50%; background: #fff; }
 .id-column { width: 88px; }
 .name-column { width: 190px; }
 .description-column { width: 34%; min-width: 300px; }

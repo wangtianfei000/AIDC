@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ModelQuery } from '../model/query';
 import type { ModelSnapshot } from '../model/types';
-import { buildRequirements, filterRequirements } from './requirements';
+import { buildRequirementPackageTree, buildRequirements, filterRequirements } from './requirements';
 
 const snapshot: ModelSnapshot = {
   schemaVersion: '0.1',
@@ -40,7 +40,31 @@ describe('requirements provider', () => {
       ],
       status: 'approved',
       coverage: 'unsupported',
+      packagePath: [{ id: 'pkg', name: 'Robot' }],
     });
+  });
+
+  it('preserves nested package ownership for hierarchical tables', () => {
+    const nestedSnapshot: ModelSnapshot = {
+      ...snapshot,
+      elements: [
+        snapshot.elements[0],
+        { id: 'subpkg', kind: 'Package', name: 'Safety', qualifiedName: 'Robot::Safety', ownerId: 'pkg', source: null, properties: {} },
+        { ...snapshot.elements[1], ownerId: 'subpkg', qualifiedName: 'Robot::Safety::SafeStop' },
+        ...snapshot.elements.slice(2),
+      ],
+    };
+    const records = buildRequirements(nestedSnapshot, new ModelQuery(nestedSnapshot));
+    expect(records[0].packagePath.map((item) => item.name)).toEqual(['Robot', 'Safety']);
+    expect(buildRequirementPackageTree(records)).toMatchObject([
+      {
+        id: 'pkg',
+        name: 'Robot',
+        count: 1,
+        records: [],
+        children: [{ id: 'subpkg', name: 'Safety', count: 1, records: [{ name: 'SafeStop' }] }],
+      },
+    ]);
   });
 
   it('filters rows by text and status', () => {

@@ -1,10 +1,12 @@
-import { useEffect, useMemo } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import {
   AlertCircle,
   CheckCircle2,
+  ChevronDown,
   ChevronRight,
   CircleDashed,
   FileWarning,
+  Folder,
   LocateFixed,
   Minus,
 } from 'lucide-react';
@@ -14,7 +16,8 @@ import type {
   ModelSnapshot,
   RequirementRecord,
 } from '../model/types';
-import { isTraceRelationship } from '../plugins/requirements';
+import { buildRequirementPackageTree, isTraceRelationship } from '../plugins/requirements';
+import type { RequirementPackageGroup } from '../plugins/requirements';
 
 interface SelectionProps {
   selectedId?: string;
@@ -34,6 +37,54 @@ export function RequirementTable({
   selectedId,
   onSelect,
 }: { records: RequirementRecord[] } & SelectionProps) {
+  const groups = useMemo(() => buildRequirementPackageTree(records), [records]);
+  const [collapsed, setCollapsed] = useState<Set<string>>(() => new Set());
+  const toggle = (id: string) => setCollapsed((current) => {
+    const next = new Set(current);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    return next;
+  });
+
+  const renderRecord = (record: RequirementRecord, depth: number) => (
+    <tr
+      key={record.element.id}
+      className={record.element.id === selectedId ? 'selected' : ''}
+      onClick={() => onSelect(record.element.id)}
+    >
+      <td><span className="req-id">{record.displayId}</span></td>
+      <td className="requirement-name"><div className="requirement-name-level" style={{ paddingLeft: `${depth * 18}px` }}><span className="requirement-leaf" /><strong>{record.name}</strong></div></td>
+      <td className="requirement-description">{record.statement}</td>
+      <td><div className="requirement-lines">{record.attributes.length ? record.attributes.map((attribute) => <code key={attribute.name}>{attribute.name}{attribute.value ? ` = ${attribute.value}` : attribute.typeName ? ` : ${attribute.typeName}` : ''}</code>) : <span>—</span>}</div></td>
+      <td><div className="requirement-lines constraint-lines">{record.constraintStatements.length ? record.constraintStatements.map((constraint, index) => <code key={`${constraint}-${index}`}>{constraint}</code>) : <span>—</span>}</div></td>
+    </tr>
+  );
+
+  const renderGroup = (group: RequirementPackageGroup, depth: number): React.ReactNode => {
+    const isCollapsed = collapsed.has(group.id);
+    return <Fragment key={group.id}>
+      <tr className="requirement-package-row">
+        <td colSpan={5}>
+          <button
+            type="button"
+            className="requirement-package-toggle"
+            style={{ paddingLeft: `${12 + depth * 18}px` }}
+            aria-expanded={!isCollapsed}
+            title={group.path.join('::')}
+            onClick={() => toggle(group.id)}
+          >
+            {isCollapsed ? <ChevronRight size={14} /> : <ChevronDown size={14} />}
+            <Folder size={14} />
+            <strong>{group.name}</strong>
+            <span>{group.count} 条需求</span>
+          </button>
+        </td>
+      </tr>
+      {!isCollapsed && group.records.map((record) => renderRecord(record, depth + 1))}
+      {!isCollapsed && group.children.map((child) => renderGroup(child, depth + 1))}
+    </Fragment>;
+  };
+
   return (
     <div className="view-scroll">
       <table className="requirements-table">
@@ -47,19 +98,7 @@ export function RequirementTable({
           </tr>
         </thead>
         <tbody>
-          {records.map((record) => (
-            <tr
-              key={record.element.id}
-              className={record.element.id === selectedId ? 'selected' : ''}
-              onClick={() => onSelect(record.element.id)}
-            >
-              <td><span className="req-id">{record.displayId}</span></td>
-              <td className="requirement-name"><strong>{record.name}</strong></td>
-              <td className="requirement-description">{record.statement}</td>
-              <td><div className="requirement-lines">{record.attributes.length ? record.attributes.map((attribute) => <code key={attribute.name}>{attribute.name}{attribute.value ? ` = ${attribute.value}` : attribute.typeName ? ` : ${attribute.typeName}` : ''}</code>) : <span>—</span>}</div></td>
-              <td><div className="requirement-lines constraint-lines">{record.constraintStatements.length ? record.constraintStatements.map((constraint, index) => <code key={`${constraint}-${index}`}>{constraint}</code>) : <span>—</span>}</div></td>
-            </tr>
-          ))}
+          {groups.map((group) => renderGroup(group, 0))}
         </tbody>
       </table>
       {!records.length && <Empty title="没有匹配的需求" detail="调整筛选条件，或检查模型中是否包含 RequirementDefinition / RequirementUsage。" />}

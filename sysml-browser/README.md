@@ -34,7 +34,7 @@ npm run dev
 ## P3 已实现能力
 
 - 文件选择与拖放，支持 `.sysml`、`.kerml`。
-- 需求表格、按 Package 分组的需求树、单跳追溯图、验证矩阵和只读源码。
+- 按 Package 完整层级展开/折叠的需求表格、需求树、单跳追溯图、验证矩阵和只读源码。
 - ID、正文、类型、状态、专业、变体和覆盖状态筛选。
 - 统一元素选择、右侧详情、关系查看和源码行定位。
 - 结构化解析诊断、Runtime/Parser 版本展示、刷新和失败时保留旧快照。
@@ -58,7 +58,7 @@ npm run dev
 - 模型树支持逐级展开和名称、类型、限定名搜索。
 - Runtime 按 SysML 源码的 Package 作用域恢复导航层级；例如 `SimpleVehicleModel > Definitions > PortDefinitions`，不会再把嵌套包平铺为根节点。
 - 默认需求示例使用参考项目的 `VehicleMode.sysml`；需求定义可在属性查看器中查看约束表达式和 `RequirementConstraint` 关系。
-- 需求表格按 `ID、名称、描述、属性、约束` 展示；描述严格来自 `doc`，属性和约束按多行文本显示，ID 优先使用 SysML 短名（如 `<'1'>`）。
+- 需求表格按 Package 所属层级分组，并按 `ID、名称、描述、属性、约束` 展示；Package 行可展开/折叠，筛选结果保留完整祖先路径。描述严格来自 `doc`，属性和约束按多行文本显示，ID 优先使用 SysML 短名（如 `<'1'>`）。
 
 ## DiagramProjection（0.4.0）
 

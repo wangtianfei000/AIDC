@@ -228,6 +228,7 @@ export interface RequirementRecord {
   variant: string;
   coverage: 'verified' | 'uncovered' | 'unsupported';
   packageName: string;
+  packagePath: Array<{ id: string; name: string }>;
 }
 
 export interface RequirementFilters {

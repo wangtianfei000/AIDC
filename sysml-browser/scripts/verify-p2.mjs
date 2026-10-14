@@ -61,7 +61,7 @@ try {
   const healthSnapshot = await ensureRuntime();
   assert.match(healthSnapshot.runtimeVersion, /^1\.0\./, 'P2 基线要求 Runtime 1.0.x');
   assert.equal(healthSnapshot.parserMode, 'embedded-antlr', 'Runtime 必须使用仓内 C++ ANTLR 解析器');
-  assert.match(healthSnapshot.parserBaseline, /^aidc-engine\/0\.2\.0\+sha256:/, 'Runtime 必须报告仓内源码基线');
+  assert.match(healthSnapshot.parserBaseline, /^aidc-engine\/0\.2\.1\+sha256:/, 'Runtime 必须报告仓内源码基线');
   assert.equal(healthSnapshot.qtDependency, true, 'Runtime 应明确报告 Qt 运行依赖');
 
   const architecture = await readFile(architecturePath, 'utf8');

@@ -10,6 +10,15 @@ import type {
 export const REQUIREMENT_KINDS = new Set(['RequirementDefinition', 'RequirementUsage']);
 export const TRACE_KINDS = ['derive', 'refine', 'satisfy', 'verify', 'allocate', 'dependency'];
 
+export interface RequirementPackageGroup {
+  id: string;
+  name: string;
+  path: string[];
+  records: RequirementRecord[];
+  children: RequirementPackageGroup[];
+  count: number;
+}
+
 const cleanValue = (value: unknown): string => {
   if (value == null) return '';
   const text = String(value).trim();
@@ -112,7 +121,11 @@ export function buildRequirements(snapshot: ModelSnapshot, query: ModelQuery): R
     .filter((element) => REQUIREMENT_KINDS.has(element.kind))
     .map((element) => {
       const ancestors = query.ancestors(element.id);
-      const packageOwner = ancestors.find((item) => item.kind === 'Package');
+      const packagePath = ancestors
+        .filter((item) => item.kind === 'Package')
+        .reverse()
+        .map((item) => ({ id: item.id, name: item.name ?? '未命名 Package' }));
+      const packageOwner = packagePath.at(-1);
       const verifyEdges = (query.outgoing.get(element.id) ?? []).filter((relationship) =>
         relationship.kind.toLowerCase().includes('verify'),
       );
@@ -134,9 +147,50 @@ export function buildRequirements(snapshot: ModelSnapshot, query: ModelQuery): R
         variant: fieldFromChildren(query, element.id, 'variant') || '全部',
         coverage: !verifySupported ? 'unsupported' : verifyEdges.length ? 'verified' : 'uncovered',
         packageName: packageOwner?.name ?? '未分组',
+        packagePath,
       } satisfies RequirementRecord;
-    })
-    .sort((a, b) => a.displayId.localeCompare(b.displayId, 'zh-CN', { numeric: true }));
+    });
+}
+
+export function buildRequirementPackageTree(records: RequirementRecord[]): RequirementPackageGroup[] {
+  type MutableGroup = RequirementPackageGroup & { childIndex: Map<string, MutableGroup> };
+  const roots: MutableGroup[] = [];
+  const rootIndex = new Map<string, MutableGroup>();
+
+  for (const record of records) {
+    const path = record.packagePath.length
+      ? record.packagePath
+      : [{ id: '__unassigned__', name: '未分组' }];
+    let siblings = roots;
+    let index = rootIndex;
+    let names: string[] = [];
+    let group: MutableGroup | undefined;
+    for (const segment of path) {
+      names = [...names, segment.name];
+      group = index.get(segment.id);
+      if (!group) {
+        group = { id: segment.id, name: segment.name, path: names, records: [], children: [], count: 0, childIndex: new Map() };
+        index.set(segment.id, group);
+        siblings.push(group);
+      }
+      siblings = group.children as MutableGroup[];
+      index = group.childIndex;
+    }
+    group!.records.push(record);
+  }
+
+  const finalize = (group: MutableGroup): RequirementPackageGroup => {
+    const children = group.children.map((child) => finalize(child as MutableGroup));
+    return {
+      id: group.id,
+      name: group.name,
+      path: group.path,
+      records: group.records,
+      children,
+      count: group.records.length + children.reduce((sum, child) => sum + child.count, 0),
+    };
+  };
+  return roots.map(finalize);
 }
 
 export function filterRequirements(records: RequirementRecord[], filters: RequirementFilters) {
