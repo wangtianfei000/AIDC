@@ -1,6 +1,7 @@
 param(
     [switch]$Execute,
-    [switch]$IncludeLegacyCopies
+    [switch]$IncludeLegacyCopies,
+    [switch]$RuntimeBuildsOnly
 )
 
 $ErrorActionPreference = 'Stop'
@@ -57,10 +58,25 @@ $relativeTargets = @(
     'sysml-browser\results',
     'sysml-parser-runtime\dist',
     'sysml-parser-runtime\build',
+    'sysml-parser-runtime\build-p1',
+    'sysml-parser-runtime\build-p1-full',
+    'sysml-parser-runtime\build-p2',
+    'sysml-parser-runtime\build-p2-external',
     'sysml-parser-runtime\results'
 )
 
-if ($IncludeLegacyCopies) {
+if ($RuntimeBuildsOnly) {
+    $relativeTargets = @(
+        'sysml-parser-runtime\dist',
+        'sysml-parser-runtime\build',
+        'sysml-parser-runtime\build-p1',
+        'sysml-parser-runtime\build-p1-full',
+        'sysml-parser-runtime\build-p2',
+        'sysml-parser-runtime\build-p2-external'
+    )
+}
+
+if ($IncludeLegacyCopies -and -not $RuntimeBuildsOnly) {
     $relativeTargets += @('FreeCAD', 'FreeCAD-downloads', 'FreeCAD-runtime', 'freecad-mcp')
 }
 
@@ -77,7 +93,11 @@ foreach ($relative in $relativeTargets) {
 }
 
 # Workspaces create nested dependency directories and Python creates distributed caches.
-$generatedDirectoryNames = @('node_modules', '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache')
+$generatedDirectoryNames = if ($RuntimeBuildsOnly) {
+    @()
+} else {
+    @('node_modules', '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache')
+}
 $preservedRoots = @(
     (Join-Path $Root 'sysml-parser-runtime\standard-library\2026-08')
 )
@@ -111,21 +131,25 @@ foreach ($directory in $dynamicDirectories) {
     }
 }
 
-$generatedFiles = Get-ChildItem -LiteralPath $Root -File -Recurse -Force -ErrorAction SilentlyContinue |
-    Where-Object {
-        $relativeFile = $_.FullName.Substring($Root.Length + 1)
-        $_.Name -like '*.tsbuildinfo' -or
-        $_.Name -like '*.FCBak' -or
-        $_.Name -like 'tmp*.mos' -or
-        $relativeFile -in @(
-            'sysml-browser\preview.err.log',
-            'sysml-browser\preview.out.log',
-            'sysml-browser\vite.config.js',
-            'sysml-browser\vite.config.d.ts',
-            'sysml-parser-runtime\test-p2r1.txt'
-        ) -or
-        ($IncludeLegacyCopies -and $_.DirectoryName -eq $Root -and $_.Extension -eq '.lnk')
-    }
+$generatedFiles = if ($RuntimeBuildsOnly) {
+    @()
+} else {
+    @(Get-ChildItem -LiteralPath $Root -File -Recurse -Force -ErrorAction SilentlyContinue |
+        Where-Object {
+            $relativeFile = $_.FullName.Substring($Root.Length + 1)
+            $_.Name -like '*.tsbuildinfo' -or
+            $_.Name -like '*.FCBak' -or
+            $_.Name -like 'tmp*.mos' -or
+            $relativeFile -in @(
+                'sysml-browser\preview.err.log',
+                'sysml-browser\preview.out.log',
+                'sysml-browser\vite.config.js',
+                'sysml-browser\vite.config.d.ts',
+                'sysml-parser-runtime\test-p2r1.txt'
+            ) -or
+            ($IncludeLegacyCopies -and $_.DirectoryName -eq $Root -and $_.Extension -eq '.lnk')
+        })
+}
 
 foreach ($file in $generatedFiles) {
     $absolute = Assert-WorkspacePath $file.FullName
